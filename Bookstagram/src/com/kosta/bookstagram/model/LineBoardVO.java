@@ -17,12 +17,10 @@ public class LineBoardVO extends BoardVO{
 	 * 한줄게시판 작성 글의대한 성향
 	 */
 	private int tend_code;
-	
 	/*
 	 * 기본생성자
 	 */
 	public LineBoardVO() {}
-
 	/**
 	 * -----super-----
 	 * @param board_no		게시판번호

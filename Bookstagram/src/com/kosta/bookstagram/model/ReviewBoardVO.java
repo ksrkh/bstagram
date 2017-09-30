@@ -29,7 +29,6 @@ public class ReviewBoardVO extends BoardVO{
 	 * 책의 장르
 	 */
 	private  int genre;
-	
 	/*
 	 * 기본생성자
 	 */
@@ -53,6 +52,8 @@ public class ReviewBoardVO extends BoardVO{
 	 * @param star_point		책별점
 	 * @param book_img			책썸네일
 	 * @param genre				책장르
+	 * 
+	 * -매개변수 15개를 입력받아 부모클래스와 자식클래스의 변수에 데이터 세팅
 	 */
 	public ReviewBoardVO(int board_no, int boardtype_no, String id, String board_regdate, int hit, int sympathy,
 			int authority, int bg_no, String book_title, String book_author, String review_title, String review_content,

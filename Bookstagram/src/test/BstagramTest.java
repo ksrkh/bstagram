@@ -1,5 +1,6 @@
 package test;
 
+import com.kosta.bookstagram.model.CreateBoardVO;
 import com.kosta.bookstagram.model.LineBoardVO;
 import com.kosta.bookstagram.model.ReviewBoardVO;
 
@@ -23,7 +24,7 @@ public class BstagramTest {
 		System.out.println("한줄게시판 내용 :" + lineVO.getLine_content());
 		System.out.println("한줄게시판 성향코드 :" + lineVO.getTend_code());
 		System.out.println("**************************************************************************************");
-	
+		System.out.println();
 	
 		/*
 		 * 책 리뷰 게시판 생성자 테스트
@@ -48,6 +49,25 @@ public class BstagramTest {
 		System.out.println("책별점 :" + reviewVO.getStar_point());
 		System.out.println("책썸네일 :" + reviewVO.getBook_img());
 		System.out.println("책장르 :" + reviewVO.getGenre());
+		System.out.println("**************************************************************************************");
+		System.out.println();
+		
+		/*
+		 * 창작게시판 테스트
+		 */
+		System.out.println("****************************** CreateBoard VO객체 테스트 ********************************");
+		CreateBoardVO createVO = new CreateBoardVO(3, 3, "orangss@naver.com", "2017-09-01", 0, 0, 1, 0, "창작의 시작", "창작한 내용", 4);
+		System.out.println("게시판번호 :" + createVO.getBoard_no());
+		System.out.println("게시판타입번호 :" + createVO.getBoardtype_no());
+		System.out.println("작성자 :" + createVO.getId());
+		System.out.println("게시판등록일자 :" + createVO.getBoard_regdate());
+		System.out.println("조회수 :" + createVO.getHit());
+		System.out.println("좋아요 :" + createVO.getSympathy());
+		System.out.println("공개권한 :" + createVO.getAuthority());
+		System.out.println("배경번호 :" + createVO.getBg_no());
+		System.out.println("창작게시판 제목 :" + createVO.getCreate_title());
+		System.out.println("창작게시판 내용 :" + createVO.getCreate_content());
+		System.out.println("창작게시판 분류 :" + createVO.getCategory());
 		System.out.println("**************************************************************************************");
 
 	}
