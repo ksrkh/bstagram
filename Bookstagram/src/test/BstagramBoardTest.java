@@ -4,7 +4,7 @@ import com.kosta.bookstagram.model.CreateBoardVO;
 import com.kosta.bookstagram.model.LineBoardVO;
 import com.kosta.bookstagram.model.ReviewBoardVO;
 
-public class BstagramTest {
+public class BstagramBoardTest {
 	public static void main(String[] args) {
 		/*
 		 * 한줄게시판 생성자 테스트
