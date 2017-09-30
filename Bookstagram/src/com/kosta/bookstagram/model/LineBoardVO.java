@@ -25,19 +25,19 @@ public class LineBoardVO extends BoardVO{
 
 	/**
 	 * -----super-----
-	 * @param board_no
-	 * @param boardtype_no
-	 * @param id
-	 * @param board_regdate
-	 * @param hit
-	 * @param sympathy
-	 * @param authority
-	 * @param bg_no
+	 * @param board_no		게시판번호
+	 * @param boardtype_no	게시판타입번호
+	 * @param id			아이디
+	 * @param board_regdate	등록일자
+	 * @param hit			조회수
+	 * @param sympathy		좋아요
+	 * @param authority		공개권한
+	 * @param bg_no			게시판배경번호
 	 * ------this------
-	 * @param line_title
-	 * @param line_author
-	 * @param line_content
-	 * @param tend_code
+	 * @param line_title	한줄게시판 책 제목
+	 * @param line_author	한줄게시판 책 저자
+	 * @param line_content	한줄게시판 책 내용
+	 * @param tend_code		한줄게시판 한줄의 성향
 	 * 
 	 * -매개변수 12개를 입력받아 부모클래스와 자식클래스의 변수에 데이터 세팅
 	 */
@@ -81,11 +81,13 @@ public class LineBoardVO extends BoardVO{
 		this.tend_code = tend_code;
 	}
 
-	public LineBoardVO(String line_title, String line_author, String line_content, int tend_code) {
-		super();
-		this.line_title = line_title;
-		this.line_author = line_author;
-		this.line_content = line_content;
-		this.tend_code = tend_code;
+	@Override
+	public String toString() {
+		return "LineBoardVO [line_title=" + line_title + ", line_author=" + line_author + ", line_content="
+				+ line_content + ", tend_code=" + tend_code + ", getBoard_no()=" + getBoard_no()
+				+ ", getBoardtype_no()=" + getBoardtype_no() + ", getId()=" + getId() + ", getBoard_regdate()="
+				+ getBoard_regdate() + ", getHit()=" + getHit() + ", getSympathy()=" + getSympathy()
+				+ ", getAuthority()=" + getAuthority() + ", getBg_no()=" + getBg_no() + ", toString()="
+				+ super.toString() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + "]";
 	}
 }
