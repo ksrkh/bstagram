@@ -8,15 +8,7 @@
 </head>
 <body>
 
-Hello World-update-update-update-update
-
-Hello World-update-update-update-updateads up
-
-t
-
-
-test2
-
+Hello World
 
 </body>
 </html>
