@@ -45,6 +45,7 @@ public class LineBoardVO extends BoardVO{
 		this.line_title = line_title;
 		this.line_author = line_author;
 		this.line_content = line_content;
+		this.tend_code = tend_code;
 	}
 
 	public String getLine_title() {
@@ -70,15 +71,15 @@ public class LineBoardVO extends BoardVO{
 	public void setLine_content(String line_content) {
 		this.line_content = line_content;
 	}
-
+	
 	public int getTend_code() {
 		return tend_code;
 	}
-
+	
 	public void setTend_code(int tend_code) {
 		this.tend_code = tend_code;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "LineBoardVO [line_title=" + line_title + ", line_author=" + line_author + ", line_content="
