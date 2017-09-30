@@ -1,4 +1,4 @@
-package com.kosta.bookstagram.model;
+package com.kosta.bookstagram.model.common;
 
 import com.kosta.bookstagram.model.listener.CommonListener;
 
