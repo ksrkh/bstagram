@@ -55,23 +55,34 @@
 <!-- 로그인 창입니다. -->
 <div class="setDiv">
 	<div class="mask"></div>
-	<div class="window" style="width: 300px; height: 200px">
+	<div class="window" style="width: 350px; height: 225px; border-radius: 10px">
 		<a href="#" class="close">X&nbsp;</a>
 		<div style="text-align: center; margin-bottom: 10px">
 			<h2><strong>로그인</strong></h2>
 			<hr>
 		</div>
-		<div style="width: 300px;height: 50px">
-			<div style="width: 125px;float: left;padding-left: 30px">아이디</div>
-			<div style="width: 175px;float: left"><input type="text"></div>
-			<div style="clear:both; width: 125px;float: left;padding-left: 30px">비밀번호</div>
-			<div style="width: 175px;float: left"><input type="text"></div>
-		</div>
-		<div style="width: 300px;height: 24px;padding-left: 30px; margin-top: 10px">
-			<a href="ex-join.jsp">회원가입</a>
-			<a href="#">비밀번호 찾기</a>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<input type="button" value="로그인" style="width: 75px">
+		<div style="width: 350px;height: 150px">
+			<div class="form-group" style="width: 350px; height: 36px;">
+				<label class="col-lg-4 control-label" style="padding-top: 4px">아이디</label>
+				<div class="col-lg-8">
+					<input type="text" class="form-control" id="pw_answer" placeholder="아이디">
+				</div>
+			</div>
+			<div class="form-group" style="width: 350px; height: 36px;">
+				<label class="col-lg-4 control-label" style="padding-top: 4px">비밀번호</label>
+				<div class="col-lg-8">
+					<input type="text" class="form-control" id="pw_answer" placeholder="비밀번호">
+				</div>
+			</div>
+			<div class="form-group" style="width: 350px; height: 36px;margin-top: 15px">
+				<label class="col-lg-6 control-label" style="padding-top: 4px">
+				<a href="ex-join.jsp">회원가입</a>&nbsp;
+				<a href="#">비밀번호찾기</a>
+				</label>
+				<div class="col-lg-6">
+					<input type="button" class="btn btn-info" value="로그인" style="width: 140px">
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
