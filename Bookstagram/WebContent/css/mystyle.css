@@ -4,122 +4,141 @@
  * Copyright 2013-2017 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-business-casual/blob/master/LICENSE)
  */
-
 body {
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
-  background: url('../img/bg_.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
+	font-family: "Open Sans", Helvetica, Arial, sans-serif;
+	background: url('../img/bg_.jpg') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	-o-background-size: cover;
 }
 
 h1, h2, h3, h4, h5, h6, .text-heading {
-  font-family: "Josefin Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "Josefin Slab", "Helvetica Neue", Helvetica, Arial,
+		sans-serif;
 }
 
 h1 {
-  font-size: 4rem;
+	font-size: 4rem;
 }
 
 .tagline-upper {
-  font-size: 5rem;
-  font-weight: 700;
-  line-height: 1;
+	font-size: 5rem;
+	font-weight: 700;
+	line-height: 1;
 }
 
 .tagline-lower {
-  font-size: 1.2rem;
-  line-height: 1;
+	font-size: 1.2rem;
+	line-height: 1;
 }
 
 .text-expanded {
-  letter-spacing: 2px;
+	letter-spacing: 2px;
 }
 
 .text-shadow {
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .text-lg {
-  font-size: 1.25rem;
+	font-size: 1.25rem;
 }
 
 .bg-faded {
-  background-color: rgba(255, 255, 255, 0.9);
+	background-color: rgba(255, 255, 255, 0.9);
 }
 
 .bg-overlay {
-  background-color: rgba(0, 0, 0, 0.7);
+	background-color: rgba(0, 0, 0, 0.7);
 }
 
 hr.divider {
-  border-color: #292b2c;
-  max-width: 250px;
+	border-color: #292b2c;
+	max-width: 250px;
 }
 
 .map-container iframe {
-  pointer-events: none;
+	pointer-events: none;
 }
 
 .map-container iframe.clicked {
-  pointer-events: auto;
+	pointer-events: auto;
 }
 
 /*
  * 한줄메모
  */
-blockquote{
-    border-left:none;
-    padding: 10px 20px;
-    margin: 0 0 20px;
-    font-size: 17.5px;
+blockquote {
+	border-left: none;
+	padding: 10px 20px;
+	margin: 0 0 20px;
+	font-size: 17.5px;
 }
 
-.quote-badge{
-    background-color: rgba(0, 0, 0, 0.2);   
+.quote-badge {
+	background-color: rgba(0, 0, 0, 0.2);
 }
 
-.quote-box{
-    overflow: hidden;
-    margin-top: -50px;
-    padding-top: -100px;
-    border-radius: 17px;
-    margin-top: 25px;
-    color:white;
-    width:100%;
-    box-shadow: 2px 2px 2px 2px #E0E0E0;
-    
+.quote-box {
+	overflow: hidden;
+	margin-top: -50px;
+	padding-top: -100px;
+	border-radius: 17px;
+	margin-top: 25px;
+	color: white;
+	width: 100%;
+	box-shadow: 2px 2px 2px 2px #E0E0E0;
 }
 
-.quotation-mark{
-    margin-top: -10px;
-    font-weight: bold;
-    font-size:60px;
-    color:white;
-    font-family: "Times New Roman", Georgia, Serif;
-    
+.quotation-mark {
+	margin-top: -10px;
+	font-weight: bold;
+	font-size: 60px;
+	color: white;
+	font-family: "Times New Roman", Georgia, Serif;
 }
 
-.quote-text{
-    font-size: 19px;
-    margin-top: -50px;
+.quote-text {
+	font-size: 19px;
+	margin-top: -50px;
 }
 
 /*
  * 상단 바 고정
  */
 .nav-fixed {
-	   position: fixed;
-	   top: 0px;
-	   width: 100%;
-	   z-index: 1;
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	z-index: 1;
 }
 
-.top-bar{
+.top-bar {
 	background-color: #222222;
 	height: 50px;
 	margin-right: 0px;
 	border-bottom: 1px solid;
-	border-color:#3d3d3d;
+	border-color: #3d3d3d;
+}
+
+/* 로그인 팝업 css */
+.setDiv {
+	padding-top: 100px;
+}
+
+.mask {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 9999;
+	background-color: #000;
+	display: none;
+}
+
+.window {
+	display: none;
+	background-color: #ffffff;
+	height: 200px;
+	z-index: 99999;
 }
