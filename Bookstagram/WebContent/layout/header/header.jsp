@@ -37,12 +37,12 @@
 				
 				<!-- Book-Review -->
 				<li class="nav-item px-lg-4">
-					<a class="nav-link text-uppercase text-expanded" href="book_review.jsp">Book-Review</a>
+					<a class="nav-link text-uppercase text-expanded" href="ex-book_review.jsp">Book-Review</a>
 				</li>
 				
 				<!-- Creation -->
 				<li class="nav-item px-lg-4">
-					<a class="nav-link text-uppercase text-expanded" href="creation.jsp">Creation</a>
+					<a class="nav-link text-uppercase text-expanded" href="ex-creation.jsp">Creation</a>
 				</li>
 			</ul>
 		</div>
