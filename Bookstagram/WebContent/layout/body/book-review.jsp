@@ -8,48 +8,6 @@
 	<button type="button" class="btn btn-primary" >글쓰기</button>
 	</div>
 	  
-	  
-	<!-- 슬라이드 애니메이션 박스 -->
-	<div class="bg-faded p-4 my-4">
-		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-			<ol class="carousel-indicators">
-				<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-				<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-				<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-			</ol>
-			
-			<div class="carousel-inner" role="listbox">
-				<div class="carousel-item active">
-					<img class="d-block img-fluid w-100" src="img/1.jpg" alt="">
-				</div>
-			
-				<div class="carousel-item">
-					<img class="d-block img-fluid w-100" src="img/2.jpg" alt="">
-				</div>
-				
-				<div class="carousel-item">
-					<img class="d-block img-fluid w-100" src="img/3.jpg" alt="">
-				</div>
-			</div>
-			
-			<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				<span class="sr-only">Previous</span>
-			</a>
-			<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-				<span class="carousel-control-next-icon" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
-			</a>
-		</div>
-		
-		<!-- Welcome Message -->
-		<div class="text-center mt-4">
-		<div class="text-heading text-muted text-lg">Welcome To</div>
-			<h1 class="my-2">Bookstagram</h1>
-		</div>
-	</div>
-
-
 	<!-- 추후 For로 돌릴 공간. -->
 	<!-- 임시1 -->
 	<div class="bg-faded p-4 my-4">

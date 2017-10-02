@@ -9,7 +9,6 @@
 	</div>
 	  
 	  
-	<!-- 슬라이드 애니메이션 박스 -->
 	<div class="bg-faded p-4 my-4">
 		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 			<ol class="carousel-indicators">
@@ -20,27 +19,15 @@
 			
 			<div class="carousel-inner" role="listbox">
 				<div class="carousel-item active">
-					<img class="d-block img-fluid w-100" src="img/slide-1.jpg" alt="">
-					<div class="carousel-caption d-none d-md-block">
-						<h3 class="text-shadow">First Slide</h3>
-						<p class="text-shadow">This is the caption for the first slide.</p>
-					</div>
+					<img class="d-block img-fluid w-100" src="img/1.jpg" alt="">
 				</div>
 			
 				<div class="carousel-item">
-					<img class="d-block img-fluid w-100" src="img/slide-2.jpg" alt="">
-					<div class="carousel-caption d-none d-md-block">
-						<h3 class="text-shadow">Second Slide</h3>
-						<p class="text-shadow">This is the caption for the second slide.</p>
-					</div>
+					<img class="d-block img-fluid w-100" src="img/2.jpg" alt="">
 				</div>
 				
 				<div class="carousel-item">
-					<img class="d-block img-fluid w-100" src="img/slide-3.jpg" alt="">
-					<div class="carousel-caption d-none d-md-block">
-						<h3 class="text-shadow">Third Slide</h3>
-						<p class="text-shadow">This is the caption for the third slide.</p>
-					</div>
+					<img class="d-block img-fluid w-100" src="img/3.jpg" alt="">
 				</div>
 			</div>
 			
