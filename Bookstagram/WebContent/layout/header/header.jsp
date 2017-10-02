@@ -32,17 +32,17 @@
 			<ul class="navbar-nav mx-auto">
 				<!-- One-Line-Memo -->
 				<li class="nav-item px-lg-4">
-					<a class="nav-link text-uppercase text-expanded" href="#">One-Line-Memo</a>
+					<a class="nav-link text-uppercase text-expanded" href="home.jsp">One-Line-Memo</a>
 				</li>
 				
 				<!-- Book-Review -->
 				<li class="nav-item px-lg-4">
-					<a class="nav-link text-uppercase text-expanded" href="blog.html">Book-Review</a>
+					<a class="nav-link text-uppercase text-expanded" href="book_review.jsp">Book-Review</a>
 				</li>
 				
 				<!-- Creation -->
 				<li class="nav-item px-lg-4">
-					<a class="nav-link text-uppercase text-expanded" href="contact.html">Creation</a>
+					<a class="nav-link text-uppercase text-expanded" href="creation.jsp">Creation</a>
 				</li>
 			</ul>
 		</div>
