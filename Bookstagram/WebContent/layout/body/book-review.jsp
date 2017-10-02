@@ -20,27 +20,15 @@
 			
 			<div class="carousel-inner" role="listbox">
 				<div class="carousel-item active">
-					<img class="d-block img-fluid w-100" src="img/slide-1.jpg" alt="">
-					<div class="carousel-caption d-none d-md-block">
-						<h3 class="text-shadow">First Slide</h3>
-						<p class="text-shadow">This is the caption for the first slide.</p>
-					</div>
+					<img class="d-block img-fluid w-100" src="img/1.jpg" alt="">
 				</div>
 			
 				<div class="carousel-item">
-					<img class="d-block img-fluid w-100" src="img/slide-2.jpg" alt="">
-					<div class="carousel-caption d-none d-md-block">
-						<h3 class="text-shadow">Second Slide</h3>
-						<p class="text-shadow">This is the caption for the second slide.</p>
-					</div>
+					<img class="d-block img-fluid w-100" src="img/2.jpg" alt="">
 				</div>
 				
 				<div class="carousel-item">
-					<img class="d-block img-fluid w-100" src="img/slide-3.jpg" alt="">
-					<div class="carousel-caption d-none d-md-block">
-						<h3 class="text-shadow">Third Slide</h3>
-						<p class="text-shadow">This is the caption for the third slide.</p>
-					</div>
+					<img class="d-block img-fluid w-100" src="img/3.jpg" alt="">
 				</div>
 			</div>
 			
@@ -66,73 +54,34 @@
 	<!-- 임시1 -->
 	<div class="bg-faded p-4 my-4">
 		<div class="container">
-			<blockquote class="quote-box" style="background-color: #4ADFCC;">
-				<p class="quotation-mark">
-					“
-				</p>
-				<p class="quote-text">
-					Don't believe anything that you read on the internet, it may be fake. 
-				</p>
-				<hr>
-				
-				<div class="blog-post-actions">
-					<p class="blog-post-bottom pull-left">
-						Abraham Lincoln
-					</p>
-					<p class="blog-post-bottom pull-right">
-						<span class="badge quote-badge">896</span>  ❤
-					</p>
-				</div>
-			</blockquote>
+			<img src="https://search.pstatic.net/common?type=ofullfill&size=120x171&quality=100&direct=true&src=http%3A%2F%2Fmovie.phinf.naver.net%2F20170920_253%2F1505868742045d4sSO_JPEG%2Fmovie_image.jpg">
 		</div>
 	</div>
-	
 	<!-- 임시2 -->
 	<div class="bg-faded p-4 my-4">
 		<div class="container">
-			<blockquote class="quote-box" style="background-color: #222222;">
-				<p class="quotation-mark">
-					“
-				</p>
-				<p class="quote-text">
-					Don't believe anything that you read on the internet, it may be fake. 
-				</p>
-				<hr>
-				
-				<div class="blog-post-actions">
-					<p class="blog-post-bottom pull-left">
-						Abraham Lincoln
-					</p>
-					<p class="blog-post-bottom pull-right">
-						<span class="badge quote-badge">896</span>  ❤
-					</p>
-				</div>
-			</blockquote>
+			<img src="https://search.pstatic.net/common?type=ofullfill&size=120x171&quality=100&direct=true&src=http%3A%2F%2Fmovie.phinf.naver.net%2F20120525_174%2F1337921171775pbbKG_JPEG%2Fmovie_image.jpg">
 		</div>
 	</div>
-		  
 	<!-- 임시3 -->
 	<div class="bg-faded p-4 my-4">
 		<div class="container">
-			<blockquote class="quote-box" style="background-color: #0078FF;">
-				<p class="quotation-mark">
-					“
-				</p>
-				<p class="quote-text">
-					Don't believe anything that you read on the internet, it may be fake. 
-				</p>
-				<hr>
-				
-				<div class="blog-post-actions">
-					<p class="blog-post-bottom pull-left">
-						Abraham Lincoln
-					</p>
-					<p class="blog-post-bottom pull-right">
-						<span class="badge quote-badge">896</span>  ❤
-					</p>
-				</div>
-			</blockquote>
+			<img src="https://search.pstatic.net/common?type=ofullfill&size=120x171&quality=100&direct=true&src=http%3A%2F%2Fmovie.phinf.naver.net%2F20160106_138%2F1452044846608eaFcJ_JPEG%2Fmovie_image.jpg">
 		</div>
 	</div>
+	<!-- 임시4 -->
+	<div class="bg-faded p-4 my-4">
+		<div class="container">
+			<img src="https://search.pstatic.net/common?type=ofullfill&size=120x171&quality=100&direct=true&src=http%3A%2F%2Fmovie.phinf.naver.net%2F20170830_165%2F1504057663682Y7EEc_JPEG%2Fmovie_image.jpg">
+		</div>
+	</div>
+	<!-- 임시5 -->
+	<div class="bg-faded p-4 my-4">
+		<div class="container">
+			<img src="https://search.pstatic.net/common?type=ofullfill&size=120x171&quality=100&direct=true&src=http%3A%2F%2Fmovie.phinf.naver.net%2F20170712_245%2F149982527853229Stz_JPEG%2Fmovie_image.jpg">
+		</div>
+	</div>
+	
+	
 </div>
 <!-- /.container -->
