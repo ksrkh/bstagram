@@ -8,7 +8,7 @@
 	<button type="button" class="btn btn-primary" >글쓰기</button>
 	</div>
 	  
-	<!-- 추후 For로 돌릴 공간. -->
+	<!-- start 추후 For로 돌릴 공간. -->
 	<!-- 임시1 -->
 	<div class="bg-faded p-4 my-4">
 		<div class="container">
@@ -27,6 +27,10 @@
 			</div>
 		</div>
 	</div>
+	<!-- end 추후 For로 돌릴 공간. -->
+	
+	
+	
 	<!-- 임시2 -->
 	<div class="bg-faded p-4 my-4">
 		<div class="container">

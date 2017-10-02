@@ -19,6 +19,8 @@
 				</tr>
 			</thead>
 			<tbody>
+			
+				<!-- start // 추후 for로 돌릴 구간입니다. -->
 				<tr>
 					<td>1</td>
 					<td>john@example.com</td>
@@ -159,6 +161,8 @@
 					<td>2017-10-02</td>
 					<td>0</td>
 				</tr>
+				<!-- end // 추후 for 로 돌릴 구간입니다. -->
+				
 			</tbody>
 		</table>
 	</div>
