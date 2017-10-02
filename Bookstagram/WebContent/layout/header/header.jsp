@@ -51,11 +51,12 @@
 	</div>
 </nav>
 
+
 <!-- 로그인 창입니다. -->
 <div class="setDiv">
 	<div class="mask"></div>
 	<div class="window" style="width: 300px; height: 200px">
-		<a href="#" class="close">X &nbsp;&nbsp;</a>
+		<a href="#" class="close">X&nbsp;</a>
 		<div style="text-align: center; margin-bottom: 10px">
 			<h2><strong>로그인</strong></h2>
 			<hr>
@@ -67,7 +68,7 @@
 			<div style="width: 175px;float: left"><input type="text"></div>
 		</div>
 		<div style="width: 300px;height: 24px;padding-left: 30px; margin-top: 10px">
-			<a href="#">회원가입</a>
+			<a href="ex-join.jsp">회원가입</a>
 			<a href="#">비밀번호 찾기</a>
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<input type="button" value="로그인" style="width: 75px">

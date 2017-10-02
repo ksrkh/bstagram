@@ -123,10 +123,6 @@ blockquote {
 }
 
 /* 로그인 팝업 css */
-.setDiv {
-	padding-top: 100px;
-}
-
 .mask {
 	position: absolute;
 	left: 0;

@@ -1,7 +1,8 @@
-/**
- * home.jsp
- */
 $( document ).ready( function() {
+	
+	/**
+	 * 모든 페이지 공통 ( 메뉴바 )
+	 */
     var jbOffset = $( '.navbar' ).offset();
     $( window ).scroll(function() {
         if ( $( document ).scrollTop() > jbOffset.top ) {
@@ -12,6 +13,10 @@ $( document ).ready( function() {
         }
     });
     
+    
+    /**
+     * 헤더 공통 ( 로그인 팝업 )
+     */
     // 로그인버튼을 클릭시 작동하며 검은 마스크 배경과 레이어 팝업을 띄웁니다.
     $('.login_btn').click(function(e){
         // preventDefault는 href의 링크 기본 행동을 막는 기능입니다.
@@ -33,6 +38,10 @@ $( document ).ready( function() {
     });
 });
 
+
+/**
+ * 헤더 로그인 팝업 펑션
+ */
 function wrapWindowByMask(){
     // 화면의 높이와 너비를 변수로 만듭니다.
     var maskHeight = $(document).height();
