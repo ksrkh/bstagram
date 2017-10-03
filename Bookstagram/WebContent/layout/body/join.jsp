@@ -16,7 +16,7 @@
 							<legend>Wellcome to Bookstgram</legend>
 							
 							<!-- 이메일 -->
-							<div class="form-group" style="margin-top: 30px">
+							<div class="form-group" style="margin-top: 30px; margin-bottom:15px">
 								<label for="inputEmail" class="col-lg-2 control-label">*아이디(이메일)</label>
 								<div class="col-lg-4">
 									<input type="text" class="form-control" id="id" placeholder="이메일을 입력 해주세요.">
@@ -27,7 +27,7 @@
 							</div>
 							
 							<!-- 비밀번호 -->
-							<div class="form-group">
+							<div class="form-group" style="margin-bottom:15px">
 								<label for="inputPassword" class="col-lg-2 control-label">*비밀번호</label>
 								<div class="col-lg-4">
 									<input type="password" class="form-control" id="password" placeholder="비밀번호를 입력해주세요.">
@@ -38,7 +38,7 @@
 							</div>
 							
 							<!-- 비밀번호 확인 -->
-							<div class="form-group">
+							<div class="form-group" style="margin-bottom:15px">
 								<label for="inputPasswordConfirm" class="col-lg-2 control-label">*비밀번호 확인</label>
 								<div class="col-lg-10">
 									<input type="password" class="form-control" id="confirm_password" placeholder="비밀번호를 한번 더 확인합니다.">
@@ -46,7 +46,7 @@
 							</div>
 							
 							<!-- 닉네임 -->
-							<div class="form-group">
+							<div class="form-group" style="margin-bottom:15px">
 								<label for="inputNickName" class="col-lg-2 control-label">*닉네임</label>
 								<div class="col-lg-4">
 									<input type="text" class="form-control" id="nick" placeholder="닉네임을 입력해주세요.">
@@ -57,7 +57,7 @@
 							</div>
 							
 							<!-- 나이 -->
-							<div class="form-group">
+							<div class="form-group" style="margin-bottom:15px">
 								<label for="inputAge" class="col-lg-2 control-label">*나이</label>
 								<div class="col-lg-4">
 									<input type=number class="form-control" id="age" min="0" max="100">
@@ -67,7 +67,7 @@
 							<!-- 비밀번호 찾기 질문 -->
 							<div class="form-group">
 								<label for="select" class="col-lg-2 control-label">*비밀번호 찾기 질문</label>
-								<div class="col-lg-10">
+								<div class="col-lg-10" style="height: 50px">
 									<select class="form-control" id="pw_question">
 										<option>당신의 고향은?</option>
 										<option>당신의 출신 중학교는?</option>

@@ -36,6 +36,14 @@ $( document ).ready( function() {
         $(this).hide();
         $('.window').hide();
     });
+    
+    
+    /*
+     * 한줄메모 작성
+     */
+    $('.linememo_write').click(function () {
+    	location.href="ex-home_write.jsp";
+	});
 });
 
 

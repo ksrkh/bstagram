@@ -43,7 +43,7 @@
 	
 	<!-- 바디 부분입니다. -->
 	<div class="body">
-		<c:import url="layout/body/creation.jsp"></c:import>
+		<c:import url="layout/body/creation_list.jsp"></c:import>
 	</div>
 	
 	<!-- 푸터 부분입니다. -->

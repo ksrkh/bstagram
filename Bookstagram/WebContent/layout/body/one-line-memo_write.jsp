@@ -4,8 +4,7 @@
 <div class="container">
 	<!-- 현재 페이지의 타이틀  -->
 	<div class="tagline-upper text-left text-heading text-shadow text-white d-none d-lg-block" style="margin-top: 5px">
-		One-Line-Memo
-	<button type="button" class="btn btn-primary" >글쓰기</button>
+		글쓰기
 	</div>
 	  
 	  
