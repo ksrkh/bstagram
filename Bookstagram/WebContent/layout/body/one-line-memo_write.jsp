@@ -17,7 +17,7 @@
 						<fieldset>
 							<legend>책속의 한줄</legend>
 							<!-- 내용 입력 부분 -->
-							<div class="form-group">
+							<div class="form-group" style="margin-top: 50px">
 								<div class="col-lg-12">
 									<textarea class="form-control ta" rows="15" id="content" placeholder="내용을 입력하세요." style="resize: none; background-image: url('img/write/write_bg6.jpg');"></textarea>
 						      	</div>
@@ -68,24 +68,6 @@
 								</div>
 							</div>
 							
-							<!-- 한줄 메모의 성향을 선택할 공간 입니다. -->
-							<div class="bg-faded p-4 my-4">
-								<div class="checkbox" style="padding-top: 0px">
-									<label><input type="checkbox" name="tend" id="tend"> 슬픈</label>
-									<label><input type="checkbox" name="tend" id="tend"> 분노</label>
-									<label><input type="checkbox" name="tend" id="tend"> 사랑</label>
-									<label><input type="checkbox" name="tend" id="tend"> 허무</label>
-									<label><input type="checkbox" name="tend" id="tend"> 기쁜</label>
-									<label><input type="checkbox" name="tend" id="tend"> 우정</label>
-									<label><input type="checkbox" name="tend" id="tend"> 믿음</label>
-									<label><input type="checkbox" name="tend" id="tend"> 성찰</label>
-									<label><input type="checkbox" name="tend" id="tend"> 행복</label>
-									<label><input type="checkbox" name="tend" id="tend"> 여유</label>
-									<label><input type="checkbox" name="tend" id="tend"> 희망</label>
-									<label><input type="checkbox" name="tend" id="tend"> 기타</label>
-								</div>
-							</div>
-							
 							<!-- 책검색 -->
 							<div class="form-group" style="margin-bottom:15px">
 								<div class="col-lg-12">
@@ -123,11 +105,21 @@
 								</div>
 							</div>
 							
-							<!-- 작석 버튼/취소 버튼 -->
-							<div class="form-group" style="margin-top: 200px; text-align:center">
-								<div class="col-lg-10 col-lg-offset-2">
-									<button type="reset" class="btn btn-default">작성 취소</button>
-									<button type="submit" class="btn btn-primary">작성 완료</button>
+							<!-- 한줄 메모의 성향을 선택할 공간 입니다. -->
+							<div class="bg-faded p-4 my-4">
+								<div class="checkbox" style="padding-top: 0px">
+									<label><input type="checkbox" name="tend" id="tend"> 슬픈</label>
+									<label><input type="checkbox" name="tend" id="tend"> 분노</label>
+									<label><input type="checkbox" name="tend" id="tend"> 사랑</label>
+									<label><input type="checkbox" name="tend" id="tend"> 허무</label>
+									<label><input type="checkbox" name="tend" id="tend"> 기쁜</label>
+									<label><input type="checkbox" name="tend" id="tend"> 우정</label>
+									<label><input type="checkbox" name="tend" id="tend"> 믿음</label>
+									<label><input type="checkbox" name="tend" id="tend"> 성찰</label>
+									<label><input type="checkbox" name="tend" id="tend"> 행복</label>
+									<label><input type="checkbox" name="tend" id="tend"> 여유</label>
+									<label><input type="checkbox" name="tend" id="tend"> 희망</label>
+									<label><input type="checkbox" name="tend" id="tend"> 기타</label>
 								</div>
 							</div>
 						</fieldset>
@@ -137,6 +129,15 @@
 				</div>
 			</div>
 		</div>
+	
+		<!-- 작석 버튼/취소 버튼 -->
+		<div class="row" style="text-align:center; margin-top: 50px; margin-bottom: 100px">
+			<div class="col-lg-12">
+				<button type="reset" class="btn btn-default">작성 취소</button>
+				<button type="submit" class="btn btn-primary">작성 완료</button>
+			</div>
+		</div>
 	</div>
+	
 </div>
 <!-- /.container -->
