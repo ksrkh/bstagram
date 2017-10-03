@@ -44,6 +44,60 @@ $( document ).ready( function() {
     $('.linememo_write').click(function () {
     	location.href="ex-home_write.jsp";
 	});
+    
+    /*
+     * 한줄메모작성시 배경선택시 변경 화면
+     */
+    /*$(".line_memo_background li").click(function(){
+    	$(this).parent().parent().find(".line_memo_background li").removeClass("on");
+    	$(this).addClass("on");
+    });*/
+    
+    
+    
+    var pos = 0;
+	var li_width = 100;
+	var totalWidth = $(".scroll li").width() * $(".scroll li").length;
+	$(".scroll ul").width(totalWidth)	
+	$(".right").click(function(){
+		if (pos == totalWidth-400) {return false;}
+		pos += li_width;
+		$(".scroll").animate({scrollLeft: pos},500);
+	});
+	$(".left").click(function(){
+		if (pos == 0) {return false;}
+		pos -= li_width;
+		$(".scroll").animate({scrollLeft: pos},500);
+	});
+	
+	/*
+	 * 템플릿 선택시 textarea 이미지 변경
+	 */
+	$(".scroll .line_memo_background li img").click(function() {
+		$(".col-lg-12 .ta").css("background-image","url('"+$(this).attr('src')+"')");
+		$(this).parent().parent().parent().find(".line_memo_background li").removeClass("on");
+		$(this).parent().addClass("on");
+	});
+	
+	
+	/*
+	 * 이미지로하기
+	 */
+	$(".radio label #radio_bg2").click(function() {
+		$(".col-lg-12 .ta").css("background-image","url('img/write/write_bg6.jpg')");
+		$("#bg_template").show();
+	
+	});
+	
+	/*
+	 * 선택안함
+	 */
+	$(".radio label #radio_bg3").click(function() {
+		$(".col-lg-12 .ta").css("background-image","url('')");
+		$("#bg_template").hide();
+	
+	});
+	
 });
 
 

@@ -138,3 +138,18 @@ blockquote {
 	height: 200px;
 	z-index: 99999;
 }
+
+
+/* 한줄 메모 작성시 적용 css*/
+#scroll_wrap {position:relative; clear:both; overflow:hidden;}
+.scroll {width:100%; margin:0 auto; overflow:hidden; margin-left: 0px}
+.scroll ul {padding-top:10px;}
+.scroll ul li {white-space:nowrap; width:120px; text-align:center; list-style:none; float:left; display:block; cursor: pointer}
+.scroll ul li img {width:110px; border:1px solid #ccc}
+.left{cursor: pointer;}
+.right{cursor: pointer;}
+.line_memo_background .on .write_bg{width:107px; border-color: black;}
+
+
+
+

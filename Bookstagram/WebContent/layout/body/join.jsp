@@ -93,46 +93,22 @@
 								<label class="col-lg-2 control-label">성향</label>
 								<div class="col-lg-10">
 									<div class="checkbox">
-										<label>
-											<input type="checkbox" name="tend" id="tend"> 슬픈
-										</label>
-										<label>
-											<input type="checkbox" name="tend" id="tend"> 분노
-										</label>
-										<label>
-											<input type="checkbox" name="tend" id="tend"> 사랑
-										</label>
-										<label>
-											<input type="checkbox" name="tend" id="tend"> 허무
-										</label>
+										<label><input type="checkbox" name="tend" id="tend"> 슬픈</label>
+										<label><input type="checkbox" name="tend" id="tend"> 분노</label>
+										<label><input type="checkbox" name="tend" id="tend"> 사랑</label>
+										<label><input type="checkbox" name="tend" id="tend"> 허무</label>
 									</div>
 									<div class="checkbox">
-										<label>
-											<input type="checkbox" name="tend" id="tend"> 기쁜
-										</label>
-										<label>
-											<input type="checkbox" name="tend" id="tend"> 우정
-										</label>
-										<label>
-											<input type="checkbox" name="tend" id="tend"> 믿음
-										</label>
-										<label>
-											<input type="checkbox" name="tend" id="tend"> 성찰
-										</label>
+										<label><input type="checkbox" name="tend" id="tend"> 기쁜</label>
+										<label><input type="checkbox" name="tend" id="tend"> 우정</label>
+										<label><input type="checkbox" name="tend" id="tend"> 믿음</label>
+										<label><input type="checkbox" name="tend" id="tend"> 성찰</label>
 									</div>
 									<div class="checkbox">
-										<label>
-											<input type="checkbox" name="tend" id="tend"> 행복
-										</label>
-										<label>
-											<input type="checkbox" name="tend" id="tend"> 여유
-										</label>
-										<label>
-											<input type="checkbox" name="tend" id="tend"> 희망
-										</label>
-										<label>
-											<input type="checkbox" name="tend" id="tend"> 기타
-										</label>
+										<label><input type="checkbox" name="tend" id="tend"> 행복</label>
+										<label><input type="checkbox" name="tend" id="tend"> 여유</label>
+										<label><input type="checkbox" name="tend" id="tend"> 희망</label>
+										<label><input type="checkbox" name="tend" id="tend"> 기타</label>
 									</div>
 								</div>
 							</div>
