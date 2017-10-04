@@ -160,3 +160,14 @@ blockquote {
 .cms-tbody tr td{
 	text-align: center;
 }
+
+
+/* 마이페이지 게시글관리 적용 css*/
+.my-thead tr th{
+	text-align: center;
+}
+
+.my-tbody tr td{
+	text-align: center;
+}
+
