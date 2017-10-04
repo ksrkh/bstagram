@@ -9,7 +9,7 @@
 
 	<div class="bg-faded p-4 my-4">
 		<table class="table table-hover">
-			<thead class="cmsmember-thead">
+			<thead class="cms-thead">
 				<tr>
 					<th>아이디</th>
 					<th>비밀번호</th>
@@ -22,7 +22,7 @@
 					<th>수정</th>
 				</tr>
 			</thead>
-			<tbody class="cmsmember-tbody">
+			<tbody class="cms-tbody">
 				<!-- start // 추후 for로 돌릴 구간입니다. -->
 				<tr>
 					<!-- 아이디 -->

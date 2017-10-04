@@ -9,7 +9,7 @@
 
 	<div class="bg-faded p-4 my-4">
 		<table class="table table-hover">
-			<thead>
+			<thead class="cms-thead">
 				<tr>
 					<th>게시물 번호</th>
 					<th>작성자</th>
@@ -19,7 +19,7 @@
 					<th>삭제</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody class="cms-tbody">
 			
 				<!-- start // 추후 for로 돌릴 구간입니다. -->
 				<tr>
