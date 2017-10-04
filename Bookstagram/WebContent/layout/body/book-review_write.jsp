@@ -15,11 +15,31 @@
 					<div class="col-lg-10">
 					<form class="form-horizontal">
 						<fieldset>
-							<legend>책속의 한줄</legend>
+							<legend>독후감 작성</legend>
+							<!-- 독후감 제목 -->
+							<div class="form-group" style="margin-top: 20px; margin-bottom: 20px">
+								<div class="col-lg-2" style="padding-right: 0px">
+									<select class="form-control" id="select" name="tend_code">
+										<option value="1">소설</option>
+										<option value="2">에세이/시</option>
+										<option value="3">경영/경제</option>
+										<option value="4">자기계발</option>
+										<option value="5">인문/사회/역사</option>
+										<option value="6">건강/다이어트</option>
+										<option value="7">가정/생활</option>
+										<option value="8">종교</option>
+										<option value="9">여행</option>	
+									</select>
+								</div>
+								<div class="col-lg-10">
+									<input type="password" class="form-control" id="title" name="title" placeholder="독후감 제목">
+								</div>
+							</div>
+							
 							<!-- 내용 입력 부분 -->
-							<div class="form-group" style="margin-top: 50px">
+							<div class="form-group">
 								<div class="col-lg-12">
-									<textarea class="form-control ta" rows="15" id="content" placeholder="내용을 입력하세요." style="resize: none; background-image: url('img/write/write_bg6.jpg');"></textarea>
+									<textarea class="form-control ta" rows="30" id="content" placeholder="내용을 입력하세요."></textarea>
 						      	</div>
 						    </div>
 						    
@@ -29,14 +49,14 @@
 							    <div class="col-lg-12" style="margin-top: 5px; text-align: center">
 								    <div class="radio" style="padding-top: 0px; padding-bottom: 0px">
 								    	<label><input type="radio" name="content_bg" id="radio_bg1" value="content_bg1">색상으로 하기</label>
-								    	<label><input type="radio" name="content_bg" id="radio_bg2" value="content_bg2" checked="checked">이미지로 하기</label>
-								    	<label><input type="radio" name="content_bg" id="radio_bg3" value="content_bg3">선택안함</label>
+								    	<label><input type="radio" name="content_bg" id="radio_bg2" value="content_bg2">이미지로 하기</label>
+								    	<label><input type="radio" name="content_bg" id="radio_bg3" value="content_bg3" checked="checked">선택안함</label>
 								    </div>
 							    </div>
 						    </div>
 							
-							<!-- 한줄 메모의 배경 템플릿 입니다. -->
-							<div id="bg_template" class="bg-faded p-4 my-4 form-group" style="margin-left: 0px;margin-right: 0px">
+							<!-- 독후감의 배경 템플릿 입니다. -->
+							<div id="bg_template" class="bg-faded p-4 my-4 form-group" style="margin-left: 0px;margin-right: 0px; display: none">
 								<div id="scroll_wrap" class="col-lg-12">
 									<!-- 왼쪽 슬라이드 버튼 -->
 									<div class="col-lg-1" style="padding-top: 30px">
@@ -71,7 +91,7 @@
 							<!-- 책검색 -->
 							<div class="form-group" style="margin-bottom:15px">
 								<div class="col-lg-12">
-									<input type="password" class="form-control" id="book_search" placeholder="책 검색">
+									<input type="text" class="form-control" id="book_search" placeholder="책 검색">
 								</div>
 							</div>
 							
@@ -105,23 +125,6 @@
 								</div>
 							</div>
 							
-							<!-- 한줄 메모의 성향을 선택할 공간 입니다. -->
-							<div class="bg-faded p-4 my-4">
-								<div class="checkbox" style="padding-top: 0px">
-									<label><input type="checkbox" name="tend" id="tend"> 슬픈</label>
-									<label><input type="checkbox" name="tend" id="tend"> 분노</label>
-									<label><input type="checkbox" name="tend" id="tend"> 사랑</label>
-									<label><input type="checkbox" name="tend" id="tend"> 허무</label>
-									<label><input type="checkbox" name="tend" id="tend"> 기쁜</label>
-									<label><input type="checkbox" name="tend" id="tend"> 우정</label>
-									<label><input type="checkbox" name="tend" id="tend"> 믿음</label>
-									<label><input type="checkbox" name="tend" id="tend"> 성찰</label>
-									<label><input type="checkbox" name="tend" id="tend"> 행복</label>
-									<label><input type="checkbox" name="tend" id="tend"> 여유</label>
-									<label><input type="checkbox" name="tend" id="tend"> 희망</label>
-									<label><input type="checkbox" name="tend" id="tend"> 기타</label>
-								</div>
-							</div>
 						</fieldset>
 					</form>
 					</div>
@@ -131,7 +134,7 @@
 		</div>
 	
 		<!-- 작석 버튼/취소 버튼 -->
-		<div class="row" style="text-align:center; margin-top: 50px; margin-bottom: 100px">
+		<div class="row" style="text-align:center; margin-top: 25px; margin-bottom: 50px">
 			<div class="col-lg-12">
 				<button type="reset" class="btn btn-default">작성 취소</button>
 				<button type="submit" class="btn btn-primary">작성 완료</button>

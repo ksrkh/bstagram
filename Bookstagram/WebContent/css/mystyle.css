@@ -148,7 +148,7 @@ blockquote {
 .scroll ul li img {width:110px; border:1px solid #ccc}
 .left{cursor: pointer;}
 .right{cursor: pointer;}
-.line_memo_background .on .write_bg{width:107px; border-color: black;}
+.board_background .on .write_bg{width:107px; border-color: black;}
 
 
 

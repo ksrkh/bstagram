@@ -43,9 +43,6 @@ $( document ).ready( function() {
 	});
     
     
-    
-    
-    
     /*
      * 한줄메모
      */
@@ -71,9 +68,9 @@ $( document ).ready( function() {
 	});
 	
 	//배경 선택시 textarea 이미지 변경
-	$(".scroll .line_memo_background li img").click(function() {
+	$(".scroll .board_background li img").click(function() {
 		$(".col-lg-12 .ta").css("background-image","url('"+$(this).attr('src')+"')");
-		$(this).parent().parent().parent().find(".line_memo_background li").removeClass("on");
+		$(this).parent().parent().parent().find(".board_background li").removeClass("on");
 		$(this).parent().addClass("on");
 	});
 	
@@ -92,6 +89,17 @@ $( document ).ready( function() {
 	
 	});
 	
+	
+	//독후감쓰기 버튼
+	$('.bookreview_write').click(function () {
+	   	location.href="ex-book_review_write.jsp";
+	});
+	 
+	 
+	//창작게시판 글쓰기 버튼
+	$('.creation_write').click(function () {
+		location.href="ex-creation_write.jsp";
+	});
 });
 
 

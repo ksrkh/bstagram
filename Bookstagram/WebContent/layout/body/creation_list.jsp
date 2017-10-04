@@ -4,7 +4,7 @@
 <div class="container">
 	<!-- 현재 페이지의 타이틀  -->
 	<div class="tagline-upper text-left text-heading text-shadow text-white d-none d-lg-block" style="margin-top: 5px">
-		창작공간 <button type="button" class="btn btn-primary">글쓰기</button>
+		창작공간 <button type="button" class="btn btn-primary creation_write">글쓰기</button>
 	</div>
 
 	<div class="bg-faded p-4 my-4">

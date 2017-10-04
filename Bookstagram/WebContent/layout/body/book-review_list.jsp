@@ -5,7 +5,7 @@
 	<!-- 현재 페이지의 타이틀  -->
 	<div class="tagline-upper text-left text-heading text-shadow text-white d-none d-lg-block" style="margin-top: 5px">
 		Book-Review
-	<button type="button" class="btn btn-primary" >글쓰기</button>
+	<button type="button" class="btn btn-primary bookreview_write">글쓰기</button>
 	</div>
 	  
 	<!-- start 추후 For로 돌릴 공간. -->
