@@ -26,35 +26,27 @@
 								<div class="col-lg-8">
 									<!-- 저자,출판사,출판일자 -->
 									<div class="row" style="margin-right: 0px">
-										<div class="col-lg-12" style="border-bottom: #222222 1px solid">
+										<div class="col-lg-12" style="border-bottom: #222222 1px solid;padding-bottom:8px">
 											<div class="col-lg-4" style="padding-left: 0px">
-												<h4>저자</h4>
+												<label style="font-size: 15px"><b>저자</b></label>&nbsp;&nbsp;이기주
 											</div>
 											<div class="col-lg-4" style="padding-left: 0px">
-												<h4>출판사</h4>
+												<label style="font-size: 15px"><b>출판사</b></label>&nbsp;&nbsp;말글터
 											</div>
 											<div class="col-lg-4" style="padding-left: 0px">
-												<h4>출판일자</h4>
+												<label style="font-size: 15px"><b>출판일자</b></label>&nbsp;&nbsp;2016.08.19
 											</div>
 										</div>
 									</div>
 									<!-- 책소개  [최대13줄] -->
 									<div class="row" style="margin-right: 0px">
-										<div class="col-lg-12" style="border-bottom: #222222 1px solid">
-											<font size="20px"><b>책소개</b></font>
-											<br>
-											<br>
-											<br>
-											<br>
-											<br>
-											<br>
-											<br>
-											<br>
-											<br>
-											<br>
-											<br>
-											<br>
-											<br>
+										<div class="col-lg-12" style="border-bottom: #222222 1px solid; padding-top: 10px; padding-bottom:20px">
+											<h4><b>소개</b></h4>
+											<label style="font-size: 15px">
+											『언어의 온도』의 저자 이기주는 엿듣고 기록하는 일을 즐겨 하는 사람이다. 그는 버스나 지하철에 몸을 실으면 몹쓸 버릇이 발동한다고 고백한다. 
+											이 책은 저자가 일상에서 발견한 의미 있는 말과 글, 단어의 어원과 유래, 그런 언어가 지닌 소중함과 절실함을 농밀하게 담아낸 것이다.
+											</label>
+											<br><br><br><br><br><br><br><br><br>
 										</div>
 									</div>
 								</div>
