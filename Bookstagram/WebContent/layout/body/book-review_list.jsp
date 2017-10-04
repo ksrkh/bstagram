@@ -16,7 +16,7 @@
 				<img height=171px width=120px src="https://search.pstatic.net/common/?src=http%3A%2F%2Fbookthumb.phinf.naver.net%2Fcover%2F109%2F245%2F10924505.jpg">
 			</div>
 			<div style="float: left; margin-left: 20px">
-				<h3 style="margin-top: 3px; margin-bottom:5px"><strong>811번째 책 - 언어의온도☆ (3.19)~21</strong></h3>
+				<h3 style="margin-top: 3px; margin-bottom:5px"><strong><a href="ex-book_review_content.jsp">811번째 책 - 언어의온도☆ (3.19)~21</a></strong></h3>
 				<!-- 줄을 넘기지 않고 예쁘게 보여줘야 합니다. 글자수 70~75자   줄수 4줄, -->
 				언어의 온도 참으로 아름다운 제목이다. 이기주작가를 첨 알게 된 책인데 참으로 행운이라는 느낌^^ 독서를 하면서 체득한 효용가운데 하나라면 자세히 보는<br>
 				힘을 배운것이다. 나태주 시인의 풀꽃에 나오는 구절처럼 자세히 보아야 이쁜법 음악도 자세히 음미하고, 커피도 자세히 향기와 맛을 들여다보고, 미술작품<br>
