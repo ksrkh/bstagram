@@ -37,24 +37,24 @@ $( document ).ready( function() {
         $('.window').hide();
     });
     
+    // 관리자페이지 버튼
+    $('.management_btn').click(function () {
+    	location.href="ex-cms.jsp";
+	});
+    
+    
+    
+    
     
     /*
-     * 한줄메모 작성
+     * 한줄메모
      */
+    //한줄메모 글쓰기버튼
     $('.linememo_write').click(function () {
     	location.href="ex-home_write.jsp";
 	});
     
-    /*
-     * 한줄메모작성시 배경선택시 변경 화면
-     */
-    /*$(".line_memo_background li").click(function(){
-    	$(this).parent().parent().find(".line_memo_background li").removeClass("on");
-    	$(this).addClass("on");
-    });*/
-    
-    
-    
+    //한줄메모작성 배경선택 애니메이션(왼쪽버튼,오른쪽버튼)
     var pos = 0;
 	var li_width = 100;
 	var totalWidth = $(".scroll li").width() * $(".scroll li").length;
@@ -70,9 +70,7 @@ $( document ).ready( function() {
 		$(".scroll").animate({scrollLeft: pos},500);
 	});
 	
-	/*
-	 * 템플릿 선택시 textarea 이미지 변경
-	 */
+	//배경 선택시 textarea 이미지 변경
 	$(".scroll .line_memo_background li img").click(function() {
 		$(".col-lg-12 .ta").css("background-image","url('"+$(this).attr('src')+"')");
 		$(this).parent().parent().parent().find(".line_memo_background li").removeClass("on");
@@ -80,18 +78,14 @@ $( document ).ready( function() {
 	});
 	
 	
-	/*
-	 * 이미지로하기
-	 */
+	//이미지로하기
 	$(".radio label #radio_bg2").click(function() {
 		$(".col-lg-12 .ta").css("background-image","url('img/write/write_bg6.jpg')");
 		$("#bg_template").show();
 	
 	});
 	
-	/*
-	 * 선택안함
-	 */
+	//선택안함
 	$(".radio label #radio_bg3").click(function() {
 		$(".col-lg-12 .ta").css("background-image","url('')");
 		$("#bg_template").hide();

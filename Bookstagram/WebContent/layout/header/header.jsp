@@ -10,7 +10,21 @@
 		<div class="form-group" style="margin-top: 5px">
 			<input type="text" class="form-control" placeholder="Searcch" style="width: 150px; display: block; float: left">
 			<button type="submit" class="btn btn-default" style="margin-left: 5px">검색</button>
-			<button type="button" class="btn btn-default login_btn" style="float: right;" onclick="clicktest()">Login</button>
+			<!-- 로그인 전 -->
+			<button type="button" class="btn btn-default login_btn" style="float: right">Login</button>
+			<!-- 로그인 후 -->
+			<!-- "~님 환영합니다." 메세지와 '마이페이지/로그아웃' 버튼 보여줄 예정입니다. -->
+			
+			<!-- 관리자 접속시 보여줄 버튼입니다. -->
+			<div class="btn-group" style="float: right; margin-right: 10px">
+				<a href="#" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">관리자페이지</a>
+				<ul class="dropdown-menu">
+					<li><a href="ex-cms_board.jsp">전체게시물관리</a></li>
+					<li><a href="ex-cms_member.jsp">전체회원관리</a></li>
+					<li class="divider"></li>
+					<li><a href="#">글쓰기 관리</a></li>
+				</ul>
+			</div>
 		</div>
 	</div>
 	<div class="col-sm-1"></div>

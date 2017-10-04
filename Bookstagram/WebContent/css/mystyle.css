@@ -152,4 +152,11 @@ blockquote {
 
 
 
+/* 관리자페이지 회원관리 적용 css*/
+.cmsmember-thead tr th{
+	text-align: center;
+}
 
+.cmsmember-tbody tr td{
+	text-align: center;
+}
