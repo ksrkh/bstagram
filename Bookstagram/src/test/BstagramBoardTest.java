@@ -32,7 +32,7 @@ public class BstagramBoardTest {
 		System.out.println("한줄게시판 성향코드 :" + lineVO.getTend_code());
 		System.out.println("**************************************************************************************");
 		System.out.println();
-	
+		
 		/*
 		 * 책 리뷰 게시판 생성자 테스트
 		 */
@@ -127,7 +127,6 @@ public class BstagramBoardTest {
 			ReviewBoardDAO.getInstance().addHit(1);			
 			System.out.println();
 			System.out.println("*************************************");
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
