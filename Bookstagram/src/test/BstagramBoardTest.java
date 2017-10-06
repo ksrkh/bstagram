@@ -1,7 +1,14 @@
 package test;
 
+import java.sql.SQLException;
+
+import com.kosta.bookstagram.model.CreateBoardDAO;
 import com.kosta.bookstagram.model.CreateBoardVO;
+import com.kosta.bookstagram.model.LineBoardDAO;
 import com.kosta.bookstagram.model.LineBoardVO;
+import com.kosta.bookstagram.model.MemberDAO;
+import com.kosta.bookstagram.model.MemberVO;
+import com.kosta.bookstagram.model.ReviewBoardDAO;
 import com.kosta.bookstagram.model.ReviewBoardVO;
 
 public class BstagramBoardTest {
@@ -69,6 +76,60 @@ public class BstagramBoardTest {
 		System.out.println("창작게시판 내용 :" + createVO.getCreate_content());
 		System.out.println("창작게시판 분류 :" + createVO.getCategory());
 		System.out.println("**************************************************************************************");
-
+		System.out.println();
+		System.out.println();
+		
+		/*
+		 * DAO 테스트
+		 */
+		try {
+			System.out.println("[ CommonDAO ]");
+			//MemberDAO로 실행했지만, CommonDAO 의 getConnection을 바라보고있음
+			MemberDAO.getInstance().getConnection();
+			System.out.println();
+			
+			System.out.println("[ MemberDAO ]");
+			MemberDAO.getInstance().logIn("아이디", "비밀번호");
+			MemberDAO.getInstance().addMember(new MemberVO());
+			MemberDAO.getInstance().updateMember("아이디");
+			MemberDAO.getInstance().deleteMember("아이디");
+			System.out.println();
+			
+			System.out.println("[ CreateBoardDAO ]");
+			//추상 클래스 상속받아 insert,update,delete,select 강제화
+			//addReply, addLike, addHit 메서드는 BoardDAO 클래스의 메서드를 가리킴
+			CreateBoardDAO.getInstance().insertBoard();
+			CreateBoardDAO.getInstance().updateBoard();
+			CreateBoardDAO.getInstance().deleteBoard();
+			CreateBoardDAO.getInstance().selectBoard();
+			CreateBoardDAO.getInstance().addReply(1);
+			CreateBoardDAO.getInstance().addLike(1);
+			CreateBoardDAO.getInstance().addHit(1);
+			System.out.println();
+			
+			System.out.println("[ LineBoardDAO ]");
+			LineBoardDAO.getInstance().insertBoard();
+			LineBoardDAO.getInstance().updateBoard();
+			LineBoardDAO.getInstance().deleteBoard();
+			LineBoardDAO.getInstance().selectBoard();
+			LineBoardDAO.getInstance().addReply(1);
+			LineBoardDAO.getInstance().addLike(1);
+			LineBoardDAO.getInstance().addHit(1);			
+			System.out.println();
+			
+			System.out.println("[ ReviewBoardDAO ]");
+			ReviewBoardDAO.getInstance().insertBoard();
+			ReviewBoardDAO.getInstance().updateBoard();
+			ReviewBoardDAO.getInstance().deleteBoard();
+			ReviewBoardDAO.getInstance().selectBoard();
+			ReviewBoardDAO.getInstance().addReply(1);
+			ReviewBoardDAO.getInstance().addLike(1);
+			ReviewBoardDAO.getInstance().addHit(1);			
+			System.out.println();
+			System.out.println("*************************************");
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }
