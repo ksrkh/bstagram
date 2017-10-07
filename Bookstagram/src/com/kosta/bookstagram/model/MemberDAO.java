@@ -1,6 +1,7 @@
 package com.kosta.bookstagram.model;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import com.kosta.bookstagram.model.common.CommonDAO;
 import com.kosta.bookstagram.model.listener.MemberListener;
@@ -22,13 +23,18 @@ public class MemberDAO extends CommonDAO implements MemberListener{
 	}
 
 	@Override
-	public MemberVO updateMember(String id) throws SQLException {
+	public void updateMember(MemberVO member) throws SQLException {
 		System.out.println("updateMember() 실행");
-		return null;
 	}
-
+	
 	@Override
-	public void deleteMember(String id) throws SQLException {
-		System.out.println("deleteMember() 실행");
+	public void withDrawMember(String id) throws SQLException {
+		System.out.println("withDrawMember() 실행");
+	}
+	
+	@Override
+	public ArrayList<BoardVO> viewBoard(int boardType) throws SQLException {
+		System.out.println("viewBoard() 실행");
+		return null;
 	}
 }

@@ -70,7 +70,6 @@ public class MemberVO {
 	 */
 	public MemberVO(String id, String pw, String nick, int age, String regdate, String m_photo, int tend_code,
 			int tend_code2, int tend_code3, int tier, int question_code, String pw_ans) {
-		super();
 		this.id = id;
 		this.pw = pw;
 		this.nick = nick;
@@ -83,6 +82,26 @@ public class MemberVO {
 		this.tier = tier;
 		this.question_code = question_code;
 		this.pw_ans = pw_ans;
+	}
+	
+	
+	/**
+	 * -회원정보 수정에 사용 될 생성자
+	 * 
+	 * @param id			아이디(이메일)
+	 * @param pw			비밀번호
+	 * @param m_photo		프로필사진
+	 * @param tend_code		성향1
+	 * @param tend_code2	성향2
+	 * @param tend_code3	성향3
+	 */
+	public MemberVO(String id, String pw, String m_photo, int tend_code, int tend_code2, int tend_code3) {
+		this.id = id;
+		this.pw = pw;
+		this.m_photo = m_photo;
+		this.tend_code = tend_code;
+		this.tend_code2 = tend_code2;
+		this.tend_code3 = tend_code3;
 	}
 
 	public String getId() {

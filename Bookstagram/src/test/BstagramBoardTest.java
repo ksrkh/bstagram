@@ -95,8 +95,8 @@ public class BstagramBoardTest {
 			System.out.println("[ MemberDAO ]");
 			MemberDAO.getInstance().logIn("아이디", "비밀번호");
 			MemberDAO.getInstance().addMember(new MemberVO());
-			MemberDAO.getInstance().updateMember("아이디");
-			MemberDAO.getInstance().deleteMember("아이디");
+			MemberDAO.getInstance().updateMember(new MemberVO());
+			MemberDAO.getInstance().withDrawMember("아이디");
 			System.out.println();
 			
 			
@@ -108,9 +108,9 @@ public class BstagramBoardTest {
 			CreateBoardDAO.getInstance().getConnection();
 			//추상 클래스 상속받아 insert,update,delete,select 강제화
 			//addReply, addLike, addHit 메서드는 BoardDAO 클래스의 메서드를 가리킴
-			CreateBoardDAO.getInstance().addReply(1);
-			CreateBoardDAO.getInstance().addLike(1);
-			CreateBoardDAO.getInstance().addHit(1);
+			CreateBoardDAO.getInstance().registerReply("아이디", 1, "리플내용");
+			CreateBoardDAO.getInstance().likeBoard("아이디",1);
+			CreateBoardDAO.getInstance().hits(1);
 			CreateBoardDAO.getInstance().insertBoard(new CreateBoardVO());
 			CreateBoardDAO.getInstance().updateBoard(new CreateBoardVO());
 			CreateBoardDAO.getInstance().deleteBoard(1);
@@ -142,9 +142,9 @@ public class BstagramBoardTest {
 			
 			
 			System.out.println("[ LineBoardDAO ]");
-			LineBoardDAO.getInstance().addReply(1);
-			LineBoardDAO.getInstance().addLike(1);
-			LineBoardDAO.getInstance().addHit(1);
+			LineBoardDAO.getInstance().registerReply("아이디", 1, "리플내용");
+			LineBoardDAO.getInstance().likeBoard("아이디",1);
+			LineBoardDAO.getInstance().hits(1);
 			LineBoardDAO.getInstance().insertBoard(new LineBoardVO());
 			LineBoardDAO.getInstance().updateBoard(new LineBoardVO());
 			LineBoardDAO.getInstance().deleteBoard(1);
@@ -156,9 +156,9 @@ public class BstagramBoardTest {
 			
 			
 			System.out.println("[ ReviewBoardDAO ]");
-			ReviewBoardDAO.getInstance().addReply(1);
-			ReviewBoardDAO.getInstance().addLike(1);
-			ReviewBoardDAO.getInstance().addHit(1);	
+			ReviewBoardDAO.getInstance().registerReply("아이디", 1, "리플내용");
+			ReviewBoardDAO.getInstance().likeBoard("아이디",1);
+			ReviewBoardDAO.getInstance().hits(1);
 			ReviewBoardDAO.getInstance().insertBoard(new ReviewBoardVO());
 			ReviewBoardDAO.getInstance().updateBoard(new ReviewBoardVO());
 			ReviewBoardDAO.getInstance().deleteBoard(1);

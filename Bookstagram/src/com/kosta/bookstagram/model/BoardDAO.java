@@ -4,6 +4,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.kosta.bookstagram.model.common.CommonDAO;
+import com.kosta.bookstagram.model.common.ReReplyVO;
+import com.kosta.bookstagram.model.common.ReplyVO;
 import com.kosta.bookstagram.model.listener.BoardListener;
 
 /**
@@ -16,10 +18,15 @@ import com.kosta.bookstagram.model.listener.BoardListener;
 public abstract class BoardDAO extends CommonDAO implements BoardListener{
 	
 	public BoardDAO(){System.out.println("BoardDAO 객체생성");}
-	
+
 	@Override
-	public void addReply(int replyNo) throws SQLException {
-		System.out.println("addReply() 실행");
+	public void registerReply(String id, int boardNo, String content) throws SQLException {
+		System.out.println("registerReply() 실행");
+	}
+
+	@Override
+	public void registerReReply(String id, int replyNo, String content) throws SQLException {
+		System.out.println("registerReReply() 실행");
 	}
 
 	@Override
@@ -28,20 +35,37 @@ public abstract class BoardDAO extends CommonDAO implements BoardListener{
 	}
 
 	@Override
-	public void addLike(int boardNo) throws SQLException {
-		System.out.println("addLike() 실행");
+	public void removeReReply(int rereplyNo) throws SQLException {
+		System.out.println("removeReReply() 실행");
 	}
 
 	@Override
-	public void backLike(int boardNo) throws SQLException {
-		System.out.println("backLike() 실행");
+	public ArrayList<ReplyVO> viewReply(int boardNo) throws SQLException {
+		System.out.println("viewReply() 실행");
+		return null;
 	}
 
 	@Override
-	public void addHit(int boardNo) throws SQLException {
-		System.out.println("addHit() 실행");
+	public ArrayList<ReReplyVO> viewReReply(ArrayList<ReplyVO> replyList) throws SQLException {
+		System.out.println("viewReReply() 실행");
+		return null;
 	}
-	
+
+	@Override
+	public void likeBoard(String id, int boardNo) throws SQLException {
+		System.out.println("likeBoard() 실행");
+	}
+
+	@Override
+	public void cancelLike(String id, int boardNo) throws SQLException {
+		System.out.println("cancelLike() 실행");
+	}
+
+	@Override
+	public void hits(int boardNo) throws SQLException {
+		System.out.println("hits() 실행");
+	}
+
 	/**
 	 * <pre>
 	 * <b>메서드 설명</b>
