@@ -83,8 +83,11 @@ public class BstagramBoardTest {
 		 * DAO 테스트
 		 */
 		try {
+			// ****************************************************************************
+			
+			
 			System.out.println("[ CommonDAO ]");
-			//MemberDAO로 실행했지만, CommonDAO 의 getConnection을 바라보고있음
+			//MemberDAO로  getConnection()을 실행했지만, CommonDAO 의 getConnection을 바라보고있음
 			MemberDAO.getInstance().getConnection();
 			System.out.println();
 			
@@ -95,7 +98,13 @@ public class BstagramBoardTest {
 			MemberDAO.getInstance().deleteMember("아이디");
 			System.out.println();
 			
+			
+			// ****************************************************************************
+			
+			
 			System.out.println("[ CreateBoardDAO ]");
+			//CreateBoardDAO로 getConnection()을 실행했지만, CommonDAO 의 getConnection을 바라보고있음
+			CreateBoardDAO.getInstance().getConnection();
 			//추상 클래스 상속받아 insert,update,delete,select 강제화
 			//addReply, addLike, addHit 메서드는 BoardDAO 클래스의 메서드를 가리킴
 			CreateBoardDAO.getInstance().addReply(1);
@@ -120,6 +129,10 @@ public class BstagramBoardTest {
 			//board.getSympathy();
 			System.out.println();
 			
+			
+			// ****************************************************************************
+			
+			
 			System.out.println("[ LineBoardDAO ]");
 			LineBoardDAO.getInstance().addReply(1);
 			LineBoardDAO.getInstance().addLike(1);
@@ -129,6 +142,10 @@ public class BstagramBoardTest {
 			LineBoardDAO.getInstance().deleteBoard(1);
 			LineBoardDAO.getInstance().selectBoard(1);			
 			System.out.println();
+			
+			
+			// ****************************************************************************
+			
 			
 			System.out.println("[ ReviewBoardDAO ]");
 			ReviewBoardDAO.getInstance().addReply(1);
