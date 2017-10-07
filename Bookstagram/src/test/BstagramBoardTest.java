@@ -1,6 +1,7 @@
 package test;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import com.kosta.bookstagram.model.CreateBoardDAO;
 import com.kosta.bookstagram.model.CreateBoardVO;
@@ -113,6 +114,13 @@ public class BstagramBoardTest {
 			CreateBoardDAO.getInstance().insertBoard(new CreateBoardVO());
 			CreateBoardDAO.getInstance().updateBoard(new CreateBoardVO());
 			CreateBoardDAO.getInstance().deleteBoard(1);
+			
+			//상세보기 VO객체 캐스팅
+			ArrayList<CreateBoardVO> list = new ArrayList<CreateBoardVO>();
+			for(int i=0; i<CreateBoardDAO.getInstance().boardList(1).size();i++) {
+				list.add((CreateBoardVO)CreateBoardDAO.getInstance().boardList(1).get(i));
+			}
+			
 			//다운캐스팅 필요
 			@SuppressWarnings("unused")
 			CreateBoardVO board = (CreateBoardVO) CreateBoardDAO.getInstance().selectBoard(1);
