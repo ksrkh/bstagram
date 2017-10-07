@@ -24,7 +24,7 @@ public class CreateBoardVO extends BoardVO{
 	 * @param id				아이디
 	 * @param board_regdate		등록일자
 	 * @param hit				조회수
-	 * @param sympathy			좋아요
+	 * @param sympathy			공감
 	 * @param authority			공개권한
 	 * @param bg_no				게시판배경번호
 	 * ------this------

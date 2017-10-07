@@ -22,7 +22,7 @@ public class BoardVO {
 	 */
 	private int hit;
 	/*
-	 * 좋아요
+	 * 공감
 	 */
 	private int sympathy;
 	/*
@@ -45,7 +45,7 @@ public class BoardVO {
 	 * @param id			아이디
 	 * @param board_regdate	등록일자
 	 * @param hit			조회수
-	 * @param sympathy		좋아요
+	 * @param sympathy		공감
 	 * @param authority		공개권한
 	 * @param bg_no			게시판배경번호
 	 */
