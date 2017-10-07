@@ -8,19 +8,20 @@ public class LineBoardDAO extends BoardDAO{
 	public static LineBoardDAO getInstance(){return instance;}
 	
 	@Override
-	public void insertBoard() throws SQLException {
+	public void insertBoard(BoardVO board) throws SQLException {
 		System.out.println("LineBoardDAO, insertBoard() 실행");}
 
 	@Override
-	public void updateBoard() throws SQLException {
+	public void updateBoard(BoardVO board) throws SQLException {
 		System.out.println("LineBoardDAO, updateBoard() 실행");}
 
 	@Override
-	public void deleteBoard() throws SQLException {
+	public void deleteBoard(int boardNo) throws SQLException {
 		System.out.println("LineBoardDAO, deleteBoard() 실행");}
 
 	@Override
-	public void selectBoard() throws SQLException {
-		System.out.println("LineBoardDAO, selectBoard() 실행");}
+	public BoardVO selectBoard(int boardNo) throws SQLException {
+		System.out.println("LineBoardDAO, selectBoard() 실행");
+		return null;}
 
 }

@@ -40,9 +40,10 @@ public abstract class BoardDAO extends CommonDAO implements BoardListener{
 	 *    -게시글 작성 기능을 구현합니다.
 	 * </pre>
 	 * 
+	 * @param Object	VO객체를 통해 전달받습니다.
 	 * @throws SQLException
 	 */
-	public abstract void insertBoard() throws SQLException;
+	public abstract void insertBoard(BoardVO boardVO) throws SQLException;
 	
 	/**
 	 * <pre>
@@ -52,7 +53,7 @@ public abstract class BoardDAO extends CommonDAO implements BoardListener{
 	 * 
 	 * @throws SQLException
 	 */
-	public abstract void updateBoard() throws SQLException;
+	public abstract void updateBoard(BoardVO boardVO) throws SQLException;
 	
 	/**
 	 * <pre>
@@ -62,7 +63,7 @@ public abstract class BoardDAO extends CommonDAO implements BoardListener{
 	 * 
 	 * @throws SQLException
 	 */
-	public abstract void deleteBoard() throws SQLException;
+	public abstract void deleteBoard(int boardNo) throws SQLException;
 	
 	/**
 	 * <pre>
@@ -72,5 +73,5 @@ public abstract class BoardDAO extends CommonDAO implements BoardListener{
 	 * 
 	 * @throws SQLException
 	 */
-	public abstract void selectBoard() throws SQLException;
+	public abstract BoardVO selectBoard(int boardNo) throws SQLException;
 }
