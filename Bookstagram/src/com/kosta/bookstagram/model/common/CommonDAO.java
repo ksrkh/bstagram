@@ -17,9 +17,7 @@ public class CommonDAO implements CommonListener{
 	 * public 으로 정의하여 MemberDAO 와 BoardDAO에서 상속받아 하나의 DataSourceManager를 사용한다.
 	 */
 	public CommonDAO(){
-		System.out.println("CommonDAO 생성자 실행");
 		dataSource = DataSourceManager.getInstance().getDataSource();
-		System.out.println("dataSource 연결 완료");
 	}
 	
 	public Connection getConnection() throws SQLException{
