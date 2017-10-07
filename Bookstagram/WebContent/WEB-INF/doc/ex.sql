@@ -122,28 +122,28 @@ commit;
  * 한줄게시판 글등록
  */
 create sequence board_seq;
-insert into board(board_no, boardtype_no, id, board_regdate, hit, sympathy, authority, bg_no)
-values(board_seq.nextval, 1, 'kjhsc101218@naver.com', sysdate, 0, 0, 1, 0);
+insert into board(board_no, boardtype_no, id, board_regdate, hit, authority, bg_no)
+values(board_seq.nextval, 1, 'kjhsc101218@naver.com', sysdate, 0, 1, 0);
 insert into line_board(board_no, line_title, line_author, line_content, tend_code)
 values(board_seq.currval, '언어의온도', '이기주', '화장실을 깨끗하게 사용해주세요. 이곳을 청소해주시는 분들, 누군가에겐 전부인 사람들입니다.', 8);
 
-insert into board(board_no, boardtype_no, id, board_regdate, hit, sympathy, authority, bg_no)
-values(board_seq.nextval, 1, 'kjhsc101218@naver.com', sysdate, 0, 0, 1, 1);
+insert into board(board_no, boardtype_no, id, board_regdate, hit, authority, bg_no)
+values(board_seq.nextval, 1, 'kjhsc101218@naver.com', sysdate, 0, 1, 1);
 insert into line_board(board_no, line_title, line_author, line_content, tend_code)
 values(board_seq.currval, '말의품격', '이기주', '당신의 입이아닌 귀를 내어주라', 8);
 
-insert into board(board_no, boardtype_no, id, board_regdate, hit, sympathy, authority, bg_no)
-values(board_seq.nextval, 1, 'kjhsc101218@naver.com', sysdate, 0, 0, 1, 2);
+insert into board(board_no, boardtype_no, id, board_regdate, hit, authority, bg_no)
+values(board_seq.nextval, 1, 'kjhsc101218@naver.com', sysdate, 0, 1, 2);
 insert into line_board(board_no, line_title, line_author, line_content, tend_code)
 values(board_seq.currval, '오직두사람', '김영하', '똑같은 패턴이 반복됬어요. 제가 호감을 느끼는 남자를 만나고, 그 남자가 절 이상해하고, 저는 그 남자에게 실망하고, 그러다 헤어지고...', 4);
 
-insert into board(board_no, boardtype_no, id, board_regdate, hit, sympathy, authority, bg_no)
-values(board_seq.nextval, 1, 'kjhsc101218@naver.com', sysdate, 0, 0, 1, 3);
+insert into board(board_no, boardtype_no, id, board_regdate, hit, authority, bg_no)
+values(board_seq.nextval, 1, 'kjhsc101218@naver.com', sysdate, 0, 1, 3);
 insert into line_board(board_no, line_title, line_author, line_content, tend_code)
 values(board_seq.currval, '보통의존재', '이석원', '잘 생각해보세요. 내가 듣기 좋은 말만 하거나 당신에 대해 어떤 반대도 하지 않았다면 난 당신을 정말로 좋아하는 것은 아니에요. 친하다고 생각하지 않는거죠. 솔직하다는 말을 많이듣는 편이지만 정확히 말하면 난 나에대해서만 솔직해요.', 3);
 
-insert into board(board_no, boardtype_no, id, board_regdate, hit, sympathy, authority, bg_no)
-values(board_seq.nextval, 1, 'kjhsc101218@naver.com', sysdate, 0, 0, 1, 4);
+insert into board(board_no, boardtype_no, id, board_regdate, hit, authority, bg_no)
+values(board_seq.nextval, 1, 'kjhsc101218@naver.com', sysdate, 0, 1, 4);
 insert into line_board(board_no, line_title, line_author, line_content, tend_code)
 values(board_seq.currval, '같은시간에 우린 어쩌면', '변종모', '"나만의" 라고 쓰려다가 "나의"라고 쓴다. 많은사람이 당신을 두고 "나만의"라고 쓰고싶어 한다는것을 알기에 당신은 그런사람이기에..', 3);
 
@@ -151,8 +151,8 @@ values(board_seq.currval, '같은시간에 우린 어쩌면', '변종모', '"나
 /*
  * 책리뷰 글등록
  */
-insert into board(board_no, boardtype_no, id, board_regdate, hit, sympathy, authority, bg_no)
-values(board_seq.nextval, 2, 'will0324@hanmail.net', sysdate, 0, 0, 1, 0);
+insert into board(board_no, boardtype_no, id, board_regdate, hit, authority, bg_no)
+values(board_seq.nextval, 2, 'will0324@hanmail.net', sysdate, 0, 1, 0);
 insert into review_board(board_no, book_title, book_author, review_title, review_content, star_point, book_img, genre)
 values(board_seq.currval, '독후감 잘 쓰는 법', '이병승', '매력적인 제목, 인상적인 시작', '독후감을 심사할 때 중요하게 여기는 부분은 처음 시작 대목이다. 첫 부분이 어색하거나 밋밋하다면 한 수준 아래로 글을 평가한다. 심사해야 할 원고가 많으면 많을수록 첫 부분은 더욱 중요해진다. 
 가장 재미없는 독후감 제목은 책 이름을 그대로 쓰는 경우다. 그보다 조금 나은 제목은 ‘~을 읽고’라는 제목이다. 그렇다면 최고 수준의 제목은 무엇일까. 가장 눈길을 끄는 제목은 자신이 생각하는 책에 대한 주제를 주제목으로 하고 부제목으로 ‘~을 읽고’라고 쓴 제목이다.
@@ -162,8 +162,119 @@ values(board_seq.currval, '독후감 잘 쓰는 법', '이병승', '매력적인
 /*
  * 창작게시판 글등록
  */
-insert into board(board_no, boardtype_no, id, board_regdate, hit, sympathy, authority, bg_no)
-values(board_seq.nextval, 3, 'orangss@naver.com', sysdate, 0, 0, 1, 0);
+insert into board(board_no, boardtype_no, id, board_regdate, hit, authority, bg_no)
+values(board_seq.nextval, 3, 'orangss@naver.com', sysdate, 0, 1, 0);
 insert into create_board(board_no, create_title, create_content, category)
 values(board_seq.currval, '창작의 시작', '창작한 내용', 4);
+commit;
+
+
+/*
+ * 리플등록
+ */
+create sequence replyno_seq;
+insert into reply(reply_no, reply_content, board_no, id)
+values(replyno_seq.nextval, '1번게시글의 첫번째 덧글입니다.',  1, 'dnwjdrnl2@naver.com');
+
+insert into reply(reply_no, reply_content, board_no, id)
+values(replyno_seq.nextval, '2번게시글의 첫번째 덧글입니다.',  2, 'dnwjdrnl2@naver.com');
+
+insert into reply(reply_no, reply_content, board_no, id)
+values(replyno_seq.nextval, '1번게시글의 두번째 덧글입니다.',  1, 'orangss@naver.com');
+
+insert into reply(reply_no, reply_content, board_no, id)
+values(replyno_seq.nextval, '3번게시글의 첫번째 덧글입니다',  3, 'dnwjdrnl2@naver.com');
+
+insert into reply(reply_no, reply_content, board_no, id)
+values(replyno_seq.nextval, '1번게시글의 세번째 덧글입니다',  1, 'orangss@naver.com');
+
+insert into reply(reply_no, reply_content, board_no, id)
+values(replyno_seq.nextval, '7번게시글의 첫번째 덧글입니다',  7, 'kjhsc101218@naver.com');
+
+insert into reply(reply_no, reply_content, board_no, id)
+values(replyno_seq.nextval, '6번게시글의 첫번째 덧글입니다',  6, 'dnwjdrnl2@naver.com');
+
+insert into reply(reply_no, reply_content, board_no, id)
+values(replyno_seq.nextval, '3번게시글의 두번째 덧글입니다',  3, 'will0324@hanmail.net');
+
+insert into reply(reply_no, reply_content, board_no, id)
+values(replyno_seq.nextval, '4번게시글의 첫번째 덧글입니다',  4, 'ryuhyg@naver.com');
+
+insert into reply(reply_no, reply_content, board_no, id)
+values(replyno_seq.nextval, '5번게시글의 첫번째 덧글입니다',  5, 'will0324@hanmail.net');
+
+insert into reply(reply_no, reply_content, board_no, id)
+values(replyno_seq.nextval, '6번게시글의 두번째 덧글입니다',  6, 'ryuhyg@naver.com');
+commit;
+
+
+
+/*
+ * 리리플등록
+ */
+create sequence rereplyno_seq;
+insert into re_reply(re_reply_no, re_reply_content, reply_no, id)
+values(rereplyno_seq.nextval, '리덧글 내용1', 1, 'orangss@naver.com');
+insert into re_reply(re_reply_no, re_reply_content, reply_no, id)
+values(rereplyno_seq.nextval, '리덧글 내용2', 2, 'ryuhyg@naver.com');
+insert into re_reply(re_reply_no, re_reply_content, reply_no, id)
+values(rereplyno_seq.nextval, '리덧글 내용3', 3, 'kjhsc101218@naver.com');
+insert into re_reply(re_reply_no, re_reply_content, reply_no, id)
+values(rereplyno_seq.nextval, '리덧글 내용4', 4, 'will0324@hanmail.net');
+insert into re_reply(re_reply_no, re_reply_content, reply_no, id)
+values(rereplyno_seq.nextval, '리덧글 내용5', 5, 'dnwjdrnl2@naver.com');
+commit;
+
+
+
+/*
+ * 공감
+ */
+insert into sympathy(id, board_no)
+values('kjhsc101218@naver.com',1);
+insert into sympathy(id, board_no)
+values('kjhsc101218@naver.com',2);
+insert into sympathy(id, board_no)
+values('kjhsc101218@naver.com',3);
+insert into sympathy(id, board_no)
+values('kjhsc101218@naver.com',7);
+insert into sympathy(id, board_no)
+values('orangss@naver.com',3);
+insert into sympathy(id, board_no)
+values('orangss@naver.com',4);
+insert into sympathy(id, board_no)
+values('orangss@naver.com',5);
+insert into sympathy(id, board_no)
+values('will0324@hanmail.net',1);
+insert into sympathy(id, board_no)
+values('will0324@hanmail.net',3);
+insert into sympathy(id, board_no)
+values('will0324@hanmail.net',5);
+insert into sympathy(id, board_no)
+values('will0324@hanmail.net',7);
+insert into sympathy(id, board_no)
+values('ryuhyg@naver.com',1);
+insert into sympathy(id, board_no)
+values('ryuhyg@naver.com',2);
+insert into sympathy(id, board_no)
+values('ryuhyg@naver.com',4);
+insert into sympathy(id, board_no)
+values('dnwjdrnl2@naver.com',6);
 commit
+
+
+
+/*
+ * 시퀀스삭제
+ */
+drop sequence tier_seq;
+drop sequence tend_seq;
+drop sequence boardtype_seq;
+drop sequence category_seq;
+drop sequence genre_seq;
+drop sequence member_seq;
+drop sequence question_seq;
+drop sequence board_seq;
+drop sequence background_seq;
+drop sequence replyno_seq;
+drop sequence rereplyno_seq;

@@ -36,5 +36,4 @@ public class LineBoardDAO extends BoardDAO{
 		
 		return list;
 	}
-
 }
