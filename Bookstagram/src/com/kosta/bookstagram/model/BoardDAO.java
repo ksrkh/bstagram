@@ -98,6 +98,7 @@ public abstract class BoardDAO extends CommonDAO implements BoardListener{
 	 *    
 	 *    ex)
 	 *    
+	 *    1.
 	 *    //메서드 선언
 	 *    public ArrayList<BoardVO> boardList(int boardType){
 	 *   	 ArrayList<BoardVO> list = new ArrayList<BoardVO>();
@@ -105,7 +106,8 @@ public abstract class BoardDAO extends CommonDAO implements BoardListener{
 	 *   	 return list;
 	 *    }
 	 *    
-	 *    //리턴받은 list객체의 element로 접근 시
+	 *    2.
+	 *    //리턴받은 list객체의 element로 접근하는 방법
 	 *    ArrayList<CreateBoardVO> list = new ArrayList<CreateBoardVO>();
 	 *    for(){
 	 *    	 list.add((CreateBoardVO)boardList().get(i));
