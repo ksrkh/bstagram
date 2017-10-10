@@ -53,7 +53,6 @@ public class MemberVO {
 	 * 기본생성자
 	 */
 	public MemberVO() {}
-	
 	/**
 	 * @param id			아이디(이메일)
 	 * @param pw			비밀번호

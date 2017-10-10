@@ -167,7 +167,7 @@ public class BstagramBoardTest {
 		
 			
 			
-			
+//			MemberDAO.getInstance().checkMember("a", "1");
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
