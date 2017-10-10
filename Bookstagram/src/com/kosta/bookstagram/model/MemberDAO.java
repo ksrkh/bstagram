@@ -1,5 +1,8 @@
 package com.kosta.bookstagram.model;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -13,8 +16,16 @@ public class MemberDAO extends CommonDAO implements MemberListener{
 
 	@Override
 	public MemberVO checkMember(String id, String pw) throws SQLException {
-		System.out.println("logIn() 실행");
-		return null;
+		MemberVO member = null;
+		Connection con = getConnection();
+		PreparedStatement pstmt = con.prepareStatement("select * from member where id=? and pw=?");
+		pstmt.setString(1, id);
+		pstmt.setString(2, pw);
+		ResultSet rs = pstmt.executeQuery();
+		while (rs.next()) {
+			member = new MemberVO();
+		}
+		return member;
 	}
 
 	@Override

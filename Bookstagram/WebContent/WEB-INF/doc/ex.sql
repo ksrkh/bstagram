@@ -115,6 +115,8 @@ insert into member(id, pw,nick,age,regdate,m_photo,temp,tend_code,tend_code2,ten
 values('ryuhyg@naver.com','1234','rhg',28,sysdate,null,null,3,9,11,3,8,'신준영');
 insert into member(id, pw, nick, age, regdate, m_photo, temp, tend_code, tend_code2, tend_code3, tier, question_code, pw_ans)
 values('orangss@naver.com','1234','ksh',30,sysdate,null,null,7,8,11,3,4,'수지중학교');
+insert into member(id, pw,nick,age,regdate,m_photo,temp,tend_code,tend_code2,tend_code3,tier,question_code,pw_ans)
+values('a','1','hsc',26,sysdate,null,null,0,0,0,3,3,'황운');
 commit;
 
 

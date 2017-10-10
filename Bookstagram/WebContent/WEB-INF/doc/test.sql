@@ -1,0 +1,1 @@
+select * from member where id='a' and pw='1'
