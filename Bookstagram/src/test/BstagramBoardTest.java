@@ -167,13 +167,10 @@ public class BstagramBoardTest {
 			
 			
 			//Generic 이용
-			/*
-			
 			ArrayList<CreateBoardVO> list_c = new ArrayList<CreateBoardVO>();
 			ListVO<CreateBoardVO> list_cc = new ListVO<CreateBoardVO>(list_c, new PagingBean());
 			System.out.println(list_cc);
 			
-			*/
 			
 //			MemberDAO.getInstance().checkMember("a", "1");
 			
