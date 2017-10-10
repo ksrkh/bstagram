@@ -165,6 +165,13 @@ public class BstagramBoardTest {
 			ReviewBoardDAO.getInstance().selectBoard(1);		
 			System.out.println();
 			System.out.println("*************************************");
+			
+			
+		
+			
+			
+			
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

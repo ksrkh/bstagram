@@ -11,7 +11,7 @@ public class CreateBoardDAO extends BoardDAO {
 	private static CreateBoardDAO instance = new CreateBoardDAO();
 	private CreateBoardDAO() {}
 	public static CreateBoardDAO getInstance() {return instance;}
-
+	
 	//창작 글 작성 start
 	@Override
 	public void insertBoard(BoardVO board) throws SQLException {
@@ -20,7 +20,7 @@ public class CreateBoardDAO extends BoardDAO {
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		try {
-			con=getConnection(); 
+			con=getConnection();
 			/*
 			
 			//board table insert
