@@ -22,12 +22,19 @@ public class DispatcherServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8"); handler(request, response);}
 	
 	protected void handler(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String command = request.getParameter("command");
-		String url = HandlerMapping.getInstance().create(command).execute(request, response).trim();
-		
-		if (url.startsWith("redirect:"))
-			response.sendRedirect(url.substring(9));
-		else
-			request.getRequestDispatcher(url).forward(request, response);
+		try {
+			
+			String command = request.getParameter("command");
+			String url = HandlerMapping.getInstance().create(command).execute(request, response).trim();
+			
+			if (url.startsWith("redirect:"))
+				response.sendRedirect(url.substring(9));
+			else
+				request.getRequestDispatcher(url).forward(request, response);
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }
