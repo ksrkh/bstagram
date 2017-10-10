@@ -167,12 +167,25 @@ public class BstagramBoardTest {
 			
 			
 			//Generic 이용
-			ArrayList<CreateBoardVO> list_c = new ArrayList<CreateBoardVO>();
-			ListVO<CreateBoardVO> list_cc = new ListVO<CreateBoardVO>(list_c, new PagingBean());
-			System.out.println(list_cc);
+			ArrayList<CreateBoardVO> createList = new ArrayList<CreateBoardVO>();
+			ListVO<CreateBoardVO> listvo = new ListVO<CreateBoardVO>(createList, new PagingBean());
+			listvo.getList().get(0).getAuthority();			//BoardVO
+			listvo.getList().get(0).getCreate_content();	//CreateBoardVO
+			
+			//Generic 이용
+			ArrayList<LineBoardVO> LineList = new ArrayList<LineBoardVO>();
+			ListVO<LineBoardVO> listvo2 = new ListVO<LineBoardVO>(LineList, new PagingBean());
+			listvo2.getList().get(0).getAuthority();		//BoardVO
+			listvo2.getList().get(0).getLine_content();		//LineBoardVO
+			
+			//Generic 이용
+			ArrayList<ReviewBoardVO> ReviewList = new ArrayList<ReviewBoardVO>();
+			ListVO<ReviewBoardVO> listvo3 = new ListVO<ReviewBoardVO>(ReviewList, new PagingBean());
+			listvo3.getList().get(0).getAuthority();		//BoardVO
+			listvo3.getList().get(0).getReview_content();	//ReviewBoardVO
 			
 			
-//			MemberDAO.getInstance().checkMember("a", "1");
+			//MemberDAO.getInstance().checkMember("a", "1");
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
