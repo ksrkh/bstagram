@@ -122,30 +122,41 @@ commit;
  * 한줄게시판 글등록
  */
 create sequence board_seq;
+create sequence book_seq;
 insert into board(board_no, boardtype_no, id, board_regdate, hit, authority, bg_no)
 values(board_seq.nextval, 1, 'kjhsc101218@naver.com', sysdate, 0, 1, 0);
-insert into line_board(board_no, line_title, line_author, line_content, tend_code)
-values(board_seq.currval, '언어의온도', '이기주', '화장실을 깨끗하게 사용해주세요. 이곳을 청소해주시는 분들, 누군가에겐 전부인 사람들입니다.', 8);
+insert into book(book_no, book_title, book_intro, book_author, book_publ, book_sdate, book_edate, book_cate, book_img)
+values(book_seq.nextval, '언어의온도', '『언어의 온도』의 저자 이기주는 엿듣고 기록하는 일을 즐겨 하는 사람이다. 그는 버스나 지하철에 몸을 실으면 몹쓸 버릇이 발동한다고 고백한다. 이 책은 저자가 일상에서 발견한 의미 있는 말과 글, 단어의 어원과 유래, 그런 언어가 지닌 소중함과 절실함을 농밀하게 담아낸 것이다.','이기주', '말푸름', '2016-02-03', '2016-02-05','1', 'https://search.pstatic.net/common/?src=http%3A%2F%2Fbookthumb.phinf.naver.net%2Fcover%2F109%2F245%2F10924505.jpg%3Ftype%3Dm1%26udate%3D20171007&type=o75_108_re24');
+insert into line_board(board_no, line_content, tend_code, book_no)
+values(board_seq.currval, '화장실을 깨끗하게 사용해주세요. 이곳을 청소해주시는 분들, 누군가에겐 전부인 사람들입니다.', 8, 1);
 
 insert into board(board_no, boardtype_no, id, board_regdate, hit, authority, bg_no)
 values(board_seq.nextval, 1, 'kjhsc101218@naver.com', sysdate, 0, 1, 1);
-insert into line_board(board_no, line_title, line_author, line_content, tend_code)
-values(board_seq.currval, '말의품격', '이기주', '당신의 입이아닌 귀를 내어주라', 8);
+insert into book(book_no, book_title, book_intro, book_author, book_publ, book_sdate, book_edate, book_cate,  book_img)
+values(book_seq.nextval, '말의품격', '두 남녀의 아련한 첫사랑 이야기인 동시에  1Q84를 헤쳐나가며 겪게 되는 환상적인 이야기를 그렸다. 압도적인 이야기의 강렬함과 흡인력이 돋보인다. 스타일리시한 여자 암살자 아오마메와 작가지망생 덴고. 꽉 막힌 고속도로의 비상계단을 내려오면서 다른 세계로 접어든 아오마메와, 천재적인 문학성을 가진 열일곱 소녀 후카에리를 만나 기묘한 사건에 휘말리게 된 덴고 앞에 1Q84의 세계가 펼쳐진다. 그들은 몇 개의 달이 떠 있는 하늘 아래에서 만나게 될까? ','이기주', '말푸름', '2016-05-02', '2016-07-08','1', 'https://search.pstatic.net/common/?src=http%3A%2F%2Fbookthumb.phinf.naver.net%2Fcover%2F063%2F231%2F06323153.jpg%3Ftype%3Dm3%26udate%3D20130405&type=o75_108_re24');
+insert into line_board(board_no, line_content, tend_code, book_no)
+values(board_seq.currval, '당신의 입이아닌 귀를 내어주라', 8, 2);
 
 insert into board(board_no, boardtype_no, id, board_regdate, hit, authority, bg_no)
 values(board_seq.nextval, 1, 'kjhsc101218@naver.com', sysdate, 0, 1, 2);
-insert into line_board(board_no, line_title, line_author, line_content, tend_code)
-values(board_seq.currval, '오직두사람', '김영하', '똑같은 패턴이 반복됬어요. 제가 호감을 느끼는 남자를 만나고, 그 남자가 절 이상해하고, 저는 그 남자에게 실망하고, 그러다 헤어지고...', 4);
+insert into book(book_no, book_title, book_intro, book_author, book_publ, book_sdate, book_edate, book_cate,  book_img)
+values(book_seq.nextval, '오직두사람', '히가시노 게이고의 소설 『가면산장 살인사건』. 저자와 독자가 아슬아슬한 두뇌 싸움을 벌이게 되는 이 작품은 외딴 산장에 모인 여덟 명의 남녀와 한밤중에 침입한 은행 강도범의 인질극을 그리고 있다. 잘 짜인 무대에서 벌어지는 연극과도 같은 이 소설은 그 누구도 상상조차 할 수 없었던 엄청난 반전을 담고 있다. 초대된 손님과 2인조 은행 강도 사이에 긴장과 서스펜스가 점차 고조되는 가운데 클라이맥스에 이르러 전개되는 대반전을 만나는 즐거움을 느낄 수 있다.','김영하', '말푸름', '2016-05-02', '2016-07-08','1', 'https://search.pstatic.net/common/?src=http%3A%2F%2Fbookthumb.phinf.naver.net%2Fcover%2F082%2F730%2F08273055.jpg%3Ftype%3Dm1%26udate%3D20170914&type=o75_108_re24');
+insert into line_board(board_no, line_content, tend_code, book_no)
+values(board_seq.currval, '똑같은 패턴이 반복됬어요. 제가 호감을 느끼는 남자를 만나고, 그 남자가 절 이상해하고, 저는 그 남자에게 실망하고, 그러다 헤어지고...', 4, 3);
 
 insert into board(board_no, boardtype_no, id, board_regdate, hit, authority, bg_no)
 values(board_seq.nextval, 1, 'kjhsc101218@naver.com', sysdate, 0, 1, 3);
-insert into line_board(board_no, line_title, line_author, line_content, tend_code)
-values(board_seq.currval, '보통의존재', '이석원', '잘 생각해보세요. 내가 듣기 좋은 말만 하거나 당신에 대해 어떤 반대도 하지 않았다면 난 당신을 정말로 좋아하는 것은 아니에요. 친하다고 생각하지 않는거죠. 솔직하다는 말을 많이듣는 편이지만 정확히 말하면 난 나에대해서만 솔직해요.', 3);
+insert into book(book_no, book_title, book_intro, book_author, book_publ, book_sdate, book_edate, book_cate,  book_img)
+values(book_seq.nextval, '보통의존재', '히가시노 게이고 문학의 정수로 일컬어지는 추리 소설 『용의자 X의 헌신』. 일본 문학 전문 번역가 양억관이 자신의 번역을 대폭 손질해 원작이 지닌 문학적 향기와 감동을 오롯이 되살려냈다. 일본 추리소설에서 흔히 보여 지는 잔혹함이나 엽기 호러가 아닌 사랑과 헌신이라는 고전적이며 낭만적인 테마를 미로처럼 섬세하게 엮어낸 슬프고 아름다운 이야기로, 제134회 나오키상을 수상했다. ','이석원', '말푸름', '2014-05-02', '2016-07-08','2', 'https://search.pstatic.net/common/?src=http%3A%2F%2Fbookthumb.phinf.naver.net%2Fcover%2F124%2F818%2F12481857.jpg%3Ftype%3Dm1%26udate%3D20170914&type=o75_108_re24');
+insert into line_board(board_no, line_content, tend_code, book_no)
+values(board_seq.currval, '잘 생각해보세요. 내가 듣기 좋은 말만 하거나 당신에 대해 어떤 반대도 하지 않았다면 난 당신을 정말로 좋아하는 것은 아니에요. 친하다고 생각하지 않는거죠. 솔직하다는 말을 많이듣는 편이지만 정확히 말하면 난 나에대해서만 솔직해요.', 3, 4);
 
 insert into board(board_no, boardtype_no, id, board_regdate, hit, authority, bg_no)
 values(board_seq.nextval, 1, 'kjhsc101218@naver.com', sysdate, 0, 1, 4);
-insert into line_board(board_no, line_title, line_author, line_content, tend_code)
-values(board_seq.currval, '같은시간에 우린 어쩌면', '변종모', '"나만의" 라고 쓰려다가 "나의"라고 쓴다. 많은사람이 당신을 두고 "나만의"라고 쓰고싶어 한다는것을 알기에 당신은 그런사람이기에..', 3);
+insert into book(book_no, book_title, book_intro, book_author, book_publ, book_sdate, book_edate, book_cate, book_img)
+values(book_seq.nextval, '같은시간에 우린 어쩌면', '『말의 품격』은 《언어의 온도》로 많은 독자의 공감을 얻은 이기주 작가의 에세이집이다. 경청, 공감, 반응, 뒷말, 인향, 소음 등의 24개의 키워드를 통해 말과 사람과 품격에 대한 생각들을 풀어낸다. 저자의 인문학적 소양을 바탕과 감성이 더해져 볼거리와 생각거리를 동시에 전한다. 한 장 한 장 넘길 때마다 자신의 말과 세계관에 대해 끝없는 질문을 던지게 될 것이다.', '변종모', '말푸름', '2010-05-02', '2011-07-02','3', 'https://search.pstatic.net/common/?src=http%3A%2F%2Fbookthumb.phinf.naver.net%2Fcover%2F120%2F222%2F12022296.jpg%3Ftype%3Dm1%26udate%3D20170922&type=o75_108_re24');
+insert into line_board(board_no, line_content, tend_code, book_no)
+values(board_seq.currval, '"나만의" 라고 쓰려다가 "나의"라고 쓴다. 많은사람이 당신을 두고 "나만의"라고 쓰고싶어 한다는것을 알기에 당신은 그런사람이기에..', 3, 5);
 
 
 /*
@@ -153,10 +164,12 @@ values(board_seq.currval, '같은시간에 우린 어쩌면', '변종모', '"나
  */
 insert into board(board_no, boardtype_no, id, board_regdate, hit, authority, bg_no)
 values(board_seq.nextval, 2, 'will0324@hanmail.net', sysdate, 0, 1, 0);
-insert into review_board(board_no, book_title, book_author, review_title, review_content, star_point, book_img, genre)
-values(board_seq.currval, '독후감 잘 쓰는 법', '이병승', '매력적인 제목, 인상적인 시작', '독후감을 심사할 때 중요하게 여기는 부분은 처음 시작 대목이다. 첫 부분이 어색하거나 밋밋하다면 한 수준 아래로 글을 평가한다. 심사해야 할 원고가 많으면 많을수록 첫 부분은 더욱 중요해진다. 
+insert into book(book_no, book_title, book_intro, book_author, book_publ, book_sdate, book_edate, book_cate, book_img)
+values(book_seq.nextval, '독후감 잘 쓰는 법', '히가시노 게이고의 소설 『가면산장 살인사건』. 저자와 독자가 아슬아슬한 두뇌 싸움을 벌이게 되는 이 작품은 외딴 산장에 모인 여덟 명의 남녀와 한밤중에 침입한 은행 강도범의 인질극을 그리고 있다. 잘 짜인 무대에서 벌어지는 연극과도 같은 이 소설은 그 누구도 상상조차 할 수 없었던 엄청난 반전을 담고 있다. 초대된 손님과 2인조 은행 강도 사이에 긴장과 서스펜스가 점차 고조되는 가운데 클라이맥스에 이르러 전개되는 대반전을 만나는 즐거움을 느낄 수 있다.', '이병승', '말푸름', '2011-04-02', '2015-07-03','4', 'https://search.pstatic.net/common/?src=http%3A%2F%2Fbookthumb.phinf.naver.net%2Fcover%2F082%2F730%2F08273055.jpg%3Ftype%3Dm1%26udate%3D20170914&type=o75_108_re24');
+insert into review_board(board_no, review_title, review_content, star_point, genre, book_no)
+values(board_seq.currval, '매력적인 제목, 인상적인 시작', '독후감을 심사할 때 중요하게 여기는 부분은 처음 시작 대목이다. 첫 부분이 어색하거나 밋밋하다면 한 수준 아래로 글을 평가한다. 심사해야 할 원고가 많으면 많을수록 첫 부분은 더욱 중요해진다. 
 가장 재미없는 독후감 제목은 책 이름을 그대로 쓰는 경우다. 그보다 조금 나은 제목은 ‘~을 읽고’라는 제목이다. 그렇다면 최고 수준의 제목은 무엇일까. 가장 눈길을 끄는 제목은 자신이 생각하는 책에 대한 주제를 주제목으로 하고 부제목으로 ‘~을 읽고’라고 쓴 제목이다.
-예를 들어 피노키오를 읽고 ‘인간이 되고픈 피노키오의 간절한 소망을 응원하며’ ‘인간으로 다시 탄생한 착한 목각 인형’ 등과 같이 주제목으로 결정할 수 있다. 그러나 제목은 글을 쓴 후 가장 나중에 붙여도 된다는 것을 명심하자. ',0,'bookThumnail',5);
+예를 들어 피노키오를 읽고 ‘인간이 되고픈 피노키오의 간절한 소망을 응원하며’ ‘인간으로 다시 탄생한 착한 목각 인형’ 등과 같이 주제목으로 결정할 수 있다. 그러나 제목은 글을 쓴 후 가장 나중에 붙여도 된다는 것을 명심하자. ',0,5, 6);
 
 
 /*
@@ -278,3 +291,4 @@ drop sequence board_seq;
 drop sequence background_seq;
 drop sequence replyno_seq;
 drop sequence rereplyno_seq;
+drop sequence book_seq;

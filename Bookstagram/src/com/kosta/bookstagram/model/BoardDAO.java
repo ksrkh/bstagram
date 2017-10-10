@@ -52,13 +52,8 @@ public abstract class BoardDAO extends CommonDAO implements BoardListener{
 	}
 
 	@Override
-	public void likeBoard(String id, int boardNo) throws SQLException {
+	public void likeService(String id, int boardNo) throws SQLException {
 		System.out.println("likeBoard() 실행");
-	}
-
-	@Override
-	public void cancelLike(String id, int boardNo) throws SQLException {
-		System.out.println("cancelLike() 실행");
 	}
 
 	@Override

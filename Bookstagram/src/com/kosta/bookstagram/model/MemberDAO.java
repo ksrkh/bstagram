@@ -12,7 +12,7 @@ public class MemberDAO extends CommonDAO implements MemberListener{
 	public static MemberDAO getInstance(){return instance;}
 
 	@Override
-	public MemberVO logIn(String id, String pw) throws SQLException {
+	public MemberVO checkMember(String id, String pw) throws SQLException {
 		System.out.println("logIn() 실행");
 		return null;
 	}

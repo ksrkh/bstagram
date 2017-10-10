@@ -91,20 +91,8 @@ public interface BoardListener {
 	 * @param 	boardNo			게시글번호
 	 * @throws 	SQLException
 	 */
-	public void likeBoard(String id, int boardNo) throws SQLException;
-	
-	/**
-	 * <pre>
-	 * <b>메서드 설명</b>
-	 *    -게시글의 대한 공감을 취소하는 기능입니다.
-	 * </pre>
-	 * 
-	 * @param	id				아이디
-	 * @param 	boardNo			게시글번호
-	 * @throws 	SQLException
-	 */
-	public void cancelLike(String id, int boardNo) throws SQLException;
-	
+	public void likeService(String id, int boardNo) throws SQLException;
+
 	/**
 	 * <pre>
 	 * <b>메서드 설명</b>

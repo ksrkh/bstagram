@@ -18,7 +18,7 @@ public interface MemberListener {
 	 * @return 	MemberVO		회원객체를 리턴합니다.
 	 * @throws	SQLException
 	 */
-	public MemberVO logIn(String id, String pw) throws SQLException;
+	public MemberVO checkMember(String id, String pw) throws SQLException;
 	
 	/**
 	 * <pre>
