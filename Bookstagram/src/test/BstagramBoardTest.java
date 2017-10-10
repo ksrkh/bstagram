@@ -11,6 +11,8 @@ import com.kosta.bookstagram.model.MemberDAO;
 import com.kosta.bookstagram.model.MemberVO;
 import com.kosta.bookstagram.model.ReviewBoardDAO;
 import com.kosta.bookstagram.model.ReviewBoardVO;
+import com.kosta.bookstagram.model.common.ListVO;
+import com.kosta.bookstagram.model.common.PagingBean;
 
 public class BstagramBoardTest {
 	public static void main(String[] args) {
@@ -164,8 +166,14 @@ public class BstagramBoardTest {
 			System.out.println("*************************************");
 			
 			
-		
+			//Generic 이용
+			/*
 			
+			ArrayList<CreateBoardVO> list_c = new ArrayList<CreateBoardVO>();
+			ListVO<CreateBoardVO> list_cc = new ListVO<CreateBoardVO>(list_c, new PagingBean());
+			System.out.println(list_cc);
+			
+			*/
 			
 //			MemberDAO.getInstance().checkMember("a", "1");
 			
