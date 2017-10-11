@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- 기능의 UI를 담당하는 부분(컨테이너) -->
 <div class="container">
 	<!-- 현재 페이지의 타이틀  -->
@@ -20,149 +21,17 @@
 			</thead>
 			<tbody>
 			
-				<!-- start // 추후 for로 돌릴 구간입니다. -->
+				<!-- start for -->
+				<c:forEach var="cbvo" items="${requestScope.clist}">	
 				<tr>
-					<td>1</td>
-					<td>john@example.com</td>
-					<td><a href="ex-creation_content.jsp">제목입니다. 블라블라 블라.제목입니다. 블라블라 블라.제목입니다. 블라블라 블라.제목입니다. 블라블라 블라</a></td>
-					<td>2017-10-02</td>
-					<td>0</td>
+					<td>${cbvo.board_no}</td>
+					<td>${cbvo.id}</td>
+					<td><a href="DispatcherServlet?command=createpostdetail&board_no=${cbvo.board_no}">${cbvo.create_title}</a></td>
+					<td>${cbvo.board_regdate}</td>
+					<td>${cbvo.hit}</td>
 				</tr>
-				<tr>
-					<td>2</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-				</tr>
-				<tr>
-					<td>4</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-				</tr>
-				<tr>
-					<td>5</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-				</tr>
-				<tr>
-					<td>6</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-				</tr>
-				<tr>
-					<td>7</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-				</tr>
-				<tr>
-					<td>8</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-				</tr>
-				<tr>
-					<td>9</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-				</tr>
-				<tr>
-					<td>10</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-				</tr>
-				<tr>
-					<td>11</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-				</tr>
-				<tr>
-					<td>12</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-				</tr>
-				<tr>
-					<td>13</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-				</tr>
-				<tr>
-					<td>14</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-				</tr>
-				<tr>
-					<td>15</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라.</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-				</tr>
-				<tr>
-					<td>16</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라.</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-				</tr>
-				<tr>
-					<td>17</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라.</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-				</tr>
-				<tr>
-					<td>18</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라.</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-				</tr>
-				<tr>
-					<td>19</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라.</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-				</tr>
-				<tr>
-					<td>20</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라.</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-				</tr>
-				<!-- end // 추후 for 로 돌릴 구간입니다. -->
-				
+				</c:forEach>
+				<!-- end for -->
 			</tbody>
 		</table>
 	</div>

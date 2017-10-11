@@ -94,13 +94,13 @@
 				<div class="form-group" style="width: 350px; height: 36px;">
 					<label class="col-lg-4 control-label" style="padding-top: 4px">아이디</label>
 					<div class="col-lg-8">
-						<input type="text" class="form-control" id="pw_answer" name="id" placeholder="아이디">
+						<input type="text" class="form-control" id="userid" name="id" placeholder="아이디">
 					</div>
 				</div>
 				<div class="form-group" style="width: 350px; height: 36px;">
 					<label class="col-lg-4 control-label" style="padding-top: 4px">비밀번호</label>
 					<div class="col-lg-8">
-						<input type="text" class="form-control" id="pw_answer" name="pw" placeholder="비밀번호">
+						<input type="text" class="form-control" id="userpw" name="pw" placeholder="비밀번호">
 					</div>
 				</div>
 			</form>

@@ -92,11 +92,10 @@ public class BoardVO {
 	 * @param nick				닉네임
 	 * @param board_regdate		게시글생성일짜
 	 * @param hit				조회수
-	 * @param sympathy			공감
 	 * @param authority			공개권한
 	 * @param bg_no				배경번호
 	 */
-	public BoardVO(int board_no, int boardtype_no, String nick, String board_regdate, int hit, int sympathy,
+	public BoardVO(int board_no, int boardtype_no, String nick, String board_regdate, int hit,
 	         int authority, int bg_no) {
 	     super();
 	     this.board_no = board_no;
@@ -104,7 +103,6 @@ public class BoardVO {
 	     this.nick = nick;
 	     this.board_regdate = board_regdate;
 	     this.hit = hit;
-	     this.sympathy = sympathy;
 	     this.authority = authority;
 	     this.bg_no = bg_no;
 	}

@@ -13,15 +13,14 @@ public class LoginController implements Controller {
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 		MemberVO member = MemberDAO.getInstance().checkMember(id, pw);
+		
 		if(member != null) {
 			System.out.println("Login Session Ok !");
-			
-			
+			return "home.jsp";
 		}else {
 			System.out.println("Login and Session Failed");
-			
-			
+			return "fail";
 		}
-		return "home.jsp";
+		
 	}
 }

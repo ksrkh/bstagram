@@ -1,6 +1,7 @@
 package com.kosta.bookstagram.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,16 +24,20 @@ public class DispatcherServlet extends HttpServlet {
 	
 	protected void handler(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
+			PrintWriter out=response.getWriter();
 			
 			String command = request.getParameter("command");
 			String url = HandlerMapping.getInstance().create(command).execute(request, response).trim();
 			
-			if (url.startsWith("redirect:"))
+			
+			if(url.equals("fail")) {
+				out.print("fail");
+				out.close();
+			}else if (url.startsWith("redirect:")) {
 				response.sendRedirect(url.substring(9));
-			else
+			}else {
 				request.getRequestDispatcher(url).forward(request, response);
-			
-			
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
