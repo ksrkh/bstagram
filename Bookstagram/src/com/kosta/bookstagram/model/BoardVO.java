@@ -98,15 +98,30 @@ public class BoardVO {
 	 */
 	public BoardVO(int board_no, int boardtype_no, String nick, String board_regdate, int hit, int sympathy,
 	         int authority, int bg_no) {
-	      super();
-	      this.board_no = board_no;
-	      this.boardtype_no = boardtype_no;
-	      this.nick = nick;
-	      this.board_regdate = board_regdate;
-	      this.hit = hit;
-	      this.sympathy = sympathy;
-	      this.authority = authority;
-	      this.bg_no = bg_no;
+	     super();
+	     this.board_no = board_no;
+	     this.boardtype_no = boardtype_no;
+	     this.nick = nick;
+	     this.board_regdate = board_regdate;
+	     this.hit = hit;
+	     this.sympathy = sympathy;
+	     this.authority = authority;
+	     this.bg_no = bg_no;
+	}
+	
+	/**
+	 * 창작게시글 목록보기 필요한 부모 생성자<br/>
+	 * @param board_no        	게시글번호
+	 * @param nick            	닉네임
+	 * @param board_regdate		게시글생성일짜
+	 * @param hit				조회수
+	 */
+	public BoardVO(int board_no, String nick, String board_regdate, int hit) {
+	    super();
+	    this.board_no = board_no;
+	    this.nick = nick;
+	    this.board_regdate = board_regdate;
+	    this.hit = hit;
 	}
 
 	public int getBoard_no() {
