@@ -26,4 +26,22 @@ public class MemberSQL {
 			"(id, pw, nick, age, regdate, m_photo, temp, tend_code, tend_code2, tend_code3, tier, question_code, pw_ans) " + 
 			"values(?, ?, ?, ?, sysdate, null, null, ?, ?, ?, 1, ?, ?)";
 	
+	/**
+	 * 회원 아이디 중복체크
+	 */
+	public final static String dupleById = 
+			"select id,nick from member where id=?";
+	
+	/**
+	 * 회원가입시 비밀번호 찾기 질문목록
+	 */
+	public final static String pwQuestionList = 
+			"select * from question";
+			
+	/**
+	* 회원가입시 성향 가져오기
+	*/
+	public final static String tendList =
+			"select * from tend";
+	
 }
