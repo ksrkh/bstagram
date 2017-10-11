@@ -3,13 +3,10 @@ package test;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.kosta.bookstagram.model.CreateBoardDAO;
 import com.kosta.bookstagram.model.CreateBoardVO;
-import com.kosta.bookstagram.model.LineBoardDAO;
 import com.kosta.bookstagram.model.LineBoardVO;
 import com.kosta.bookstagram.model.MemberDAO;
 import com.kosta.bookstagram.model.MemberVO;
-import com.kosta.bookstagram.model.ReviewBoardDAO;
 import com.kosta.bookstagram.model.ReviewBoardVO;
 import com.kosta.bookstagram.model.common.ListVO;
 import com.kosta.bookstagram.model.common.PagingBean;
@@ -85,107 +82,32 @@ public class BstagramBoardTest {
 		try {
 			// ****************************************************************************
 			
-			
-			System.out.println("[ CommonDAO ]");
-			//MemberDAO로  getConnection()을 실행했지만, CommonDAO 의 getConnection을 바라보고있음
-			MemberDAO.getInstance().getConnection();
-			System.out.println();
-			
-			System.out.println("[ MemberDAO ]");
-			MemberDAO.getInstance().checkMember("아이디", "비밀번호");
-			MemberDAO.getInstance().addMember(new MemberVO());
-			MemberDAO.getInstance().updateMember(new MemberVO());
-			MemberDAO.getInstance().withDrawMember("아이디");
-			System.out.println();
-			
-			
-			// ****************************************************************************
-			
-			
-			System.out.println("[ CreateBoardDAO ]");
-			//CreateBoardDAO로 getConnection()을 실행했지만, CommonDAO 의 getConnection을 바라보고있음
-			CreateBoardDAO.getInstance().getConnection();
-			//추상 클래스 상속받아 insert,update,delete,select 강제화
-			//addReply, addLike, addHit 메서드는 BoardDAO 클래스의 메서드를 가리킴
-			CreateBoardDAO.getInstance().registerReply("아이디", 1, "리플내용");
-			CreateBoardDAO.getInstance().likeService("아이디",1);
-			CreateBoardDAO.getInstance().hits(1);
-			CreateBoardDAO.getInstance().insertBoard(new CreateBoardVO());
-			CreateBoardDAO.getInstance().updateBoard(new CreateBoardVO());
-			CreateBoardDAO.getInstance().deleteBoard(1);
-			
-			//상세보기 VO객체 캐스팅
-			ArrayList<CreateBoardVO> list = new ArrayList<CreateBoardVO>();
-			for(int i=0; i<CreateBoardDAO.getInstance().boardList(1).size();i++) {
-				list.add((CreateBoardVO)CreateBoardDAO.getInstance().boardList(1).get(i));
-			}
-			
-			//다운캐스팅 필요
-			@SuppressWarnings("unused")
-			CreateBoardVO board = (CreateBoardVO) CreateBoardDAO.getInstance().selectBoard(1);
-			//board.getAuthority();
-			//board.getBg_no();
-			//board.getBoard_no();
-			//board.getBoard_regdate();
-			//board.getBoardtype_no();
-			//board.getCategory();
-			//board.getCreate_content();
-			//board.getCreate_title();
-			//board.getHit();
-			//board.getId();
-			//board.getSympathy();
-			System.out.println();
-			
-			
-			// ****************************************************************************
-			
-			
-			System.out.println("[ LineBoardDAO ]");
-			LineBoardDAO.getInstance().registerReply("아이디", 1, "리플내용");
-			LineBoardDAO.getInstance().likeService("아이디",1);
-			LineBoardDAO.getInstance().hits(1);
-			LineBoardDAO.getInstance().insertBoard(new LineBoardVO());
-			LineBoardDAO.getInstance().updateBoard(new LineBoardVO());
-			LineBoardDAO.getInstance().deleteBoard(1);
-			LineBoardDAO.getInstance().selectBoard(1);			
-			System.out.println();
-			
-			
-			// ****************************************************************************
-			
-			
-			System.out.println("[ ReviewBoardDAO ]");
-			ReviewBoardDAO.getInstance().registerReply("아이디", 1, "리플내용");
-			ReviewBoardDAO.getInstance().likeService("아이디",1);
-			ReviewBoardDAO.getInstance().hits(1);
-			ReviewBoardDAO.getInstance().insertBoard(new ReviewBoardVO());
-			ReviewBoardDAO.getInstance().updateBoard(new ReviewBoardVO());
-			ReviewBoardDAO.getInstance().deleteBoard(1);
-			ReviewBoardDAO.getInstance().selectBoard(1);		
-			System.out.println();
-			System.out.println("*************************************");
-			
-			
 			//Generic 이용
-			ArrayList<CreateBoardVO> createList = new ArrayList<CreateBoardVO>();
-			ListVO<CreateBoardVO> listvo = new ListVO<CreateBoardVO>(createList, new PagingBean());
+			//ArrayList<CreateBoardVO> createList = new ArrayList<CreateBoardVO>();
+			//ListVO<CreateBoardVO> listvo = new ListVO<CreateBoardVO>(createList, new PagingBean());
 			//listvo.getList().get(0).getAuthority();			//BoardVO
 			//listvo.getList().get(0).getCreate_content();	//CreateBoardVO
 			
 			//Generic 이용
-			ArrayList<LineBoardVO> LineList = new ArrayList<LineBoardVO>();
-			ListVO<LineBoardVO> listvo2 = new ListVO<LineBoardVO>(LineList, new PagingBean());
+			//ArrayList<LineBoardVO> LineList = new ArrayList<LineBoardVO>();
+			//ListVO<LineBoardVO> listvo2 = new ListVO<LineBoardVO>(LineList, new PagingBean());
 			//listvo2.getList().get(0).getAuthority();		//BoardVO
 			//listvo2.getList().get(0).getLine_content();		//LineBoardVO
 			
 			//Generic 이용
-			ArrayList<ReviewBoardVO> ReviewList = new ArrayList<ReviewBoardVO>();
-			ListVO<ReviewBoardVO> listvo3 = new ListVO<ReviewBoardVO>(ReviewList, new PagingBean());
+			//ArrayList<ReviewBoardVO> ReviewList = new ArrayList<ReviewBoardVO>();
+			//ListVO<ReviewBoardVO> listvo3 = new ListVO<ReviewBoardVO>(ReviewList, new PagingBean());
 			//listvo3.getList().get(0).getAuthority();		//BoardVO
 			//listvo3.getList().get(0).getReview_content();	//ReviewBoardVO
 			
 			System.out.println("[ MemberDAO ]");
+			//조회테스트
 			System.out.println(MemberDAO.getInstance().checkMember("a", "1").toString());
+			//회원가입테스트
+			//MemberDAO.getInstance().addMember(new MemberVO("b", "1234", "n", 23, null, 0, 0, 0, 1, 2, "주녕이형"));
+			System.out.println(MemberDAO.getInstance().checkMember("b", "1234").toString());
+
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
