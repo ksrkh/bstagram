@@ -6,6 +6,7 @@ import com.kosta.bookstagram.controller.CreationPostDetailController;
 import com.kosta.bookstagram.controller.CreationPostWriteController;
 import com.kosta.bookstagram.controller.JoinController;
 import com.kosta.bookstagram.controller.LoginController;
+import com.kosta.bookstagram.controller.ViewMyBoardController;
 import com.kosta.bookstagram.controller.listener.Controller;
 
 public class HandlerMapping {
@@ -33,6 +34,9 @@ public class HandlerMapping {
 			controller = new CreationPostDetailController();
 		else if (command.equals("deletePosting"))
 			controller = new CreationPostDeleteController();
+		else if(command.equals("viewMyBoard")) 
+			controller=new ViewMyBoardController();	
+		
 		
 		return controller;
 	}
