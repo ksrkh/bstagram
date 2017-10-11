@@ -1,15 +1,11 @@
 package test;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 import com.kosta.bookstagram.model.CreateBoardVO;
 import com.kosta.bookstagram.model.LineBoardVO;
 import com.kosta.bookstagram.model.MemberDAO;
-import com.kosta.bookstagram.model.MemberVO;
 import com.kosta.bookstagram.model.ReviewBoardVO;
-import com.kosta.bookstagram.model.common.ListVO;
-import com.kosta.bookstagram.model.common.PagingBean;
 
 public class BstagramBoardTest {
 	public static void main(String[] args) {
