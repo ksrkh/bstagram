@@ -89,7 +89,8 @@
 			<hr>
 		</div>
 		<div style="width: 350px;height: 150px">
-			<form action="DispatcherServlet" name="loginFrame" method="post">
+			<form action="DispatcherServlet" id="loginFrame" method="post">
+				<input type="hidden" name="command" value="Login">
 				<div class="form-group" style="width: 350px; height: 36px;">
 					<label class="col-lg-4 control-label" style="padding-top: 4px">아이디</label>
 					<div class="col-lg-8">
@@ -109,7 +110,7 @@
 				<a href="#">비밀번호찾기</a>
 				</label>
 				<div class="col-lg-6">
-					<input type="button" class="btn btn-info" value="로그인" style="width: 140px">
+					<input type="button" class="btn btn-info login" value="로그인" style="width: 140px">
 				</div>
 			</div>
 		</div>

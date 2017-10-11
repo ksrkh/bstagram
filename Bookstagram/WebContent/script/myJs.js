@@ -100,6 +100,12 @@ $( document ).ready( function() {
 	$('.creation_write').click(function () {
 		location.href="ex-creation_write.jsp";
 	});
+	
+	
+	//로그인 버튼 클릭시 submit
+	$('.login').click(function () {
+		$('#loginFrame').submit();
+	});
 });
 
 
