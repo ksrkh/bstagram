@@ -27,7 +27,7 @@ public class ReviewBoardDAO extends BoardDAO{
 		return null;}
 	
 	@Override
-	public ArrayList<BoardVO> boardList(int boardType) throws SQLException {
+	public ArrayList<BoardVO> boardList() throws SQLException {
 		//사용 예시
 		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
 		list.add(new ReviewBoardVO());

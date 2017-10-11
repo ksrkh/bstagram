@@ -117,7 +117,7 @@ public class CreateBoardDAO extends BoardDAO {
 	
 	//창작 글 목록 start
 	@Override
-	public ArrayList<BoardVO> boardList(int boardType) throws SQLException {
+	public ArrayList<BoardVO> boardList() throws SQLException {
 		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
 		Connection con = null;
 		PreparedStatement pstmt = null;

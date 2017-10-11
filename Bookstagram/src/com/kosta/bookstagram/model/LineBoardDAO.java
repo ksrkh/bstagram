@@ -50,7 +50,7 @@ public class LineBoardDAO extends BoardDAO{
 	* 첫 메인 페이지 view
 	*/
 	@Override
-	public ArrayList<BoardVO> boardList(int boardType) throws SQLException {
+	public ArrayList<BoardVO> boardList() throws SQLException {
 		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
 		//사용 예시
 		list.add(new LineBoardVO());

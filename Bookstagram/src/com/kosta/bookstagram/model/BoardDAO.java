@@ -143,5 +143,5 @@ public abstract class BoardDAO extends CommonDAO implements BoardListener{
 	 * @return	ArrayList<BoardVO>	게시판의 타입번호로 조회한 게시판의 리스트
 	 * @throws	SQLException
 	 */
-	public abstract ArrayList<BoardVO> boardList(int boardType) throws SQLException;
+	public abstract ArrayList<BoardVO> boardList() throws SQLException;
 }
