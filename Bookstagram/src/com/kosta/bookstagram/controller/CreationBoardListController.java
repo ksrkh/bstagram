@@ -14,17 +14,12 @@ import com.kosta.bookstagram.model.CreateBoardVO;
 public class CreationBoardListController implements Controller {
 
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, SQLException {
 		ArrayList<CreateBoardVO> list=new ArrayList<CreateBoardVO>();
-		try {
 			for(int i=0; i<CreateBoardDAO.getInstance().boardList().size();i++) {
 				list.add((CreateBoardVO)CreateBoardDAO.getInstance().boardList().get(i));
 			}	
 			request.setAttribute("clist", list);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		return"layout/body/creation_list.jsp";
 	}
 

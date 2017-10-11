@@ -70,7 +70,7 @@ function updateCreatePost(){
 			</div>
 		</div>
 	
-		<!-- 작석 버튼/취소 버튼 -->
+		<!-- 작성 버튼/취소 버튼 -->
 		<div class="row" style="margin-bottom: 30px">
 			<div class="col-lg-12">
 				<button type="reset" class="btn btn-default"  style="float:right" onclick="golist()">목록으로</button>

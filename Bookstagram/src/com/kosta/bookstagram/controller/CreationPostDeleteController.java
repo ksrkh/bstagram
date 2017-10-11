@@ -12,14 +12,9 @@ import com.kosta.bookstagram.model.CreateBoardDAO;
 public class CreationPostDeleteController implements Controller {
 
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, SQLException {
 		int boardNo=Integer.parseInt(request.getParameter("board_no"));
-		try {
 			CreateBoardDAO.getInstance().deleteBoard(boardNo);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		return "ex-creation.jsp";
 	}
 
