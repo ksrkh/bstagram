@@ -82,7 +82,6 @@ public class ReviewBoardVO extends BoardVO{
 	 * @param nick				닉네임
 	 * @param board_regdate		게시글등록일자
 	 * @param hit				조회수
-	 * @param sympathy			공감
 	 * @param authority			공개권한
 	 * @param bg_no				게시글배경번호
 	 * @param review_title		리뷰제목
@@ -91,10 +90,10 @@ public class ReviewBoardVO extends BoardVO{
 	 * @param genre				리뷰장르
 	 * @param book_no			리뷰책번호
 	 */
-	public ReviewBoardVO(int board_no, int boardtype_no, String nick, String board_regdate, int hit, int sympathy,
+	public ReviewBoardVO(int board_no, int boardtype_no, String nick, String board_regdate, int hit,
 			int authority, int bg_no, String review_title, String review_content, int star_point, int genre,
 			int book_no) {
-		super(board_no, boardtype_no, nick, board_regdate, hit, sympathy, authority, bg_no);
+		super(board_no, boardtype_no, nick, board_regdate, hit, authority, bg_no);
 		this.review_title = review_title;
 		this.review_content = review_content;
 		this.star_point = star_point;

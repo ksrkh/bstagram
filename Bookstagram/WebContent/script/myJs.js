@@ -104,7 +104,23 @@ $( document ).ready( function() {
 	
 	//로그인 버튼 클릭시 submit
 	$('.login').click(function () {
-		$('#loginFrame').submit();
+		var id = $('#userid').val();
+		var pw = $('#userpw').val();
+		$.ajax({
+			type:"post",
+			url: "DispatcherServlet",
+			data:"command=Login&id="+id+"&pw="+pw,
+			success:function(data){//data로 서버의 응답 정보가 들어온다.
+				if(data == "fail")
+					alert("로그인실패");
+			},
+			//응답 제한시간은 1초 
+			//1초가 넘어갈경우 에러임
+			timeout: 1000,
+			error: function() {
+				alert("timeout error");
+			}
+		});
 	});
 });
 

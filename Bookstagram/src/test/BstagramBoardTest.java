@@ -56,7 +56,7 @@ public class BstagramBoardTest {
 		 * 창작게시판 테스트
 		 */
 		System.out.println("****************************** CreateBoard VO객체 테스트 ********************************");
-		CreateBoardVO createVO = new CreateBoardVO(3, 3, "orangss@naver.com", "2017-09-01", 0, 0, 1, 0, "창작의 시작", "창작한 내용", 4);
+		CreateBoardVO createVO = new CreateBoardVO(3, 3, "orangss@naver.com", "2017-09-01", 0, 1, 0, "창작의 시작", "창작한 내용", 4);
 		System.out.println("게시판번호 :" + createVO.getBoard_no());
 		System.out.println("게시판타입번호 :" + createVO.getBoardtype_no());
 		System.out.println("작성자 :" + createVO.getId());
