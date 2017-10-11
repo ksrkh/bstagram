@@ -104,15 +104,4 @@ public interface BoardListener {
 	 */
 	public void hits(int boardNo) throws SQLException;
 	
-	/**
-	 * <pre>
-	 * <b>메서드 설명</b>
-	 *    -게시글의 개수를 받아오는 기능입니다
-	 * </pre>
-	 * 
-	 * @param    boardType     게시글 타입번호
-	 * @param    id            사용자 id
-	 * @throws   SQLException
-	 */
-	public int totalCountByBoardNId(int boardType, String id) throws SQLException;
 }

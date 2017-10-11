@@ -55,10 +55,10 @@ public class ReviewBoardVO extends BoardVO{
 	
 	/**
 	 * -리뷰 게시글 작성용 생성자입니다.<br/>
-	 * @param boardtype_no	게시글타입번호
-	 * @param id			아이디
-	 * @param authority		공개권한
-	 * @param bg_no			게시글배경번호
+	 * @param boardtype_no		게시글타입번호
+	 * @param id				아이디
+	 * @param authority			공개권한
+	 * @param bg_no				게시글배경번호
 	 * @param review_title		리뷰제목
 	 * @param review_content	리뷰내용
 	 * @param star_point		리뷰별점
