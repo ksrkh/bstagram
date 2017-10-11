@@ -111,7 +111,7 @@
 			</form>
 			<div class="form-group" style="width: 350px; height: 36px;margin-top: 15px">
 				<label class="col-lg-6 control-label" style="padding-top: 4px">
-				<a href="ex-join.jsp">회원가입</a>&nbsp;
+				<a href="DispatcherServlet?command=JoinForm">회원가입</a>&nbsp;
 				<a href="#">비밀번호찾기</a>
 				</label>
 				<div class="col-lg-6">

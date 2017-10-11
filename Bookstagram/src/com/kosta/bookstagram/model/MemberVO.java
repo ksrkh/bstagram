@@ -92,25 +92,21 @@ public class MemberVO {
 	 * @param pw			비밀번호
 	 * @param nick			닉네임
 	 * @param age			나이
-	 * @param m_photo		프로필사진
 	 * @param tend_code		성향
 	 * @param tend_code2	성향
 	 * @param tend_code3	성향
-	 * @param tier			회원등급
 	 * @param question_code	비밀번호 찾기 질문코드
 	 * @param pw_ans		비밀번호 찾기 질문답변
 	 */
-	public MemberVO(String id, String pw, String nick, int age, String m_photo, int tend_code,
-			int tend_code2, int tend_code3, int tier, int question_code, String pw_ans) {
+	public MemberVO(String id, String pw, String nick, int age, int tend_code,
+			int tend_code2, int tend_code3, int question_code, String pw_ans) {
 		this.id = id;
 		this.pw = pw;
 		this.nick = nick;
 		this.age = age;
-		this.m_photo = m_photo;
 		this.tend_code = tend_code;
 		this.tend_code2 = tend_code2;
 		this.tend_code3 = tend_code3;
-		this.tier = tier;
 		this.question_code = question_code;
 		this.pw_ans = pw_ans;
 	}
