@@ -111,8 +111,12 @@ $( document ).ready( function() {
 			url: "DispatcherServlet",
 			data:"command=Login&id="+id+"&pw="+pw,
 			success:function(data){//data로 서버의 응답 정보가 들어온다.
-				if(data == "fail")
+				if(data == "fail"){
 					alert("로그인실패");
+				}else if(data == "success"){
+					alert("로그인성공");
+					location.href="home.jsp"
+				}
 			},
 			//응답 제한시간은 1초 
 			//1초가 넘어갈경우 에러임
