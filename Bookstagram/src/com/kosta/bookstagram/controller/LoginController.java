@@ -16,10 +16,16 @@ public class LoginController implements Controller {
 		
 		if(member != null) {
 			System.out.println("Login Session Ok !");
-			return "home.jsp";
+			
+			
+			
+			return "login:success";
 		}else {
 			System.out.println("Login and Session Failed");
-			return "fail";
+			
+			
+			
+			return "login:fail";
 		}
 		
 	}
