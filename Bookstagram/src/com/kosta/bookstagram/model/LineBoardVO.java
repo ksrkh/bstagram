@@ -42,20 +42,17 @@ public class LineBoardVO extends BoardVO{
 
 	/**
 	 * -한줄 게시판 글 작성용 생성자<br/>
-	 * @param board_no		게시글번호
 	 * @param boardtype_no	게시글타입번호
 	 * @param id			아이디
-	 * @param board_regdate	게시글등록일자
-	 * @param hit			조회수
 	 * @param authority		공개권한
 	 * @param bg_no			게시글배경번호
 	 * @param line_content	한줄게시판 내용
 	 * @param tend_code		한줄게시판 성향
 	 * @param book_no		책번호
 	 */
-	public LineBoardVO(int board_no, int boardtype_no, String id, String board_regdate, int hit, int authority,
-			int bg_no, String line_content, int tend_code, int book_no) {
-		super(board_no, boardtype_no, id, board_regdate, hit, authority, bg_no);
+	public LineBoardVO(int boardtype_no, String id, int authority, int bg_no,
+			String line_content, int tend_code, int book_no) {
+		super(boardtype_no, id, authority, bg_no);
 		this.line_content = line_content;
 		this.tend_code = tend_code;
 		this.book_no = book_no;

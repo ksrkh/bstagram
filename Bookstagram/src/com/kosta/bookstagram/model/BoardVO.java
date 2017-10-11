@@ -71,23 +71,17 @@ public class BoardVO {
 	/**
 	 * 창작 게시글 작성에 필요한 부모생성자<br/>
 	 * -공감,닉네임 제외된 생성자<br/>
-	 * @param board_no			게시글번호
 	 * @param boardtype_no		게시글타입번호
 	 * @param id				아이디
-	 * @param board_regdate		게시글등록일짜
-	 * @param hit				조회수
 	 * @param authority			공개권한
 	 * @param bg_no				게시글배경번호
 	 */
-	public BoardVO(int board_no, int boardtype_no, String id, String board_regdate, int hit, int authority, int bg_no) {
-	      super();
-	      this.board_no = board_no;
-	      this.boardtype_no = boardtype_no;
-	      this.id = id;
-	      this.board_regdate = board_regdate;
-	      this.hit = hit;
-	      this.authority = authority;
-	      this.bg_no = bg_no;
+	public BoardVO(int boardtype_no, String id, int authority, int bg_no) {
+		super();
+		this.boardtype_no = boardtype_no;
+		this.id = id;
+		this.authority = authority;
+		this.bg_no = bg_no;
 	}
 
 	/**

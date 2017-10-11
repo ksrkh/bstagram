@@ -89,18 +89,20 @@
 			<hr>
 		</div>
 		<div style="width: 350px;height: 150px">
-			<div class="form-group" style="width: 350px; height: 36px;">
-				<label class="col-lg-4 control-label" style="padding-top: 4px">아이디</label>
-				<div class="col-lg-8">
-					<input type="text" class="form-control" id="pw_answer" placeholder="아이디">
+			<form action="DispatcherServlet" name="loginFrame" method="post">
+				<div class="form-group" style="width: 350px; height: 36px;">
+					<label class="col-lg-4 control-label" style="padding-top: 4px">아이디</label>
+					<div class="col-lg-8">
+						<input type="text" class="form-control" id="pw_answer" name="id" placeholder="아이디">
+					</div>
 				</div>
-			</div>
-			<div class="form-group" style="width: 350px; height: 36px;">
-				<label class="col-lg-4 control-label" style="padding-top: 4px">비밀번호</label>
-				<div class="col-lg-8">
-					<input type="text" class="form-control" id="pw_answer" placeholder="비밀번호">
+				<div class="form-group" style="width: 350px; height: 36px;">
+					<label class="col-lg-4 control-label" style="padding-top: 4px">비밀번호</label>
+					<div class="col-lg-8">
+						<input type="text" class="form-control" id="pw_answer" name="pw" placeholder="비밀번호">
+					</div>
 				</div>
-			</div>
+			</form>
 			<div class="form-group" style="width: 350px; height: 36px;margin-top: 15px">
 				<label class="col-lg-6 control-label" style="padding-top: 4px">
 				<a href="ex-join.jsp">회원가입</a>&nbsp;
