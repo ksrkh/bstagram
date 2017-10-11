@@ -13,14 +13,16 @@ import com.kosta.bookstagram.model.CreateBoardVO;
 public class CreationPostWriteController implements Controller {
 
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, SQLException {
+	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 		String create_title=request.getParameter("title");
 		String create_content=request.getParameter("content");
 		int category=Integer.parseInt(request.getParameter("tend_code"));
-		CreateBoardVO createVO = new CreateBoardVO(3, "kjhsc101218@naver.com", 1,1, create_title, create_content, category);									  
-		CreateBoardDAO.getInstance().insertBoard(createVO);
-
-		return "redirect:ex-creation_content.jsp";
+		CreateBoardVO createVO = new CreateBoardVO(3, "kjhsc101218@naver.com", 1,1, create_title, create_content, category);
+		try {									  
+			CreateBoardDAO.getInstance().insertBoard(createVO);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return "redirect:ex-creation.jsp";
 	}
-
 }
