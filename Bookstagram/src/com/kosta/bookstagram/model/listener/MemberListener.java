@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import com.kosta.bookstagram.model.BoardVO;
 import com.kosta.bookstagram.model.MemberVO;
+import com.kosta.bookstagram.model.common.PagingBean;
 
 public interface MemberListener {
 	/**
@@ -82,5 +83,5 @@ public interface MemberListener {
 	 *
 	 *  @throws SQLException
 	 */
-	public ArrayList<BoardVO> viewBoard(int boardType) throws SQLException;
+	public ArrayList<BoardVO> viewBoard(int boardType, PagingBean pagingBean) throws SQLException;
 }

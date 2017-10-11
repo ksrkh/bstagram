@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.kosta.bookstagram.model.common.CommonDAO;
+import com.kosta.bookstagram.model.common.PagingBean;
 import com.kosta.bookstagram.model.listener.MemberListener;
 import com.kosta.bookstagram.model.sql.MemberSQL;
 
@@ -57,7 +58,7 @@ public class MemberDAO extends CommonDAO implements MemberListener{
 	}
 	
 	@Override
-	public ArrayList<BoardVO> viewBoard(int boardType) throws SQLException {
+	public ArrayList<BoardVO> viewBoard(int boardType, PagingBean pagingBean) throws SQLException {
 		System.out.println("viewBoard() 실행");
 		return null;
 	}
