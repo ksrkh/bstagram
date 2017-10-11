@@ -79,6 +79,24 @@ public class LineBoardVO extends BoardVO{
 		this.book_no = book_no;
 	}
 	
+	/**
+	 * 한줄게시판 목록 보기에 필요<br/>
+	 * @param board_no		게시판번호
+	 * @param nick			작성자
+	 * @param board_regdate	등록일자
+	 * @param hit			조회수
+	 * @param line_content	한줄게시판내용
+	 * @param tend_code		한줄성향
+	 * @param book_no		책번호
+	 */
+	public LineBoardVO(int board_no, String nick, String board_regdate, int hit, String line_content,
+			int tend_code, int book_no) {
+		super(board_no, nick, board_regdate, hit);
+		this.line_content = line_content;
+		this.tend_code = tend_code;
+		this.book_no = book_no;
+	}
+	
 	public String getLine_content() {
 		return line_content;
 	}
