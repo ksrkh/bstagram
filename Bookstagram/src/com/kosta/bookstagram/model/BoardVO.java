@@ -14,6 +14,10 @@ public class BoardVO {
 	 */
 	private String id;
 	/*
+	 * 닉네임
+	 */
+	private String nick;
+	/*
 	 * 게시판 등록일자
 	 */
 	private String board_regdate;
@@ -61,6 +65,31 @@ public class BoardVO {
 		this.authority = authority;
 		this.bg_no = bg_no;
 	}
+	
+	/**
+	 * @param board_no		게시판번호
+	 * @param boardtype_no	게시판타입번호
+	 * @param id			아이디
+	 * @param nick			닉네임
+	 * @param board_regdate	등록일자
+	 * @param hit			조회수
+	 * @param sympathy		공감
+	 * @param authority		공개권한
+	 * @param bg_no			게시판배경번호
+	 */
+	public BoardVO(int board_no, int boardtype_no, String id, String nick, String board_regdate, int hit, int sympathy,
+			int authority, int bg_no) {
+		super();
+		this.board_no = board_no;
+		this.boardtype_no = boardtype_no;
+		this.id = id;
+		this.nick = nick;
+		this.board_regdate = board_regdate;
+		this.hit = hit;
+		this.sympathy = sympathy;
+		this.authority = authority;
+		this.bg_no = bg_no;
+	}
 
 	public int getBoard_no() {
 		return board_no;
@@ -84,6 +113,14 @@ public class BoardVO {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public String getNick() {
+		return nick;
+	}
+
+	public void setNick(String nick) {
+		this.nick = nick;
 	}
 
 	public String getBoard_regdate() {
