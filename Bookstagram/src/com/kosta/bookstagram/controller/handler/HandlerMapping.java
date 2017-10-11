@@ -5,6 +5,7 @@ import com.kosta.bookstagram.controller.CreationPostDeleteController;
 import com.kosta.bookstagram.controller.CreationPostDetailController;
 import com.kosta.bookstagram.controller.CreationPostWriteController;
 import com.kosta.bookstagram.controller.JoinController;
+import com.kosta.bookstagram.controller.LogOutController;
 import com.kosta.bookstagram.controller.LoginController;
 import com.kosta.bookstagram.controller.ViewMyBoardController;
 import com.kosta.bookstagram.controller.listener.Controller;
@@ -24,6 +25,8 @@ public class HandlerMapping {
 		
 		if(command.equals("Login"))
 			controller = new LoginController();
+		else if(command.equals("Logout"))
+			controller = new LogOutController();
 		else if(command.equals("Join"))
 			controller = new JoinController();
 		else if (command.equals("createpostwrite"))

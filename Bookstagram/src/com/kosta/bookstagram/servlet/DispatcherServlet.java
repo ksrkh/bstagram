@@ -29,11 +29,10 @@ public class DispatcherServlet extends HttpServlet {
 	protected void handler(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			PrintWriter out=response.getWriter();
-			
 			String command = request.getParameter("command");
 			String url = HandlerMapping.getInstance().create(command).execute(request, response).trim();
 			
-			if(url.startsWith("login:")) {
+			if(url.startsWith("alert:")) {
 				out.print(url.substring(6));
 				out.close();
 			}else if (url.startsWith("redirect:")) {

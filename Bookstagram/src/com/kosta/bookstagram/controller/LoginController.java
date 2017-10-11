@@ -17,14 +17,16 @@ public class LoginController implements Controller {
 		MemberVO member = MemberDAO.getInstance().checkMember(id, pw);
 		
 		if(member != null) {
-			System.out.println("Login Session Ok !");
-			session = request.getSession();
-			session.setAttribute("member", member);
-			return "login:success";
+			if(member.getTier() != 0) {
+				System.out.println("Login Session Ok !");
+				session = request.getSession();
+				session.setAttribute("member", member);
+				return "alert:success";
+			}
 		}else {
 			System.out.println("Login and Session Failed");
-			return "login:fail";
 		}
-		
+			
+		return "alert:fail";
 	}
 }
