@@ -10,10 +10,8 @@ import com.kosta.bookstagram.controller.listener.Controller;
 import com.kosta.bookstagram.model.BoardVO;
 import com.kosta.bookstagram.model.MemberDAO;
 import com.kosta.bookstagram.model.MemberVO;
-import com.kosta.bookstagram.model.common.PagingBean;
 import com.kosta.bookstagram.model.common.ListVO;
-
-import model.ListVO;
+import com.kosta.bookstagram.model.common.PagingBean;
 
 public class ViewMyBoardController implements Controller {
 
@@ -39,7 +37,8 @@ public class ViewMyBoardController implements Controller {
 		}
 		b_list=MemberDAO.getInstance().viewBoard(boardType,pagingBean);
 		//ListVO에 담아서 view에 전달
-		ListVO<> listVO=new ListVO<>(b_list,pagingBean);
+		ListVO<BoardVO> listVO=new ListVO<BoardVO>(b_list,pagingBean);
+		System.out.println(listVO);
 		
 		return null;
 	}
