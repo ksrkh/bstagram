@@ -18,25 +18,66 @@ public class LineBoardVO extends BoardVO{
 	 */
 	public LineBoardVO() {}
 	/**
-	 * -----super-----
-	 * @param board_no		게시판번호
-	 * @param boardtype_no	게시판타입번호
+	 * 모든 매개변수를 갖고있는 생성자
+	 * @param board_no			게시판번호
+	 * @param boardtype_no		게시판타입번호
+	 * @param id				아이디
+	 * @param nick				닉네임
+	 * @param board_regdate		게시판등록일짜
+	 * @param hit				조회수
+	 * @param sympathy			공감
+	 * @param authority			공개권한
+	 * @param bg_no				게시글배경번호
+	 * @param line_content		한줄게시판내용
+	 * @param tend_code			한줄게시판성향
+	 * @param book_no			책 번호
+	 */
+	public LineBoardVO(int board_no, int boardtype_no, String id, String nick, String board_regdate, int hit,
+			int sympathy, int authority, int bg_no, String line_content, int tend_code, int book_no) {
+		super(board_no, boardtype_no, id, nick, board_regdate, hit, sympathy, authority, bg_no);
+		this.line_content = line_content;
+		this.tend_code = tend_code;
+		this.book_no = book_no;
+	}
+
+	/**
+	 * -한줄 게시판 글 작성용 생성자<br/>
+	 * @param board_no		게시글번호
+	 * @param boardtype_no	게시글타입번호
 	 * @param id			아이디
-	 * @param board_regdate	등록일자
+	 * @param board_regdate	게시글등록일자
+	 * @param hit			조회수
+	 * @param authority		공개권한
+	 * @param bg_no			게시글배경번호
+	 * @param line_content	한줄게시판 내용
+	 * @param tend_code		한줄게시판 성향
+	 * @param book_no		책번호
+	 */
+	public LineBoardVO(int board_no, int boardtype_no, String id, String board_regdate, int hit, int authority,
+			int bg_no, String line_content, int tend_code, int book_no) {
+		super(board_no, boardtype_no, id, board_regdate, hit, authority, bg_no);
+		this.line_content = line_content;
+		this.tend_code = tend_code;
+		this.book_no = book_no;
+	}
+	
+	/**
+	 * -한줄게시판 글 상세보기용 생성자<br/>
+	 * @param board_no		게시글번호
+	 * @param boardtype_no	게시글타입번호
+	 * @param nick			닉네임
+	 * @param board_regdate	게시글등록일자
 	 * @param hit			조회수
 	 * @param sympathy		공감
 	 * @param authority		공개권한
-	 * @param bg_no			게시판배경번호
-	 * ------this------
-	 * @param line_content	한줄게시판 책 내용
-	 * @param tend_code		한줄게시판 한줄의 성향
-	 * @param book_no		책 번호
-	 * 
-	 * -매개변수 11개를 입력받아 부모클래스와 자식클래스의 변수에 데이터 세팅
+	 * @param bg_no			게시글배경번호
+	 * @param line_content	한줄게시판 내용
+	 * @param tend_code		한줄게시판 성향
+	 * @param book_no		책번호
 	 */
-	public LineBoardVO(int board_no, int boardtype_no, String id, String board_regdate, int hit, int sympathy,
+	public LineBoardVO(int board_no, int boardtype_no, String nick, String board_regdate, int hit, int sympathy,
 			int authority, int bg_no, String line_content, int tend_code, int book_no) {
-		super(board_no, boardtype_no, id, board_regdate, hit, sympathy, authority, bg_no);
+		super(board_no, boardtype_no, nick, board_regdate, hit, sympathy, authority, bg_no);
 		this.line_content = line_content;
 		this.tend_code = tend_code;
 		this.book_no = book_no;

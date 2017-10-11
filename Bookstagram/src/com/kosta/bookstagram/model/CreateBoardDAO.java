@@ -146,4 +146,11 @@ public class CreateBoardDAO extends BoardDAO {
 		return list;
 	}
 	//창작 글 목록 end
+	
+	
+	@Override
+	public int totalCountByBoard() throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

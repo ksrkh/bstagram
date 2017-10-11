@@ -36,5 +36,11 @@ public class ReviewBoardDAO extends BoardDAO{
 		
 		return list;
 	}
+	
+	@Override
+	public int totalCountByBoard() throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 }

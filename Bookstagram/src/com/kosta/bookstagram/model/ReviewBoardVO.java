@@ -26,34 +26,85 @@ public class ReviewBoardVO extends BoardVO{
 	 */
 	public ReviewBoardVO() {}
 	/**
-	 * -----super-----
-	 * @param board_no			게시판번호
-	 * @param boardtype_no		게시판타입번호
+	 * -모든 매개변수를 갖고있는 생성자<br/>
+	 * @param board_no			게시글번호
+	 * @param boardtype_no		게시글타입번호
 	 * @param id				아이디
-	 * @param board_regdate		등록일자
+	 * @param nick				닉네임
+	 * @param board_regdate		게시글등록일짜
 	 * @param hit				조회수
 	 * @param sympathy			공감
-	 * @param authority			공개권한
-	 * @param bg_no				게시판배경번호
-	 * ------this------
-	 * @param review_title		게시글제목
-	 * @param review_content	게시글내용
-	 * @param star_point		책별점
-	 * @param genre				책장르
-	 * @param book_no			책번호
-	 * 
-	 * -매개변수 13개를 입력받아 부모클래스와 자식클래스의 변수에 데이터 세팅
+	 * @param authority			게시글공개권한
+	 * @param bg_no				게시글배경번호
+	 * @param review_title		독후감제목
+	 * @param review_content	독후감내용
+	 * @param star_point		독후감별점
+	 * @param genre				독후감장르
+	 * @param book_no			독후감 책번호
 	 */
-	public ReviewBoardVO(int board_no, int boardtype_no, String id, String board_regdate, int hit, int sympathy,
-			int authority, int bg_no, String review_title, String review_content, int star_point, int genre, int book_no) {
-		super(board_no, boardtype_no, id, board_regdate, hit, sympathy, authority, bg_no);
+	public ReviewBoardVO(int board_no, int boardtype_no, String id, String nick, String board_regdate, int hit,
+			int sympathy, int authority, int bg_no, String review_title, String review_content, int star_point,
+			int genre, int book_no) {
+		super(board_no, boardtype_no, id, nick, board_regdate, hit, sympathy, authority, bg_no);
 		this.review_title = review_title;
 		this.review_content = review_content;
 		this.star_point = star_point;
 		this.genre = genre;
 		this.book_no = book_no;
 	}
-
+	
+	/**
+	 * -리뷰 게시글 작성용 생성자입니다.<br/>
+	 * @param board_no			게시글번호
+	 * @param boardtype_no		게시글타입번호
+	 * @param id				아이디
+	 * @param board_regdate		게시글등록일자
+	 * @param hit				조회수
+	 * @param authority			공개권한
+	 * @param bg_no				게시글배경번호
+	 * @param review_title		리뷰제목
+	 * @param review_content	리뷰내용
+	 * @param star_point		리뷰별점
+	 * @param genre				리뷰장르
+	 * @param book_no			책번호
+	 */
+	public ReviewBoardVO(int board_no, int boardtype_no, String id, String board_regdate, int hit, int authority,
+			int bg_no, String review_title, String review_content, int star_point, int genre, int book_no) {
+		super(board_no, boardtype_no, id, board_regdate, hit, authority, bg_no);
+		this.review_title = review_title;
+		this.review_content = review_content;
+		this.star_point = star_point;
+		this.genre = genre;
+		this.book_no = book_no;
+	}
+	
+	/**
+	 * -리뷰 게시글 상세보기용 생성자입니다.<br/>
+	 * @param board_no			게시글번호
+	 * @param boardtype_no		게시글타입번호
+	 * @param nick				닉네임
+	 * @param board_regdate		게시글등록일자
+	 * @param hit				조회수
+	 * @param sympathy			공감
+	 * @param authority			공개권한
+	 * @param bg_no				게시글배경번호
+	 * @param review_title		리뷰제목
+	 * @param review_content	리뷰내용
+	 * @param star_point		리뷰별점
+	 * @param genre				리뷰장르
+	 * @param book_no			리뷰책번호
+	 */
+	public ReviewBoardVO(int board_no, int boardtype_no, String nick, String board_regdate, int hit, int sympathy,
+			int authority, int bg_no, String review_title, String review_content, int star_point, int genre,
+			int book_no) {
+		super(board_no, boardtype_no, nick, board_regdate, hit, sympathy, authority, bg_no);
+		this.review_title = review_title;
+		this.review_content = review_content;
+		this.star_point = star_point;
+		this.genre = genre;
+		this.book_no = book_no;
+	}
+	
 	public String getReview_title() {
 		return review_title;
 	}

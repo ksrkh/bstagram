@@ -61,6 +61,11 @@ public abstract class BoardDAO extends CommonDAO implements BoardListener{
 		System.out.println("hits() 실행");
 	}
 
+	@Override
+	public int totalCountByBoardNId(int boardType, String id) throws SQLException {
+		return 0;
+	}
+
 	/**
 	 * <pre>
 	 * <b>메서드 설명</b>
@@ -144,4 +149,9 @@ public abstract class BoardDAO extends CommonDAO implements BoardListener{
 	 * @throws	SQLException
 	 */
 	public abstract ArrayList<BoardVO> boardList() throws SQLException;
+	
+	/*
+	 * 게시판의 전체 게시글을 보여주는 내용입니다.
+	 */
+	public abstract int totalCountByBoard() throws SQLException;    
 }
