@@ -11,6 +11,9 @@ public interface MemberListener {
 	 * <pre>
 	 * <b>기능</b>
 	 *    -아이디와 비밀번호를 입력받아 로그인기능을 수행합니다.
+	 *    
+	 * <b>조건</b>
+	 * 	  -아이디와 비밀번호가 일치하는 회원의 정보를 가져옵니다.
 	 * </pre>
 	 * 
 	 * @param 	id				회원 아이디

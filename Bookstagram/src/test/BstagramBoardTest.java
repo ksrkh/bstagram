@@ -169,24 +169,23 @@ public class BstagramBoardTest {
 			//Generic 이용
 			ArrayList<CreateBoardVO> createList = new ArrayList<CreateBoardVO>();
 			ListVO<CreateBoardVO> listvo = new ListVO<CreateBoardVO>(createList, new PagingBean());
-			listvo.getList().get(0).getAuthority();			//BoardVO
-			listvo.getList().get(0).getCreate_content();	//CreateBoardVO
+			//listvo.getList().get(0).getAuthority();			//BoardVO
+			//listvo.getList().get(0).getCreate_content();	//CreateBoardVO
 			
 			//Generic 이용
 			ArrayList<LineBoardVO> LineList = new ArrayList<LineBoardVO>();
 			ListVO<LineBoardVO> listvo2 = new ListVO<LineBoardVO>(LineList, new PagingBean());
-			listvo2.getList().get(0).getAuthority();		//BoardVO
-			listvo2.getList().get(0).getLine_content();		//LineBoardVO
+			//listvo2.getList().get(0).getAuthority();		//BoardVO
+			//listvo2.getList().get(0).getLine_content();		//LineBoardVO
 			
 			//Generic 이용
 			ArrayList<ReviewBoardVO> ReviewList = new ArrayList<ReviewBoardVO>();
 			ListVO<ReviewBoardVO> listvo3 = new ListVO<ReviewBoardVO>(ReviewList, new PagingBean());
-			listvo3.getList().get(0).getAuthority();		//BoardVO
-			listvo3.getList().get(0).getReview_content();	//ReviewBoardVO
+			//listvo3.getList().get(0).getAuthority();		//BoardVO
+			//listvo3.getList().get(0).getReview_content();	//ReviewBoardVO
 			
-			
-			//MemberDAO.getInstance().checkMember("a", "1");
-			
+			System.out.println("[ MemberDAO ]");
+			System.out.println(MemberDAO.getInstance().checkMember("a", "1").toString());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

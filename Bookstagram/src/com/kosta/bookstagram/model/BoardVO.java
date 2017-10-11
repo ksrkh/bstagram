@@ -44,6 +44,7 @@ public class BoardVO {
 	public BoardVO() {}
 	
 	/**
+	 * -닉네임이 포함되지 않은 생성자
 	 * @param board_no		게시판번호
 	 * @param boardtype_no	게시판타입번호
 	 * @param id			아이디
@@ -67,6 +68,7 @@ public class BoardVO {
 	}
 	
 	/**
+	 * -닉네임이 포함된 생성자
 	 * @param board_no		게시판번호
 	 * @param boardtype_no	게시판타입번호
 	 * @param id			아이디
