@@ -25,7 +25,7 @@
 				<c:forEach var="cbvo" items="${requestScope.clist}">	
 				<tr>
 					<td>${cbvo.board_no}</td>
-					<td>${cbvo.id}</td>
+					<td>${cbvo.nick}</td>
 					<td><a href="DispatcherServlet?command=createpostdetail&board_no=${cbvo.board_no}">${cbvo.create_title}</a></td>
 					<td>${cbvo.board_regdate}</td>
 					<td>${cbvo.hit}</td>

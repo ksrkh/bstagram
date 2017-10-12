@@ -8,12 +8,12 @@ function golist(){
 }
 function deleteCreatePost(){
 	if(confirm("창작 글을 삭제하시겠습니까?")){
-		location.href="DispatcherServlet?command=deletePosting&board_no=${requestScope.cbdvo.board_no}";
+		location.href="DispatcherServlet?command=createpostingdelete&board_no=${requestScope.cbdvo.board_no}";
 		}
 }
 function updateCreatePost(){
 	if(confirm("창작 글을 수정하시겠습니까?")){
-		location.href="DispatcherServlet?command=updatePosting&board_no=${requestScope.cbdvo.board_no}";
+		location.href="DispatcherServlet?command=createupdateview&board_no=${requestScope.cbdvo.board_no}";
 		}		
 }
 </script>
@@ -48,7 +48,7 @@ function updateCreatePost(){
 							<div class="col-lg-12" style="border-bottom: #848484 1px solid; padding-left: 30px; padding-top: 10px">
 								<div class="form-group">
 									<!-- 작성자 -->
-									<label style="float: left"><b>작성자</b>&nbsp;&nbsp; ${requestScope.cbdvo.id}</label>
+									<label style="float: left"><b>작성자</b>&nbsp;&nbsp; ${requestScope.cbdvo.nick}</label>
 									<!-- 조회수 -->
 									<label style="float: right"><b>조회수</b>&nbsp;&nbsp; ${requestScope.cbdvo.hit}</label>
 								</div>

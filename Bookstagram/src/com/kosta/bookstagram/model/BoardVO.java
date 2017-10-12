@@ -85,6 +85,24 @@ public class BoardVO {
 	}
 
 	/**
+	 *  창작 게시글 업데이트에 필요한 부모생성자<br/>
+	 * -공감,닉네임 제외된 생성자<br/>
+	 * @param board_no
+	 * @param boardtype_no
+	 * @param id
+	 * @param authority
+	 * @param bg_no
+	 */
+	public BoardVO(int board_no,int boardtype_no, String id, int authority, int bg_no) {
+		super();
+		this.board_no = board_no;
+		this.boardtype_no = boardtype_no;
+		this.id = id;
+		this.authority = authority;
+		this.bg_no = bg_no;
+	}
+	
+	/**
 	 * 창작게시글 상세보기에 필요한 부모생성자 <br/>
 	 * -아이디 제외, 닉네임 추가 <br/>
 	 * @param board_no			게시글번호

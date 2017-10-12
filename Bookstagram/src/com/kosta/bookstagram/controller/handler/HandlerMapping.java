@@ -3,6 +3,8 @@ package com.kosta.bookstagram.controller.handler;
 import com.kosta.bookstagram.controller.CreationBoardListController;
 import com.kosta.bookstagram.controller.CreationPostDeleteController;
 import com.kosta.bookstagram.controller.CreationPostDetailController;
+import com.kosta.bookstagram.controller.CreationPostUpdateController;
+import com.kosta.bookstagram.controller.CreationPostUpdateViewController;
 import com.kosta.bookstagram.controller.CreationPostWriteController;
 import com.kosta.bookstagram.controller.DupleIdCheckController;
 import com.kosta.bookstagram.controller.DupleNickCheckController;
@@ -42,8 +44,12 @@ public class HandlerMapping {
 			controller = new CreationBoardListController();
 		else if (command.equals("createpostdetail"))
 			controller = new CreationPostDetailController();
-		else if (command.equals("deletePosting"))
+		else if (command.equals("createpostingdelete"))
 			controller = new CreationPostDeleteController();
+		else if(command.equals("createupdateview"))
+			controller = new CreationPostUpdateViewController();
+		else if(command.equals("createpostupdate"))
+			controller = new CreationPostUpdateController();
 		else if(command.equals("viewMyBoard")) 
 			controller = new ViewMyBoardController();
 		else if(command.equals("dupleIdCheck"))
