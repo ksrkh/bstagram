@@ -14,6 +14,7 @@ public class CreationPostUpdateViewController implements Controller {
 		int boardNo=Integer.parseInt(request.getParameter("board_no"));
 		CreateBoardVO cbvo= (CreateBoardVO) CreateBoardDAO.getInstance().selectBoard(boardNo);
 		request.setAttribute("cbdvo", cbvo);
+		request.setAttribute("cbno", boardNo);
 		return "ex-creation_updateview.jsp";
 	}
 
