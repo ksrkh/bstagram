@@ -113,7 +113,7 @@ $( document ).ready( function() {
 			success:function(data){//data로 서버의 응답 정보가 들어온다.
 				if(data == "success"){
 					alert("로그인 성공 하였습니다.");
-					location.href="home.jsp";
+					location.href="ex-home.jsp";
 				}else{
 					alert("로그인 실패 하였습니다.");
 				}
@@ -134,7 +134,7 @@ $( document ).ready( function() {
 			success:function(data){//data로 서버의 응답 정보가 들어온다.
 				if(data == "success"){
 					alert("로그아웃 성공");
-					location.href="home.jsp"
+					location.href="ex-home.jsp"
 				}
 			},
 			timeout: 1000,
@@ -143,6 +143,17 @@ $( document ).ready( function() {
 			}
 		});
 	});
+	
+	/**
+	 * 체크박스 이벤트
+	 */
+	$("input[name=tend_code]:checkbox").change(function() {
+        if( $("input[name=tend_code]:checkbox:checked").length == 3 ) {
+            $(":checkbox:not(:checked)").attr("disabled", "disabled");
+        } else {
+            $("input[name=tend_code]:checkbox").removeAttr("disabled");
+        }
+    });
 });
 
 /**

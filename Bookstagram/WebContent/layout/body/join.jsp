@@ -93,7 +93,7 @@
 								<div class="col-lg-10">
 									<div class="checkbox">
 									<c:forEach items="${requestScope.tend}" var="tlist">
-										<label><input type="checkbox" name="tend_code" value="${tlist.tend_code}">${tlist.tend_name}</label>
+										<label><input type="checkbox" class="tend" name="tend_code" value="${tlist.tend_code}">${tlist.tend_name}</label>
 									</c:forEach>
 									</div>
 									<div class="checkbox"></div>
