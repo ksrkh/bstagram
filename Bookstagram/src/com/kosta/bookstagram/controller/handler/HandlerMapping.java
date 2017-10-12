@@ -7,6 +7,8 @@ import com.kosta.bookstagram.controller.CreationPostWriteController;
 import com.kosta.bookstagram.controller.DupleIdCheckController;
 import com.kosta.bookstagram.controller.JoinController;
 import com.kosta.bookstagram.controller.JoinFormController;
+import com.kosta.bookstagram.controller.LineDetailController;
+import com.kosta.bookstagram.controller.LineListController;
 import com.kosta.bookstagram.controller.LogOutController;
 import com.kosta.bookstagram.controller.LoginController;
 import com.kosta.bookstagram.controller.ViewMyBoardController;
@@ -45,6 +47,10 @@ public class HandlerMapping {
 			controller = new ViewMyBoardController();
 		else if(command.equals("dupleIdCheck"))
 			controller = new DupleIdCheckController();
+		else if(command.equals("lineList")) 
+			controller=new LineListController();
+		else if(command.equals("lineDetail")) 
+			controller=new LineDetailController();
 		
 		return controller;
 	}

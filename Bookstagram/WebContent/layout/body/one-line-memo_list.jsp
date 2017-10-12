@@ -1,5 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+   <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+                    lastPostFunc();
+                $(window).scroll(function(){
+                    if($(window).scrollTop() == $(document).height() - $(window).height()){
+                            lastPostFunc();
+                        }
+                    });
+			var start=0;
+            var last=10;   
+            function lastPostFunc(){
+                $.post("파일경로", {start:start, last:last}, function(data){
+                                $("#paginScroll").append(data);
+                                start += last;
+                     });
+            }
+});
+</script>
+<style type="text/css">
+	a:link{text-decoration:none;}
+	a:hover{color:#cc3300;}
+	a:active{color:#ff00cc;text-decoration:none;}
+</style> 
 <!-- 기능의 UI를 담당하는 부분(컨테이너) -->
 <div class="container">
 	<!-- 현재 페이지의 타이틀  -->
@@ -47,79 +73,30 @@
 			<h1 class="my-2">Bookstagram</h1>
 		</div>
 	</div>
-
-
 	<!-- 추후 For로 돌릴 공간. -->
-	<!-- 임시1 -->
-	<div class="bg-faded p-4 my-4">
-		<div class="container">
+	<c:forEach var="lvo" items="${requestScope.lineList}">
+	<div class="bg-faded p-4 my-4" id="paginScroll">
+		<div class="container" >
 			<blockquote class="quote-box" style="background-color: #4ADFCC;">
 				<p class="quotation-mark">
 					“
 				</p>
-				<p class="quote-text">
-					Don't believe anything that you read on the internet, it may be fake. 
+				<p class="quote-text" >
+					<a href="DispatcherServlet?command=lineDetail&boardNo=${lvo.board_no}">${lvo.line_content}</a>
 				</p>
 				<hr>
 				
-				<div class="blog-post-actions">
+				<div class="blog-post-actions" >
 					<p class="blog-post-bottom pull-left">
-						Abraham Lincoln
+						${lvo.nick}
 					</p>
 					<p class="blog-post-bottom pull-right">
-						<span class="badge quote-badge">896</span>  ❤
+						<span class="badge quote-badge">${lvo.hit}</span>  ❤
 					</p>
 				</div>
 			</blockquote>
 		</div>
 	</div>
-	
-	<!-- 임시2 -->
-	<div class="bg-faded p-4 my-4">
-		<div class="container">
-			<blockquote class="quote-box" style="background-color: #222222;">
-				<p class="quotation-mark">
-					“
-				</p>
-				<p class="quote-text">
-					Don't believe anything that you read on the internet, it may be fake. 
-				</p>
-				<hr>
-				
-				<div class="blog-post-actions">
-					<p class="blog-post-bottom pull-left">
-						Abraham Lincoln
-					</p>
-					<p class="blog-post-bottom pull-right">
-						<span class="badge quote-badge">896</span>  ❤
-					</p>
-				</div>
-			</blockquote>
-		</div>
-	</div>
-		  
-	<!-- 임시3 -->
-	<div class="bg-faded p-4 my-4">
-		<div class="container">
-			<blockquote class="quote-box" style="background-color: #0078FF;">
-				<p class="quotation-mark">
-					“
-				</p>
-				<p class="quote-text">
-					Don't believe anything that you read on the internet, it may be fake. 
-				</p>
-				<hr>
-				
-				<div class="blog-post-actions">
-					<p class="blog-post-bottom pull-left">
-						Abraham Lincoln
-					</p>
-					<p class="blog-post-bottom pull-right">
-						<span class="badge quote-badge">896</span>  ❤
-					</p>
-				</div>
-			</blockquote>
-		</div>
-	</div>
+</c:forEach>
 </div>
 <!-- /.container -->

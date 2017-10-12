@@ -3,7 +3,6 @@ package com.kosta.bookstagram.model.listener;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.kosta.bookstagram.model.BoardVO;
 import com.kosta.bookstagram.model.CreateBoardVO;
 import com.kosta.bookstagram.model.LineBoardVO;
 import com.kosta.bookstagram.model.MemberVO;
