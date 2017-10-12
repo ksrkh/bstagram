@@ -41,8 +41,11 @@
 							<!-- 비밀번호 확인 -->
 							<div class="form-group" style="margin-bottom:15px">
 								<label for="inputPasswordConfirm" class="col-lg-2 control-label">*비밀번호 확인</label>
-								<div class="col-lg-10">
-									<input type="password" class="form-control" id="confirm_pw" name="confirm_pw" placeholder="비밀번호를 한번 더 확인합니다.">
+								<div class="col-lg-4">
+									<input type="password" class="form-control" id="confirm_pw" name="confirm_pw" placeholder="비밀번호를 한번 더 확인합니다." onkeyup="chkConfirmPw()">
+								</div>
+								<div class="col-lg-6">
+									<label id="checkConfirmPwMessage" style="margin-top: 5px"></label>
 								</div>
 							</div>
 							
@@ -50,10 +53,10 @@
 							<div class="form-group" style="margin-bottom:15px">
 								<label for="inputNickName" class="col-lg-2 control-label">*닉네임</label>
 								<div class="col-lg-4">
-									<input type="text" class="form-control" id="nick" name="nick" placeholder="닉네임을 입력해주세요.">
+									<input type="text" class="form-control" id="nick" name="nick" placeholder="닉네임을 입력해주세요." onkeyup="dupleNick()">
 								</div>
 								<div class="col-lg-6">
-									<input type="button" class="btn btn-info" value="중복확인">
+									<label id="dupleNickMessage" style="margin-top: 5px"></label>
 								</div>
 							</div>
 							

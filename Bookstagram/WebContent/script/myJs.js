@@ -215,6 +215,52 @@ function chkPassword(){
 	}
 }
 
+/**
+ * 비밀번호 확인 검사
+ */
+function chkConfirmPw(){
+	var pw = $('.form-group #pw').val();
+	var confirm_pw = $('.form-group #confirm_pw').val();
+	if(pw == confirm_pw){
+		$('#checkConfirmPwMessage').text('비밀번호가 일치 합니다.');
+		$('#checkConfirmPwMessage').css("color","#1cbeff");
+	}else{
+		$('#checkConfirmPwMessage').text('비밀번호가 일치하지 않습니다.');
+		$('#checkConfirmPwMessage').css("color","#ff6b6b");
+	}
+}
+
+/**
+ * 회원가입 닉네임 중복체크
+ */
+function dupleNick(){
+	var nick = $('.form-group #nick').val();
+	if(0 == nick.length){
+		$('#dupleNickMessage').text('');
+	} else if(2 < nick.length){
+		$.ajax({
+			type:"get",
+			url: "DispatcherServlet",
+			data:"command=dupleNickCheck&nick="+nick,
+			success:function(data){//data로 서버의 응답 정보가 들어온다.
+				if(data == "yes"){
+					$('#dupleNickMessage').text('사용 가능한 닉네임입니다.');
+					$('#dupleNickMessage').css("color","#1cbeff");
+				}else{
+					$('#dupleNickMessage').text('사용 불가능한 닉네임입니다.');
+					$('#dupleNickMessage').css("color","#ff6b6b");
+				}
+			},
+			timeout: 3000,
+			error: function() {
+				alert("timeout error");
+			}
+		});
+	}else{
+		$('#dupleNickMessage').text('3글자이상 8글자미만으로 입력해주세요.');
+		$('#dupleNickMessage').css("color","#ff6b6b");
+	}
+}
 
 /**
  * 헤더 로그인 팝업 펑션

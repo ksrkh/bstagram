@@ -266,6 +266,25 @@ public class MemberDAO extends CommonDAO implements MemberListener {
 		return member;
 	}
 	
+	public MemberVO dupleByNick(String nick) throws SQLException {
+		MemberVO member = null;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			con = getConnection();
+			pstmt = con.prepareStatement(MemberSQL.dupleByNick);
+			pstmt.setString(1, nick);
+			rs = pstmt.executeQuery();
+			if(rs.next())
+				member = new MemberVO();
+		} finally {
+			closeAll(rs,pstmt,con);
+		}
+		
+		return member;
+	}
+	
 	/**
 	 * 회원가입 시 비밀번호 찾기 질문
 	 */
@@ -308,4 +327,5 @@ public class MemberDAO extends CommonDAO implements MemberListener {
 		
 		return tendList;
 	}
+
 }

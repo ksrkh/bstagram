@@ -33,6 +33,12 @@ public class MemberSQL {
 			"select id,nick from member where id=?";
 	
 	/**
+	 * 회원 닉네임 중복체크
+	 */
+	public final static String dupleByNick = 
+			"select id,nick from member where nick=?";
+	
+	/**
 	 * 회원가입시 비밀번호 찾기 질문목록
 	 */
 	public final static String pwQuestionList = 
