@@ -70,20 +70,6 @@ public class MemberDAO extends CommonDAO implements MemberListener {
 		return null;
 	}
 
-	/**
-	 * <pre>
-	 * <b>메서드 설명</b>
-	 *    -게시판 종류와 회원 아이디를 매개변수로 받아
-	 *     게시판 종류에 따른 회원의 게시물의 count를 받아오는 메서드
-	 *     (PagingBean의 totalCount에서 사용)
-	 * </pre>
-	 * 
-	 * @return 	int 		게시물 개수
-	 * @param 	boardType 	게시판번호
-	 * @param 	id 			회원 id
-	 * @throws SQLException
-	 * 
-	 */
 	@Override
 	public int totalCountByBoardNId(int boardType, String id) throws SQLException {
 		int totalCount = 0;
@@ -107,5 +93,43 @@ public class MemberDAO extends CommonDAO implements MemberListener {
 			closeAll(rs, pstmt, con);
 		}
 		return totalCount;
+	}
+	
+	/**
+	 * 아이디 중복 체크
+	 */
+	public MemberVO dupleById(String id) throws SQLException {
+		MemberVO member = null;
+		PreparedStatement pstmt = getConnection().prepareStatement(MemberSQL.dupleById);
+		pstmt.setString(1, id);
+		ResultSet rs = pstmt.executeQuery();
+		if(rs.next())
+			member = new MemberVO();
+		
+		return member;
+	}
+	
+	/**
+	 * 회원가입 시 비밀번호 찾기 질문
+	 */
+	public ArrayList<PasswordQuestionVO> pwQuestionList() throws SQLException {
+		ArrayList<PasswordQuestionVO> pwQv = new ArrayList<PasswordQuestionVO>();
+		ResultSet rs = getConnection().prepareStatement(MemberSQL.pwQuestionList).executeQuery();
+		while(rs.next())
+			pwQv.add(new PasswordQuestionVO(rs.getInt(1), rs.getString(2)));
+			
+		return pwQv;
+	}
+	
+	/**
+	 * 회원가입 시 성향선택 리스트
+	 */
+	public ArrayList<LineTendVO> tendList() throws SQLException {
+		ArrayList<LineTendVO> tendList = new ArrayList<LineTendVO>();
+		ResultSet rs = getConnection().prepareStatement(MemberSQL.tendList).executeQuery();
+		while(rs.next())
+			tendList.add(new LineTendVO(rs.getInt(1), rs.getString(2)));
+		
+		return tendList;
 	}
 }

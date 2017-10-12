@@ -23,30 +23,18 @@ public class CreateBoardVO extends BoardVO {
 	/**
 	 * -모든 매개변수를 갖고있는 생성자<br/>
 	 * 
-	 * @param board_no
-	 *            게시판번호
-	 * @param boardtype_no
-	 *            게시판타입번호
-	 * @param id
-	 *            아이디
-	 * @param nick
-	 *            닉네임
-	 * @param board_regdate
-	 *            게시판 등록일짜
-	 * @param hit
-	 *            조회수
-	 * @param sympathy
-	 *            공감
-	 * @param authority
-	 *            글공개권한
-	 * @param bg_no
-	 *            글배경
-	 * @param create_title
-	 *            창작게시글제목
-	 * @param create_content
-	 *            창작게시글내용
-	 * @param category
-	 *            게시글분류
+	 * @param board_no			게시판번호
+	 * @param boardtype_no		게시판타입번호
+	 * @param id				아이디
+	 * @param nick				닉네임
+	 * @param board_regdate		게시판 등록일짜
+	 * @param hit				조회수
+	 * @param sympathy			공감
+	 * @param authority			글공개권한
+	 * @param bg_no				글배경
+	 * @param create_title		창작게시글제목
+	 * @param create_content	창작게시글내용
+	 * @param category			게시글분류
 	 */
 	public CreateBoardVO(int board_no, int boardtype_no, String id, String nick, String board_regdate, int hit,
 			int sympathy, int authority, int bg_no, String create_title, String create_content, int category) {
@@ -59,20 +47,13 @@ public class CreateBoardVO extends BoardVO {
 	/**
 	 * 창작게시글 작성에 필요<br/>
 	 * 
-	 * @param boardtype_no
-	 *            게시글타입번호
-	 * @param id
-	 *            아이디
-	 * @param authority
-	 *            공개권한
-	 * @param bg_no
-	 *            게시글배경번호
-	 * @param create_title
-	 *            창작게시글제목
-	 * @param create_content
-	 *            창작게시글내용
-	 * @param category
-	 *            창작게시물분류
+	 * @param boardtype_no		게시글타입번호
+	 * @param id				아이디
+	 * @param authority			공개권한
+	 * @param bg_no				게시글배경번호
+	 * @param create_title		창작게시글제목
+	 * @param create_content	창작게시글내용
+	 * @param category			창작게시물분류
 	 */
 	public CreateBoardVO(int boardtype_no, String id, int authority, int bg_no, String create_title,
 			String create_content, int category) {
@@ -85,26 +66,16 @@ public class CreateBoardVO extends BoardVO {
 	/**
 	 * 창작게시글 상세보기에 필요<br/>
 	 * 
-	 * @param board_no
-	 *            게시글번호
-	 * @param boardtype_no
-	 *            게시글타입
-	 * @param nick
-	 *            닉네임
-	 * @param board_regdate
-	 *            게시글작성일자
-	 * @param hit
-	 *            조회수
-	 * @param authority
-	 *            공개권한
-	 * @param bg_no
-	 *            게시글배경번호
-	 * @param create_title
-	 *            창작게시글제목
-	 * @param create_content
-	 *            창작게시글내용
-	 * @param category
-	 *            창작게시글분류
+	 * @param board_no			게시글번호
+	 * @param boardtype_no		게시글타입
+	 * @param nick				닉네임
+	 * @param board_regdate		게시글작성일자
+	 * @param hit				조회수
+	 * @param authority			공개권한
+	 * @param bg_no				게시글배경번호
+	 * @param create_title		창작게시글제목
+	 * @param create_content	창작게시글내용
+	 * @param category			창작게시글분류
 	 */
 	public CreateBoardVO(int board_no, int boardtype_no, String nick, String board_regdate, int hit, int authority,
 			int bg_no, String create_title, String create_content, int category) {

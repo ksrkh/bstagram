@@ -1,5 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<script type="text/javascript">
+function contentCheck(){
+	var flag=true;
+	var f=document.create;
+	if(f.title.value==""){
+		alert("제목을 입력하세요!");
+		flag=false;
+	}else if(f.content.value==""){
+		alert("내용을 입력하세요!");
+		flag=false;
+	}
+	return flag;
+}
+</script>
 <!-- 기능의 UI를 담당하는 부분(컨테이너) -->
 <div class="container">
 	<!-- 현재 페이지의 타이틀  -->
@@ -13,7 +28,7 @@
 				<div class="well bs-component col-lg-12">
 					<div class="col-lg-1"></div>
 					<div class="col-lg-10">
-					<form class="form-horizontal" action="DispatcherServlet" id="create">
+					<form class="form-horizontal" action="DispatcherServlet" id="create" name="create" onsubmit="return contentCheck()">
 					<input type="hidden" name="command" value="createpostwrite">
 						<fieldset>
 							<legend>창작하기</legend>

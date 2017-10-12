@@ -89,12 +89,16 @@ public interface MemberListener {
 	/**
 	 * <pre>
 	 * <b>메서드 설명</b>
-	 *    -게시글의 개수를 받아오는 기능입니다
+	 *    -게시판 종류와 회원 아이디를 매개변수로 받아
+	 *     게시판 종류에 따른 회원의 게시물의 count를 받아오는 메서드
+	 *     (PagingBean의 totalCount에서 사용)
 	 * </pre>
 	 * 
-	 * @param    boardType     게시글 타입번호
-	 * @param    id            사용자 id
-	 * @throws   SQLException
+	 * @return 	int 		게시물 개수
+	 * @param 	boardType 	게시판번호
+	 * @param 	id 			회원 id
+	 * @throws SQLException
+	 * 
 	 */
 	public int totalCountByBoardNId(int boardType, String id) throws SQLException;
 }
