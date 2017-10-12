@@ -1,11 +1,14 @@
 package test;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import com.kosta.bookstagram.model.CreateBoardVO;
 import com.kosta.bookstagram.model.LineBoardVO;
 import com.kosta.bookstagram.model.MemberDAO;
 import com.kosta.bookstagram.model.ReviewBoardVO;
+import com.kosta.bookstagram.model.common.ListVO;
+import com.kosta.bookstagram.model.common.PagingBean;
 
 public class BstagramBoardTest {
 	public static void main(String[] args) {
@@ -79,10 +82,10 @@ public class BstagramBoardTest {
 			// ****************************************************************************
 			
 			//Generic 이용
-			//ArrayList<CreateBoardVO> createList = new ArrayList<CreateBoardVO>();
-			//ListVO<CreateBoardVO> listvo = new ListVO<CreateBoardVO>(createList, new PagingBean());
-			//listvo.getList().get(0).getAuthority();			//BoardVO
-			//listvo.getList().get(0).getCreate_content();	//CreateBoardVO
+			ArrayList<CreateBoardVO> createList = new ArrayList<CreateBoardVO>();
+			ListVO<CreateBoardVO> listvo = new ListVO<CreateBoardVO>(createList, new PagingBean());
+			listvo.getList().get(0).getAuthority();			//BoardVO
+			listvo.getList().get(0).getCreate_content();	//CreateBoardVO
 			
 			//Generic 이용
 			//ArrayList<LineBoardVO> LineList = new ArrayList<LineBoardVO>();

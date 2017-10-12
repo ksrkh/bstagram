@@ -157,8 +157,10 @@ function dupleId(){
 		success:function(data){//data로 서버의 응답 정보가 들어온다.
 			if(data == "yes"){
 				$('#dupleMessage').text('사용 가능한 아이디입니다.');
+				$('#dupleMessage').css("color","#1cbeff");
 			}else{
 				$('#dupleMessage').text('사용 불가능한 아이디입니다.');
+				$('#dupleMessage').css("color","#ff6b6b");
 			}
 		},
 		timeout: 3000,

@@ -23,7 +23,7 @@
 									<input type="text" class="form-control" id="id" name="id" placeholder="이메일을 입력 해주세요." onkeyup="dupleId()">
 								</div>
 								<div class="col-lg-6">
-									<label id="dupleMessage"></label>
+									<label id="dupleMessage" style="margin-top: 5px"></label>
 								</div>
 							</div>
 							

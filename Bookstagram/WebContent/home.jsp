@@ -43,7 +43,7 @@
 	
 	<!-- 바디 부분입니다. -->
 	<div class="body">
-		<c:import url="layout/body/one-line-memo_list.jsp"></c:import>
+		<c:import url="${requestScope.url}"></c:import>
 	</div>
 	
 	<!-- 푸터 부분입니다. -->
