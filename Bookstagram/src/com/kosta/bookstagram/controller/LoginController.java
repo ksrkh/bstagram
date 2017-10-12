@@ -21,12 +21,12 @@ public class LoginController implements Controller {
 				System.out.println("Login Session Ok !");
 				session = request.getSession();
 				session.setAttribute("member", member);
-				return "alert:success";
+				return "result:success";
 			}
 		}else {
 			System.out.println("Login and Session Failed");
 		}
 			
-		return "alert:fail";
+		return "result:fail";
 	}
 }

@@ -4,13 +4,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kosta.bookstagram.controller.listener.Controller;
+import com.kosta.bookstagram.model.MemberDAO;
 
 public class JoinFormController implements Controller {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
-		
-		
+		request.setAttribute("question", MemberDAO.getInstance().pwQuestionList());
+		request.setAttribute("tend", MemberDAO.getInstance().tendList());
 		
 		
 		return "ex-join.jsp";

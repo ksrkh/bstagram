@@ -32,8 +32,8 @@ public class DispatcherServlet extends HttpServlet {
 			String command = request.getParameter("command");
 			String url = HandlerMapping.getInstance().create(command).execute(request, response).trim();
 			
-			if(url.startsWith("alert:")) {
-				out.print(url.substring(6));
+			if(url.startsWith("result:")) {
+				out.print(url.substring(7));
 				out.close();
 			}else if (url.startsWith("redirect:")) {
 				response.sendRedirect(url.substring(9));

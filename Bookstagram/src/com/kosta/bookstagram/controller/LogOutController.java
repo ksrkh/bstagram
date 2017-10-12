@@ -11,6 +11,6 @@ public class LogOutController implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession();
 		session.invalidate();
-		return "alert:success";
+		return "result:success";
 	}
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <!-- 기능의 UI를 담당하는 부분(컨테이너) -->
 <div class="container">
 	<!-- 현재 페이지의 타이틀  -->
@@ -69,11 +70,9 @@
 								<label for="select" class="col-lg-2 control-label">*비밀번호 찾기 질문</label>
 								<div class="col-lg-10" style="height: 50px">
 									<select class="form-control" name="pw_question" id="pw_question">
-										<option value="1">당신의 고향은?</option>
-										<option value="2">당신의 출신 중학교는?</option>
-										<option value="3">당신의 첫 사랑은?</option>
-										<option value="4">당신의 어머니 이름은?</option>
-										<option value="5">당신의 아버지 이름은?</option>
+										<c:forEach items="${requestScope.question}" var="qlist">
+											<option value="${qlist.question_code}">${qlist.question}</option>
+										</c:forEach>
 									</select><br>
 								</div>
 							</div>
@@ -90,26 +89,15 @@
 							<!-- 스크립트로 3개까지만 선택하게 해야함 -->
 							<!-- for문으로 4개씩 끊어서 출력하는 알고리즘 짜야 함 -->
 							<div class="form-group">
-								<label class="col-lg-2 control-label">성향</label>
+								<label class="col-lg-2 control-label">선호하는 성향<br>(최대3개까지 선택가능)</label>
 								<div class="col-lg-10">
 									<div class="checkbox">
-										<label><input type="checkbox" name="tend_code" value="1"> 슬픈</label>
-										<label><input type="checkbox" name="tend_code" value="2"> 분노</label>
-										<label><input type="checkbox" name="tend_code" value="3"> 사랑</label>
-										<label><input type="checkbox" name="tend_code" value="4"> 허무</label>
+									<c:forEach items="${requestScope.tend}" var="tlist">
+										<label><input type="checkbox" name="tend_code" value="${tlist.tend_code}">${tlist.tend_name}</label>
+									</c:forEach>
 									</div>
-									<div class="checkbox">
-										<label><input type="checkbox" name="tend_code" value="5"> 기쁜</label>
-										<label><input type="checkbox" name="tend_code" value="6"> 우정</label>
-										<label><input type="checkbox" name="tend_code" value="7"> 믿음</label>
-										<label><input type="checkbox" name="tend_code" value="8"> 성찰</label>
-									</div>
-									<div class="checkbox">
-										<label><input type="checkbox" name="tend_code" value="9"> 행복</label>
-										<label><input type="checkbox" name="tend_code" value="10"> 여유</label>
-										<label><input type="checkbox" name="tend_code" value="11"> 희망</label>
-										<label><input type="checkbox" name="tend_code" value="12"> 기타</label>
-									</div>
+									<div class="checkbox"></div>
+									<div class="checkbox"></div>
 								</div>
 							</div>
 							
