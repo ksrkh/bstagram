@@ -145,7 +145,7 @@ $( document ).ready( function() {
 	});
 	
 	/**
-	 * 체크박스 이벤트
+	 * 회원가입 시 체크박스 이벤트
 	 */
 	$("input[name=tend_code]:checkbox").change(function() {
         if( $("input[name=tend_code]:checkbox:checked").length == 3 ) {
@@ -161,25 +161,60 @@ $( document ).ready( function() {
  */
 function dupleId(){
 	var id = $('.form-group #id').val();
-	$.ajax({
-		type:"get",
-		url: "DispatcherServlet",
-		data:"command=dupleIdCheck&id="+id,
-		success:function(data){//data로 서버의 응답 정보가 들어온다.
-			if(data == "yes"){
-				$('#dupleMessage').text('사용 가능한 아이디입니다.');
-				$('#dupleMessage').css("color","#1cbeff");
-			}else{
-				$('#dupleMessage').text('사용 불가능한 아이디입니다.');
-				$('#dupleMessage').css("color","#ff6b6b");
+	if(0 == id.length){
+		$('#dupleMessage').text('');
+	} else if(3 < id.length){
+		$.ajax({
+			type:"get",
+			url: "DispatcherServlet",
+			data:"command=dupleIdCheck&id="+id,
+			success:function(data){//data로 서버의 응답 정보가 들어온다.
+				if(data == "yes"){
+					$('#dupleMessage').text('사용 가능한 아이디입니다.');
+					$('#dupleMessage').css("color","#1cbeff");
+				}else{
+					$('#dupleMessage').text('사용 불가능한 아이디입니다.');
+					$('#dupleMessage').css("color","#ff6b6b");
+				}
+			},
+			timeout: 3000,
+			error: function() {
+				alert("timeout error");
 			}
-		},
-		timeout: 3000,
-		error: function() {
-			alert("timeout error");
-		}
-	});
+		});
+	}else{
+		$('#dupleMessage').text('4글자이상 12글자미만으로 입력해주세요.');
+		$('#dupleMessage').css("color","#ff6b6b");
+	}
 }
+
+/**
+ * 비밀번호 유효성 검사
+ */
+function chkPassword(){
+	var id = $('.form-group #id').val();
+	var password = $('.form-group #pw').val();
+	var checkNumber = password.search(/[0-9]/g);
+	var checkEnglish = password.search(/[a-z]/ig);
+	
+	if(!/^[a-zA-Z0-9]{6,15}$/.test(password)){
+		$('#checkPwMessage').text('숫자와 영문자 조합으로 6~15자리를 사용해야 합니다.');
+		$('#checkPwMessage').css("color","#ff6b6b");
+	} else if(checkNumber <0 || checkEnglish <0){
+		$('#checkPwMessage').text('숫자와 영문자를 혼용하여야 합니다.');
+		$('#checkPwMessage').css("color","#ff6b6b");
+	} else if(/(\w)\1\1\1/.test(password)){
+		$('#checkPwMessage').text('444같은 문자를 4번 이상 사용하실 수 없습니다.');
+		$('#checkPwMessage').css("color","#ff6b6b");
+	} else if(password.search(id) > -1){
+		$('#checkPwMessage').text('비밀번호에 아이디가 포함되었습니다.');
+		$('#checkPwMessage').css("color","#ff6b6b");
+	} else {
+		$('#checkPwMessage').text('사용 가능한 비밀번호 입니다.');
+		$('#checkPwMessage').css("color","#1cbeff");
+	}
+}
+
 
 /**
  * 헤더 로그인 팝업 펑션

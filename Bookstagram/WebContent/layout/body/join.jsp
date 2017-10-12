@@ -31,10 +31,10 @@
 							<div class="form-group" style="margin-bottom:15px">
 								<label for="inputPassword" class="col-lg-2 control-label">*비밀번호</label>
 								<div class="col-lg-4">
-									<input type="password" class="form-control" id="pw" name="pw" placeholder="비밀번호를 입력해주세요.">
+									<input type="password" class="form-control" id="pw" name="pw" placeholder="비밀번호를 입력해주세요." onkeyup="chkPassword()">
 								</div>
 								<div class="col-lg-6">
-									<!-- 추후 비밀번호 유효성검사를 위한 라벨입니다. -->
+									<label id="checkPwMessage" style="margin-top: 5px"></label>
 								</div>
 							</div>
 							

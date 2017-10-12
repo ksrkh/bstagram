@@ -42,6 +42,6 @@ public class MemberSQL {
 	* 회원가입시 성향 가져오기
 	*/
 	public final static String tendList =
-			"select * from tend";
+			"select * from tend where tend_code != 0";
 	
 }
