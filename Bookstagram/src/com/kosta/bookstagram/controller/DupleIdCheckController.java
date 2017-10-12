@@ -12,9 +12,14 @@ public class DupleIdCheckController implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("duple ID : "+request.getParameter("id"));
 		MemberVO member = MemberDAO.getInstance().dupleById(request.getParameter("id"));
+		String result = null;
+		
 		if(member == null)
-			return "result:yes";
+			result = "yes";
 		else
-			return "result:no";
+			result = "no";
+		
+		request.setAttribute("responseBody", result);
+		return "AjaxView";
 	}
 }

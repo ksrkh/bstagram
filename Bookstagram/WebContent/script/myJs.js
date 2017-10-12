@@ -107,15 +107,15 @@ $( document ).ready( function() {
 		var id = $('#userid').val();
 		var pw = $('#userpw').val();
 		$.ajax({
-			type:"post",
-			url: "DispatcherServlet",
+			type:"get",
+			url:"DispatcherServlet",
 			data:"command=Login&id="+id+"&pw="+pw,
 			success:function(data){//data로 서버의 응답 정보가 들어온다.
-				if(data == "fail"){
-					alert("로그인실패");
-				}else if(data == "success"){
-					alert("로그인성공");
-					location.href="home.jsp"
+				if(data == "success"){
+					alert("로그인 성공 하였습니다.");
+					location.href="home.jsp";
+				}else{
+					alert("로그인 실패 하였습니다.");
 				}
 			},
 			timeout: 1000,
@@ -132,9 +132,7 @@ $( document ).ready( function() {
 			url: "DispatcherServlet",
 			data:"command=Logout",
 			success:function(data){//data로 서버의 응답 정보가 들어온다.
-				if(data == "fail"){
-					alert("로그아웃 실패");
-				}else if(data == "success"){
+				if(data == "success"){
 					alert("로그아웃 성공");
 					location.href="home.jsp"
 				}
