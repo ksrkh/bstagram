@@ -71,11 +71,152 @@ public class MemberDAO extends CommonDAO implements MemberListener {
 		System.out.println("withDrawMember() 실행");
 	}
 
+	/**
+	 * <pre>
+	 * <b>메서드 설명</b>
+	 *    -한줄 게시판의 내 게시물 가져오기
+	 * </pre>
+	 * 
+	 * @return 	ArrayList<LineBoardVO>		한줄 게시판 게시물
+	 * @param 	id 							회원 id
+	 * @param 	pagingBean 					PagingBean
+	 * @throws SQLException
+	 * 
+	 */
 	@Override
-	public ArrayList<BoardVO> viewBoard(int boardType, PagingBean pagingBean) throws SQLException {
-		System.out.println("viewBoard() 실행");
-		return null;
+	public ArrayList<LineBoardVO> l_viewBoard(String id,PagingBean pagingBean) throws SQLException {
+		ArrayList<LineBoardVO> list=new ArrayList<LineBoardVO>();
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		try{
+			con=getConnection(); 
+			StringBuilder sql=new StringBuilder();
+			sql.append("SELECT b.board_no,b.id,l.line_content,b.board_regdate,b.hit FROM( ");
+			sql.append("SELECT row_number() over(order by board_no desc) as rnum,board_no,id, ");
+			sql.append("to_char(board_regdate,'YYYY.MM.DD') as board_regdate,hit ");
+			sql.append("FROM BOARD ");
+			sql.append(") b,LINE_BOARD l where b.board_no=l.board_no and rnum between ? and ? and b.id=? ");
+			sql.append("order by board_no desc ");
+			pstmt=con.prepareStatement(sql.toString());		
+			pstmt.setInt(1, pagingBean.getStartRowNumber());
+			pstmt.setInt(2, pagingBean.getEndRowNumber());
+			pstmt.setString(3, id);
+			rs=pstmt.executeQuery();	
+			//목록에서 게시물 content는 필요없으므로 null로 setting
+			//select no,title,time_posted,hits,id,name
+			while(rs.next()){		
+				LineBoardVO bvo=new LineBoardVO();
+				bvo.setBoard_no(rs.getInt(1));
+				bvo.setId(rs.getString(2));
+				bvo.setLine_content(rs.getString(3));
+				bvo.setBoard_regdate(rs.getString(4));
+				bvo.setHit(rs.getInt(5));
+				list.add(bvo);			
+			}			
+		}finally{
+			closeAll(rs,pstmt,con);
+		}
+		return list;
 	}
+	/**
+	 * <pre>
+	 * <b>메서드 설명</b>
+	 *    -독후감 게시판의 내 게시물 가져오기
+	 * </pre>
+	 * 
+	 * @return 	ArrayList<ReviewBoardVO>	독후감 게시판 게시물
+	 * @param 	id 							회원 id
+	 * @param 	pagingBean 					PagingBean
+	 * @throws SQLException
+	 * 
+	 */
+	@Override
+	public ArrayList<ReviewBoardVO> r_viewBoard(String id,PagingBean pagingBean) throws SQLException {
+		ArrayList<ReviewBoardVO> list=new ArrayList<ReviewBoardVO>();
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		try{
+			con=getConnection(); 
+			StringBuilder sql=new StringBuilder();
+			sql.append("SELECT b.board_no,b.id,r.review_title,b.board_regdate,b.hit FROM( ");
+			sql.append("SELECT row_number() over(order by board_no desc) as rnum,board_no,id, ");
+			sql.append("to_char(board_regdate,'YYYY.MM.DD') as board_regdate,hit ");
+			sql.append("FROM BOARD ");
+			sql.append(") b,REVIEW_BOARD r where b.board_no=r.board_no and rnum between ? and ? and b.id=? ");
+			sql.append("order by board_no desc ");
+			pstmt=con.prepareStatement(sql.toString());		
+			pstmt.setInt(1, pagingBean.getStartRowNumber());
+			pstmt.setInt(2, pagingBean.getEndRowNumber());
+			pstmt.setString(3, id);
+			rs=pstmt.executeQuery();	
+			//목록에서 게시물 content는 필요없으므로 null로 setting
+			//select no,title,time_posted,hits,id,name
+			while(rs.next()){		
+				ReviewBoardVO bvo=new ReviewBoardVO();
+				bvo.setBoard_no(rs.getInt(1));
+				bvo.setId(rs.getString(2));
+				bvo.setReview_title(rs.getString(3));
+				bvo.setBoard_regdate(rs.getString(4));
+				bvo.setHit(rs.getInt(5));
+				list.add(bvo);			
+			}			
+		}finally{
+			closeAll(rs,pstmt,con);
+		}
+		return list;
+	}
+
+	/**
+	 * <pre>
+	 * <b>메서드 설명</b>
+	 *    -창작 게시판의 내 게시물 가져오기
+	 * </pre>
+	 * 
+	 * @return 	ArrayList<CreateBoardVO>	창작 게시판 게시물
+	 * @param 	id 							회원 id
+	 * @param 	pagingBean 					PagingBean
+	 * @throws SQLException
+	 * 
+	 */
+	@Override
+	public ArrayList<CreateBoardVO> c_viewBoard(String id,PagingBean pagingBean) throws SQLException {
+		ArrayList<CreateBoardVO> list=new ArrayList<CreateBoardVO>();
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		try{
+			con=getConnection(); 
+			StringBuilder sql=new StringBuilder();
+			sql.append("SELECT b.board_no,b.id,c.create_title,b.board_regdate,b.hit FROM( ");
+			sql.append("SELECT row_number() over(order by board_no desc) as rnum,board_no,id, ");
+			sql.append("to_char(board_regdate,'YYYY.MM.DD') as board_regdate,hit ");
+			sql.append("FROM BOARD ");
+			sql.append(") b,CREATE_BOARD c where b.board_no=l.board_no and rnum between ? and ? and b.id=? ");
+			sql.append("order by board_no desc ");
+			pstmt=con.prepareStatement(sql.toString());		
+			pstmt.setInt(1, pagingBean.getStartRowNumber());
+			pstmt.setInt(2, pagingBean.getEndRowNumber());
+			pstmt.setString(3, id);
+			rs=pstmt.executeQuery();	
+			//목록에서 게시물 content는 필요없으므로 null로 setting
+			//select no,title,time_posted,hits,id,name
+			while(rs.next()){		
+				CreateBoardVO bvo=new CreateBoardVO();
+				bvo.setBoard_no(rs.getInt(1));
+				bvo.setId(rs.getString(2));
+				bvo.setCreate_title(rs.getString(3));
+				bvo.setBoard_regdate(rs.getString(4));
+				bvo.setHit(rs.getInt(5));
+				list.add(bvo);			
+			}			
+		}finally{
+			closeAll(rs,pstmt,con);
+		}
+		return list;
+	}
+
 
 	@Override
 	public int totalCountByBoardNId(int boardType, String id) throws SQLException {
