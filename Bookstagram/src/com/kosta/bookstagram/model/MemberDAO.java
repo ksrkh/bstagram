@@ -108,20 +108,4 @@ public class MemberDAO extends CommonDAO implements MemberListener {
 		}
 		return totalCount;
 	}
-	
-	
-	/**
-	 * 아이디가 중복 인지 아닌지 체크
-	 */
-	public void dupleById() {
-		
-	}
-	
-	/**
-	 * 비밀번호 찾기질문 뿌려주기
-	 */
-
-	/**
-	 * 성향 리스트 뿌려주기
-	 */
 }
