@@ -95,13 +95,13 @@ public class MemberDAO extends CommonDAO implements MemberListener {
 			sql.append("SELECT b.board_no,b.id,l.line_content,b.board_regdate,b.hit FROM( ");
 			sql.append("SELECT row_number() over(order by board_no desc) as rnum,board_no,id, ");
 			sql.append("to_char(board_regdate,'YYYY.MM.DD') as board_regdate,hit ");
-			sql.append("FROM BOARD ");
-			sql.append(") b,LINE_BOARD l where b.board_no=l.board_no and rnum between ? and ? and b.id=? ");
+			sql.append("FROM BOARD WHERE id=? ");
+			sql.append(") b,LINE_BOARD l where b.board_no=l.board_no and rnum between ? and ? ");
 			sql.append("order by board_no desc ");
-			pstmt=con.prepareStatement(sql.toString());		
-			pstmt.setInt(1, pagingBean.getStartRowNumber());
-			pstmt.setInt(2, pagingBean.getEndRowNumber());
-			pstmt.setString(3, id);
+			pstmt=con.prepareStatement(sql.toString());
+			pstmt.setString(1, id);
+			pstmt.setInt(2, pagingBean.getStartRowNumber());
+			pstmt.setInt(3, pagingBean.getEndRowNumber());
 			rs=pstmt.executeQuery();	
 			//목록에서 게시물 content는 필요없으므로 null로 setting
 			//select no,title,time_posted,hits,id,name
@@ -143,13 +143,13 @@ public class MemberDAO extends CommonDAO implements MemberListener {
 			sql.append("SELECT b.board_no,b.id,r.review_title,b.board_regdate,b.hit FROM( ");
 			sql.append("SELECT row_number() over(order by board_no desc) as rnum,board_no,id, ");
 			sql.append("to_char(board_regdate,'YYYY.MM.DD') as board_regdate,hit ");
-			sql.append("FROM BOARD ");
-			sql.append(") b,REVIEW_BOARD r where b.board_no=r.board_no and rnum between ? and ? and b.id=? ");
+			sql.append("FROM BOARD WHERE id=? ");
+			sql.append(") b,REVIEW_BOARD r where b.board_no=r.board_no and rnum between ? and ?");
 			sql.append("order by board_no desc ");
-			pstmt=con.prepareStatement(sql.toString());		
-			pstmt.setInt(1, pagingBean.getStartRowNumber());
-			pstmt.setInt(2, pagingBean.getEndRowNumber());
-			pstmt.setString(3, id);
+			pstmt=con.prepareStatement(sql.toString());	
+			pstmt.setString(1, id);
+			pstmt.setInt(2, pagingBean.getStartRowNumber());
+			pstmt.setInt(3, pagingBean.getEndRowNumber());
 			rs=pstmt.executeQuery();	
 			//목록에서 게시물 content는 필요없으므로 null로 setting
 			//select no,title,time_posted,hits,id,name
@@ -192,13 +192,14 @@ public class MemberDAO extends CommonDAO implements MemberListener {
 			sql.append("SELECT b.board_no,b.id,c.create_title,b.board_regdate,b.hit FROM( ");
 			sql.append("SELECT row_number() over(order by board_no desc) as rnum,board_no,id, ");
 			sql.append("to_char(board_regdate,'YYYY.MM.DD') as board_regdate,hit ");
-			sql.append("FROM BOARD ");
-			sql.append(") b,CREATE_BOARD c where b.board_no=l.board_no and rnum between ? and ? and b.id=? ");
+			sql.append("FROM BOARD WHERE id=? ");
+			sql.append(") b,CREATE_BOARD c where b.board_no=c.board_no and rnum between ? and ?");
 			sql.append("order by board_no desc ");
-			pstmt=con.prepareStatement(sql.toString());		
-			pstmt.setInt(1, pagingBean.getStartRowNumber());
-			pstmt.setInt(2, pagingBean.getEndRowNumber());
-			pstmt.setString(3, id);
+			pstmt=con.prepareStatement(sql.toString());	
+			pstmt.setString(1, id);
+			pstmt.setInt(2, pagingBean.getStartRowNumber());
+			pstmt.setInt(3, pagingBean.getEndRowNumber());
+			
 			rs=pstmt.executeQuery();	
 			//목록에서 게시물 content는 필요없으므로 null로 setting
 			//select no,title,time_posted,hits,id,name
@@ -327,5 +328,5 @@ public class MemberDAO extends CommonDAO implements MemberListener {
 		
 		return tendList;
 	}
-
 }
+

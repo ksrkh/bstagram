@@ -23,14 +23,14 @@ public class ViewMyBoardController implements Controller {
 		int boardType=Integer.parseInt(request.getParameter("b_name"));
 		String pno=request.getParameter("pageNo");
 		PagingBean pagingBean=null;
-		MemberVO mvo=null;
+		MemberVO member=null;
 	
 		//세션에 저장된 회원 id를 받아옴
 		HttpSession session = request.getSession(false);
 		if(session!=null)
-			mvo=(MemberVO) session.getAttribute("mvo");
+			member=(MemberVO) session.getAttribute("member");
 		
-		int totalCount=MemberDAO.getInstance().totalCountByBoardNId(boardType, mvo.getId());
+		int totalCount=MemberDAO.getInstance().totalCountByBoardNId(boardType, member.getId());
 		if(pno==null){
 			pagingBean=new PagingBean(totalCount);
 		}else{
@@ -39,26 +39,27 @@ public class ViewMyBoardController implements Controller {
 		
 		//게시판type에 따라 list를 받아오는 다른 메서드 사용, ListVO 생성
 		switch(boardType) {
-		case 1:ArrayList<LineBoardVO> l_list=MemberDAO.getInstance().l_viewBoard(mvo.getId(), pagingBean);
+		case 1:ArrayList<LineBoardVO> l_list=MemberDAO.getInstance().l_viewBoard(member.getId(), pagingBean);
 			   ListVO<LineBoardVO> l_listVO=new ListVO<LineBoardVO>(l_list,pagingBean);
 			   request.setAttribute("lvo", l_listVO);
-			   request.setAttribute("url", "/board/list.jsp");	
+			   request.setAttribute("url", "/layout/body/my_line_list.jsp");	
 			   break;
-		case 2:ArrayList<ReviewBoardVO> r_list=MemberDAO.getInstance().r_viewBoard(mvo.getId(), pagingBean);
+		case 2:ArrayList<ReviewBoardVO> r_list=MemberDAO.getInstance().r_viewBoard(member.getId(), pagingBean);
 		   	   ListVO<ReviewBoardVO> r_listVO=new ListVO<ReviewBoardVO>(r_list,pagingBean);
 		   	   request.setAttribute("lvo", r_listVO);
-		   	   request.setAttribute("url", "/board/list.jsp");	
+		   	   request.setAttribute("url", "/layout/body/my_review_list.jsp");	
+				 
 		       break;
-		case 3:ArrayList<CreateBoardVO> c_list=MemberDAO.getInstance().c_viewBoard(mvo.getId(), pagingBean);
+		case 3:ArrayList<CreateBoardVO> c_list=MemberDAO.getInstance().c_viewBoard(member.getId(), pagingBean);
 		   	   ListVO<CreateBoardVO> c_listVO=new ListVO<CreateBoardVO>(c_list,pagingBean);
 		   	   request.setAttribute("lvo", c_listVO);
-		   	   request.setAttribute("url", "/board/list.jsp");	
+		   	   request.setAttribute("url", "/layout/body/my_creation_list.jsp");	
+				 	
 		       break;
 		}
 		
-		//request.setAttribute("url", "/board/list.jsp");를 각자에 맞는 경로로 바꿔야 함
 		
-		return "/template/home.jsp";
+		return "home.jsp";
 		
 	}
 

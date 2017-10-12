@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!-- 기능의 UI를 담당하는 부분(컨테이너) -->
 <div class="container">
 	<!-- 현재 페이지의 타이틀  -->
@@ -21,170 +23,47 @@
 				</tr>
 			</thead>
 			<tbody class="my-tbody">
-			
-				<!-- start // 추후 for로 돌릴 구간입니다. -->
+				<c:forEach var="bvo" items="${requestScope.lvo.list}">
 				<tr>
-					<td>1</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라.제목입니다. 블라블라 블라.제목입니다. 블라블라 블라.제목입니다.</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-					<td><button type="button" class="btn btn-primary">수정</button></td>
-					<td><button type="button" class="btn btn-primary">삭제</button></td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-					<td><button type="button" class="btn btn-primary">수정</button></td>
-					<td><button type="button" class="btn btn-primary">삭제</button></td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-					<td><button type="button" class="btn btn-primary">수정</button></td>
-					<td><button type="button" class="btn btn-primary">삭제</button></td>
-				</tr>
-				<tr>
-					<td>4</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-					<td><button type="button" class="btn btn-primary">수정</button></td>
-					<td><button type="button" class="btn btn-primary">삭제</button></td>
-				</tr>
-				<tr>
-					<td>5</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-					<td><button type="button" class="btn btn-primary">수정</button></td>
-					<td><button type="button" class="btn btn-primary">삭제</button></td>
-				</tr>
-				<tr>
-					<td>6</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-					<td><button type="button" class="btn btn-primary">수정</button></td>
-					<td><button type="button" class="btn btn-primary">삭제</button></td>
-				</tr>
-				<tr>
-					<td>7</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-					<td><button type="button" class="btn btn-primary">수정</button></td>
-					<td><button type="button" class="btn btn-primary">삭제</button></td>
-				</tr>
-				<tr>
-					<td>8</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-					<td><button type="button" class="btn btn-primary">수정</button></td>
-					<td><button type="button" class="btn btn-primary">삭제</button></td>
-				</tr>
-				<tr>
-					<td>9</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-					<td><button type="button" class="btn btn-primary">수정</button></td>
-					<td><button type="button" class="btn btn-primary">삭제</button></td>
-				</tr>
-				<tr>
-					<td>10</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-					<td><button type="button" class="btn btn-primary">수정</button></td>
-					<td><button type="button" class="btn btn-primary">삭제</button></td>
-				</tr>
-				<tr>
-					<td>11</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-					<td><button type="button" class="btn btn-primary">수정</button></td>
-					<td><button type="button" class="btn btn-primary">삭제</button></td>
-				</tr>
-				<tr>
-					<td>12</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-					<td><button type="button" class="btn btn-primary">수정</button></td>
-					<td><button type="button" class="btn btn-primary">삭제</button></td>
-				</tr>
-				<tr>
-					<td>13</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-					<td><button type="button" class="btn btn-primary">수정</button></td>
-					<td><button type="button" class="btn btn-primary">삭제</button></td>
-				</tr>
-				<tr>
-					<td>14</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-					<td><button type="button" class="btn btn-primary">수정</button></td>
-					<td><button type="button" class="btn btn-primary">삭제</button></td>
-				</tr>
-				<tr>
-					<td>15</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-					<td><button type="button" class="btn btn-primary">수정</button></td>
-					<td><button type="button" class="btn btn-primary">삭제</button></td>
-				</tr>
+				<td>${bvo.board_no}</td>
+				<td>${bvo.id}</td>
+				<td>${bvo.create_title}</td>
+				<td>${bvo.board_regdate}</td>
+				<td>${bvo.hit}</td>
+				<td><button type="button" class="btn btn-primary">수정</button></td>
+				<td><button type="button" class="btn btn-primary">삭제</button></td>
 				
-				<!-- end // 추후 for 로 돌릴 구간입니다. -->
-				
+				</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 	</div>
 	
 	<div class="bg-faded p-4 my-4">
 		<div style="width: 50%; margin: 0 auto; ">
+		<c:set var="pb" value="${requestScope.lvo.pagingBean}"></c:set>
 			<ul class="pagination">
-				<li><a href="#">&lt; &lt;</a></li>
-			    <li><a href="#">1</a></li>
-			    <li><a href="#">2</a></li>
-			    <li><a href="#">3</a></li>
-			    <li><a href="#">4</a></li>
-			    <li><a href="#">5</a></li>
-			    <li><a href="#">6</a></li>
-			    <li><a href="#">7</a></li>
-			    <li><a href="#">8</a></li>
-			    <li><a href="#">9</a></li>
-			    <li><a href="#">10</a></li>
-			    <li><a href="#">11</a></li>
-			    <li><a href="#">12</a></li>
-			    <li><a href="#">13</a></li>
-				<li><a href="#">&gt; &gt;</a></li>
+				<c:if test="${pb.previousPageGroup}">	
+					<li><a href="DispatcherServlet?command=viewMyBoard&pageNo=${pb.startPageOfPageGroup-1}&b_name=3">&lt; &lt;</a></li>
+				</c:if>
+				<c:forEach var="i" begin="${pb.startPageOfPageGroup}" end="${pb.endPageOfPageGroup}">
+				<c:choose>
+					<c:when test="${pb.nowPage!=i}">
+					<li><a href="DispatcherServlet?command=viewMyBoard&pageNo=${i}&b_name=3">${i}</a></li> 
+					</c:when>
+					<c:otherwise>
+					<li class="active"><a href="#" >${i}</a></li>
+					</c:otherwise>
+					</c:choose>
+					&nbsp;
+				</c:forEach>
+				<c:if test="${pb.nextPageGroup}">	
+					<li><a href="DispatcherServlet?command=viewMyBoard&pageNo=${pb.endPageOfPageGroup+1}&b_name=3">&gt; &gt;</a></li>
+				</c:if>
 		 	</ul>
 	 	</div>
 	</div>
+	
+	
 </div>
 <!-- /.container -->

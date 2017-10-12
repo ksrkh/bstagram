@@ -21,9 +21,9 @@
 						<a href="#" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">마이페이지</a>
 						<ul class="dropdown-menu">
 							<li><a href="#">내 정보</a></li>
-							<li><a href="ex-my_line.jsp">내 한줄 관리</a></li>
-							<li><a href="ex-my_review.jsp">내 독후감 관리</a></li>
-							<li><a href="ex-my_creation.jsp">내 창작글 관리</a></li>
+							<li><a href="${pageContext.request.contextPath}/DispatcherServlet?command=viewMyBoard&b_name=1">내 한줄 관리</a></li>
+							<li><a href="${pageContext.request.contextPath}/DispatcherServlet?command=viewMyBoard&b_name=2">내 독후감 관리</a></li>
+							<li><a href="${pageContext.request.contextPath}/DispatcherServlet?command=viewMyBoard&b_name=3">내 창작글 관리</a></li>
 							<li><a href="ex-my_reply.jsp">내 덧글 관리</a></li>
 							<li class="divider"></li>
 							<li><a href="#" id="logout">로그아웃</a></li>
