@@ -4,7 +4,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.kosta.bookstagram.model.BoardVO;
+import com.kosta.bookstagram.model.CreateBoardVO;
+import com.kosta.bookstagram.model.LineBoardVO;
 import com.kosta.bookstagram.model.MemberVO;
+import com.kosta.bookstagram.model.ReviewBoardVO;
 import com.kosta.bookstagram.model.common.PagingBean;
 
 public interface MemberListener {
@@ -83,9 +86,12 @@ public interface MemberListener {
 	 *
 	 *  @throws SQLException
 	 */
-	public ArrayList<BoardVO> viewBoard(int boardType, PagingBean pagingBean) throws SQLException;
-
-
+	public ArrayList<LineBoardVO> l_viewBoard(String id,PagingBean pagingBean) throws SQLException;
+		
+	public ArrayList<ReviewBoardVO> r_viewBoard(String id,PagingBean pagingBean) throws SQLException;
+		
+	public ArrayList<CreateBoardVO> c_viewBoard(String id,PagingBean pagingBean) throws SQLException;
+		
 	/**
 	 * <pre>
 	 * <b>메서드 설명</b>
