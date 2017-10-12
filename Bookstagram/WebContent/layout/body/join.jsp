@@ -20,10 +20,10 @@
 							<div class="form-group" style="margin-top: 30px; margin-bottom:15px">
 								<label for="inputEmail" class="col-lg-2 control-label">*아이디(이메일)</label>
 								<div class="col-lg-4">
-									<input type="text" class="form-control" id="id" name="id" placeholder="이메일을 입력 해주세요.">
+									<input type="text" class="form-control" id="id" name="id" placeholder="이메일을 입력 해주세요." onkeyup="dupleId()">
 								</div>
 								<div class="col-lg-6">
-									<input type="button" class="btn btn-info" value="중복확인">
+									<label id="dupleMessage"></label>
 								</div>
 							</div>
 							

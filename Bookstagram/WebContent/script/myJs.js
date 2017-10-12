@@ -145,9 +145,30 @@ $( document ).ready( function() {
 			}
 		});
 	});
-	
 });
 
+/**
+ * 회원가입 중복체크
+ */
+function dupleId(){
+	var id = $('.form-group #id').val();
+	$.ajax({
+		type:"get",
+		url: "DispatcherServlet",
+		data:"command=dupleIdCheck&id="+id,
+		success:function(data){//data로 서버의 응답 정보가 들어온다.
+			if(data == "yes"){
+				$('#dupleMessage').text('사용 가능한 아이디입니다.');
+			}else{
+				$('#dupleMessage').text('사용 불가능한 아이디입니다.');
+			}
+		},
+		timeout: 3000,
+		error: function() {
+			alert("timeout error");
+		}
+	});
+}
 
 /**
  * 헤더 로그인 팝업 펑션

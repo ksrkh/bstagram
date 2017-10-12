@@ -4,6 +4,7 @@ import com.kosta.bookstagram.controller.CreationBoardListController;
 import com.kosta.bookstagram.controller.CreationPostDeleteController;
 import com.kosta.bookstagram.controller.CreationPostDetailController;
 import com.kosta.bookstagram.controller.CreationPostWriteController;
+import com.kosta.bookstagram.controller.DupleIdCheckController;
 import com.kosta.bookstagram.controller.JoinController;
 import com.kosta.bookstagram.controller.JoinFormController;
 import com.kosta.bookstagram.controller.LogOutController;
@@ -41,7 +42,9 @@ public class HandlerMapping {
 		else if (command.equals("deletePosting"))
 			controller = new CreationPostDeleteController();
 		else if(command.equals("viewMyBoard")) 
-			controller=new ViewMyBoardController();	
+			controller = new ViewMyBoardController();
+		else if(command.equals("dupleIdCheck"))
+			controller = new DupleIdCheckController();
 		
 		return controller;
 	}
