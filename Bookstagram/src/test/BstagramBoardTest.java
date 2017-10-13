@@ -1,4 +1,4 @@
-/*package test;
+package test;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -10,10 +10,13 @@ import com.kosta.bookstagram.model.ReviewBoardVO;
 import com.kosta.bookstagram.model.common.ListVO;
 import com.kosta.bookstagram.model.common.PagingBean;
 
+
+
+
 public class BstagramBoardTest {
 	public static void main(String[] args) {
 		
-		 * 한줄게시판 생성자 테스트
+		/* * 한줄게시판 생성자 테스트*/
 		 
 		System.out.println("****************************** LineBoardVO VO객체 테스트 ********************************");
 		LineBoardVO lineVO = new LineBoardVO(1,1,"kjhsc101218@naver.com","java","2017-08-12",0,0,1,0,"화장실을 깨끗하게 사용해주세요. 이곳을 청소해주시는 분들, 누군가에겐 전부인 사람들입니다.",8, 1);
@@ -32,7 +35,7 @@ public class BstagramBoardTest {
 		System.out.println();
 		
 		
-		 * 책 리뷰 게시판 생성자 테스트
+		/* * 책 리뷰 게시판 생성자 테스트*/
 		 
 		System.out.println("****************************** ReviewBoardVO VO객체 테스트 ********************************");
 		String reviewContent = "독후감을 심사할 때 중요하게 여기는 부분은 처음 시작 대목이다. 첫 부분이 어색하거나 밋밋하다면 한 수준 아래로 글을 평가한다. 심사해야 할 원고가 많으면 많을수록 첫 부분은 더욱 중요해진다. "+
@@ -56,9 +59,9 @@ public class BstagramBoardTest {
 		System.out.println();
 		
 		
-		 * 창작게시판 테스트
+		/* * 창작게시판 테스트*/
 		 
-		System.out.println("****************************** CreateBoard VO객체 테스트 ********************************");
+		/*System.out.println("****************************** CreateBoard VO객체 테스트 ********************************");
 		CreateBoardVO createVO = new CreateBoardVO(3, 3, "orangss@naver.com", "2017-09-01", 0, 1, 0, "창작의 시작", "창작한 내용", 4);
 		System.out.println("게시판번호 :" + createVO.getBoard_no());
 		System.out.println("게시판타입번호 :" + createVO.getBoardtype_no());
@@ -73,10 +76,10 @@ public class BstagramBoardTest {
 		System.out.println("창작게시판 분류 :" + createVO.getCategory());
 		System.out.println("**************************************************************************************");
 		System.out.println();
-		System.out.println();
+		System.out.println();*/
 		
 		
-		 * DAO 테스트
+		/* * DAO 테스트*/
 		 
 		try {
 			// ****************************************************************************
@@ -112,4 +115,3 @@ public class BstagramBoardTest {
 		}
 	}
 }
-*/
