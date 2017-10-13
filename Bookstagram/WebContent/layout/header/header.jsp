@@ -34,9 +34,9 @@
 						<div class="btn-group" style="float: right; margin-right: 10px">
 							<a href="#" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">관리자페이지</a>
 							<ul class="dropdown-menu">
-								<li><a href="ex-cms_tend.jsp">한줄메모 성향 관리</a></li>
-								<li><a href="ex-cms_genre.jsp">도서리뷰 장르 관리</a></li>
-								<li><a href="ex-cms_category.jsp">창작마당 분야 관리</a></li>
+								<li><a href="DispatcherServlet?command=cmstendpage">한줄메모 성향 관리</a></li>
+								<li><a href="DispatcherServlet?command=cmsgenrepage">도서리뷰 장르 관리</a></li>
+								<li><a href="DispatcherServlet?command=cmscategorypege">창작마당 분야 관리</a></li>
 								<!-- <li><a href="ex-cms_img.jsp">배경 이미지 관리</a></li>  -->
 								<li class="divider"></li>
 								<li><a href="ex-cms_board.jsp">전체게시물관리</a></li>

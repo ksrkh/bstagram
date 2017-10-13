@@ -1,5 +1,8 @@
 package com.kosta.bookstagram.controller.handler;
 
+import com.kosta.bookstagram.controller.CmsCategoryPageController;
+import com.kosta.bookstagram.controller.CmsGenrePageController;
+import com.kosta.bookstagram.controller.CmsTendPageController;
 import com.kosta.bookstagram.controller.CreationBoardListController;
 import com.kosta.bookstagram.controller.CreationPostDeleteController;
 import com.kosta.bookstagram.controller.CreationPostDetailController;
@@ -84,7 +87,12 @@ public class HandlerMapping {
 			controller = new TendListController();
 		else if(command.equals("lineWrite"))
 			controller = new LineWriteController();
-	
+		else if(command.equals("cmstendpage"))
+			controller = new CmsTendPageController();
+		else if(command.equals("cmsgenrepage"))
+			controller = new CmsGenrePageController();
+		else if(command.equals("cmscategorypege"))
+			controller = new CmsCategoryPageController();
 		
 		return controller;
 	}
