@@ -66,7 +66,7 @@
 			<ul class="navbar-nav mx-auto">
 				<!-- One-Line-Memo -->
 				<li class="nav-item px-lg-4">
-					<a class="nav-link text-uppercase text-expanded" href="home.jsp">One-Line-Memo</a>
+					<a class="nav-link text-uppercase text-expanded" href="DispatcherServlet?command=lineList">One-Line-Memo</a>
 				</li>
 				
 				<!-- Book-Review -->

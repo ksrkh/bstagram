@@ -113,7 +113,7 @@ $( document ).ready( function() {
 			success:function(data){//data로 서버의 응답 정보가 들어온다.
 				if(data == "success"){
 					alert("로그인 성공 하였습니다.");
-					location.href="ex-home.jsp";
+					location.href="DispatcherServlet?command=lineList";
 				}else{
 					alert("로그인 실패 하였습니다.");
 				}
