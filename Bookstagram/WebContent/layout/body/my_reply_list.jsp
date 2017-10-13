@@ -165,7 +165,7 @@
 		</table>
 	</div>
 	
-	<div class="bg-faded p-4 my-4">
+	<div class="bg-faded p-4 my-4" style="margin-top: 50px">
 		<div style="width: 50%; margin: 0 auto; ">
 			<ul class="pagination">
 				<li><a href="#">&lt; &lt;</a></li>

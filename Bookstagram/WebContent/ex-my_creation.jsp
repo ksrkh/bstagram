@@ -42,7 +42,7 @@
 	</div>
 	
 	<!-- 바디 부분입니다. -->
-	<div class="body">
+	<div class="body" style="margin-top: 50px">
 		<c:import url="layout/body/my_creation_list.jsp"></c:import>
 	</div>
 	

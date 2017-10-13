@@ -21,7 +21,7 @@ public class ReviewBoardListController implements Controller {
 			plist.add((ReviewBoardVO)ReviewBoardDAO.getInstance().boardList(pagingBean).get(i));
 		}	
 		for(int i=0;i<ReviewBoardDAO.getInstance().boardList(pagingBean).size();i++) {
-			content = plist.get(i).getReview_content().substring(0,320);
+			content = plist.get(i).getReview_content().substring(0,5);
 			plist.get(i).setReview_content(content+"...");
 		}
 		request.setAttribute("reviewlist", plist);

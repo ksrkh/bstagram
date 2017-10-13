@@ -42,7 +42,7 @@
 	</div>
 	
 	<!-- 바디 부분입니다. -->
-	<div class="body">
+	<div class="body" style="margin-top: 50px">
 		<c:import url="${requestScope.url}"></c:import>
 	</div>
 	

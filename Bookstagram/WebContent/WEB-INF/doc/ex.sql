@@ -116,7 +116,9 @@ values('ryuhyg@naver.com','1234','rhg',28,sysdate,null,null,3,9,11,3,8,'신준�
 insert into member(id, pw, nick, age, regdate, m_photo, temp, tend_code, tend_code2, tend_code3, tier, question_code, pw_ans)
 values('orangss@naver.com','1234','ksh',30,sysdate,null,null,7,8,11,3,4,'수지중학교');
 insert into member(id, pw,nick,age,regdate,m_photo,temp,tend_code,tend_code2,tend_code3,tier,question_code,pw_ans)
-values('a','1','hsc',26,sysdate,null,null,0,0,0,3,3,'황운');
+values('a','1','hsc4',26,sysdate,null,null,0,0,0,3,3,'황운');
+insert into member(id, pw,nick,age,regdate,m_photo,temp,tend_code,tend_code2,tend_code3,tier,question_code,pw_ans)
+values('b','1','hsc3',23,sysdate,null,null,0,0,0,1,3,'음음');
 commit;
 
 
@@ -175,6 +177,70 @@ values(board_seq.currval, '매력적인 제목, 인상적인 시작', '독후감
 가장 재미없는 독후감 제목은 책 이름을 그대로 쓰는 경우다. 그보다 조금 나은 제목은 ‘~을 읽고’라는 제목이다. 그렇다면 최고 수준의 제목은 무엇일까. 가장 눈길을 끄는 제목은 자신이 생각하는 책에 대한 주제를 주제목으로 하고 부제목으로 ‘~을 읽고’라고 쓴 제목이다.
 예를 들어 피노키오를 읽고 ‘인간이 되고픈 피노키오의 간절한 소망을 응원하며’ ‘인간으로 다시 탄생한 착한 목각 인형’ 등과 같이 주제목으로 결정할 수 있다. 그러나 제목은 글을 쓴 후 가장 나중에 붙여도 된다는 것을 명심하자. ',0,5, 6);
 
+insert into board(board_no, boardtype_no, id, board_regdate, hit, authority, bg_no)
+values(board_seq.nextval, 2, 'will0324@hanmail.net', sysdate, 0, 1, 0);
+insert into book(book_no, book_title, book_intro, book_author, book_publ, book_sdate, book_edate, book_cate, book_img)
+values(book_seq.nextval, '독후감 잘 쓰는 법', '히가시노 게이고의 소설 『가면산장 살인사건』. 저자와 독자가 아슬아슬한 두뇌 싸움을 벌이게 되는 이 작품은 외딴 산장에 모인 여덟 명의 남녀와 한밤중에 침입한 은행 강도범의 인질극을 그리고 있다. 잘 짜인 무대에서 벌어지는 연극과도 같은 이 소설은 그 누구도 상상조차 할 수 없었던 엄청난 반전을 담고 있다. 초대된 손님과 2인조 은행 강도 사이에 긴장과 서스펜스가 점차 고조되는 가운데 클라이맥스에 이르러 전개되는 대반전을 만나는 즐거움을 느낄 수 있다.', '이병승', '말푸름', '2011-04-02', '2015-07-03','4', 'https://search.pstatic.net/common/?src=http%3A%2F%2Fbookthumb.phinf.naver.net%2Fcover%2F082%2F730%2F08273055.jpg%3Ftype%3Dm1%26udate%3D20170914&type=o75_108_re24');
+insert into review_board(board_no, review_title, review_content, star_point, genre, book_no)
+values(board_seq.currval, '리뷰게시판제목2', '리뷰게시판내용2', 0, 5, 7);
+
+insert into board(board_no, boardtype_no, id, board_regdate, hit, authority, bg_no)
+values(board_seq.nextval, 2, 'orangss@naver.com', sysdate, 0, 1, 0);
+insert into book(book_no, book_title, book_intro, book_author, book_publ, book_sdate, book_edate, book_cate, book_img)
+values(book_seq.nextval, '독후감 잘 쓰는 법', '히가시노 게이고의 소설 『가면산장 살인사건』. 저자와 독자가 아슬아슬한 두뇌 싸움을 벌이게 되는 이 작품은 외딴 산장에 모인 여덟 명의 남녀와 한밤중에 침입한 은행 강도범의 인질극을 그리고 있다. 잘 짜인 무대에서 벌어지는 연극과도 같은 이 소설은 그 누구도 상상조차 할 수 없었던 엄청난 반전을 담고 있다. 초대된 손님과 2인조 은행 강도 사이에 긴장과 서스펜스가 점차 고조되는 가운데 클라이맥스에 이르러 전개되는 대반전을 만나는 즐거움을 느낄 수 있다.', '이병승', '말푸름', '2011-04-02', '2015-07-03','4', 'https://search.pstatic.net/common/?src=http%3A%2F%2Fbookthumb.phinf.naver.net%2Fcover%2F082%2F730%2F08273055.jpg%3Ftype%3Dm1%26udate%3D20170914&type=o75_108_re24');
+insert into review_board(board_no, review_title, review_content, star_point, genre, book_no)
+values(board_seq.currval, '리뷰게시판제목3', '리뷰게시판내용3', 0, 5, 8);
+
+insert into board(board_no, boardtype_no, id, board_regdate, hit, authority, bg_no)
+values(board_seq.nextval, 2, 'kjhsc101218@naver.com', sysdate, 0, 1, 0);
+insert into book(book_no, book_title, book_intro, book_author, book_publ, book_sdate, book_edate, book_cate, book_img)
+values(book_seq.nextval, '독후감 잘 쓰는 법', '히가시노 게이고의 소설 『가면산장 살인사건』. 저자와 독자가 아슬아슬한 두뇌 싸움을 벌이게 되는 이 작품은 외딴 산장에 모인 여덟 명의 남녀와 한밤중에 침입한 은행 강도범의 인질극을 그리고 있다. 잘 짜인 무대에서 벌어지는 연극과도 같은 이 소설은 그 누구도 상상조차 할 수 없었던 엄청난 반전을 담고 있다. 초대된 손님과 2인조 은행 강도 사이에 긴장과 서스펜스가 점차 고조되는 가운데 클라이맥스에 이르러 전개되는 대반전을 만나는 즐거움을 느낄 수 있다.', '이병승', '말푸름', '2011-04-02', '2015-07-03','4', 'https://search.pstatic.net/common/?src=http%3A%2F%2Fbookthumb.phinf.naver.net%2Fcover%2F082%2F730%2F08273055.jpg%3Ftype%3Dm1%26udate%3D20170914&type=o75_108_re24');
+insert into review_board(board_no, review_title, review_content, star_point, genre, book_no)
+values(board_seq.currval, '리뷰게시판제목4', '리뷰게시판내용4', 0, 5, 9);
+
+insert into board(board_no, boardtype_no, id, board_regdate, hit, authority, bg_no)
+values(board_seq.nextval, 2, 'orangss@naver.com', sysdate, 0, 1, 0);
+insert into book(book_no, book_title, book_intro, book_author, book_publ, book_sdate, book_edate, book_cate, book_img)
+values(book_seq.nextval, '독후감 잘 쓰는 법', '히가시노 게이고의 소설 『가면산장 살인사건』. 저자와 독자가 아슬아슬한 두뇌 싸움을 벌이게 되는 이 작품은 외딴 산장에 모인 여덟 명의 남녀와 한밤중에 침입한 은행 강도범의 인질극을 그리고 있다. 잘 짜인 무대에서 벌어지는 연극과도 같은 이 소설은 그 누구도 상상조차 할 수 없었던 엄청난 반전을 담고 있다. 초대된 손님과 2인조 은행 강도 사이에 긴장과 서스펜스가 점차 고조되는 가운데 클라이맥스에 이르러 전개되는 대반전을 만나는 즐거움을 느낄 수 있다.', '이병승', '말푸름', '2011-04-02', '2015-07-03','4', 'https://search.pstatic.net/common/?src=http%3A%2F%2Fbookthumb.phinf.naver.net%2Fcover%2F082%2F730%2F08273055.jpg%3Ftype%3Dm1%26udate%3D20170914&type=o75_108_re24');
+insert into review_board(board_no, review_title, review_content, star_point, genre, book_no)
+values(board_seq.currval, '리뷰게시판제목5', '리뷰게시판내용5', 0, 5, 10);
+
+insert into board(board_no, boardtype_no, id, board_regdate, hit, authority, bg_no)
+values(board_seq.nextval, 2, 'kjhsc101218@naver.com', sysdate, 0, 1, 0);
+insert into book(book_no, book_title, book_intro, book_author, book_publ, book_sdate, book_edate, book_cate, book_img)
+values(book_seq.nextval, '독후감 잘 쓰는 법', '히가시노 게이고의 소설 『가면산장 살인사건』. 저자와 독자가 아슬아슬한 두뇌 싸움을 벌이게 되는 이 작품은 외딴 산장에 모인 여덟 명의 남녀와 한밤중에 침입한 은행 강도범의 인질극을 그리고 있다. 잘 짜인 무대에서 벌어지는 연극과도 같은 이 소설은 그 누구도 상상조차 할 수 없었던 엄청난 반전을 담고 있다. 초대된 손님과 2인조 은행 강도 사이에 긴장과 서스펜스가 점차 고조되는 가운데 클라이맥스에 이르러 전개되는 대반전을 만나는 즐거움을 느낄 수 있다.', '이병승', '말푸름', '2011-04-02', '2015-07-03','4', 'https://search.pstatic.net/common/?src=http%3A%2F%2Fbookthumb.phinf.naver.net%2Fcover%2F082%2F730%2F08273055.jpg%3Ftype%3Dm1%26udate%3D20170914&type=o75_108_re24');
+insert into review_board(board_no, review_title, review_content, star_point, genre, book_no)
+values(board_seq.currval, '리뷰게시판제목6', '리뷰게시판내용6', 0, 5, 11);
+
+insert into board(board_no, boardtype_no, id, board_regdate, hit, authority, bg_no)
+values(board_seq.nextval, 2, 'will0324@hanmail.net', sysdate, 0, 1, 0);
+insert into book(book_no, book_title, book_intro, book_author, book_publ, book_sdate, book_edate, book_cate, book_img)
+values(book_seq.nextval, '독후감 잘 쓰는 법', '히가시노 게이고의 소설 『가면산장 살인사건』. 저자와 독자가 아슬아슬한 두뇌 싸움을 벌이게 되는 이 작품은 외딴 산장에 모인 여덟 명의 남녀와 한밤중에 침입한 은행 강도범의 인질극을 그리고 있다. 잘 짜인 무대에서 벌어지는 연극과도 같은 이 소설은 그 누구도 상상조차 할 수 없었던 엄청난 반전을 담고 있다. 초대된 손님과 2인조 은행 강도 사이에 긴장과 서스펜스가 점차 고조되는 가운데 클라이맥스에 이르러 전개되는 대반전을 만나는 즐거움을 느낄 수 있다.', '이병승', '말푸름', '2011-04-02', '2015-07-03','4', 'https://search.pstatic.net/common/?src=http%3A%2F%2Fbookthumb.phinf.naver.net%2Fcover%2F082%2F730%2F08273055.jpg%3Ftype%3Dm1%26udate%3D20170914&type=o75_108_re24');
+insert into review_board(board_no, review_title, review_content, star_point, genre, book_no)
+values(board_seq.currval, '리뷰게시판제목7', '리뷰게시판내용7', 0, 5, 12);
+
+insert into board(board_no, boardtype_no, id, board_regdate, hit, authority, bg_no)
+values(board_seq.nextval, 2, 'orangss@naver.com', sysdate, 0, 1, 0);
+insert into book(book_no, book_title, book_intro, book_author, book_publ, book_sdate, book_edate, book_cate, book_img)
+values(book_seq.nextval, '독후감 잘 쓰는 법', '히가시노 게이고의 소설 『가면산장 살인사건』. 저자와 독자가 아슬아슬한 두뇌 싸움을 벌이게 되는 이 작품은 외딴 산장에 모인 여덟 명의 남녀와 한밤중에 침입한 은행 강도범의 인질극을 그리고 있다. 잘 짜인 무대에서 벌어지는 연극과도 같은 이 소설은 그 누구도 상상조차 할 수 없었던 엄청난 반전을 담고 있다. 초대된 손님과 2인조 은행 강도 사이에 긴장과 서스펜스가 점차 고조되는 가운데 클라이맥스에 이르러 전개되는 대반전을 만나는 즐거움을 느낄 수 있다.', '이병승', '말푸름', '2011-04-02', '2015-07-03','4', 'https://search.pstatic.net/common/?src=http%3A%2F%2Fbookthumb.phinf.naver.net%2Fcover%2F082%2F730%2F08273055.jpg%3Ftype%3Dm1%26udate%3D20170914&type=o75_108_re24');
+insert into review_board(board_no, review_title, review_content, star_point, genre, book_no)
+values(board_seq.currval, '리뷰게시판제목2', '리뷰게시판내용2', 0, 5, 13);
+
+insert into board(board_no, boardtype_no, id, board_regdate, hit, authority, bg_no)
+values(board_seq.nextval, 2, 'kjhsc101218@naver.com', sysdate, 0, 1, 0);
+insert into book(book_no, book_title, book_intro, book_author, book_publ, book_sdate, book_edate, book_cate, book_img)
+values(book_seq.nextval, '독후감 잘 쓰는 법', '히가시노 게이고의 소설 『가면산장 살인사건』. 저자와 독자가 아슬아슬한 두뇌 싸움을 벌이게 되는 이 작품은 외딴 산장에 모인 여덟 명의 남녀와 한밤중에 침입한 은행 강도범의 인질극을 그리고 있다. 잘 짜인 무대에서 벌어지는 연극과도 같은 이 소설은 그 누구도 상상조차 할 수 없었던 엄청난 반전을 담고 있다. 초대된 손님과 2인조 은행 강도 사이에 긴장과 서스펜스가 점차 고조되는 가운데 클라이맥스에 이르러 전개되는 대반전을 만나는 즐거움을 느낄 수 있다.', '이병승', '말푸름', '2011-04-02', '2015-07-03','4', 'https://search.pstatic.net/common/?src=http%3A%2F%2Fbookthumb.phinf.naver.net%2Fcover%2F082%2F730%2F08273055.jpg%3Ftype%3Dm1%26udate%3D20170914&type=o75_108_re24');
+insert into review_board(board_no, review_title, review_content, star_point, genre, book_no)
+values(board_seq.currval, '리뷰게시판제목8', '리뷰게시판내용8', 0, 5, 14);
+
+insert into board(board_no, boardtype_no, id, board_regdate, hit, authority, bg_no)
+values(board_seq.nextval, 2, 'will0324@hanmail.net', sysdate, 0, 1, 0);
+insert into book(book_no, book_title, book_intro, book_author, book_publ, book_sdate, book_edate, book_cate, book_img)
+values(book_seq.nextval, '독후감 잘 쓰는 법', '히가시노 게이고의 소설 『가면산장 살인사건』. 저자와 독자가 아슬아슬한 두뇌 싸움을 벌이게 되는 이 작품은 외딴 산장에 모인 여덟 명의 남녀와 한밤중에 침입한 은행 강도범의 인질극을 그리고 있다. 잘 짜인 무대에서 벌어지는 연극과도 같은 이 소설은 그 누구도 상상조차 할 수 없었던 엄청난 반전을 담고 있다. 초대된 손님과 2인조 은행 강도 사이에 긴장과 서스펜스가 점차 고조되는 가운데 클라이맥스에 이르러 전개되는 대반전을 만나는 즐거움을 느낄 수 있다.', '이병승', '말푸름', '2011-04-02', '2015-07-03','4', 'https://search.pstatic.net/common/?src=http%3A%2F%2Fbookthumb.phinf.naver.net%2Fcover%2F082%2F730%2F08273055.jpg%3Ftype%3Dm1%26udate%3D20170914&type=o75_108_re24');
+insert into review_board(board_no, review_title, review_content, star_point, genre, book_no)
+values(board_seq.currval, '리뷰게시판제목9', '리뷰게시판내용9', 0, 5, 15);
+
+
 
 /*
  * 창작게시판 글등록
@@ -184,6 +250,7 @@ values(board_seq.nextval, 3, 'orangss@naver.com', sysdate, 0, 1, 0);
 insert into create_board(board_no, create_title, create_content, category)
 values(board_seq.currval, '창작의 시작', '창작한 내용', 4);
 commit;
+
 
 
 /*
