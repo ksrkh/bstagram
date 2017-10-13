@@ -5,7 +5,7 @@
 <div class="container">
 	<!-- 현재 페이지의 타이틀  -->
 	<div class="tagline-upper text-left text-heading text-shadow text-white d-none d-lg-block" style="margin-top: 5px">
-	회원가입
+	회원정보 수정
 	</div>
 
 	<div class="bg-faded p-4 my-4">
@@ -14,13 +14,13 @@
 				<div class="well bs-component">
 					<form class="form-horizontal" action="DispatcherServlet" method="post" name="JoinFrame">
 						<fieldset>
-		 					<legend>Wellcome to Bookstgram</legend>
+		 					<legend>Bookstgram</legend>
 							
 							<!-- 이메일 -->
 							<div class="form-group" style="margin-top: 30px; margin-bottom:15px">
-								<label for="inputEmail" class="col-lg-2 control-label">*아이디(이메일)</label>
+								<label for="inputEmail" class="col-lg-2 control-label">아이디(이메일)</label>
 								<div class="col-lg-4">
-									<input type="text" class="form-control" id="id" name="id" placeholder="이메일을 입력 해주세요." onkeyup="dupleId()">
+									<input type="text" class="form-control" id="id" name="id" placeholder="${sessionScope.member.id}" onkeyup="dupleId()" onfocus="blur()">
 								</div>
 								<div class="col-lg-6">
 									<label id="dupleMessage" style="margin-top: 5px"></label>
@@ -51,9 +51,9 @@
 							
 							<!-- 닉네임 -->
 							<div class="form-group" style="margin-bottom:15px">
-								<label for="inputNickName" class="col-lg-2 control-label">*닉네임</label>
+								<label for="inputNickName" class="col-lg-2 control-label">닉네임</label>
 								<div class="col-lg-4">
-									<input type="text" class="form-control" id="nick" name="nick" placeholder="닉네임을 입력해주세요." onkeyup="dupleNick()">
+									<input type="text" class="form-control" id="nick" name="nick" placeholder="${sessionScope.member.nick}" onkeyup="dupleNick()">
 								</div>
 								<div class="col-lg-6">
 									<label id="dupleNickMessage" style="margin-top: 5px"></label>
@@ -107,7 +107,7 @@
 							<div class="form-group" style="margin-top: 300px; text-align:center">
 								<div class="col-lg-10 col-lg-offset-2">
 									<button type="reset" class="btn btn-default">취소</button>
-									<button type="button" class="btn btn-primary" onclick="chkSubmit()">가입</button>
+									<button type="button" class="btn btn-primary" onclick="chkSubmit()">수정</button>
 								</div>
 							</div>
 							<input type="hidden" class="JoinChkData" name="JoinIdData" value="false">
