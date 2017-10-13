@@ -41,4 +41,16 @@ public class CmsPageSQL {
 	public final static String allCategoryList =
 			"select * from category";
 	
+	/**
+	 * 전체 회원 리스트
+	 */
+	public final static String allMemberList =
+			"select * from member";
+	
+	/**
+	 * 전체 게시글 리스트
+	 */
+	public final static String allBoardList =
+			"select * from board";
+	
 }
