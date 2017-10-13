@@ -22,6 +22,8 @@ import com.kosta.bookstagram.controller.LoginController;
 import com.kosta.bookstagram.controller.MyPageController;
 import com.kosta.bookstagram.controller.ReviewBoardListController;
 import com.kosta.bookstagram.controller.ReviewDetailController;
+import com.kosta.bookstagram.controller.ReviewWriteController;
+import com.kosta.bookstagram.controller.SearchBookController;
 import com.kosta.bookstagram.controller.TendListController;
 import com.kosta.bookstagram.controller.UpdateFormController;
 import com.kosta.bookstagram.controller.UpdateMemberInfoController;
@@ -93,6 +95,10 @@ public class HandlerMapping {
 			controller = new CmsGenrePageController();
 		else if(command.equals("cmscategorypege"))
 			controller = new CmsCategoryPageController();
+		else if(command.equals("searchbook"))
+			controller = new SearchBookController();
+			else if(command.equals("reviewwrite"))
+			controller = new ReviewWriteController();
 		
 		return controller;
 	}
