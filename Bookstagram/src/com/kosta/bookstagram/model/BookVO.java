@@ -66,6 +66,26 @@ public class BookVO {
 		this.book_cate = book_cate;
 		this.book_img = book_img;
 	}
+	
+	
+	/**
+	 * @param book_title	책제목
+	 * @param book_intro	책소개
+	 * @param book_author	책저자
+	 * @param book_publ		출판사
+	 * @param book_sdate	출간시작날짜
+	 * @param book_img		책이미지
+	 */
+	public BookVO(String book_title, String book_intro, String book_author, String book_publ, String book_sdate,
+			String book_img) {
+		super();
+		this.book_title = book_title;
+		this.book_intro = book_intro;
+		this.book_author = book_author;
+		this.book_publ = book_publ;
+		this.book_sdate = book_sdate;
+		this.book_img = book_img;
+	}
 
 	public int getBook_no() {
 		return book_no;
