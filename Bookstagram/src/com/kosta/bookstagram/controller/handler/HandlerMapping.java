@@ -61,7 +61,7 @@ public class HandlerMapping {
 			controller=new LineListController();
 		else if(command.equals("lineDetail")) 
 			controller=new LineDetailController();
-		else if(command.equals("myPage"))
+		else if(command.equals("myInfo"))
 			controller=new MyPageController();
 		
 		return controller;
