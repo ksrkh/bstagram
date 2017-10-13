@@ -124,20 +124,13 @@ public class CreateBoardDAO extends BoardDAO {
 				// board table insert
 				StringBuilder sql = new StringBuilder();
 				sql.append("update CREATE_BOARD ");
-				sql.append("set	create_title='ㅋㅋ',create_content='zz',category='4' ");
+				sql.append("set	create_title=?,create_content=?,category=? ");
 				sql.append("where board_no=? ");
 				pstmt = con.prepareStatement(sql.toString());
-				pstmt.executeUpdate();
-				pstmt.close();
-
-				// create_board table insert
-				StringBuilder sql2 = new StringBuilder();
-				sql2.append("insert into create_board(board_no, create_title, create_content, category) ");
-				sql2.append("values(board_seq.currval, ?, ?, ?) ");
-				pstmt = con.prepareStatement(sql2.toString());
 				pstmt.setString(1, cbvo.getCreate_title());
 				pstmt.setString(2, cbvo.getCreate_content());
 				pstmt.setInt(3, cbvo.getCategory());
+				pstmt.setInt(4, cbvo.getBoard_no());
 				pstmt.executeUpdate();
 
 			} finally {
