@@ -11,7 +11,6 @@ public class LogOutController implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession();
 		session.invalidate();
-		request.setAttribute("responseBody", "success");
-		return "AjaxView";
+		return "ex-home.jsp";
 	}
 }

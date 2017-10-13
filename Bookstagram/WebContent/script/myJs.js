@@ -106,42 +106,12 @@ $( document ).ready( function() {
 	$('.login').click(function () {
 		var id = $('#userid').val();
 		var pw = $('#userpw').val();
-		$.ajax({
-			type:"get",
-			url:"DispatcherServlet",
-			data:"command=Login&id="+id+"&pw="+pw,
-			success:function(data){//data로 서버의 응답 정보가 들어온다.
-				if(data == "success"){
-					alert("로그인 성공 하였습니다.");
-					location.href="DispatcherServlet?command=lineList";
-				}else{
-					alert("로그인 실패 하였습니다.");
-				}
-			},
-			timeout: 1000,
-			error: function() {
-				alert("timeout error");
-			}
-		});
+		location.href="DispatcherServlet?command=Login&id="+id+"&pw="+pw;
 	});
 	
 	//로그아웃 버튼 클릭시 submit
 	$('#logout').click(function () {
-		$.ajax({
-			type:"get",
-			url: "DispatcherServlet",
-			data:"command=Logout",
-			success:function(data){//data로 서버의 응답 정보가 들어온다.
-				if(data == "success"){
-					alert("로그아웃 성공");
-					location.href="ex-home.jsp"
-				}
-			},
-			timeout: 1000,
-			error: function() {
-				alert("timeout error");
-			}
-		});
+		location.href="DispatcherServlet?command=Logout";
 	});
 	
 	/**

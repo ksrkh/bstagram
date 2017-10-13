@@ -18,16 +18,17 @@ public class LoginController implements Controller {
 		String result = null;
 		
 		if(member != null) {
+			//로그인성공
 			if(member.getTier() != 0) {
 				session = request.getSession();
 				session.setAttribute("member", member);
-				result = "success";
+				result = "DispatcherServlet?command=lineList";
 			}
 		}else {
-			result = "fail";
+			//로그인실패
+			result = "ex-login_fail.jsp";
 		}
 		
-		request.setAttribute("responseBody", result);
-		return "AjaxView";
+		return result;
 	}
 }

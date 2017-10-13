@@ -34,10 +34,13 @@
 						<div class="btn-group" style="float: right; margin-right: 10px">
 							<a href="#" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">관리자페이지</a>
 							<ul class="dropdown-menu">
+								<li><a href="ex-cms_tend.jsp">한줄메모 성향 관리</a></li>
+								<li><a href="ex-cms_genre.jsp">도서리뷰 장르 관리</a></li>
+								<li><a href="ex-cms_creation.jsp">창작마당 분야 관리</a></li>
+								<!-- <li><a href="ex-cms_img.jsp">배경 이미지 관리</a></li>  -->
+								<li class="divider"></li>
 								<li><a href="ex-cms_board.jsp">전체게시물관리</a></li>
 								<li><a href="ex-cms_member.jsp">전체회원관리</a></li>
-								<li class="divider"></li>
-								<li><a href="#">글쓰기 관리</a></li>
 							</ul>
 						</div>
 					</c:if>
@@ -105,7 +108,7 @@
 				<div class="form-group" style="width: 350px; height: 36px;">
 					<label class="col-lg-4 control-label" style="padding-top: 4px">비밀번호</label>
 					<div class="col-lg-8">
-						<input type="text" class="form-control" id="userpw" name="pw" placeholder="비밀번호">
+						<input type="password" class="form-control" id="userpw" name="pw" placeholder="비밀번호">
 					</div>
 				</div>
 			</form>
