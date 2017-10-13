@@ -81,7 +81,7 @@ public class HandlerMapping {
 			controller = new MyPageController();
 		else if(command.equals("deleteMemberInfo"))
 			controller= new DeleteMemberInfoController();
-		else if(command.equals("updateeMemberInfo"))
+		else if(command.equals("updateMemberInfo"))
 			controller= new UpdateMemberInfoController();
 		else if(command.equals("updateForm"))
 			controller=new UpdateFormController();

@@ -18,7 +18,6 @@ public class JoinController implements Controller {
 		
 		System.out.println(id);
 		System.out.println(pw);
-		System.out.println(nick);
 		System.out.println(age);
 		System.out.println(pw_question);
 		System.out.println(pw_answer);

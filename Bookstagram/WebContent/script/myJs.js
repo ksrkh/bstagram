@@ -120,7 +120,11 @@ $( document ).ready( function() {
 	$("input[name=tend_code]:checkbox").change(function() {
         if( $("input[name=tend_code]:checkbox:checked").length == 3 ) {
             $(":checkbox:not(:checked)").attr("disabled", "disabled");
-        } else {
+        }else if( $("input[name=tend_code]:checkbox:checked").length == 4){
+        	alert("성향은 최대 3개까지 선택가능합니다");
+        	$("input[name=tend_code]").prop("checked",false);
+        }
+        else {
             $("input[name=tend_code]:checkbox").removeAttr("disabled");
         }
     });
@@ -292,6 +296,40 @@ function chkSubmit(){
 		}
 	}
 }
+
+function chkUpdateSubmit(){
+	var id = $('.form-group #id').val();
+	var pw = $('.form-group #pw').val();
+	var confirm_pw = $('.form-group #confirm_pw').val();
+	var nick = $('.form-group #nick').val();
+	var age = $('.form-group #age').val();
+	var q_answer = $('.form-group #pw_answer').val();
+	
+	if(pw.length == 0) {
+		alert("비밀번호 정확히 입력해주세요.");
+	}else if(confirm_pw.length == 0) {
+		alert("비밀번호 확인을 정확히 입력해주세요.");
+	}else if(nick.length == 0) {
+		alert("닉네임을 정확히 입력해주세요.");
+	}else if(age.length == 0) {
+		alert("나이를 입력해주세요.");
+	}else if(q_answer.length == 0) {
+		alert("비밀번호 찾기 답변을 입력해주세요.");
+	}else if( $("input[name=tend_code]:checkbox:checked").length == 0 ) {
+		if(confirm("성향을 선택하지 않았습니다.\n수정하시겠습니까?")){
+			document.JoinFrame.submit();
+		}else{
+			return false;
+		}
+	}else{
+		if(confirm("수정하시겠습니까?")){
+			document.UpdateFrame.submit();
+		}else{
+			return false;
+		}
+	}
+}
+
 
 /**
  * 헤더 로그인 팝업 펑션
