@@ -9,7 +9,8 @@ public class LineWriteController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println(request.getParameterValues("linetendval"));
+		int tend_code=Integer.parseInt(request.getParameter("tend_code"));
+		System.out.println(tend_code);
 		return null;
 	}
 

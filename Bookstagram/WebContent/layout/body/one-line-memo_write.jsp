@@ -3,32 +3,32 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script type="text/javascript">
 $(document).ready(function() {
+	$("input[name=tend_ck]:checkbox").change(function() {
+        if( $("input[name=tend_ck]:checkbox:checked").length==1) {
+            $(":checkbox:not(:checked)").attr("disabled", "disabled");
+        } else {
+            $("input[name=tend_ck]:checkbox").removeAttr("disabled");
+        }
+    });//change
+   
 	$("#cancelBtn").click(function() {
 		if(confirm("게시글을 작성을 취소하시겠습니까?")){
 			location.href="DispatcherServlet?command=lineList";		
 			}
 	});//cancel click
 	
-	$("input[name=tend_code]:checkbox").change(function() {
-        if( $("input[name=tend_code]:checkbox:checked").length == 1 ) {
-            $(":checkbox:not(:checked)").attr("disabled", "disabled");
-        } else {
-            $("input[name=tend_code]:checkbox").removeAttr("disabled");
-        }
-    });
-});//
 	$("#writeLineBtn").click(function() {
-		var content= $("#content").val();
-		var tendComp=$("#writeForm :checkbox[name=tend]:checked");
+		var content = $("#content").val();
+		var tendComp=$("#writeForm :checkbox[name=tend_ck]:checked").val();
 		if(content.length>110){
 		alert("110자 이상은 입력하실 수 없습니다.");
 		}else if(content==""){
 			alert("게시물을 작성해주세요");
 		}else if(tendComp.length==0){
-			alert("성향은 한개이상 선택해주세여");
+			alert("하나의 성향을 선택해주세요.");
 		}else if(content!=""){
 			if(confirm("게시글을 작성하시겠습니까?")){
-				location.href="DispatcherServlet?command=lineWrite&line_content="+content;		
+				location.href="DispatcherServlet?command=lineWrite&line_content="+content+"&tend_code="+tendComp;		
 			}
 	}
 		
@@ -145,7 +145,7 @@ $(document).ready(function() {
 							<div class="bg-faded p-4 my-4">
 								<div class="checkbox" style="padding-top: 0px"><h4>성향을 선택해주세요</h4>
 									<c:forEach items="${requestScope.ltList}" var="tendList">
-									<label><input type="checkbox" value="${tendList.tend_code}" name="tend_code" id="tend_code"> ${tendList.tend_name}</label>
+									<label><input type="checkbox" value="${tendList.tend_code}" name="tend_ck" id="tend_ck"> ${tendList.tend_name}</label>
 									</c:forEach>
 								</div>
 							</div>

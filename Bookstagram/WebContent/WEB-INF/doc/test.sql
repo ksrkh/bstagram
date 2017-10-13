@@ -86,7 +86,5 @@ insert into member(id, pw,nick,age,regdate,m_photo,temp,tend_code,tend_code2,ten
 values('b','1','dnwjd',26,sysdate,null,null,0,0,0,3,3,'황운');
 select * from Member;
 
-
-
 			
 			

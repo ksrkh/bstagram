@@ -20,8 +20,14 @@ $(document).ready(function(){
             }
      $(".sympathy-click").click(function() {
      	alert("공감 upup");
-     });
-});
+     });//click 공감
+    $("#detail_view_click").click(function() {
+     	alert("로그인 해주세요");
+    	
+	});
+     
+    
+});//ready
 </script>
 <style type="text/css">
 	a:link{text-decoration:none;}
@@ -32,8 +38,11 @@ $(document).ready(function(){
 <div class="container">
 	<!-- 현재 페이지의 타이틀  -->
 	<div class="tagline-upper text-left text-heading text-shadow text-white d-none d-lg-block" style="margin-top: 5px">
+	
 		One-Line-Memo
-	<button type="button" class="btn btn-primary linememo_write">글쓰기</button>
+	<c:if test="${sessionScope.member!=null}">
+	<button type="button" class="btn btn-primary linememo_write" >글쓰기</button>
+	</c:if>
 	</div>
 	  
 	  
@@ -77,15 +86,24 @@ $(document).ready(function(){
 	</div>
 	<!-- 추후 For로 돌릴 공간. -->
 	<c:forEach var="lvo" items="${requestScope.lineList}">
-	<div class="bg-faded p-4 my-4" id="paginScroll">
+	<div class="bg-faded p-4 my-4"  id="line_board_btn">
 		<div class="container" >
 			<blockquote class="quote-box" style="background-color: #4ADFCC;">
 				<p class="quotation-mark">
 					“
 				</p>
-				<p class="quote-text" >
+				<c:choose>
+				<c:when test="${sessionScope.member!=null}">
+				<p class="quote-text">
 					<a href="DispatcherServlet?command=lineDetail&boardNo=${lvo.board_no}">${lvo.line_content}</a>
 				</p>
+				</c:when>
+				<c:otherwise>
+				<p class="quote-text">
+				${lvo.line_content}
+				</p>
+				</c:otherwise>
+				</c:choose>
 				<hr>
 				
 				<div class="blog-post-actions" >

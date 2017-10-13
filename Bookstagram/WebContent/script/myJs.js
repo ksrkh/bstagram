@@ -48,7 +48,7 @@ $( document ).ready( function() {
      */
     //한줄메모 글쓰기버튼
     $('.linememo_write').click(function () {
-    	location.href="ex-home_write.jsp";
+    	location.href="DispatcherServlet?command=tendList";
 	});
     
     //한줄메모작성 배경선택 애니메이션(왼쪽버튼,오른쪽버튼)
