@@ -97,7 +97,7 @@ public class HandlerMapping {
 			controller = new CmsCategoryPageController();
 		else if(command.equals("searchbook"))
 			controller = new SearchBookController();
-			else if(command.equals("reviewwrite"))
+		else if(command.equals("reviewwrite"))
 			controller = new ReviewWriteController();
 		
 		return controller;
