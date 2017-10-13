@@ -15,9 +15,7 @@
 										<h4 class="my-2">내 정보</h4>
 										</div>
 								<div class="col-lg-4" >
-							
-								<img class="d-block img-fluid w-100" src="img/users.png" alt="" style="height:80px; width:100px">
-								
+								<img class="d-block img-fluid w-100" src="img/users.png" alt="" style="height:80px; width:100px">		
 								</div>
 											<h5>아이디:${sessionScope.member.id}</h5>
 											<h5>닉네임:${sessionScope.member.nick}</h5> 
@@ -36,8 +34,9 @@
 										<div class="text-center mt-4">
 										<h4 class="my-2">회원 정보 수정</h4>
 										</div>
-										
+								<a href="${pageContext.request.contextPath}/DispatcherServlet?command=updateMemberInfo">
 								<img class="d-block img-fluid w-100" src="img/001-user.png" alt="" style="height:80px; width:70px; padding-left:90px; padding-right:90px">
+								</a>	
 									&nbsp;
 				</div>
 				</div>
@@ -52,7 +51,9 @@
 										<div class="text-center mt-4">
 										<h4 class="my-2">회원 탈퇴</h4>
 										</div>
+								<a href="${pageContext.request.contextPath}/DispatcherServlet?command=deleteMemberInfo">
 								<img class="d-block img-fluid w-100" src="img/002-user-1.png" alt="" style="height:80px; width:70px; padding-left:90px; padding-right:90px">
+								</a>
 									&nbsp;
 				</div>
 				</div>

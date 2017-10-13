@@ -6,6 +6,7 @@ import com.kosta.bookstagram.controller.CreationPostDetailController;
 import com.kosta.bookstagram.controller.CreationPostUpdateController;
 import com.kosta.bookstagram.controller.CreationPostUpdateViewController;
 import com.kosta.bookstagram.controller.CreationPostWriteController;
+import com.kosta.bookstagram.controller.DeleteMemberInfoController;
 import com.kosta.bookstagram.controller.DupleIdCheckController;
 import com.kosta.bookstagram.controller.DupleNickCheckController;
 import com.kosta.bookstagram.controller.JoinController;
@@ -17,6 +18,7 @@ import com.kosta.bookstagram.controller.LoginController;
 import com.kosta.bookstagram.controller.MyPageController;
 import com.kosta.bookstagram.controller.ReviewBoardListController;
 import com.kosta.bookstagram.controller.ReviewDetailController;
+import com.kosta.bookstagram.controller.UpdateMemberInfoController;
 import com.kosta.bookstagram.controller.ViewMyBoardController;
 import com.kosta.bookstagram.controller.listener.Controller;
 
@@ -69,6 +71,10 @@ public class HandlerMapping {
 			controller = new ReviewDetailController();
 		else if(command.equals("myInfo"))
 			controller = new MyPageController();
+		else if(command.equals("deleteMemberInfo"))
+			controller= new DeleteMemberInfoController();
+		else if(command.equals("updateeMemberInfo"))
+			controller= new UpdateMemberInfoController();
 	
 	
 		
