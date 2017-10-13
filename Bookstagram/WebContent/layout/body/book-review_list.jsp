@@ -13,15 +13,20 @@
 	<c:forEach items="${requestScope.reviewlist}"  var="review">
 	<div class="bg-faded p-4 my-4">
 		<div class="container">
+		<div class="col-sm-2">
 			<div style="display: block; float: left">
 				<img height=171px width=120px src="https://search.pstatic.net/common/?src=http%3A%2F%2Fbookthumb.phinf.naver.net%2Fcover%2F109%2F245%2F10924505.jpg">
 			</div>
-			<div style="float: left; margin-left: 20px">
-				<h3 style="margin-top: 3px; margin-bottom:5px"><strong><a href="DispatcherServlet?command=reviewdetail&review_no=${review.board_no}">${review.review_title}</a></strong></h3>
-				<!-- 줄을 넘기지 않고 예쁘게 보여줘야 합니다. 글자수 70~75자   줄수 4줄, -->
-				
-				<h4><strong>${review.bookVO.book_title}</strong></h4>
-				<strong>${review.bookVO.book_author} </strong> | ${review.bookVO.book_publ} | ${review.bookVO.book_sdate}<br>
+			</div>
+			<div class="col-sm-10">
+				<div style="float: left; margin-left: 20px">
+					<h3 style="margin-top: 3px; margin-bottom:5px"><strong><a href="DispatcherServlet?command=reviewdetail&review_no=${review.board_no}">${review.review_title}</a></strong></h3>
+					<!-- 줄을 넘기지 않고 예쁘게 보여줘야 합니다. 글자수 70~75자   줄수 4줄, -->
+					<div>${review.review_content }</div>
+					<h4><strong>${review.bookVO.book_title}</strong></h4>
+					<strong>${review.bookVO.book_author} </strong> | ${review.bookVO.book_publ} | ${review.bookVO.book_sdate}
+					<div style="float: right">| 작성자 | ${review.nick } |</div>
+				</div>
 			</div>
 		</div>
 	</div>

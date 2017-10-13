@@ -12,7 +12,6 @@ public class ReviewDetailController implements Controller {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int boardNo = Integer.parseInt(request.getParameter("review_no"));
-		System.out.println(boardNo);
 		ReviewBoardVO rvo = (ReviewBoardVO) ReviewBoardDAO.getInstance().selectBoard(boardNo);		
 		request.setAttribute("reviewdetail", rvo);
 		return "ex-book_review_content.jsp";

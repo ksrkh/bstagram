@@ -170,3 +170,11 @@ blockquote {
 	text-align: center;
 }
 
+short {
+width:100px;
+overflow:hidden;
+text-overflow:ellipsis;
+white-space:nowrap;
+border:1px solid red;
+}
+

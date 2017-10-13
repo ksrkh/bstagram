@@ -23,27 +23,29 @@ public class ReviewBoardDAO extends BoardDAO{
 
 	@Override
 	public void insertBoard(BoardVO board) throws SQLException {
+		ReviewBoardVO rbvo = (ReviewBoardVO)board;
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		try {
 			con = dataSource.getConnection();
 			StringBuffer sql = new StringBuffer();
-			sql.append("");
-			sql.append("");
+			sql.append("insert into board(board_no, boardtype_no, id, board_regdate, hit, authority, bg_no) ");
+			sql.append("values(board_seq.nextval, 2, ?, sysdate, 0, 1, 0) ");
 			pstmt = con.prepareStatement(sql.toString());
-			//set 값
+			pstmt.setString(1, rbvo.getId());
 			pstmt.executeUpdate();
 			pstmt.close();
 			StringBuffer sql2 = new StringBuffer();
-			sql2.append("");
-			sql2.append("");
+			sql2.append("insert into book(book_no, book_title, book_intro, book_author, book_publ, book_sdate, book_edate, book_cate, book_img) ");
+			sql2.append("values(book_seq.nextval, ?[소개],?[저자], ?[출판사], ?[출판일], ?[종판일],?[장르], ?[책표지]) ");
 			pstmt = con.prepareStatement(sql2.toString());
 			//set 값
 			pstmt.executeUpdate();
 			pstmt.close();
 			StringBuffer sql3 = new StringBuffer();
-			sql3.append("");
-			sql3.append("");
+			sql3.append("insert into review_board(board_no, review_title, review_content, star_point, genre, book_no)");
+			sql3.append("values(board_seq.currval, ?[제목],?[내용],0,?, ?);\r\n" + 
+					"");
 			pstmt = con.prepareStatement(sql3.toString());
 			//set 값
 			pstmt.executeUpdate();
