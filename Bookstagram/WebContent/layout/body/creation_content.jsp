@@ -69,7 +69,7 @@ function updateCreatePost(){
 				</div>
 			</div>
 		</div>
-	
+		
 		<!-- 작성 버튼/취소 버튼 -->
 		<div class="row" style="margin-bottom: 30px">
 			<div class="col-lg-12">
