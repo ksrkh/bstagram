@@ -156,6 +156,11 @@ $( document ).ready( function() {
     });
 });
 
+var chkJoinIdValue = false;
+var chkJoinPwValue = false;
+var chkJoinPwConfirmValue = false;
+var chkJoinNickValue = false;
+
 /**
  * 회원가입 중복체크
  */
@@ -163,6 +168,7 @@ function dupleId(){
 	var id = $('.form-group #id').val();
 	if(0 == id.length){
 		$('#dupleMessage').text('');
+		chkJoinValue = false;
 	} else if(3 < id.length){
 		$.ajax({
 			type:"get",
@@ -172,9 +178,11 @@ function dupleId(){
 				if(data == "yes"){
 					$('#dupleMessage').text('사용 가능한 아이디입니다.');
 					$('#dupleMessage').css("color","#1cbeff");
+					chkJoinIdValue = true;
 				}else{
 					$('#dupleMessage').text('사용 불가능한 아이디입니다.');
 					$('#dupleMessage').css("color","#ff6b6b");
+					chkJoinIdValue = false;
 				}
 			},
 			timeout: 3000,
@@ -185,6 +193,7 @@ function dupleId(){
 	}else{
 		$('#dupleMessage').text('4글자이상 12글자미만으로 입력해주세요.');
 		$('#dupleMessage').css("color","#ff6b6b");
+		chkJoinIdValue = false;
 	}
 }
 
@@ -200,18 +209,23 @@ function chkPassword(){
 	if(!/^[a-zA-Z0-9]{6,15}$/.test(password)){
 		$('#checkPwMessage').text('숫자와 영문자 조합으로 6~15자리를 사용해야 합니다.');
 		$('#checkPwMessage').css("color","#ff6b6b");
+		chkJoinPwValue = false;
 	} else if(checkNumber <0 || checkEnglish <0){
 		$('#checkPwMessage').text('숫자와 영문자를 혼용하여야 합니다.');
 		$('#checkPwMessage').css("color","#ff6b6b");
+		chkJoinPwValue = false;
 	} else if(/(\w)\1\1\1/.test(password)){
 		$('#checkPwMessage').text('444같은 문자를 4번 이상 사용하실 수 없습니다.');
 		$('#checkPwMessage').css("color","#ff6b6b");
+		chkJoinPwValue = false;
 	} else if(password.search(id) > -1){
 		$('#checkPwMessage').text('비밀번호에 아이디가 포함되었습니다.');
 		$('#checkPwMessage').css("color","#ff6b6b");
+		chkJoinPwValue = false;
 	} else {
 		$('#checkPwMessage').text('사용 가능한 비밀번호 입니다.');
 		$('#checkPwMessage').css("color","#1cbeff");
+		chkJoinPwValue = true;
 	}
 }
 
@@ -224,9 +238,11 @@ function chkConfirmPw(){
 	if(pw == confirm_pw){
 		$('#checkConfirmPwMessage').text('비밀번호가 일치 합니다.');
 		$('#checkConfirmPwMessage').css("color","#1cbeff");
+		chkJoinPwConfirmValue = true;
 	}else{
 		$('#checkConfirmPwMessage').text('비밀번호가 일치하지 않습니다.');
 		$('#checkConfirmPwMessage').css("color","#ff6b6b");
+		chkJoinPwConfirmValue = false;
 	}
 }
 
@@ -237,6 +253,7 @@ function dupleNick(){
 	var nick = $('.form-group #nick').val();
 	if(0 == nick.length){
 		$('#dupleNickMessage').text('');
+		chkJoinNickValue = false;
 	} else if(2 < nick.length){
 		$.ajax({
 			type:"get",
@@ -246,9 +263,11 @@ function dupleNick(){
 				if(data == "yes"){
 					$('#dupleNickMessage').text('사용 가능한 닉네임입니다.');
 					$('#dupleNickMessage').css("color","#1cbeff");
+					chkJoinNickValue = true;
 				}else{
 					$('#dupleNickMessage').text('사용 불가능한 닉네임입니다.');
 					$('#dupleNickMessage').css("color","#ff6b6b");
+					chkJoinNickValue = false;
 				}
 			},
 			timeout: 3000,
@@ -259,6 +278,42 @@ function dupleNick(){
 	}else{
 		$('#dupleNickMessage').text('3글자이상 8글자미만으로 입력해주세요.');
 		$('#dupleNickMessage').css("color","#ff6b6b");
+		chkJoinNickValue = false;
+	}
+}
+
+function chkSubmit(){
+	var id = $('.form-group #id').val();
+	var pw = $('.form-group #pw').val();
+	var confirm_pw = $('.form-group #confirm_pw').val();
+	var nick = $('.form-group #nick').val();
+	var age = $('.form-group #age').val();
+	var q_answer = $('.form-group #pw_answer').val();
+	
+	if(chkJoinIdValue == false || id.length == 0) {
+		alert("아이디를 정확히 입력해주세요.");
+	}else if(chkJoinPwValue == false || pw.length == 0) {
+		alert("비밀번호 정확히 입력해주세요.");
+	}else if(chkJoinPwConfirmValue == false || confirm_pw.length == 0) {
+		alert("비밀번호 확인을 정확히 입력해주세요.");
+	}else if(chkJoinNickValue == false || nick.length == 0) {
+		alert("닉네임을 정확히 입력해주세요.");
+	}else if(age.length == 0) {
+		alert("나이를 입력해주세요.");
+	}else if(q_answer.length == 0) {
+		alert("비밀번호 찾기 답변을 입력해주세요.");
+	}else if( $("input[name=tend_code]:checkbox:checked").length == 0 ) {
+		if(confirm("성향은 회원가입 후 마이페이지에서 수정가능합니다.\n회원가입을 진행합니다.")){
+			document.JoinFrame.submit();
+		}else{
+			return false;
+		}
+	}else{
+		if(confirm("회원가입을 진행합니다.")){
+			document.JoinFrame.submit();
+		}else{
+			return false;
+		}
 	}
 }
 

@@ -107,9 +107,10 @@
 							<div class="form-group" style="margin-top: 300px; text-align:center">
 								<div class="col-lg-10 col-lg-offset-2">
 									<button type="reset" class="btn btn-default">취소</button>
-									<button type="submit" class="btn btn-primary">가입</button>
+									<button type="button" class="btn btn-primary" onclick="chkSubmit()">가입</button>
 								</div>
 							</div>
+							<input type="hidden" class="JoinChkData" name="JoinIdData" value="false">
 							<input type="hidden" name="command" value="Join">
 						</fieldset>
 					</form>
