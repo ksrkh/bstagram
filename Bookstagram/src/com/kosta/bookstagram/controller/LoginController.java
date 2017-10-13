@@ -14,17 +14,20 @@ public class LoginController implements Controller {
 		HttpSession session = null;
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
+		System.out.println("id:"+id);
+		System.out.println("pw:"+pw);
 		MemberVO member = MemberDAO.getInstance().checkMember(id, pw);
 		String result = null;
-		
+		System.out.println("member : "+member);
 		if(member != null) {
-			//로그인성공
-			if(member.getTier() != 0) {
+			if (member.getTier() == 0){
+				//탈퇴회원
+				result = "ex-login_fail.jsp";
+			}else {
+				//로그인성공
 				session = request.getSession();
 				session.setAttribute("member", member);
 				result = "DispatcherServlet?command=lineList";
-			}else {
-				result = "ex-login_fail.jsp";
 			}
 		}else {
 			//로그인실패
