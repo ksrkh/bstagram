@@ -48,17 +48,24 @@ public class MemberDAO extends CommonDAO implements MemberListener {
 
 	@Override
 	public void addMember(MemberVO member) throws SQLException {
-		PreparedStatement pstmt = getConnection().prepareStatement(MemberSQL.addMember);
-		pstmt.setString(1, member.getId());
-		pstmt.setString(2, member.getPw());
-		pstmt.setString(3, member.getNick());
-		pstmt.setInt(4, member.getAge());
-		pstmt.setInt(5, member.getTend_code());
-		pstmt.setInt(6, member.getTend_code2());
-		pstmt.setInt(7, member.getTend_code3());
-		pstmt.setInt(8, member.getQuestion_code());
-		pstmt.setString(9, member.getPw_ans());
-		pstmt.executeUpdate();
+		Connection con = null;
+	      PreparedStatement pstmt = null;
+	      try {
+	         con = getConnection();
+	         pstmt = con.prepareStatement(MemberSQL.addMember);
+	         pstmt.setString(1, member.getId());
+	         pstmt.setString(2, member.getPw());
+	         pstmt.setString(3, member.getNick());
+	         pstmt.setInt(4, member.getAge());
+	         pstmt.setInt(5, member.getTend_code());
+	         pstmt.setInt(6, member.getTend_code2());
+	         pstmt.setInt(7, member.getTend_code3());
+	         pstmt.setInt(8, member.getQuestion_code());
+	         pstmt.setString(9, member.getPw_ans());
+	         pstmt.executeUpdate();
+	      }finally {
+	         closeAll(pstmt, con);
+	      }
 	}
 
 	@Override
@@ -68,7 +75,19 @@ public class MemberDAO extends CommonDAO implements MemberListener {
 
 	@Override
 	public void withDrawMember(String id) throws SQLException {
-		System.out.println("withDrawMember() 실행");
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = getConnection();
+			StringBuilder sql = new StringBuilder();
+			sql.append("Update MEMBER set tier=0 where id=? ");
+			pstmt=con.prepareStatement(sql.toString());	
+			pstmt.setString(1, id);
+			pstmt.executeUpdate();
+
+		} finally {
+			closeAll(pstmt, con);
+		}
 	}
 
 	/**
@@ -218,7 +237,18 @@ public class MemberDAO extends CommonDAO implements MemberListener {
 		return list;
 	}
 
-
+	/**
+	 * <pre>
+	 * <b>메서드 설명</b>
+	 *    특정 회원의 특정 게시판 게시물의 개수를 받아오는 메서드
+	 * </pre>
+	 * 
+	 * @return 	int							게시물 수 
+	 * @param 	boardType 					게시판 번호 
+	 * @param 	id 							회원 id
+	 * @throws SQLException
+	 * 
+	 */
 	@Override
 	public int totalCountByBoardNId(int boardType, String id) throws SQLException {
 		int totalCount = 0;
