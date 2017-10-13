@@ -80,7 +80,7 @@ select * from MEMBER_TIER;
 Update MEMBER set tier=0 where id=?;
 
 
-
+select * from Member;
 
 
 			

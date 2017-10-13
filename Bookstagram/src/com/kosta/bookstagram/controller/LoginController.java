@@ -23,6 +23,8 @@ public class LoginController implements Controller {
 				session = request.getSession();
 				session.setAttribute("member", member);
 				result = "DispatcherServlet?command=lineList";
+			}else {
+				result = "ex-login_fail.jsp";
 			}
 		}else {
 			//로그인실패

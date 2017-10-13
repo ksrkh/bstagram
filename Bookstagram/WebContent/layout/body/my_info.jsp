@@ -1,7 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("deleteMember").click(function() {
+		return confirm("회원 탈퇴하시겠습니까?");
+	});
+});
+</script> 
 <div class="container">
 	<!-- 현재 페이지의 타이틀  -->
 		<div class="row" style="margin-top: 0px; padding-top: 0px">
@@ -51,8 +60,8 @@
 										<div class="text-center mt-4">
 										<h4 class="my-2">회원 탈퇴</h4>
 										</div>
-								<a href="${pageContext.request.contextPath}/DispatcherServlet?command=deleteMemberInfo">
-								<img class="d-block img-fluid w-100" src="img/002-user-1.png" alt="" style="height:80px; width:70px; padding-left:90px; padding-right:90px">
+								<a href="${pageContext.request.contextPath}/DispatcherServlet?command=deleteMemberInfo&id=${sessionScope.member.id}">
+								<img id="deleteMember" class="d-block img-fluid w-100" src="img/002-user-1.png" alt="" style="height:80px; width:70px; padding-left:90px; padding-right:90px">
 								</a>
 									&nbsp;
 				</div>
