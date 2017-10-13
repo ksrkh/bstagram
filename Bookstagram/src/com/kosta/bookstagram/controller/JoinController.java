@@ -33,6 +33,6 @@ public class JoinController implements Controller {
 		}
 		
 		MemberDAO.getInstance().addMember(member);
-		return "do.jsp";
+		return "redirect:do.jsp";
 	}
 }
