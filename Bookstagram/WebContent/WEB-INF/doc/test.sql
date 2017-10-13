@@ -77,10 +77,15 @@ FROM BOARD where id='dnwjdrnl2@naver.com';
 select * from MEMBER;
 select * from MEMBER_TIER;
 
-Update MEMBER set tier=0 where id=?;
+Update MEMBER set tier=3 where id='a';
+Update MEMBER set tier=3 where id='b';
 
-
+insert into member(id, pw,nick,age,regdate,m_photo,temp,tend_code,tend_code2,tend_code3,tier,question_code,pw_ans)
+values('a','1','dnwjd',26,sysdate,null,null,0,0,0,3,3,'황운');
+insert into member(id, pw,nick,age,regdate,m_photo,temp,tend_code,tend_code2,tend_code3,tier,question_code,pw_ans)
+values('b','1','dnwjd',26,sysdate,null,null,0,0,0,3,3,'황운');
 select * from Member;
+
 
 
 			

@@ -6,7 +6,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-	$("deleteMember").click(function() {
+	$("#deleteMember").click(function() {
 		return confirm("회원 탈퇴하시겠습니까?");
 	});
 });
@@ -43,7 +43,7 @@ $(document).ready(function() {
 										<div class="text-center mt-4">
 										<h4 class="my-2">회원 정보 수정</h4>
 										</div>
-								<a href="${pageContext.request.contextPath}/DispatcherServlet?command=updateMemberInfo">
+								<a href="${pageContext.request.contextPath}/DispatcherServlet?command=updateForm">
 								<img class="d-block img-fluid w-100" src="img/001-user.png" alt="" style="height:80px; width:70px; padding-left:90px; padding-right:90px">
 								</a>	
 									&nbsp;
