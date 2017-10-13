@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.kosta.bookstagram.controller.listener.Controller;
 import com.kosta.bookstagram.model.ReviewBoardDAO;
 import com.kosta.bookstagram.model.ReviewBoardVO;
+import com.kosta.bookstagram.model.common.PagingBean;
 
 public class ReviewBoardListController implements Controller {
 
@@ -15,10 +16,11 @@ public class ReviewBoardListController implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ArrayList<ReviewBoardVO> plist=new ArrayList<ReviewBoardVO>();
 		String content = null;
-		for(int i=0; i<ReviewBoardDAO.getInstance().boardList().size();i++) {
-			plist.add((ReviewBoardVO)ReviewBoardDAO.getInstance().boardList().get(i));
+		PagingBean pagingBean=null;
+		for(int i=0; i<ReviewBoardDAO.getInstance().boardList(pagingBean).size();i++) {
+			plist.add((ReviewBoardVO)ReviewBoardDAO.getInstance().boardList(pagingBean).get(i));
 		}	
-		for(int i=0;i<ReviewBoardDAO.getInstance().boardList().size();i++) {
+		for(int i=0;i<ReviewBoardDAO.getInstance().boardList(pagingBean).size();i++) {
 			content = plist.get(i).getReview_content().substring(0,320);
 			plist.get(i).setReview_content(content+"...");
 		}

@@ -74,9 +74,13 @@ function updateCreatePost(){
 		<div class="row" style="margin-bottom: 30px">
 			<div class="col-lg-12">
 				<button type="reset" class="btn btn-default"  style="float:right" onclick="golist()">목록으로</button>
-				<!-- 작성자와 정보가 일치했을시에만 보여줍니다. -->
+				<!-- 작성자와 정보가 일치했을시에만 보여줍니다. -->		
+				<c:choose>
+					<c:when test="${requestScope.cbdvo.id==sessionScope.member.id}">
 				<button type="submit" class="btn btn-primary" style="float:left; margin-right: 10px" onclick="deleteCreatePost()">삭제</button>
 				<button type="submit" class="btn btn-primary" style="float:left" onclick="updateCreatePost()">수정</button>
+					</c:when>
+				</c:choose>
 			</div>
 		</div>
 	</div>

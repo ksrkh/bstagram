@@ -1,4 +1,4 @@
-package test;
+/*package test;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -12,9 +12,9 @@ import com.kosta.bookstagram.model.common.PagingBean;
 
 public class BstagramBoardTest {
 	public static void main(String[] args) {
-		/*
+		
 		 * 한줄게시판 생성자 테스트
-		 */
+		 
 		System.out.println("****************************** LineBoardVO VO객체 테스트 ********************************");
 		LineBoardVO lineVO = new LineBoardVO(1,1,"kjhsc101218@naver.com","java","2017-08-12",0,0,1,0,"화장실을 깨끗하게 사용해주세요. 이곳을 청소해주시는 분들, 누군가에겐 전부인 사람들입니다.",8, 1);
 		System.out.println("게시판번호 :" + lineVO.getBoard_no());
@@ -31,9 +31,9 @@ public class BstagramBoardTest {
 		System.out.println("**************************************************************************************");
 		System.out.println();
 		
-		/*
+		
 		 * 책 리뷰 게시판 생성자 테스트
-		 */
+		 
 		System.out.println("****************************** ReviewBoardVO VO객체 테스트 ********************************");
 		String reviewContent = "독후감을 심사할 때 중요하게 여기는 부분은 처음 시작 대목이다. 첫 부분이 어색하거나 밋밋하다면 한 수준 아래로 글을 평가한다. 심사해야 할 원고가 많으면 많을수록 첫 부분은 더욱 중요해진다. "+
 				"가장 재미없는 독후감 제목은 책 이름을 그대로 쓰는 경우다. 그보다 조금 나은 제목은 ‘~을 읽고’라는 제목이다. 그렇다면 최고 수준의 제목은 무엇일까. 가장 눈길을 끄는 제목은 자신이 생각하는 책에 대한 주제를 주제목으로 하고 부제목으로 ‘~을 읽고’라고 쓴 제목이다."+
@@ -55,9 +55,9 @@ public class BstagramBoardTest {
 		System.out.println("**************************************************************************************");
 		System.out.println();
 		
-		/*
+		
 		 * 창작게시판 테스트
-		 */
+		 
 		System.out.println("****************************** CreateBoard VO객체 테스트 ********************************");
 		CreateBoardVO createVO = new CreateBoardVO(3, 3, "orangss@naver.com", "2017-09-01", 0, 1, 0, "창작의 시작", "창작한 내용", 4);
 		System.out.println("게시판번호 :" + createVO.getBoard_no());
@@ -75,9 +75,9 @@ public class BstagramBoardTest {
 		System.out.println();
 		System.out.println();
 		
-		/*
+		
 		 * DAO 테스트
-		 */
+		 
 		try {
 			// ****************************************************************************
 			
@@ -112,3 +112,4 @@ public class BstagramBoardTest {
 		}
 	}
 }
+*/

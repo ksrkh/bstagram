@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.kosta.bookstagram.model.common.CommonDAO;
+import com.kosta.bookstagram.model.common.PagingBean;
 import com.kosta.bookstagram.model.common.ReReplyVO;
 import com.kosta.bookstagram.model.common.ReplyVO;
 import com.kosta.bookstagram.model.listener.BoardListener;
@@ -143,7 +144,7 @@ public abstract class BoardDAO extends CommonDAO implements BoardListener{
 	 * @return	ArrayList<BoardVO>	게시판의 타입번호로 조회한 게시판의 리스트
 	 * @throws	SQLException
 	 */
-	public abstract ArrayList<BoardVO> boardList() throws SQLException;
+	public abstract ArrayList<BoardVO> boardList(PagingBean pagingBean) throws SQLException;
 	
 	/*
 	 * 게시판의 전체 게시글을 보여주는 내용입니다.

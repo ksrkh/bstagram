@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import javax.sql.DataSource;
 
 import com.kosta.bookstagram.model.common.DataSourceManager;
+import com.kosta.bookstagram.model.common.PagingBean;
 
 public class ReviewBoardDAO extends BoardDAO{
 	//Singleton pattern 
@@ -113,7 +114,7 @@ public class ReviewBoardDAO extends BoardDAO{
 	}
 	
 	@Override
-	public ArrayList<BoardVO> boardList() throws SQLException {
+	public ArrayList<BoardVO> boardList(PagingBean pagingBean) throws SQLException {
 		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
 		Connection con = null;
 		PreparedStatement pstmt = null;

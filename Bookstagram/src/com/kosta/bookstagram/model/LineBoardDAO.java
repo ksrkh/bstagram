@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import com.kosta.bookstagram.model.common.PagingBean;
+
 public class LineBoardDAO extends BoardDAO{
 	//Singleton pattern 
 	private static LineBoardDAO instance = new LineBoardDAO();	
@@ -181,7 +183,7 @@ public class LineBoardDAO extends BoardDAO{
 	 *WHERE lb.board_no=br.board_no and m.id=br.id 
 	 */
 	@Override
-	public ArrayList<BoardVO> boardList() throws SQLException {
+	public ArrayList<BoardVO> boardList(PagingBean pagingBean) throws SQLException {
 		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
 		Connection con = null;
 		PreparedStatement pstmt = null;

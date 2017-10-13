@@ -13,9 +13,10 @@
 				<div class="well bs-component col-lg-12">
 					<div class="col-lg-1"></div>
 					<div class="col-lg-10">
-					<form class="form-horizontal" action="DispatcherServlet" id="update">
+					<form class="form-horizontal" method="post" action="DispatcherServlet" id="update">
 					<input type="hidden" name="command" value="createpostupdate">
 					<input type="hidden" name="boardNo" value="${requestScope.cbno}">
+					<input type="hidden" name="id" value="${sessionScope.member.id}">
 						<fieldset>
 							<legend>창작하기</legend>
 							<!-- 독후감 제목 -->
