@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
    <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script type="text/javascript">
 $(document).ready(function(){
                     lastPostFunc();
@@ -18,15 +20,24 @@ $(document).ready(function(){
                                 start += last;
                      });
             }
-     $(".sympathy-click").click(function() {
+     $("#sympathy-click").click(function() {
      	alert("공감 upup");
      });//click 공감
-    $("#detail_view_click").click(function() {
+/*     $("#detail_view_click").click(function() {
      	alert("로그인 해주세요");
     	
+	}); */
+	$("#lineDeleteBtn").click(function() {
+		if(confirm("정말 삭제하시겠습니까?")){
+			alert("asd");
+			location.href="DispatcherServlet?command=lineDetail";	
+			}
 	});
-     
-    
+	$("#lineUpdateBtn").click(function() {
+		if(confirm("정말 수정하시겠습니까?")){
+				location.href="";	
+			}
+	}); 
 });//ready
 </script>
 <style type="text/css">
@@ -87,6 +98,10 @@ $(document).ready(function(){
 	<!-- 추후 For로 돌릴 공간. -->
 	<c:forEach var="lvo" items="${requestScope.lineList}">
 	<div class="bg-faded p-4 my-4"  id="line_board_btn">
+	<div class="up_delete pull-right">
+	<a href=""><i class="fa fa-cog fa-spin" style="font-size:25px;" id="lineUpdateBtn"></i></a>
+    <a href=""><i class="fa fa-trash-o" style="font-size:25px;" id="lineDeleteBtn"></i></a>
+	</div>
 		<div class="container" >
 			<blockquote class="quote-box" style="background-color: #4ADFCC;">
 				<p class="quotation-mark">
@@ -111,7 +126,7 @@ $(document).ready(function(){
 						${lvo.nick}
 					</p>
 					<p class="blog-post-bottom pull-right">
-						<span onmouseup="공감" class="sympathy-click" style="color:red">❤</span><span class="badge quote-badge">${lvo.hit}</span>
+						<i class="fa fa-heart" id="sympathy-click" style="font-size:20px;color:red"></i><span class="badge quote-badge" style="height:25px; width:50px; text-center;">${lvo.hit}</span>
 					</p>
 				</div>
 			</blockquote>
