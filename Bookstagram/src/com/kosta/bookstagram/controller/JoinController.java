@@ -20,6 +20,7 @@ public class JoinController implements Controller {
 		MemberVO member = null;
 		
 		if(tend_code != null) {
+			//성향 선택함 1~3개
 			if(tend_code.length == 1)
 				member = new MemberVO(id, pw, nick, age, Integer.parseInt(tend_code[0]), 0, 0, question_code, pw_ans);
 			else if(tend_code.length == 2)
@@ -27,6 +28,7 @@ public class JoinController implements Controller {
 			else if(tend_code.length == 3)
 				member = new MemberVO(id, pw, nick, age, Integer.parseInt(tend_code[0]), Integer.parseInt(tend_code[1]), Integer.parseInt(tend_code[2]), question_code, pw_ans);
 		}else {
+			//성향 선택안함
 			member = new MemberVO(id, pw, nick, age, 0, 0, 0, question_code, pw_ans);
 		}
 		
