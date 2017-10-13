@@ -206,10 +206,48 @@ public class LineBoardDAO extends BoardDAO{
 		}
 		return list;
 	}
-	
+	/*
+	 * 총게시물 수 찾는 메서드 
+	 */
 	@Override
 	public int totalCountByBoard() throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
+		int totalCount=0;
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		try {
+			con=getConnection();
+			String sql="select count(board_no) from line_board";
+			pstmt=con.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				totalCount=rs.getInt(1);
+			}
+		}finally {
+			closeAll(rs, pstmt, con);
+		}
+		return totalCount;
+	}
+	/*
+	 * 성향 찾는 메서드
+	 * int tend_code, String tend_name
+	 */
+	public ArrayList<LineTendVO> tendList() throws SQLException{
+		ArrayList<LineTendVO> ltList=new ArrayList<LineTendVO>();
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		try {
+			con=getConnection();
+			String sql="select tend_code,tend_name from tend";
+			pstmt=con.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				ltList.add(new LineTendVO(rs.getInt(1),rs.getString(2)));
+			}
+		}finally {
+			closeAll(rs, pstmt, con);
+		}
+		return ltList;
 	}
 }

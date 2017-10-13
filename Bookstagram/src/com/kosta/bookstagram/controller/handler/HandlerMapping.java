@@ -13,11 +13,13 @@ import com.kosta.bookstagram.controller.JoinController;
 import com.kosta.bookstagram.controller.JoinFormController;
 import com.kosta.bookstagram.controller.LineDetailController;
 import com.kosta.bookstagram.controller.LineListController;
+import com.kosta.bookstagram.controller.LineWriteController;
 import com.kosta.bookstagram.controller.LogOutController;
 import com.kosta.bookstagram.controller.LoginController;
 import com.kosta.bookstagram.controller.MyPageController;
 import com.kosta.bookstagram.controller.ReviewBoardListController;
 import com.kosta.bookstagram.controller.ReviewDetailController;
+import com.kosta.bookstagram.controller.TendListController;
 import com.kosta.bookstagram.controller.UpdateFormController;
 import com.kosta.bookstagram.controller.UpdateMemberInfoController;
 import com.kosta.bookstagram.controller.ViewMyBoardController;
@@ -78,7 +80,10 @@ public class HandlerMapping {
 			controller= new UpdateMemberInfoController();
 		else if(command.equals("updateForm"))
 			controller=new UpdateFormController();
-	
+		else if(command.equals("tendList"))
+			controller = new TendListController();
+		else if(command.equals("lineWrite"))
+			controller = new LineWriteController();
 	
 		
 		return controller;

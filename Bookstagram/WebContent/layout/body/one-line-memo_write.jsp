@@ -1,5 +1,41 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#cancelBtn").click(function() {
+		if(confirm("게시글을 작성을 취소하시겠습니까?")){
+			location.href="DispatcherServlet?command=lineList";		
+			}
+	});//cancel click
+	
+	$("input[name=tend_code]:checkbox").change(function() {
+        if( $("input[name=tend_code]:checkbox:checked").length == 1 ) {
+            $(":checkbox:not(:checked)").attr("disabled", "disabled");
+        } else {
+            $("input[name=tend_code]:checkbox").removeAttr("disabled");
+        }
+    });
+});//
+	$("#writeLineBtn").click(function() {
+		var content= $("#content").val();
+		var tendComp=$("#writeForm :checkbox[name=tend]:checked");
+		if(content.length>110){
+		alert("110자 이상은 입력하실 수 없습니다.");
+		}else if(content==""){
+			alert("게시물을 작성해주세요");
+		}else if(tendComp.length==0){
+			alert("성향은 한개이상 선택해주세여");
+		}else if(content!=""){
+			if(confirm("게시글을 작성하시겠습니까?")){
+				location.href="DispatcherServlet?command=lineWrite&line_content="+content;		
+			}
+	}
+		
+	}); //write click 
+		//textarea 부분  $("#content").val()
+});//ready
+</script>
 <!-- 기능의 UI를 담당하는 부분(컨테이너) -->
 <div class="container">
 	<!-- 현재 페이지의 타이틀  -->
@@ -13,7 +49,7 @@
 				<div class="well bs-component col-lg-12">
 					<div class="col-lg-1"></div>
 					<div class="col-lg-10">
-					<form class="form-horizontal">
+					<form class="form-horizontal" id="writeForm">
 						<fieldset>
 							<legend>책속의 한줄</legend>
 							<!-- 내용 입력 부분 -->
@@ -105,21 +141,12 @@
 								</div>
 							</div>
 							
-							<!-- 한줄 메모의 성향을 선택할 공간 입니다. -->
+							<!-- 한줄 메모의 성향을 선택할 공간 입니다. ltList-->
 							<div class="bg-faded p-4 my-4">
-								<div class="checkbox" style="padding-top: 0px">
-									<label><input type="checkbox" name="tend" id="tend"> 슬픈</label>
-									<label><input type="checkbox" name="tend" id="tend"> 분노</label>
-									<label><input type="checkbox" name="tend" id="tend"> 사랑</label>
-									<label><input type="checkbox" name="tend" id="tend"> 허무</label>
-									<label><input type="checkbox" name="tend" id="tend"> 기쁜</label>
-									<label><input type="checkbox" name="tend" id="tend"> 우정</label>
-									<label><input type="checkbox" name="tend" id="tend"> 믿음</label>
-									<label><input type="checkbox" name="tend" id="tend"> 성찰</label>
-									<label><input type="checkbox" name="tend" id="tend"> 행복</label>
-									<label><input type="checkbox" name="tend" id="tend"> 여유</label>
-									<label><input type="checkbox" name="tend" id="tend"> 희망</label>
-									<label><input type="checkbox" name="tend" id="tend"> 기타</label>
+								<div class="checkbox" style="padding-top: 0px"><h4>성향을 선택해주세요</h4>
+									<c:forEach items="${requestScope.ltList}" var="tendList">
+									<label><input type="checkbox" value="${tendList.tend_code}" name="tend_code" id="tend_code"> ${tendList.tend_name}</label>
+									</c:forEach>
 								</div>
 							</div>
 						</fieldset>
@@ -133,8 +160,8 @@
 		<!-- 작석 버튼/취소 버튼 -->
 		<div class="row" style="text-align:center; margin-top: 50px; margin-bottom: 100px">
 			<div class="col-lg-12">
-				<button type="reset" class="btn btn-default">작성 취소</button>
-				<button type="submit" class="btn btn-primary">작성 완료</button>
+				<button type="reset" class="btn btn-default" id="cancelBtn">작성 취소</button>
+				<button type="submit" class="btn btn-primary" id="writeLineBtn">작성 완료</button>
 			</div>
 		</div>
 	</div>
