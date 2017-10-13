@@ -165,11 +165,21 @@ var chkJoinNickValue = false;
  * 회원가입 중복체크
  */
 function dupleId(){
+	var regExp = /[0-9a-zA-Z][_0-9a-zA-Z-]*@[_0-9a-zA-Z-]+(\.[_0-9a-zA-Z-]+){1,2}$/;
 	var id = $('.form-group #id').val();
+	
 	if(0 == id.length){
 		$('#dupleMessage').text('');
 		chkJoinValue = false;
-	} else if(3 < id.length){
+	} else if(id.length<4 || id.length>30){
+		$('#dupleMessage').text('4글자이상 30글자미만으로 입력해주세요.');
+		$('#dupleMessage').css("color","#ff6b6b");
+		chkJoinIdValue = false;
+	} else if(!id.match(regExp)){
+		$('#dupleMessage').text('이메일 형식에 맞지않은 아이디입니다.');
+		$('#dupleMessage').css("color","#ff6b6b");
+		chkJoinIdValue = false;
+	} else{
 		$.ajax({
 			type:"get",
 			url: "DispatcherServlet",
@@ -180,7 +190,7 @@ function dupleId(){
 					$('#dupleMessage').css("color","#1cbeff");
 					chkJoinIdValue = true;
 				}else{
-					$('#dupleMessage').text('사용 불가능한 아이디입니다.');
+					$('#dupleMessage').text('중복 된 아이디입니다.');
 					$('#dupleMessage').css("color","#ff6b6b");
 					chkJoinIdValue = false;
 				}
@@ -190,10 +200,6 @@ function dupleId(){
 				alert("timeout error");
 			}
 		});
-	}else{
-		$('#dupleMessage').text('4글자이상 12글자미만으로 입력해주세요.');
-		$('#dupleMessage').css("color","#ff6b6b");
-		chkJoinIdValue = false;
 	}
 }
 
