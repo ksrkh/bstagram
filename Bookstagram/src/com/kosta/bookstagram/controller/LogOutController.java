@@ -11,6 +11,6 @@ public class LogOutController implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession();
 		session.invalidate();
-		return "ex-home.jsp";
+		return "DispatcherServlet?command=lineList";
 	}
 }
