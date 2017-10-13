@@ -21,6 +21,8 @@ public class ReviewBoardVO extends BoardVO{
 	 * 책 번호
 	 */
 	private  int book_no;
+	
+	private BookVO bookVO;
 	/*
 	 * 기본 생성자
 	 */
@@ -111,16 +113,17 @@ public class ReviewBoardVO extends BoardVO{
 	 * @param review_content	리뷰내용
 	 * @param star_point		리뷰별점
 	 * @param genre				리뷰장르
-	 * @param book_no			리뷰책번호
+	 * @param bookVO			책정보
 	 */
 	public ReviewBoardVO(int board_no, String nick, String board_regdate, int hit,
-			String review_title, String review_content, int star_point, int genre, int book_no) {
+			String review_title, String review_content, int star_point, int genre, int book_no, BookVO bookVO) {
 		super(board_no, nick, board_regdate, hit);
 		this.review_title = review_title;
 		this.review_content = review_content;
 		this.star_point = star_point;
 		this.genre = genre;
-		this.book_no = book_no;
+		this.book_no =book_no;
+		this.bookVO=bookVO;
 	}
 	
 	public String getReview_title() {
@@ -162,4 +165,11 @@ public class ReviewBoardVO extends BoardVO{
 	public void setBook_no(int book_no) {
 		this.book_no = book_no;
 	}
+	public BookVO getBookVO() {
+		return bookVO;
+	}
+	public void setBookVO(BookVO bookVO) {
+		this.bookVO = bookVO;
+	}
+	
 }
