@@ -69,7 +69,7 @@ function updateCreatePost(){
 				</div>
 			</div>
 		</div>
-		
+	
 		<!-- 작성 버튼/취소 버튼 -->
 		<div class="row" style="margin-bottom: 30px">
 			<div class="col-lg-12">
@@ -84,6 +84,38 @@ function updateCreatePost(){
 			</div>
 		</div>
 	</div>
-	
 </div>
 <!-- /.container -->
+<div class="container" style="margin-bottom: 50px">
+	<div class="bg-faded p-4 my-4">
+		<form class="form-horizontal">
+			<div class="col-lg-6"> 
+				<input type="text" class="form-control" id="" name="" placeholder="댓글을 입력하세요">
+			</div>
+				<input type="submit" class="btn btn-primary" value="등록">
+		</form>
+			<br><br><br>
+
+		<table class="table table-hover">
+				<!-- start for -->
+				<tr>
+					<td>아이디</td><td>댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글</td><td><a href="#">답변</a></td>
+				</tr>
+				<tr>
+						<td>아이디</td><td>댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글</td><td><a href="#">답변</a></td>
+				</tr>
+				<tr>
+					<td>아이디</td><td>댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글</td><td><a href="#">답변</a></td>
+				</tr>
+				<tr>
+					<td>아이디</td><td>댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글</td><td><a href="#">답변</a></td>
+				</tr>
+				<tr>
+					<td>아이디</td><td>댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글</td><td><a href="#">답변</a></td>
+				</tr>
+				<!-- end for -->
+		</table>
+</div>
+
+
+</div>
