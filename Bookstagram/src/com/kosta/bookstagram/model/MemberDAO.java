@@ -73,6 +73,27 @@ public class MemberDAO extends CommonDAO implements MemberListener {
 		System.out.println("updateMember() 실행");
 	}
 
+	/*public MemberVO MemberInfo(String id) throws SQLException{
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs=null;
+		MemberVO mvo=new MemberVO();
+		try {
+			con = getConnection();
+			StringBuilder sql = new StringBuilder();
+			sql.append("SELECT id,nick,age,regdate FROM MEMBER where id=? ");
+			pstmt=con.prepareStatement(sql.toString());	
+			pstmt.setString(1, id);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				mvo.set
+			}
+		} finally {
+			closeAll(pstmt, con);
+		}
+		return mvo;
+	}*/
 	@Override
 	public void withDrawMember(String id) throws SQLException {
 		Connection con = null;

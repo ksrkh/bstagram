@@ -20,7 +20,7 @@
 					<div class="btn-group" style="float: right; margin-right: 10px">
 						<a href="#" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">마이페이지</a>
 						<ul class="dropdown-menu">
-							<li><a href="#">내 정보</a></li>
+							<li><a href="${pageContext.request.contextPath}/DispatcherServlet?command=myInfo">내 정보</a></li>
 							<li><a href="${pageContext.request.contextPath}/DispatcherServlet?command=viewMyBoard&b_name=1">내 한줄 관리</a></li>
 							<li><a href="${pageContext.request.contextPath}/DispatcherServlet?command=viewMyBoard&b_name=2">내 독후감 관리</a></li>
 							<li><a href="${pageContext.request.contextPath}/DispatcherServlet?command=viewMyBoard&b_name=3">내 창작글 관리</a></li>

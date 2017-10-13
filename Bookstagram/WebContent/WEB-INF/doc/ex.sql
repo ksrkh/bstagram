@@ -160,6 +160,8 @@ values(book_seq.nextval, '같은시간에 우린 어쩌면', '『말의 품격�
 insert into line_board(board_no, line_content, tend_code, book_no)
 values(board_seq.currval, '"나만의" 라고 쓰려다가 "나의"라고 쓴다. 많은사람이 당신을 두고 "나만의"라고 쓰고싶어 한다는것을 알기에 당신은 그런사람이기에..', 3, 5);
 
+select * from LINE_BOARD;
+
 
 /*
  * 책리뷰 글등록

@@ -44,6 +44,7 @@ public interface MemberListener {
 	 */
 	public void addMember(MemberVO member) throws SQLException;
 	
+	
 	/**
 	 * <pre>
 	 * <b>기능</b>

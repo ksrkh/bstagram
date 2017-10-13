@@ -14,6 +14,7 @@ import com.kosta.bookstagram.controller.LineDetailController;
 import com.kosta.bookstagram.controller.LineListController;
 import com.kosta.bookstagram.controller.LogOutController;
 import com.kosta.bookstagram.controller.LoginController;
+import com.kosta.bookstagram.controller.MyPageController;
 import com.kosta.bookstagram.controller.ReviewBoardListController;
 import com.kosta.bookstagram.controller.ReviewDetailController;
 import com.kosta.bookstagram.controller.ViewMyBoardController;
@@ -66,6 +67,8 @@ public class HandlerMapping {
 			controller = new ReviewBoardListController();
 		else if(command.equals("reviewdetail"))
 			controller = new ReviewDetailController();
+		else if(command.equals("myInfo"))
+			controller = new MyPageController();
 	
 	
 		
