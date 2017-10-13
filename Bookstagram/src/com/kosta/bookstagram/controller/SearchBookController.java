@@ -2,12 +2,15 @@ package com.kosta.bookstagram.controller;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.json.JSONArray;
 
 import com.kosta.bookstagram.controller.listener.Controller;
 
@@ -18,6 +21,7 @@ public class SearchBookController implements Controller {
 		String book_name = request.getParameter("book_search");
 		String clientId = "NFpFzUbjcuX6Ce2eN74w";// 애플리케이션 클라이언트 아이디값";
 		String clientSecret = "_zKcG_tiOV";// 애플리케이션 클라이언트 시크릿값";
+		JSONArray ja = new JSONArray();
 		try {
 			String text = URLEncoder.encode(book_name, "UTF-8");
 			String apiURL = "https://openapi.naver.com/v1/search/book.json?query=" + text + "&display=1"; // json 결과
@@ -40,7 +44,12 @@ public class SearchBookController implements Controller {
 			}
 			br.close();
 			System.out.println(responseBook.toString());
-			request.setAttribute("searchBook", responseBook);
+			ja.put(responseBook);
+			
+			PrintWriter out = response.getWriter();
+			out.print(ja.toString());
+			
+			request.setAttribute("searchBook", responseBook);			
 		} catch (Exception e) {
 			System.out.println(e);
 		}

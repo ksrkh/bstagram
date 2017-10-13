@@ -4,20 +4,18 @@
 <script type="text/javascript">
 		function search(){
 			alert(document.insertForm.book_search.value);
+			var book = document.insertForm.book_search.value;
 			$.ajax({
 				type:"get",
 				url: "DispatcherServlet",
-				data:"command=searchbook&nick="+nick,
+				data:"command=searchbook&book_search="+book,
 				dataType:"json",
 				success:function(data){//data로 서버의 응답 정보가 들어온다.
 					alert(data);
+					$("#book_intro").html(data);
 				}			
 			});
-	}
-		
-
-			
-			
+	}			
 </script>
 <div class="container">
 	<!-- 현재 페이지의 타이틀  -->
@@ -32,7 +30,7 @@
 					<div class="col-lg-1"></div>
 					<div class="col-lg-10">
 					<form class="form-horizontal"  id="insertreview" action="DispatcherServlet" method="post" name="insertForm">
-					<input type="hidden" name="command" value="insertreview">
+					<input type="hidden" name="command" value="reviewwrite">
 						<fieldset>
 							<legend>독후감 작성</legend>
 							<!-- 독후감 제목 -->
