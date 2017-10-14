@@ -53,7 +53,7 @@
 	
 <!-- 로고 -->
 <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">
-	<img alt="" src="img/logo_black.png" style="width: 400px; height: 300px">
+	<img alt="" src="img/logo_white.png" style="width: 400px; height: 300px">
 </div>
     
 <!-- 네비게이션 바 -->
