@@ -37,6 +37,7 @@ import com.kosta.bookstagram.controller.TendListController;
 import com.kosta.bookstagram.controller.UpdateFormController;
 import com.kosta.bookstagram.controller.UpdateMemberInfoController;
 import com.kosta.bookstagram.controller.ViewMyBoardController;
+import com.kosta.bookstagram.controller.deleteReplyController;
 import com.kosta.bookstagram.controller.listener.Controller;
 
 public class HandlerMapping {
@@ -126,6 +127,8 @@ public class HandlerMapping {
 			controller=new CmsAddCategoryController();
 		else if(command.equals("addcmspwquestion"))
 			controller=new CmsAddPwQuestionController();
+		else if(command.equals("deleteReply"))
+			controller=new deleteReplyController();
 		
 		return controller;
 	}

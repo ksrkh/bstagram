@@ -144,8 +144,36 @@ FROM member m, tend t
 WHERE m.tend_code3 = t.tend_code) D
 WHERE C.id = D.id
 
+insert into re_reply(re_reply_no, re_reply_content, reply_no, id)
+values(rereplyno_seq.nextval, '리덧글 내용1', 5, 'b');
+
+insert into re_reply(re_reply_no, re_reply_content, reply_no, id)
+values(rereplyno_seq.nextval, '리덧글 내용2', 5, 'b');
+
+insert into re_reply(re_reply_no, re_reply_content, reply_no, id)
+values(rereplyno_seq.nextval, '리덧글 내용3', 5, 'b');
+
+insert into re_reply(re_reply_no, re_reply_content, reply_no, id)
+values(rereplyno_seq.nextval, '리덧글 내용4', 5, 'b');
+
+insert into re_reply(re_reply_no, re_reply_content, reply_no, id)
+values(rereplyno_seq.nextval, '리덧글 내용1', 6, 'b');
+
+insert into re_reply(re_reply_no, re_reply_content, reply_no, id)
+values(rereplyno_seq.nextval, '리덧글 내용2', 6, 'b');
+
+delete from RE_REPLY
+where reply_no=6;
+
+delete from REPLY
+where reply_no=6;
+
+
 select *
 from REPLY;
+
+select *
+from RE_REPLY;
 
 insert into reply(reply_no, reply_content, board_no, id)
 values(replyno_seq.nextval, '1번게시글의 첫번째 덧글입니다.',  1, 'dnwjdrnl2@naver.com');

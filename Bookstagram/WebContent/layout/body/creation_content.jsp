@@ -24,6 +24,12 @@ function chReply(){
 	}
 	return confirm("댓글을 작성하시겠습니까?");
 }
+
+function delReply(reply_no){
+	if(confirm("덧글을 삭제하시겠습니까?")){
+		location.href="DispatcherServlet?command=deleteReply&board_no=${requestScope.cbdvo.board_no}&reply_no="+reply_no;
+		}
+}
 </script>
 
 <!-- 기능의 UI를 담당하는 부분(컨테이너) -->
@@ -117,7 +123,7 @@ function chReply(){
 							<td width="150">${reVO.id}</td>
 							<td width="1000">${reVO.reply_content}</td>
 							<td width="200"><button type="submit" class="btn btn-primary" style="float:left">답글</button>
-							<button type="submit" class="btn btn-primary" style="float:left">삭제</button></td>
+							<button type="submit" class="btn btn-primary" style="float:left" onclick="delReply(${reVO.reply_no})">삭제</button></td>
 							
 						</tr>
 					</c:when>
