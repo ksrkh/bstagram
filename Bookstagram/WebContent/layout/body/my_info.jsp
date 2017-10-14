@@ -21,7 +21,7 @@ $(document).ready(function() {
 						<div class="m_container">
 							<div class="bg-faded p-4 my-4" style="height: 360px">
 								<div>
-									<img class="d-block img-fluid" src="img/001-user.png" alt="" style="height:330px; width:100%">		
+									<img class="d-block img-fluid" src="img/mypage1.jpg" alt="" style="height:330px; width:100%">		
 								</div>
 <%-- 								<h5>아이디:${sessionScope.member.id}</h5>
 								<h5>닉네임:${sessionScope.member.nick}</h5> 
@@ -38,7 +38,7 @@ $(document).ready(function() {
 						<div class="m_container">
 							<div class="bg-faded p-4 my-4" style="height: 360px">
 								<a href="${pageContext.request.contextPath}/DispatcherServlet?command=updateForm">
-									<img class="d-block img-fluid w-100" src="img/001-user.png" alt="" style="height:330px; width:100%">
+									<img class="d-block img-fluid w-100" src="img/mypage2.jpg" alt="" style="height:330px; width:100%">
 								</a>&nbsp;
 							</div>
 						</div>
@@ -51,7 +51,7 @@ $(document).ready(function() {
 						<div class="m_container">
 							<div class="bg-faded p-4 my-4" style="height: 360px">
 								<a href="${pageContext.request.contextPath}/DispatcherServlet?command=deleteMemberInfo&id=${sessionScope.member.id}">
-									<img id="deleteMember" class="d-block img-fluid w-100" src="img/001-user.png" alt="" style="height:330px; width:100%">
+									<img id="deleteMember" class="d-block img-fluid w-100" src="img/mypage3.jpg" alt="" style="height:330px; width:100%">
 								</a> &nbsp;
 							</div>
 						</div>
