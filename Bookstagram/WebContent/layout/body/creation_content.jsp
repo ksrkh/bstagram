@@ -4,7 +4,7 @@
 
 <script type="text/javascript">
 function golist(){
-	location.href="ex-creation.jsp";
+	location.href="DispatcherServlet?command=createboardlist";
 }
 function deleteCreatePost(){
 	if(confirm("창작 글을 삭제하시겠습니까?")){
