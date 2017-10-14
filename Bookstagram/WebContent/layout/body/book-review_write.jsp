@@ -2,9 +2,12 @@
     pageEncoding="UTF-8"%>
 <!-- 기능의 UI를 담당하는 부분(컨테이너) -->
 <script type="text/javascript">
+		function returnlist(){
+			location.href="DispatcherServlet?command=reviewboardlist";
+		}
 		function search(){
-			alert(document.insertForm.book_search.value);
-			var book = document.insertForm.book_search.value;
+			alert(document.review.book_search.value);
+			var book = document.review.book_search.value;
 			$.ajax({
 				type:"get",
 				url: "DispatcherServlet",
@@ -29,14 +32,15 @@
 				<div class="well bs-component col-lg-12">
 					<div class="col-lg-1"></div>
 					<div class="col-lg-10">
-					<form class="form-horizontal"  id="insertreview" action="DispatcherServlet" method="post" name="insertForm">
+					<form class="form-horizontal"  id="review" action="DispatcherServlet" method="post" name="review">
 					<input type="hidden" name="command" value="reviewwrite">
+					<input type="hidden" name="id" value="${sessionScope.member.id}">
 						<fieldset>
 							<legend>독후감 작성</legend>
 							<!-- 독후감 제목 -->
 							<div class="form-group" style="margin-top: 20px; margin-bottom: 20px">
 								<div class="col-lg-2" style="padding-right: 0px">
-									<select class="form-control" id="select" name="tend_code">
+									<select class="form-control" id="select" name="review_genre">
 										<option value="1">소설</option>
 										<option value="2">에세이/시</option>
 										<option value="3">경영/경제</option>
@@ -49,14 +53,14 @@
 									</select>
 								</div>
 								<div class="col-lg-10">
-									<input type="text" class="form-control" id="title" name="title" placeholder="독후감 제목">
+									<input type="text" class="form-control" id="review_title" name="review_title" placeholder="독후감 제목">
 								</div>
 							</div>
 							
 							<!-- 내용 입력 부분 -->
 							<div class="form-group">
 								<div class="col-lg-12">
-									<textarea class="form-control ta" rows="30" id="content" placeholder="내용을 입력하세요."></textarea>
+									<textarea class="form-control ta" rows="30" id="content" name="review_content" placeholder="내용을 입력하세요."></textarea>
 						      	</div>
 						    </div>
 						    
@@ -116,29 +120,32 @@
 							<div class="form-group" style="margin-bottom:15px; padding-left: 20px">
 								<!-- 기본이미지가 보여지는 곳이며, 검색 이후 검색된 이미지로 변경됩니다. -->
 								<div class="col-lg-2">
-									<img height=171px width=120px src="https://search.pstatic.net/common/?src=http%3A%2F%2Fbookthumb.phinf.naver.net%2Fcover%2F109%2F245%2F10924505.jpg">
+								<input type="hidden" name="review_book_img" value="test">
+									<img height=171px width=120px src="">
 								</div>
 								<div class="col-lg-10">
 									<!-- 책제목 -->
 									<div class="col-lg-12" style="padding-left: 0px; margin-bottom: 10px">
-										<input type="text" class="form-control" id="book_title" placeholder="책제목" readonly="readonly" value="">
+										<input type="text" class="form-control" id="book_title" name="review_book_title" placeholder="책제목" readonly="readonly" value="언어의온도">
 									</div>
 									<!-- 저자 -->
 									<div class="col-lg-4" style="padding-left: 0px; margin-bottom: 10px; margin-left:0px; margin-right: 0px">
-										<input type="text" class="form-control" id="author" placeholder="저자" readonly="readonly" value="">
+										<input type="text" class="form-control" id="author" name="review_author" placeholder="저자" readonly="readonly" value="이기범">
 									</div>
 									<!-- 출판사 -->
 									<div class="col-lg-4"> 
-										<input type="text" class="form-control" id="publ" placeholder="출판사" readonly="readonly" value="">
+										<input type="text" class="form-control" id="publ" name="review_publ" placeholder="출판사" readonly="readonly" value="말글터">
 									</div>
 									<!-- 출판일자 -->
 									<div class="col-lg-4">
-										<input type="text" class="form-control" id="sdate" placeholder="출판일자" readonly="readonly" value="">
+										<input type="text" class="form-control" id="sdate" name="review_sdate" placeholder="출판일자" readonly="readonly" value="2017.10.13">
 									</div>
 									<!-- 책소개 -->
 									<div class="col-lg-12" style="padding-left: 0px">
-										<textarea class="form-control" rows="4" id="book_intro" placeholder="책소개" readonly="readonly" style="resize: none"></textarea>
+										<textarea class="form-control" rows="4" id="book_intro" name="review_book_intro" placeholder="책소개" readonly="readonly" style="resize: none">언어의 온도입니다. 인기가 아주 많은 책입니다.</textarea>
 									</div>
+									<!-- 책장르 입력 -->
+									<input type="hidden" name="review_book_cate" value="test">
 								</div>
 							</div>
 							
@@ -150,11 +157,11 @@
 			</div>
 		</div>
 	
-		<!-- 작석 버튼/취소 버튼 -->
+		<!-- 작성 버튼/취소 버튼 -->
 		<div class="row" style="text-align:center; margin-top: 25px; margin-bottom: 50px">
 			<div class="col-lg-12">
-				<button type="button" class="btn btn-default">작성 취소</button>
-				<button type="button" class="btn btn-primary"  form="insertreview">작성 완료</button>
+				<button type="button" class="btn btn-default" onclick="returnlist()">작성 취소</button>
+				<button type="submit" class="btn btn-primary"  form="review">작성 완료</button>
 			</div>
 		</div>
 	</div>

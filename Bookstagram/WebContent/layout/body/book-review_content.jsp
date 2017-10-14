@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <script type="text/javascript">
+    function returnlist(){
+    	location.href="DispatcherServlet?command=reviewboardlist";
+    }
+</script>
 <!-- 기능의 UI를 담당하는 부분(컨테이너) -->
 <div class="container">
 	<!-- 현재 페이지의 타이틀  -->
@@ -68,11 +74,14 @@
 		</div>
 	
 		<!-- 작석 버튼/취소 버튼 -->
-		<div class="row" style="text-align:center; margin-top: 25px; margin-bottom: 50px">
+		<div class="row" style="margin-bottom: 50px">
 			<div class="col-lg-12">
-				<button type="reset" class="btn btn-default">목록으로</button>
+				<button type="reset" class="btn btn-default"  style="float:right; margin-right: 10px" onclick="returnlist()">목록으로</button>
 				<!-- 작성자와 정보가 일치했을시에만 보여줍니다. -->
-				<button type="submit" class="btn btn-primary">수정</button>
+				<c:if test="${requestScope.reviewdetail.id==sessionScope.member.id}">
+				<button type="submit" class="btn btn-primary" style="float:left; margin-right: 10px; margin-left: 10px" onclick="deleteCreatePost()">삭제</button>
+				<button type="submit" class="btn btn-primary" style="float:left" onclick="updateCreatePost()">수정</button>
+				</c:if>
 			</div>
 		</div>
 	</div>
