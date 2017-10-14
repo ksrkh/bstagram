@@ -109,24 +109,29 @@ function chReply(){
 			<br><br><br>
 
 		<table class="table table-hover">
-
-				<!-- start for -->
-				<tr>
-					<td>아이디</td><td>댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글</td><td><a href="#">답변</a></td>
-				</tr>
-				<tr>
-						<td>아이디</td><td>댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글</td><td><a href="#">답변</a></td>
-				</tr>
-				<tr>
-					<td>아이디</td><td>댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글</td><td><a href="#">답변</a></td>
-				</tr>
-				<tr>
-					<td>아이디</td><td>댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글</td><td><a href="#">답변</a></td>
-				</tr>
-				<tr>
-					<td>아이디</td><td>댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글</td><td><a href="#">답변</a></td>
-				</tr>
-				<!-- end for -->
+			<c:forEach var="reVO" items="${requestScope.relist}">
+				<c:choose>
+					<c:when test="${reVO.id==sessionScope.member.id}">
+						<tr>
+							<td width="50"></td>
+							<td width="150">${reVO.id}</td>
+							<td width="1000">${reVO.reply_content}</td>
+							<td width="200"><button type="submit" class="btn btn-primary" style="float:left">답글</button>
+							<button type="submit" class="btn btn-primary" style="float:left">삭제</button></td>
+							
+						</tr>
+					</c:when>
+					<c:otherwise>
+						<tr>
+						<td width="50"></td>
+						<td width="150">${reVO.id}</td>
+						<td width="1000">${reVO.reply_content}</td>
+						<td width="200"><button type="submit" class="btn btn-primary" style="float:left">답글</button></td>
+						
+						</tr>
+					</c:otherwise>		
+			</c:choose>
+		</c:forEach>
 		</table>
 </div>
 

@@ -150,3 +150,4 @@ from REPLY;
 insert into reply(reply_no, reply_content, board_no, id)
 values(replyno_seq.nextval, '1번게시글의 첫번째 덧글입니다.',  1, 'dnwjdrnl2@naver.com');
 
+select reply_no,reply_content,board_no,id from REPLY where board_no=1;

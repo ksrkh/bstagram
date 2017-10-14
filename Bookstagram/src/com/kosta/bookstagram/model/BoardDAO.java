@@ -2,6 +2,7 @@ package com.kosta.bookstagram.model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -49,7 +50,7 @@ public abstract class BoardDAO extends CommonDAO implements BoardListener{
 
 	@Override
 	public void removeReply(int replyNo) throws SQLException {
-		System.out.println("removeReply() 실행");
+	
 	}
 
 	@Override
@@ -59,8 +60,26 @@ public abstract class BoardDAO extends CommonDAO implements BoardListener{
 
 	@Override
 	public ArrayList<ReplyVO> viewReply(int boardNo) throws SQLException {
-		System.out.println("viewReply() 실행");
-		return null;
+		ArrayList<ReplyVO> list= new ArrayList<ReplyVO>();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs= null;
+		try {
+			con=getConnection(); 
+			StringBuilder sql=new StringBuilder();
+			sql.append("select reply_no,reply_content,board_no,id from REPLY where board_no=? ");
+			pstmt=con.prepareStatement(sql.toString());	
+			pstmt.setInt(1, boardNo);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				ReplyVO vo= new ReplyVO(rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getString(4));
+				list.add(vo);
+			}
+	
+		}finally {
+			closeAll(rs, pstmt, con);
+		}
+		return list;
 	}
 
 	@Override
