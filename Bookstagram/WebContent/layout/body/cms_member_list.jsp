@@ -29,7 +29,7 @@
 				<c:forEach items="${requestScope.member }" var="member">
 				<tr>
 					<!-- 아이디 -->
-					<td style="padding-top: 15px">${member.id} : ${member.tend_name } :${member.tend_name2} :${member.tend_name3} </td>
+					<td style="padding-top: 15px">${member.id}</td>
 					<!-- 비밀번호 -->
 					<td><input type="password" class="form-control" id="password" placeholder="비밀번호" size="10" value="${member.pw}"></td>
 					<!-- 나이 -->
@@ -38,7 +38,14 @@
 					<td>
 						<select class="form-control" id="select" name="tend_code">
 							<c:forEach items="${requestScope.tend}" var="tend">
-								<option value="${tend.tend_code}">${tend.tend_name}</option>
+								<c:choose>
+			                        <c:when test="${tend.tend_name == member.tend_name}">
+										<option value="${tend.tend_code}" selected="selected">${tend.tend_name}</option>
+									</c:when>
+									<c:otherwise>
+										<option value="${tend.tend_code}">${tend.tend_name}</option>
+									</c:otherwise>
+                            	</c:choose>
 							</c:forEach>
 						</select>
 					</td>
@@ -46,7 +53,14 @@
 					<td>
 						<select class="form-control" id="select" name="tend_code2">
 							<c:forEach items="${requestScope.tend}" var="tend">
-								<option value="${tend.tend_code}">${tend.tend_name}</option>
+								<c:choose>
+			                        <c:when test="${tend.tend_name == member.tend_name2}">
+										<option value="${tend.tend_code}" selected="selected">${tend.tend_name}</option>
+									</c:when>
+									<c:otherwise>
+										<option value="${tend.tend_code}">${tend.tend_name}</option>
+									</c:otherwise>
+                            	</c:choose>
 							</c:forEach>
 						</select>
 					</td>
@@ -54,7 +68,14 @@
 					<td>
 						<select class="form-control" id="select" name="tend_code3">
 							<c:forEach items="${requestScope.tend}" var="tend">
-								<option value="${tend.tend_code}">${tend.tend_name}</option>
+								<c:choose>
+			                        <c:when test="${tend.tend_name == member.tend_name3}">
+										<option value="${tend.tend_code}" selected="selected">${tend.tend_name}</option>
+									</c:when>
+									<c:otherwise>
+										<option value="${tend.tend_code}">${tend.tend_name}</option>
+									</c:otherwise>
+                            	</c:choose>
 							</c:forEach>
 						</select>
 					</td>
@@ -62,7 +83,14 @@
 					<td>
 						<select class="form-control" id="select" name="tier">
 							<c:forEach items="${requestScope.tier}" var="tier">
-								<option value="${tier.tier}">${tier.tier_name}</option>
+								<c:choose>
+			                        <c:when test="${tier.tier_name == member.tier_name}">
+										<option value="${tier.tier}" selected="selected">${tier.tier_name}</option>
+									</c:when>
+									<c:otherwise>
+										<option value="${tier.tier}">${tier.tier_name}</option>
+									</c:otherwise>
+                            	</c:choose>
 							</c:forEach>
 						</select>
 					</td>
