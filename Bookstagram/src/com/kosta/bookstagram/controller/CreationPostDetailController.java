@@ -17,6 +17,7 @@ public class CreationPostDetailController implements Controller {
 		int boardNo=Integer.parseInt(request.getParameter("board_no"));
 			CreateBoardVO cbvo = (CreateBoardVO) CreateBoardDAO.getInstance().selectBoard(boardNo);
 			request.setAttribute("cbdvo", cbvo);
-		return "ex-creation_content.jsp";
+			request.setAttribute("url", "creation_content.jsp");
+			return "home.jsp";
 	}
 }

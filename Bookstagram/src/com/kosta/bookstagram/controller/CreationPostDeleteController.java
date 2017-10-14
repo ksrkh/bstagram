@@ -14,8 +14,9 @@ public class CreationPostDeleteController implements Controller {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, SQLException {
 		int boardNo=Integer.parseInt(request.getParameter("board_no"));
-			CreateBoardDAO.getInstance().deleteBoard(boardNo);
-		return "ex-creation.jsp";
+		CreateBoardDAO.getInstance().deleteBoard(boardNo);
+		request.setAttribute("url", "creation_list.jsp");
+		return "home.jsp";
 	}
 
 }
