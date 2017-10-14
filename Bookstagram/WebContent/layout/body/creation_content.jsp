@@ -16,6 +16,14 @@ function updateCreatePost(){
 		location.href="DispatcherServlet?command=createupdateview&board_no=${requestScope.cbdvo.board_no}";
 		}		
 }
+function chReply(){
+	var content=$('.form-horizontal #reply_content').val();
+	if(content.length==0){
+		alert("댓글을 입력하세요");
+		return false;
+	}
+	return confirm("댓글을 작성하시겠습니까?");
+}
 </script>
 
 <!-- 기능의 UI를 담당하는 부분(컨테이너) -->
@@ -87,17 +95,21 @@ function updateCreatePost(){
 <!-- /.container -->
 <div class="container" style="margin-bottom: 50px">
 	<div class="bg-faded p-4 my-4">
-		<form class="form-horizontal">
+		<form class="form-horizontal" action="DispatcherServlet" id="reply" name="reply" onsubmit="return chReply()" method="post">
+			<input type="hidden" name="board_no"value="${requestScope.cbdvo.board_no}">
+			<input type="hidden" name="id"value="${sessionScope.member.id}">
+			<input type="hidden" name="command" value="replyRegister">
 			<div class="col-lg-11"> 
-				<input type="text" class="form-control" id="" name="" placeholder="댓글을 입력하세요">
+				<input type="text" class="form-control" id="reply_content" name="reply_content" placeholder="댓글을 입력하세요">
 			</div>
 			<div class="col-lg-1">
-				<input type="submit" class="btn btn-primary" value="등록" style="width:100%">
+				<input type="submit" class="btn btn-primary" value="등록" style="width:100%" form="reply">
 			</div>
 		</form>
 			<br><br><br>
 
 		<table class="table table-hover">
+
 				<!-- start for -->
 				<tr>
 					<td>아이디</td><td>댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글댓글</td><td><a href="#">답변</a></td>

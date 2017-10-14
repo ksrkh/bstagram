@@ -19,9 +19,15 @@ public class UpdateMemberInfoController implements Controller {
 		int pw_question = Integer.parseInt(request.getParameter("pw_question"));
 		String pw_answer = request.getParameter("pw_answer");
 		String[] tend_code = request.getParameterValues("tend_code");
-		int tend_code1=Integer.parseInt(tend_code[0]);
-		int tend_code2=Integer.parseInt(tend_code[1]);
-		int tend_code3=Integer.parseInt(tend_code[2]);
+		int tend_code1=0;
+		int tend_code2=0;
+		int tend_code3=0;
+		if(tend_code.length>0)
+			tend_code1=Integer.parseInt(tend_code[0]);
+		if(tend_code.length>1)
+			tend_code2=Integer.parseInt(tend_code[1]);
+		if(tend_code.length>2)
+			tend_code3=Integer.parseInt(tend_code[2]);
 		MemberVO member= new MemberVO(id,pw,nick,age,tend_code1,tend_code2,tend_code3,pw_question,pw_answer);
 		MemberDAO.getInstance().updateMember(member);
 		

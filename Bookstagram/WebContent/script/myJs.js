@@ -317,7 +317,7 @@ function chkUpdateSubmit(){
 		alert("비밀번호 찾기 답변을 입력해주세요.");
 	}else if( $("input[name=tend_code]:checkbox:checked").length == 0 ) {
 		if(confirm("성향을 선택하지 않았습니다.\n수정하시겠습니까?")){
-			document.JoinFrame.submit();
+			document.UpdateFrame.submit();
 		}else{
 			return false;
 		}

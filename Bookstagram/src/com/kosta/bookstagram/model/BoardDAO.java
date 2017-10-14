@@ -1,5 +1,8 @@
 package com.kosta.bookstagram.model;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -22,7 +25,22 @@ public abstract class BoardDAO extends CommonDAO implements BoardListener{
 
 	@Override
 	public void registerReply(String id, int boardNo, String content) throws SQLException {
-		System.out.println("registerReply() 실행");
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con=getConnection(); 
+			StringBuilder sql=new StringBuilder();
+			sql.append("insert into reply(reply_no, reply_content, board_no, id) ");
+			sql.append("values(replyno_seq.nextval, ?, ?, ?) ");
+			pstmt=con.prepareStatement(sql.toString());	
+			pstmt.setString(1, content);
+			pstmt.setInt(2, boardNo);
+			pstmt.setString(3, id);
+			pstmt.executeUpdate();	
+	
+		}finally {
+			closeAll(pstmt, con);
+		}
 	}
 
 	@Override

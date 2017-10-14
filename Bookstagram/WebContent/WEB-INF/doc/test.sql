@@ -89,5 +89,64 @@ select * from Member;
 Update Member
 set pw=2, nick='c'
 where id='a';
+
+select m.id, t.tend_name
+from member m, tend t
+where m.tend_code = t.tend_code;
+
+
+select m.id, t.tend_name
+from member m, tend t
+where m.tend_code2 = t.tend_code;
+
+select *
+from tend;
+
+select A.id,A.tend_name,B.tend_name2
+from (select m.id as id, t.tend_name as tend_name
+from member m, tend t
+where m.tend_code2 = t.tend_code) A,
+(select m.id as id, t.tend_name as tend_name2
+from member m, tend t
+where m.tend_code2 = t.tend_code) B
+where A.id=B.id;
+
+select a.id,t.tend_name
+from
+(select id,tend_code,tend_code2,tend_code3
+from MEMBER) a, tend t
+where a.tend_code=t.tend_code or
+
 			
-			
+SELECT b.board_no,b.id,c.create_title,b.board_regdate,b.hit 
+FROM( SELECT row_number() over(order by board_no desc) as rnum,board_no,id,
+to_char(board_regdate,'YYYY.MM.DD') as board_regdate,hit
+FROM BOARD WHERE id=?) b,CREATE_BOARD c where b.board_no=c.board_no and rnum between ? and ?
+order by board_no desc
+
+
+select *
+from MEMBER_TIER;
+
+SELECT C.id, C.pw, C.age, C.regdate, C.tier, C.tend_name, C.tend_name2, D.tend_name AS tend_name3
+FROM
+(SELECT A.id, A.pw, A.age, A.regdate, A.tier, A.tend_name, B.tend_name AS tend_name2
+FROM
+(SELECT m.id, m.pw, m.age, m.regdate, m.tier, t.tend_name
+FROM member m, tend t
+WHERE m.tend_code = t.tend_code) A,
+(SELECT m.id, t.tend_name
+FROM member m, tend t
+WHERE m.tend_code2 = t.tend_code) B
+WHERE A.id = B.id) C,
+(SELECT m.id, t.tend_name
+FROM member m, tend t
+WHERE m.tend_code3 = t.tend_code) D
+WHERE C.id = D.id
+
+select *
+from REPLY;
+
+insert into reply(reply_no, reply_content, board_no, id)
+values(replyno_seq.nextval, '1번게시글의 첫번째 덧글입니다.',  1, 'dnwjdrnl2@naver.com');
+

@@ -24,6 +24,7 @@ import com.kosta.bookstagram.controller.LineWriteController;
 import com.kosta.bookstagram.controller.LogOutController;
 import com.kosta.bookstagram.controller.LoginController;
 import com.kosta.bookstagram.controller.MyPageController;
+import com.kosta.bookstagram.controller.ReplyRegisterController;
 import com.kosta.bookstagram.controller.ReviewBoardListController;
 import com.kosta.bookstagram.controller.ReviewDetailController;
 import com.kosta.bookstagram.controller.ReviewWriteController;
@@ -111,6 +112,8 @@ public class HandlerMapping {
 			controller = new SearchBookController();
 		else if(command.equals("reviewwrite"))
 			controller = new ReviewWriteController();
+		else if(command.equals("replyRegister"))
+			controller=new ReplyRegisterController();
 		
 		return controller;
 	}
