@@ -30,7 +30,8 @@ public class ReviewBoardListController implements Controller {
 			}
 		}
 		request.setAttribute("reviewlist", plist);
-	return "layout/body/book-review_list.jsp";
+		request.setAttribute("url", "book-review_list.jsp");
+	return "home.jsp";
 	}
 
 }

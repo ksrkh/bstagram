@@ -42,18 +42,18 @@ public class ViewMyBoardController implements Controller {
 		case 1:ArrayList<LineBoardVO> l_list=MemberDAO.getInstance().l_viewBoard(member.getId(), pagingBean);
 			   ListVO<LineBoardVO> l_listVO=new ListVO<LineBoardVO>(l_list,pagingBean);
 			   request.setAttribute("lvo", l_listVO);
-			   request.setAttribute("url", "/layout/body/my_line_list.jsp");	
+			   request.setAttribute("url", "my_line_list.jsp");	
 			   break;
 		case 2:ArrayList<ReviewBoardVO> r_list=MemberDAO.getInstance().r_viewBoard(member.getId(), pagingBean);
 		   	   ListVO<ReviewBoardVO> r_listVO=new ListVO<ReviewBoardVO>(r_list,pagingBean);
 		   	   request.setAttribute("lvo", r_listVO);
-		   	   request.setAttribute("url", "/layout/body/my_review_list.jsp");	
+		   	   request.setAttribute("url", "my_review_list.jsp");	
 				 
 		       break;
 		case 3:ArrayList<CreateBoardVO> c_list=MemberDAO.getInstance().c_viewBoard(member.getId(), pagingBean);
 		   	   ListVO<CreateBoardVO> c_listVO=new ListVO<CreateBoardVO>(c_list,pagingBean);
 		   	   request.setAttribute("lvo", c_listVO);
-		   	   request.setAttribute("url", "/layout/body/my_creation_list.jsp");	
+		   	   request.setAttribute("url", "my_creation_list.jsp");	
 				 	
 		       break;
 		}

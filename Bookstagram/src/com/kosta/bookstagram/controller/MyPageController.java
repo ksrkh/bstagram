@@ -9,7 +9,7 @@ public class MyPageController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		request.setAttribute("url","/layout/body/my_info.jsp");
+		request.setAttribute("url","my_info.jsp");
 		return "home.jsp";
 	}
 

@@ -19,7 +19,7 @@ public class UpdateFormController implements Controller {
 		ArrayList<LineTendVO> tendlist = MemberDAO.getInstance().tendList();
 		request.setAttribute("question", questionlist);
 		request.setAttribute("tend", tendlist);
-		request.setAttribute("url", "layout/body/my_update.jsp");
+		request.setAttribute("url", "my_update.jsp");
 		return "home.jsp";
 	}
 

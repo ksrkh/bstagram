@@ -17,7 +17,7 @@ public class LineDetailController implements Controller {
 		BookVO bvo=LineBoardDAO.getInstance().selectBook(boardNo);
 		request.setAttribute("lineDVO", lvo);
 		request.setAttribute("lineBook", bvo);
-		request.setAttribute("url", "layout/body/one-line-memo_content.jsp");
+		request.setAttribute("url", "one-line-memo_content.jsp");
 		return "home.jsp";
 	}
 

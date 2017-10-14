@@ -15,7 +15,7 @@ public class TendListController implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ArrayList<LineTendVO> ltList=LineBoardDAO.getInstance().tendList();
 		request.setAttribute("ltList", ltList);
-		request.setAttribute("url", "layout/body/one-line-memo_write.jsp");
+		request.setAttribute("url", "one-line-memo_write.jsp");
 		return "home.jsp";
 	}
 

@@ -17,7 +17,7 @@ public class LineListController implements Controller {
 		PagingBean pagingBean=null;
 		ArrayList<BoardVO> list=LineBoardDAO.getInstance().boardList(pagingBean);
 		request.setAttribute("lineList", list);
-		request.setAttribute("url", "layout/body/one-line-memo_list.jsp");
+		request.setAttribute("url", "one-line-memo_list.jsp");
 		return "home.jsp";
 	}
 }

@@ -32,7 +32,8 @@ public class CreationBoardListController implements Controller {
 		ListVO<CreateBoardVO> listVO=new ListVO<CreateBoardVO>(list,pagingBean);
 		
 		request.setAttribute("clist", listVO);
-		return "layout/body/creation_list.jsp";
+		request.setAttribute("url", "creation_list.jsp");
+		return "home.jsp";
 	}
 
 }
