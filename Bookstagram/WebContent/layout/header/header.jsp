@@ -53,7 +53,7 @@
 	
 <!-- 로고 -->
 <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">
-	<img alt="" src="img/logo_white.png" style="width: 400px; height: 300px">
+	<img alt="" src="img/logo_black.png" style="width: 400px; height: 300px">
 </div>
     
 <!-- 네비게이션 바 -->
@@ -74,12 +74,12 @@
 				
 				<!-- Book-Review -->
 				<li class="nav-item px-lg-4">
-					<a class="nav-link text-uppercase text-expanded" href="ex-book_review.jsp">Book-Review</a>
+					<a class="nav-link text-uppercase text-expanded" href="DispatcherServlet?command=reviewboardlist">Book-Review</a>
 				</li>
 				
 				<!-- Creation -->
 				<li class="nav-item px-lg-4">
-					<a class="nav-link text-uppercase text-expanded" href="ex-creation.jsp">Creation</a>
+					<a class="nav-link text-uppercase text-expanded" href="DispatcherServlet?command=createboardlist">Creation</a>
 				</li>
 			</ul>
 		</div>
