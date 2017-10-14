@@ -104,7 +104,7 @@ $(document).ready(function(){
 			    <a href=""><i class="fa fa-trash-o" style="font-size:25px;" id="lineDeleteBtn"></i></a>
 			</div>
 		
-			<blockquote class="quote-box" style="background-color: #4ADFCC;">
+			<blockquote class="quote-box" style="background-color: #3e3f42;">
 				<p class="quotation-mark">
 					“
 				</p>
