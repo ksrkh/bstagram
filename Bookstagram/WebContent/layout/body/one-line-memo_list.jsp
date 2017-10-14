@@ -98,11 +98,12 @@ $(document).ready(function(){
 	<!-- 추후 For로 돌릴 공간. -->
 	<c:forEach var="lvo" items="${requestScope.lineList}">
 	<div class="bg-faded p-4 my-4"  id="line_board_btn">
-	<div class="up_delete pull-right">
-	<a href=""><i class="fa fa-cog fa-spin" style="font-size:25px;" id="lineUpdateBtn"></i></a>
-    <a href=""><i class="fa fa-trash-o" style="font-size:25px;" id="lineDeleteBtn"></i></a>
-	</div>
-		<div class="container" >
+		<div class="container">
+			<div class="up_delete pull-right" style="margin-bottom:5px">
+				<a href=""><i class="fa fa-cog fa-spin" style="font-size:25px;" id="lineUpdateBtn"></i></a>
+			    <a href=""><i class="fa fa-trash-o" style="font-size:25px;" id="lineDeleteBtn"></i></a>
+			</div>
+		
 			<blockquote class="quote-box" style="background-color: #4ADFCC;">
 				<p class="quotation-mark">
 					“
@@ -126,7 +127,7 @@ $(document).ready(function(){
 						${lvo.nick}
 					</p>
 					<p class="blog-post-bottom pull-right">
-						<i class="fa fa-heart" id="sympathy-click" style="font-size:20px;color:red"></i><span class="badge quote-badge" style="height:25px; width:50px; text-center;">${lvo.hit}</span>
+						<i class="fa fa-heart" id="sympathy-click" style="font-size:20px;color:red;margin-right:5px;margin-top: 10px"></i><span class="badge quote-badge">${lvo.hit}</span>
 					</p>
 				</div>
 			</blockquote>
