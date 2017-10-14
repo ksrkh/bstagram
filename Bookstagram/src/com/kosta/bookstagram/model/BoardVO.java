@@ -10,6 +10,10 @@ public class BoardVO {
 	 */
 	private int boardtype_no;
 	/*
+	 * 게시판 타입 명 
+	 */
+	private String boardtype_name;
+	/*
 	 * 사용자 아이디(이메일)
 	 */
 	private String id;
@@ -173,14 +177,16 @@ public class BoardVO {
 	 * 관리자페이지에서 목록보기에 필요한 생성자<br/>
 	 * @param board_no
 	 * @param boardtype_no
+	 * @param boardtype_name
 	 * @param id
 	 * @param content
 	 * @param board_regdate
 	 * @param hit
 	 */
-	public BoardVO(int board_no, int boardtype_no, String id, String content, String board_regdate, int hit) {
+	public BoardVO(int board_no, int boardtype_no, String boardtype_name,String id, String content, String board_regdate, int hit) {
 		this.board_no = board_no;
 		this.boardtype_no = boardtype_no;
+		this.boardtype_name = boardtype_name;
 		this.id = id;
 		this.content = content;
 		this.board_regdate = board_regdate;
@@ -202,7 +208,15 @@ public class BoardVO {
 	public void setBoardtype_no(int boardtype_no) {
 		this.boardtype_no = boardtype_no;
 	}
-
+	
+	public String getBoardtype_name() {
+		return boardtype_name;
+	}
+	
+	public void setBoardtype_name(String boardtype_name) {
+		this.boardtype_name = boardtype_name;
+	}
+	
 	public String getId() {
 		return id;
 	}

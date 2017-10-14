@@ -74,10 +74,12 @@ public class CmsPageSQL {
 	 * 전체 게시글 리스트
 	 */
 	public final static String allBoardList =
-			"SELECT B.board_no, B.boardtype_no, B.id, substr(A.review_content,1,40) AS content, B.board_regdate, B.hit " + 
+			"SELECT C.board_no, C.boardtype_no, bt.boardtype_name, C.id, C.content, C.board_regdate, C.hit " + 
+			"FROM (SELECT B.board_no, B.id, substr(A.review_content,1,50) AS content, B.board_regdate, B.hit, B.boardtype_no " + 
 			"FROM (SELECT board_no, review_content FROM review_board " + 
 			"UNION ALL SELECT board_no, create_content FROM create_board " + 
 			"UNION ALL SELECT board_no, line_content FROM line_board) A, " + 
-			"board B WHERE A.board_no = B.board_no";
+			"board B WHERE A.board_no = B.board_no) C, board_type bt " + 
+			"WHERE bt.boardtype_no = C.boardtype_no ORDER BY C.board_no DESC";
 	
 }

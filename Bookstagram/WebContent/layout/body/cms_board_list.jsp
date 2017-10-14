@@ -27,7 +27,7 @@
 				<c:forEach items="${requestScope.board}" var="board">
 				<tr>
 					<td>${board.board_no}</td>
-					<td>${board.boardtype_no}</td>
+					<td>${board.boardtype_name}</td>
 					<td>${board.id}</td>
 					<td>${board.content}</td>
 					<td>${board.board_regdate}</td>

@@ -175,8 +175,8 @@ public class CmsDAO extends CommonDAO {
 			pstmt = con.prepareStatement(CmsPageSQL.allBoardList);
 			rs = pstmt.executeQuery();
 			while (rs.next())
-				board.add(new BoardVO(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5),
-						rs.getInt(6)));
+				board.add(new BoardVO(rs.getInt(1), rs.getInt(2), rs.getString(3), 
+						rs.getString(4), rs.getString(5), rs.getString(6), rs.getInt(7)));
 
 		} finally {
 			closeAll(rs, pstmt, con);
