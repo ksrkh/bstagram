@@ -248,4 +248,87 @@ public class CmsDAO extends CommonDAO {
 			closeAll(pstmt, con);
 		}
 	}
+	
+	/**
+	 * 성향 수정
+	 */
+	public void updateTend(LineTendVO tend) throws SQLException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = getConnection();
+			pstmt = con.prepareStatement(CmsPageSQL.tendNameUpdate);
+			pstmt.setString(1, tend.getTend_name());
+			pstmt.setInt(2, tend.getTend_code());
+			pstmt.executeUpdate();
+		} finally {
+			closeAll(pstmt, con);
+		}
+	}
+	
+	/**
+	 * 성향 삭제
+	 */
+	public void deleteTend(int tendCode) throws SQLException {}
+	
+	/**
+	 * 장르 수정
+	 */
+	public void updateGenre(ReviewGenreVO genre) throws SQLException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = getConnection();
+			pstmt = con.prepareStatement(CmsPageSQL.genreNameUpdate);
+			pstmt.setString(1, genre.getGenre_name());
+			pstmt.setInt(2, genre.getGenre());
+			pstmt.executeUpdate();
+		} finally {
+			closeAll(pstmt, con);
+		}
+	}
+	
+	/**
+	 * 장르 삭제
+	 */
+	public void deleteGenre(int genreCode) throws SQLException {}
+	
+	/**
+	 * 분류 수정
+	 */
+	public void updateCategory(CreateCategoryVO category) throws SQLException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = getConnection();
+			pstmt = con.prepareStatement(CmsPageSQL.categoryNameUpdate);
+			pstmt.setString(1, category.getCategory_name());
+			pstmt.setInt(2, category.getCategory());
+			pstmt.executeUpdate();
+		} finally {
+			closeAll(pstmt, con);
+		}
+	}
+	
+	/**
+	 * 분류 삭제
+	 */
+	public void deleteCategory(int categoryCode) throws SQLException {}
+	
+	/**
+	 * 비밀번호찾기 질문 수정
+	 */
+	public void updatePwFindQuestion(PasswordQuestionVO question) throws SQLException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = getConnection();
+			pstmt = con.prepareStatement(CmsPageSQL.passwordQuestionUpdate);
+			pstmt.setString(1, question.getQuestion());
+			pstmt.setInt(2, question.getQuestion_code());
+			pstmt.executeUpdate();
+		} finally {
+			closeAll(pstmt, con);
+		}
+	}
 }

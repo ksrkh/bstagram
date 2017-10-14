@@ -133,16 +133,14 @@ $( document ).ready( function() {
 	$(".tend_tr .tend_update button").click(function(){
 		var tend_code = $(this).parent().parent().find('.tend_code').text();
 		var tend_name = $(this).parent().parent().find('.tend_name').find(':input[name=tend_name]').val();
-		
-		alert("수정:"+tend_code + " " + tend_name);
+		location.href="DispatcherServlet?command=cmstendupdate&tend_code="+tend_code+"&tend_name="+tend_name;
 	});
 	
 	//성향 삭제 버튼 클릭시
 	$(".tend_tr .tend_delete button").click(function(){
 		var tend_code = $(this).parent().parent().find('.tend_code').text();
 		var tend_name = $(this).parent().parent().find('.tend_name').find(':input[name=tend_name]').val();
-		
-		alert("삭제:"+tend_code + " " + tend_name);
+		location.href="DispatcherServlet?command=cmstenddelete&tend_code="+tend_code;
 	});
 	
 	
@@ -150,16 +148,14 @@ $( document ).ready( function() {
 	$(".genre_tr .genre_update button").click(function(){
 		var genre_code = $(this).parent().parent().find('.genre_code').text();
 		var genre_name = $(this).parent().parent().find('.genre_name').find(':input[name=genre_name]').val();
-		
-		alert("수정:"+genre_code + " " + genre_name);
+		location.href="DispatcherServlet?command=cmsgenreupdate&genre_code="+genre_code+"&genre_name="+genre_name;
 	});
 	
 	//장르 삭제 버튼 클릭시
 	$(".genre_tr .genre_delete button").click(function(){
 		var genre_code = $(this).parent().parent().find('.genre_code').text();
 		var genre_name = $(this).parent().parent().find('.genre_name').find(':input[name=genre_name]').val();
-		
-		alert("삭제:"+genre_code + " " + genre_name);
+		location.href="DispatcherServlet?command=cmsgenredelete&genre_code="+genre_code;
 	});
 	
 	
@@ -167,16 +163,14 @@ $( document ).ready( function() {
 	$(".category_tr .category_update button").click(function(){
 		var category_code = $(this).parent().parent().find('.category_code').text();
 		var category_name = $(this).parent().parent().find('.category_name').find(':input[name=category_name]').val();
-		
-		alert("수정:"+category_code + " " + category_name);
+		location.href="DispatcherServlet?command=cmscategoryupdate&category_code="+category_code+"&category_name="+category_name;
 	});
 	
 	//분류 삭제 버튼 클릭시
 	$(".category_tr .category_delete button").click(function(){
 		var category_code = $(this).parent().parent().find('.category_code').text();
 		var category_name = $(this).parent().parent().find('.category_name').find(':input[name=category_name]').val();
-		
-		alert("삭제:"+category_code + " " + category_name);
+		location.href="DispatcherServlet?command=cmscategorydelete&category_code="+category_code;
 	});
 	
 	
@@ -184,8 +178,7 @@ $( document ).ready( function() {
 	$(".findPw_tr .findPw_update button").click(function(){
 		var findPw_code = $(this).parent().parent().find('.findPw_code').text();
 		var findPw_name = $(this).parent().parent().find('.findPw_name').find(':input[name=pw_question]').val();
-		
-		alert("수정:"+findPw_code + " " + findPw_name);
+		location.href="DispatcherServlet?command=cmspwquestionupdate&findPw_code="+findPw_code+"&findPw_name="+findPw_name;
 	});
 });
 

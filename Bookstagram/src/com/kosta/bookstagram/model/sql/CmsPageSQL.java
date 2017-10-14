@@ -99,7 +99,7 @@ public class CmsPageSQL {
 	/*
 	 * 장르 수정
 	 */
-	public final static String genreNameUpdate = "UPDATE review_board set genre_name = ? where genre = ?";
+	public final static String genreNameUpdate = "UPDATE genre set genre_name = ? where genre = ?";
 	
 	/*
 	* 장르 삭제
@@ -110,7 +110,7 @@ public class CmsPageSQL {
 	/*
 	 * 분야 수정
 	 */
-	public final static String categoryNameUpdate = "UPDATE create_board set category_name = ? where category = ?";
+	public final static String categoryNameUpdate = "UPDATE category set category_name = ? where category = ?";
 	
 	/*
 	 * 분야 삭제
@@ -121,7 +121,7 @@ public class CmsPageSQL {
 	/*
 	* 비밀번호찾기질문 수정
 	*/
-	public final static String boardQuestionUpdate = "update question set question = ? where question_code = ?";
+	public final static String passwordQuestionUpdate = "update question set question = ? where question_code = ?";
 
 
 

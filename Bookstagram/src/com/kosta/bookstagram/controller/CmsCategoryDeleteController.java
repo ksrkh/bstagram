@@ -9,8 +9,8 @@ public class CmsCategoryDeleteController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("삭제컨트롤러/"+request.getParameter("category_code"));
+		return "DispatcherServlet?command=cmscategorypege";
 	}
 
 }
