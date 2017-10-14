@@ -21,11 +21,11 @@
 			<tbody class="cms-tbody">
 				<!-- start // 추후 for로 돌릴 구간입니다. -->
 				<c:forEach items="${requestScope.genre}" var="genre">
-				<tr>
-					<td style="font-size: 15px"><b>${genre.genre}</b></td>
-					<td style="font-size: 15px"><input type="text" class="form-control" name="genre_name" value="${genre.genre_name}" style="text-align: center; font-size: 15px"></td>
-					<td><button type="button" class="btn btn-info" style="width: 100%">수정</button></td>
-					<td><button type="button" class="btn btn-primary" style="width: 100%">삭제</button></td>
+				<tr class="genre_tr">
+					<td style="font-size: 15px" class="genre_code"><b>${genre.genre}</b></td>
+					<td style="font-size: 15px" class="genre_name"><input type="text" class="form-control" name="genre_name" value="${genre.genre_name}" style="text-align: center; font-size: 15px"></td>
+					<td class="genre_update"><button type="button" class="btn btn-info" style="width: 100%">수정</button></td>
+					<td class="genre_delete"><button type="button" class="btn btn-primary" style="width: 100%">삭제</button></td>
 				</tr>
 				</c:forEach>
 				<!-- end // 추후 for 로 돌릴 구간입니다. -->

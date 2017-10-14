@@ -21,11 +21,11 @@
 			<tbody class="cms-tbody">
 				<!-- start // 추후 for로 돌릴 구간입니다. -->
 				<c:forEach items="${requestScope.tend}" var="tend">
-				<tr>
-					<td style="font-size: 15px"><b>${tend.tend_code}</b></td>
-					<td style="font-size: 15px"><input type="text" class="form-control" name="tend_name" value="${tend.tend_name}" style="text-align: center; font-size: 15px"></td>
-					<td><button type="button" class="btn btn-info" style="width: 100%">수정</button></td>
-					<td><button type="button" class="btn btn-primary" style="width: 100%">삭제</button></td>
+				<tr class="tend_tr">
+					<td style="font-size: 15px" class="tend_code">${tend.tend_code}</td>
+					<td style="font-size: 15px" class="tend_name"><input type="text" class="form-control" name="tend_name" value="${tend.tend_name}" style="text-align: center; font-size: 15px"></td>
+					<td class="tend_update"><button type="button" class="btn btn-info" style="width: 100%" onclick="updateTend()">수정</button></td>
+					<td class="tend_delete"><button type="button" class="btn btn-primary" style="width: 100%">삭제</button></td>
 				</tr>
 				</c:forEach>
 				<!-- end // 추후 for 로 돌릴 구간입니다. -->

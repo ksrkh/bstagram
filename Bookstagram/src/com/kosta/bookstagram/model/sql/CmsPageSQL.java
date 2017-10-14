@@ -81,5 +81,50 @@ public class CmsPageSQL {
 			"UNION ALL SELECT board_no, line_content FROM line_board) A, " + 
 			"board B WHERE A.board_no = B.board_no) C, board_type bt " + 
 			"WHERE bt.boardtype_no = C.boardtype_no ORDER BY C.board_no DESC";
+
+	/*
+	 * 성향 수정
+	 */
+	public final static String tendNameUpdate = "update tend set tend_name = ? where tend_code = ?";
 	
+	/*
+	 * 성향 삭제
+	 */
+	public final static String boardTendUpdate = "update line_board set tend_code = 0 where tend_code = ?";
+	public final static String tendCode1Update = "update member set tend_code = 0 where tend_code = ?";
+	public final static String tendCode2Update = "update member set tend_code2 = 0 where tend_code2 = ?";
+	public final static String tendCode3Update = "update member set tend_code3 = 0 where tend_code3 = ?";
+	public final static String tendDelete = "delete tend where tend_code = ?";
+	
+	/*
+	 * 장르 수정
+	 */
+	public final static String genreNameUpdate = "UPDATE review_board set genre_name = ? where genre = ?";
+	
+	/*
+	* 장르 삭제
+	*/
+	public final static String boardGenreUpdate = "UPDATE review_board set genre = 0 where genre = ?";
+	public final static String genreDelete = "delete genre where genre = ?";
+	
+	/*
+	 * 분야 수정
+	 */
+	public final static String categoryNameUpdate = "UPDATE create_board set category_name = ? where category = ?";
+	
+	/*
+	 * 분야 삭제
+	 */
+	public final static String boardCategoryUpdate = "UPDATE create_board set category = 0 where category = ?";
+	public final static String categoryDelete = "delete genre where category = ?";
+	
+	/*
+	* 비밀번호찾기질문 수정
+	*/
+	public final static String boardQuestionUpdate = "update question set question = ? where question_code = ?";
+
+
+
+
+
 }

@@ -47,6 +47,7 @@ commit;
  * 장르 데이터
  */
 create sequence genre_seq;
+insert into genre(genre, genre_name) values(0,'기타');
 insert into genre(genre, genre_name) values(genre_seq.nextval,'소설');
 insert into genre(genre, genre_name) values(genre_seq.nextval,'에세이/시');
 insert into genre(genre, genre_name) values(genre_seq.nextval,'경영/경제');
@@ -62,6 +63,7 @@ commit;
  * 분야 데이터
  */
 create sequence category_seq;
+insert into category(category, category_name) values(0,'기타');
 insert into category(category, category_name) values(category_seq.nextval,'소설');
 insert into category(category, category_name) values(category_seq.nextval,'에세이/시');
 insert into category(category, category_name) values(category_seq.nextval,'경영/경제');

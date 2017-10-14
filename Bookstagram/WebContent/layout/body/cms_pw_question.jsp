@@ -21,10 +21,10 @@
 			<tbody class="cms-tbody">
 				<c:forEach items="${requestScope.question}" var="question">
 				<!-- start // 추후 for로 돌릴 구간입니다. -->
-				<tr>
-					<td style="font-size: 15px"><b>${question.question_code }</b></td>
-					<td style="font-size: 15px"><input type="text" class="form-control" name="pw_question" value="${question.question}" style="text-align: center; font-size: 15px"></td>
-					<td><button type="button" class="btn btn-info" style="width: 100%">수정</button></td>
+				<tr class="findPw_tr">
+					<td style="font-size: 15px" class="findPw_code"><b>${question.question_code }</b></td>
+					<td style="font-size: 15px" class="findPw_name"><input type="text" class="form-control" name="pw_question" value="${question.question}" style="text-align: center; font-size: 15px"></td>
+					<td class="findPw_update"><button type="button" class="btn btn-info" style="width: 100%">수정</button></td>
 					<td><button type="button" class="btn btn-primary" style="width: 100%">삭제</button></td>
 				</tr>
 				</c:forEach>

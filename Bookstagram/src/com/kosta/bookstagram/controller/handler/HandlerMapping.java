@@ -5,11 +5,18 @@ import com.kosta.bookstagram.controller.CmsAddGenreController;
 import com.kosta.bookstagram.controller.CmsAddPwQuestionController;
 import com.kosta.bookstagram.controller.CmsAddTendController;
 import com.kosta.bookstagram.controller.CmsBoardListPageController;
+import com.kosta.bookstagram.controller.CmsCategoryDeleteController;
 import com.kosta.bookstagram.controller.CmsCategoryPageController;
+import com.kosta.bookstagram.controller.CmsCategoryUpdateController;
+import com.kosta.bookstagram.controller.CmsGenreDeleteController;
 import com.kosta.bookstagram.controller.CmsGenrePageController;
+import com.kosta.bookstagram.controller.CmsGenreUpdateController;
 import com.kosta.bookstagram.controller.CmsMemberListPageController;
 import com.kosta.bookstagram.controller.CmsPwQuestionPageController;
+import com.kosta.bookstagram.controller.CmsPwQuestionUpdateController;
+import com.kosta.bookstagram.controller.CmsTendDeleteController;
 import com.kosta.bookstagram.controller.CmsTendPageController;
+import com.kosta.bookstagram.controller.CmsTendUpdateController;
 import com.kosta.bookstagram.controller.CreationBoardListController;
 import com.kosta.bookstagram.controller.CreationPostDeleteController;
 import com.kosta.bookstagram.controller.CreationPostDetailController;
@@ -113,6 +120,20 @@ public class HandlerMapping {
 			controller = new CmsMemberListPageController();
 		else if(command.equals("cmsboardlistpage"))
 			controller = new CmsBoardListPageController();
+		else if(command.equals("cmstendupdate"))
+			controller=new CmsTendUpdateController();
+		else if(command.equals("cmstenddelete"))
+			controller=new CmsTendDeleteController();
+		else if(command.equals("cmsgenreupdate"))
+			controller=new CmsGenreUpdateController();
+		else if(command.equals("cmsgenredelete"))
+			controller=new CmsGenreDeleteController();
+		else if(command.equals("cmscategoryupdate"))
+			controller=new CmsCategoryUpdateController();
+		else if(command.equals("cmscategorydelete"))
+			controller=new CmsCategoryDeleteController();
+		else if(command.equals("cmspwquestionupdate"))
+			controller=new CmsPwQuestionUpdateController();
 		else if(command.equals("searchbook"))
 			controller = new SearchBookController();
 		else if(command.equals("reviewwrite"))

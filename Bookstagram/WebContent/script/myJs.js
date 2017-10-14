@@ -128,6 +128,65 @@ $( document ).ready( function() {
             $("input[name=tend_code]:checkbox").removeAttr("disabled");
         }
     });
+	
+	//성향 수정 버튼 클릭시
+	$(".tend_tr .tend_update button").click(function(){
+		var tend_code = $(this).parent().parent().find('.tend_code').text();
+		var tend_name = $(this).parent().parent().find('.tend_name').find(':input[name=tend_name]').val();
+		
+		alert("수정:"+tend_code + " " + tend_name);
+	});
+	
+	//성향 삭제 버튼 클릭시
+	$(".tend_tr .tend_delete button").click(function(){
+		var tend_code = $(this).parent().parent().find('.tend_code').text();
+		var tend_name = $(this).parent().parent().find('.tend_name').find(':input[name=tend_name]').val();
+		
+		alert("삭제:"+tend_code + " " + tend_name);
+	});
+	
+	
+	//장르 수정 버튼 클릭시
+	$(".genre_tr .genre_update button").click(function(){
+		var genre_code = $(this).parent().parent().find('.genre_code').text();
+		var genre_name = $(this).parent().parent().find('.genre_name').find(':input[name=genre_name]').val();
+		
+		alert("수정:"+genre_code + " " + genre_name);
+	});
+	
+	//장르 삭제 버튼 클릭시
+	$(".genre_tr .genre_delete button").click(function(){
+		var genre_code = $(this).parent().parent().find('.genre_code').text();
+		var genre_name = $(this).parent().parent().find('.genre_name').find(':input[name=genre_name]').val();
+		
+		alert("삭제:"+genre_code + " " + genre_name);
+	});
+	
+	
+	//분류 수정 버튼 클릭시
+	$(".category_tr .category_update button").click(function(){
+		var category_code = $(this).parent().parent().find('.category_code').text();
+		var category_name = $(this).parent().parent().find('.category_name').find(':input[name=category_name]').val();
+		
+		alert("수정:"+category_code + " " + category_name);
+	});
+	
+	//분류 삭제 버튼 클릭시
+	$(".category_tr .category_delete button").click(function(){
+		var category_code = $(this).parent().parent().find('.category_code').text();
+		var category_name = $(this).parent().parent().find('.category_name').find(':input[name=category_name]').val();
+		
+		alert("삭제:"+category_code + " " + category_name);
+	});
+	
+	
+	//비밀번호찾기 질문 수정 버튼 클릭시
+	$(".findPw_tr .findPw_update button").click(function(){
+		var findPw_code = $(this).parent().parent().find('.findPw_code').text();
+		var findPw_name = $(this).parent().parent().find('.findPw_name').find(':input[name=pw_question]').val();
+		
+		alert("수정:"+findPw_code + " " + findPw_name);
+	});
 });
 
 var chkJoinIdValue = false;
