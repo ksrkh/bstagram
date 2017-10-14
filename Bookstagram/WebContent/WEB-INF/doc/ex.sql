@@ -349,13 +349,15 @@ commit
 /*
  * union
  */
-select board_no, review_content from review_board
+select B.board_no, B.id, substr(A.content,1,50), B.board_regdate, B.hit
+from
+(select board_no, review_content as content from review_board
 union ALL
 select board_no, create_content from create_board
 union ALL
-select board_no, line_content from line_board
-order by board_no desc
-
+select board_no, line_content from line_board) A,
+board B
+where A.board_no = B.board_no
 
 /*
  * 시퀀스삭제

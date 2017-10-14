@@ -38,6 +38,10 @@ public class BoardVO {
 	 */
 	private int bg_no;
 	/*
+	 * 관리자게시판 제목부분에 보여줄 편집 내용
+	 */
+	private String content;
+	/*
 	 * 기본 생성자
 	 */
 	public BoardVO() {}
@@ -165,6 +169,24 @@ public class BoardVO {
 	    this.hit = hit;
 	}
 
+	/**
+	 * 관리자페이지에서 목록보기에 필요한 생성자<br/>
+	 * @param board_no
+	 * @param boardtype_no
+	 * @param id
+	 * @param content
+	 * @param board_regdate
+	 * @param hit
+	 */
+	public BoardVO(int board_no, int boardtype_no, String id, String content, String board_regdate, int hit) {
+		this.board_no = board_no;
+		this.boardtype_no = boardtype_no;
+		this.id = id;
+		this.content = content;
+		this.board_regdate = board_regdate;
+		this.hit = hit;
+	}
+	
 	public int getBoard_no() {
 		return board_no;
 	}
@@ -237,6 +259,13 @@ public class BoardVO {
 		this.bg_no = bg_no;
 	}
 
+	public String getContent() {
+		return content;
+	}
+	
+	public void setContent(String content) {
+		this.content = content;
+	}
 	@Override
 	public String toString() {
 		return "BoardVO [board_no=" + board_no + ", boardtype_no=" + boardtype_no + ", id=" + id + ", board_regdate="

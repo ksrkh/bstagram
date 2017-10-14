@@ -30,17 +30,33 @@ public class MemberVO {
 	 */
 	private int tend_code;
 	/*
+	 * 성향이름1
+	 */
+	private String tend_name;
+	/*
 	 * 성향코드2
 	 */
 	private int tend_code2;
+	/*
+	 * 성향이름2
+	 */
+	private String tend_name2;
 	/*
 	 * 성향코드3
 	 */
 	private int tend_code3;
 	/*
+	 * 성향이름3
+	 */
+	private String tend_name3;
+	/*
 	 * 회원등급
 	 */
 	private int tier;
+	/*
+	 * 등급명
+	 */
+	private String tier_name;
 	/*
 	 * 질문번호
 	 */
@@ -129,6 +145,30 @@ public class MemberVO {
 		this.tend_code = tend_code;
 		this.tend_code2 = tend_code2;
 		this.tend_code3 = tend_code3;
+	}
+	
+	
+	/**
+	 * -관리자페이지 목록보여주기
+	 * 
+	 * @param id			아이디
+	 * @param pw			비밀번호
+	 * @param age			나이
+	 * @param tend_name		성향1
+	 * @param tend_name2	성향2
+	 * @param tend_name3	성향3
+	 * @param tier_name		회원등급1
+	 * @param regdate		등록일자
+	 */
+	public MemberVO(String id, String pw, int age, String tend_name, String tend_name2, String tend_name3, String tier_name, String regdate) {
+		this.id = id;
+		this.pw = pw;
+		this.age = age;
+		this.tend_name = tend_name;
+		this.tend_name2 = tend_name2;
+		this.tend_name3 = tend_name3;
+		this.tier_name = tier_name;
+		this.regdate = regdate;
 	}
 
 	public String getId() {
@@ -226,7 +266,38 @@ public class MemberVO {
 	public void setPw_ans(String pw_ans) {
 		this.pw_ans = pw_ans;
 	}
-
+	
+	public String getTend_name() {
+		return tend_name;
+	}
+	
+	public void setTend_name(String tend_name) {
+		this.tend_name = tend_name;
+	}
+	
+	public String getTend_name2() {
+		return tend_name2;
+	}
+	
+	public void setTend_name2(String tend_name2) {
+		this.tend_name2 = tend_name2;
+	}
+	
+	public String getTend_name3() {
+		return tend_name3;
+	}
+	
+	public void setTend_name3(String tend_name3) {
+		this.tend_name3 = tend_name3;
+	}
+	
+	public String getTier_name() {
+		return tier_name;
+	}
+	
+	public void setTier_name(String tier_name) {
+		this.tier_name = tier_name;
+	}
 	@Override
 	public String toString() {
 		return "MemberVO [id=" + id + ", pw=" + pw + ", nick=" + nick + ", age=" + age + ", regdate=" + regdate

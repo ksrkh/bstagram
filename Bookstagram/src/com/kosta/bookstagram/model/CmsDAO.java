@@ -114,7 +114,7 @@ public class CmsDAO extends CommonDAO{
 	
 	
 	/**
-	 * 전체회원의 리스트를 가져오는 메서드입니다.
+	 * 관리자페이지 : 전체회원의 리스트를 가져오는 메서드입니다.
 	 */
 	public ArrayList<MemberVO> getAllMemberList() throws SQLException{
 		ArrayList<MemberVO> member = new ArrayList<MemberVO>();
@@ -127,7 +127,8 @@ public class CmsDAO extends CommonDAO{
 			pstmt = con.prepareStatement(CmsPageSQL.allMemberList);
 			rs = pstmt.executeQuery();
 			while(rs.next())
-				member.add(new MemberVO());
+				member.add(new MemberVO(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getString(4),
+						rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8)));
 			
 		}finally {
 			closeAll(rs, pstmt, con);
@@ -137,7 +138,7 @@ public class CmsDAO extends CommonDAO{
 	}
 	
 	/**
-	 * 전체 게시판 리스트를 가져오는 메서드입니다.
+	 * 관리자페이지 : 전체 게시판 리스트를 가져오는 메서드입니다.
 	 */
 	public ArrayList<BoardVO> getAllBoardList() throws SQLException{
 		ArrayList<BoardVO> board = new ArrayList<BoardVO>();
@@ -150,7 +151,8 @@ public class CmsDAO extends CommonDAO{
 			pstmt = con.prepareStatement(CmsPageSQL.allBoardList);
 			rs = pstmt.executeQuery();
 			while(rs.next())
-				board.add(new BoardVO());
+				board.add(new BoardVO(rs.getInt(1), rs.getInt(2), rs.getString(3),
+						rs.getString(4), rs.getString(5),rs.getInt(6)));
 			
 		}finally {
 			closeAll(rs, pstmt, con);
