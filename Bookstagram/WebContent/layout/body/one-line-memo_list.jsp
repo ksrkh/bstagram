@@ -109,16 +109,16 @@ $(document).ready(function(){
 					“
 				</p>
 				<c:choose>
-				<c:when test="${sessionScope.member!=null}">
-				<p class="quote-text">
-					<a href="DispatcherServlet?command=lineDetail&boardNo=${lvo.board_no}">${lvo.line_content}</a>
-				</p>
-				</c:when>
-				<c:otherwise>
-				<p class="quote-text">
-				${lvo.line_content}
-				</p>
-				</c:otherwise>
+					<c:when test="${sessionScope.member!=null}">
+						<p class="quote-text">
+							<a href="DispatcherServlet?command=lineDetail&boardNo=${lvo.board_no}">${lvo.line_content}</a>
+						</p>
+					</c:when>
+					<c:otherwise>
+						<p class="quote-text">
+							${lvo.line_content}
+						</p>
+					</c:otherwise>
 				</c:choose>
 				<hr>
 				
@@ -133,6 +133,6 @@ $(document).ready(function(){
 			</blockquote>
 		</div>
 	</div>
-</c:forEach>
+	</c:forEach>
 </div>
 <!-- /.container -->
