@@ -15,6 +15,11 @@ public class PasswordQuestionVO {
  	 */
  	public PasswordQuestionVO() {}
  	
+	public PasswordQuestionVO(String question) {
+		super();
+		this.question = question;
+	}
+
 	public PasswordQuestionVO(int question_code, String question) {
 		super();
 		this.question_code = question_code;

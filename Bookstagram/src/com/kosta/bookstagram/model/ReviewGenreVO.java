@@ -14,6 +14,11 @@ public class ReviewGenreVO {
 	 */
 	public ReviewGenreVO() {}
 	
+	public ReviewGenreVO(String genre_name) {
+		super();
+		this.genre_name = genre_name;
+	}
+	
 	/**
 	 * @param genre			장르 코드
 	 * @param genre_name	장르 명

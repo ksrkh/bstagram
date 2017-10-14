@@ -14,6 +14,11 @@ public class CreateCategoryVO {
 	 */
 	public CreateCategoryVO() {}
 	
+	
+	public CreateCategoryVO(String category_name) {
+		super();
+		this.category_name = category_name;
+	}
 	/**
 	 * @param category		창작게시판 카테고리 분류
 	 * @param category_name	창작게시판 카테고리 명

@@ -355,3 +355,34 @@ function wrapWindowByMask(){
     // 레이어 팝업을 띄웁니다.
     $('.window').fadeIn(1000);
 }
+
+
+
+
+/**
+ *	성향추가
+ */
+function addTend(){
+	document.tendForm.submit();
+}
+
+/**
+*	장르추가
+*/
+function addGenre(){
+	document.genreForm.submit();
+}
+
+/**
+*	분야추가
+*/
+function addCategory(){
+	document.categoryForm.submit();
+}
+
+/**
+*	비밀번호찾기질문추가
+*/
+function addPwFindQuest(){
+	document.pwfindQwForm.submit();
+}

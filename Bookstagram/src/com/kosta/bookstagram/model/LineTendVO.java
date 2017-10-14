@@ -14,6 +14,11 @@ public class LineTendVO {
 	 */
 	public LineTendVO() {}
 	
+	public LineTendVO(String tend_name) {
+		super();
+		this.tend_name = tend_name;
+	}
+
 	/**
 	 * @param tend_code 성향코드
 	 * @param tend_name 성향명

@@ -37,10 +37,13 @@
 		<div class="row">
 			<label for="inputEmail" class="col-lg-1 control-label" style="margin-top:7px; margin-left:50px ;margin-right:0px; padding-right:0px; font-size: 15px"><b>장르</b></label>
 			<div class="col-lg-9">
-				<input type="text" class="form-control" name="genre" placeholder="장르를 입력 해주세요.">
+				<form action="DispatcherServlet" name="genreForm">
+					<input type="hidden" name="command" value="addcmsgenre">
+					<input type="text" class="form-control" name="genre" placeholder="장르를 입력 해주세요.">
+				</form>
 			</div>
 			<div class="col-lg-1">
-				<button type="button" class="btn btn-info" style="width: 100%">추가</button>
+				<button type="button" class="btn btn-info" style="width: 100%" onclick="addGenre()">추가</button>
 			</div>
 		</div>
 	</div>

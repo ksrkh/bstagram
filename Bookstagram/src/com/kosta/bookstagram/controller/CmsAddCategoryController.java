@@ -4,13 +4,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kosta.bookstagram.controller.listener.Controller;
+import com.kosta.bookstagram.model.CmsDAO;
+import com.kosta.bookstagram.model.CreateCategoryVO;
 
 public class CmsAddCategoryController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		CmsDAO.getInstance().addCategory(new CreateCategoryVO(request.getParameter("category")));
+		return "DispatcherServlet?command=cmscategorypege";
 	}
 
 }
