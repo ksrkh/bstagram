@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>      
 <script type="text/javascript">
 function contentCheck(){
 	var flag=true;
@@ -37,15 +37,9 @@ function contentCheck(){
 							<div class="form-group" style="margin-top: 20px; margin-bottom: 20px">
 								<div class="col-lg-2" style="padding-right: 0px">
 									<select class="form-control" id="select" name="tend_code">
-										<option value="1">소설</option>
-										<option value="2">에세이/시</option>
-										<option value="3">경영/경제</option>
-										<option value="4">자기계발</option>
-										<option value="5">인문/사회/역사</option>
-										<option value="6">건강/다이어트</option>
-										<option value="7">가정/생활</option>
-										<option value="8">종교</option>
-										<option value="9">여행</option>	
+										<c:forEach var="cate" items="${requestScope.category}">
+										<option value="${cate.category}">${cate.category_name}</option>			
+										</c:forEach>
 									</select>
 								</div>
 								<div class="col-lg-10">

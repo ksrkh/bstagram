@@ -187,4 +187,23 @@ public class CreateBoardDAO extends BoardDAO {
 			}
 			return totalCount;
 		}
+		//창작 글 쓰기 카테고리 start 
+		public ArrayList<CreateCategoryVO> createCategory() throws SQLException {
+			ArrayList<CreateCategoryVO> categoryList=new ArrayList<CreateCategoryVO>();
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			try {
+				con = getConnection();
+				String sql = "select category,category_name from category";
+				pstmt = con.prepareStatement(sql);
+				rs=pstmt.executeQuery();
+			while(rs.next())
+				categoryList.add(new CreateCategoryVO(rs.getInt(1),rs.getString(2)));
+			} finally {
+				closeAll(rs,pstmt, con);
+			}			
+			return categoryList;
+		}
+		//창작 글 쓰기 카테고리 end
 	}
