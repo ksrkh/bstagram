@@ -32,7 +32,7 @@
 					<c:if test="${sessionScope.member.tier == 3}">
 						<!-- 관리자 일경우만 보여주는 페이지 -->
 						<div class="btn-group" style="float: right; margin-right: 10px">
-							<a href="#" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">관리자페이지</a>
+							<a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">관리자페이지</a>
 							<ul class="dropdown-menu">
 								<li><a href="DispatcherServlet?command=cmstendpage">한줄메모 성향 관리</a></li>
 								<li><a href="DispatcherServlet?command=cmsgenrepage">도서리뷰 장르 관리</a></li>

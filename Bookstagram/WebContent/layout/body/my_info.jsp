@@ -11,72 +11,65 @@ $(document).ready(function() {
 	});
 });
 </script> 
-<div class="container" style="margin-bottom: 250px">
+<div class="container" style="margin-bottom: 100px">
 	<!-- 현재 페이지의 타이틀  -->
 		<div class="row" style="margin-top: 0px; padding-top: 0px">
 			<div class="col-lg-12">
 				
 				<div class="col-lg-4" >
-							<div class="col-lg-12">
-								<div class="m_container">
-										<div class="bg-faded p-4 my-4">
-										<div class="text-center mt-4">
-										<h4 class="my-2">내 정보</h4>
-										</div>
-								<div class="col-lg-4" >
-								<img class="d-block img-fluid w-100" src="img/users.png" alt="" style="height:80px; width:100px">		
+					<div class="col-lg-12">
+						<div class="m_container">
+							<div class="bg-faded p-4 my-4" style="height: 450px">
+								<div class="text-center mt-4" style="margin-bottom: 20px">
+									<h4 class="my-2" style="font-size: 30px; color:#606060"><b>내 정보</b></h4>
 								</div>
-											<h5>아이디:${sessionScope.member.id}</h5>
-											<h5>닉네임:${sessionScope.member.nick}</h5> 
-											<h5>나이: ${sessionScope.member.age}</h5> 
-											<h5>가입일자: ${sessionScope.member.regdate}</h5> 
+								<div>
+									<img class="d-block img-fluid" src="img/users.png" alt="" style="height:250px; width:100%">		
+								</div>
+								<h5>아이디:${sessionScope.member.id}</h5>
+								<h5>닉네임:${sessionScope.member.nick}</h5> 
+								<h5>나이: ${sessionScope.member.age}</h5> 
+								<h5>가입일자: ${sessionScope.member.regdate}</h5> 
 							</div>
 						</div>
-				</div>
+					</div>
 				</div>
 				
 				
 				<div class="col-lg-4" >
-							<div class="col-lg-12">
-								<div class="m_container">
-										<div class="bg-faded p-4 my-4">
-										<div class="text-center mt-4">
-										<h4 class="my-2">회원 정보 수정</h4>
-										</div>
+					<div class="col-lg-12">
+						<div class="m_container">
+							<div class="bg-faded p-4 my-4" style="height: 450px">
+								<div class="text-center mt-4" style="margin-bottom: 20px">
+									<h4 class="my-2" style="font-size: 27px; color:#606060"><b>회원 정보 수정</b></h4>
+								</div>
 								<a href="${pageContext.request.contextPath}/DispatcherServlet?command=updateForm">
-								<img class="d-block img-fluid w-100" src="img/001-user.png" alt="" style="height:80px; width:70px; padding-left:90px; padding-right:90px">
-								</a>	
-									&nbsp;
-				</div>
-				</div>
-				</div>
+									<img class="d-block img-fluid w-100" src="img/001-user.png" alt="" style="height:330px; width:100%">
+								</a>&nbsp;
+							</div>
+						</div>
+					</div>
 				</div>
 				
 				
 				<div class="col-lg-4" >
-							<div class="col-lg-12">
-								<div class="m_container">
-										<div class="bg-faded p-4 my-4">
-										<div class="text-center mt-4">
-										<h4 class="my-2">회원 탈퇴</h4>
-										</div>
+					<div class="col-lg-12">
+						<div class="m_container">
+							<div class="bg-faded p-4 my-4" style="height: 450px">
+								<div class="text-center mt-4" style="margin-bottom: 20px">
+									<h4 class="my-2" style="font-size: 27px; color:#606060"><b>회원 탈퇴</b></h4>
+								</div>
 								<a href="${pageContext.request.contextPath}/DispatcherServlet?command=deleteMemberInfo&id=${sessionScope.member.id}">
-								<img id="deleteMember" class="d-block img-fluid w-100" src="img/002-user-1.png" alt="" style="height:80px; width:70px; padding-left:90px; padding-right:90px">
-								</a>
-									&nbsp;
-				</div>
-				</div>
-				</div>
+									<img id="deleteMember" class="d-block img-fluid w-100" src="img/002-user-1.png" alt="" style="height:330px; width:100%">
+								</a> &nbsp;
+							</div>
+						</div>
+					</div>
 				</div>
 				
-				
-				
-			
-			
-			
 
-</div>
-</div>
+		</div>
+	</div>
 </div>
 
 
