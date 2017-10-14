@@ -105,13 +105,13 @@ $(document).ready(function(){
 			</div>
 		
 			<blockquote class="quote-box" style="background-color: #2d2d2d;">
-				<p class="quotation-mark">
+				<p class="quotation-mark" style="margin-bottom:20px">
 					“
 				</p>
 				<c:choose>
 					<c:when test="${sessionScope.member!=null}">
 						<p class="quote-text">
-							<a href="DispatcherServlet?command=lineDetail&boardNo=${lvo.board_no}">${lvo.line_content}</a>
+							<a href="DispatcherServlet?command=lineDetail&boardNo=${lvo.board_no}" style="color: white">${lvo.line_content}</a>
 						</p>
 					</c:when>
 					<c:otherwise>
