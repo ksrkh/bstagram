@@ -48,6 +48,12 @@ public class CmsPageSQL {
 			"select * from question";
 	
 	/**
+	 * 회원등급 리스트
+	 */
+	public final static String tierList =
+			"select * from member_tier";
+	
+	/**
 	 * 전체 회원 리스트
 	 */
 	public final static String allMemberList =

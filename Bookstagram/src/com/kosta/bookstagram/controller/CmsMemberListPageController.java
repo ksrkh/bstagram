@@ -10,8 +10,11 @@ public class CmsMemberListPageController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		request.setAttribute("tend", CmsDAO.getInstance().getTendList());
+		request.setAttribute("tier", CmsDAO.getInstance().getTierList());
 		request.setAttribute("member", CmsDAO.getInstance().getAllMemberList());
 		request.setAttribute("url", "cms_member_list.jsp");
+		
 		return "home.jsp";
 	}
 

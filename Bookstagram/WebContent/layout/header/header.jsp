@@ -40,8 +40,8 @@
 								<li><a href="DispatcherServlet?command=cmspwquestionpage">비밀번호찾기 질문 관리</a></li>
 								<!-- <li><a href="ex-cms_img.jsp">배경 이미지 관리</a></li>  -->
 								<li class="divider"></li>
-								<li><a href="ex-cms_board.jsp">전체게시물관리</a></li>
-								<li><a href="ex-cms_member.jsp">전체회원관리</a></li>
+								<li><a href="DispatcherServlet?command=cmsboardlistpage">전체게시물관리</a></li>
+								<li><a href="DispatcherServlet?command=cmsmemberlistpege">전체회원관리</a></li>
 							</ul>
 						</div>
 					</c:if>

@@ -111,6 +111,28 @@ public class CmsDAO extends CommonDAO{
 		return answer;
 	}
 	
+	/**
+	 * 회원등급 리스트를 가져오는 메서드입니다.
+	 */
+	public ArrayList<MemberTierVO> getTierList()  throws SQLException{
+		ArrayList<MemberTierVO> tier = new ArrayList<MemberTierVO>();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			con = getConnection();
+			pstmt = con.prepareStatement(CmsPageSQL.tierList);
+			rs = pstmt.executeQuery();
+			while(rs.next())
+				tier.add(new MemberTierVO(rs.getInt(1), rs.getString(2)));
+			
+		}finally {
+			closeAll(rs, pstmt, con);
+		}
+		
+		return tier;
+	}
 	
 	
 	/**

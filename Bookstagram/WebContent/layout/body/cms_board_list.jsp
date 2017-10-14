@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <!-- 기능의 UI를 담당하는 부분(컨테이너) -->
 <div class="container">
 	<!-- 현재 페이지의 타이틀  -->
@@ -26,118 +27,6 @@
 					<td>1</td>
 					<td>john@example.com</td>
 					<td>제목입니다. 블라블라 블라.제목입니다. 블라블라 블라.제목입니다. 블라블라 블라.제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-					<td><button type="button" class="btn btn-primary">삭제</button></td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-					<td><button type="button" class="btn btn-primary">삭제</button></td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-					<td><button type="button" class="btn btn-primary">삭제</button></td>
-				</tr>
-				<tr>
-					<td>4</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-					<td><button type="button" class="btn btn-primary">삭제</button></td>
-				</tr>
-				<tr>
-					<td>5</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-					<td><button type="button" class="btn btn-primary">삭제</button></td>
-				</tr>
-				<tr>
-					<td>6</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-					<td><button type="button" class="btn btn-primary">삭제</button></td>
-				</tr>
-				<tr>
-					<td>7</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-					<td><button type="button" class="btn btn-primary">삭제</button></td>
-				</tr>
-				<tr>
-					<td>8</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-					<td><button type="button" class="btn btn-primary">삭제</button></td>
-				</tr>
-				<tr>
-					<td>9</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-					<td><button type="button" class="btn btn-primary">삭제</button></td>
-				</tr>
-				<tr>
-					<td>10</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-					<td><button type="button" class="btn btn-primary">삭제</button></td>
-				</tr>
-				<tr>
-					<td>11</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-					<td><button type="button" class="btn btn-primary">삭제</button></td>
-				</tr>
-				<tr>
-					<td>12</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-					<td><button type="button" class="btn btn-primary">삭제</button></td>
-				</tr>
-				<tr>
-					<td>13</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-					<td><button type="button" class="btn btn-primary">삭제</button></td>
-				</tr>
-				<tr>
-					<td>14</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
-					<td><button type="button" class="btn btn-primary">삭제</button></td>
-				</tr>
-				<tr>
-					<td>15</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라</td>
 					<td>2017-10-02</td>
 					<td>0</td>
 					<td><button type="button" class="btn btn-primary">삭제</button></td>
