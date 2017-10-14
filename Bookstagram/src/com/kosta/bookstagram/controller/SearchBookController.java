@@ -9,10 +9,6 @@ import java.net.URLEncoder;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-import org.json.simple.parser.JSONParser;
-
 import com.kosta.bookstagram.controller.listener.Controller;
 
 
@@ -21,6 +17,7 @@ public class SearchBookController implements Controller {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String book_name = request.getParameter("book_search");
+		System.out.println(book_name);
 		String clientId = "NFpFzUbjcuX6Ce2eN74w";// 애플리케이션 클라이언트 아이디값";
 		String clientSecret = "_zKcG_tiOV";// 애플리케이션 클라이언트 시크릿값";
 		try {
@@ -43,15 +40,16 @@ public class SearchBookController implements Controller {
 			while ((inputLine = br.readLine()) != null) {
 				responseBook.append(inputLine);
 			}
-			JSONObject jo = new JSONObject(responseBook.toString());
-			System.out.println(responseBook);
 			
-			/*PrintWriter out = response.getWriter();
-			out.print(ja.toString());	*/			
+			request.setAttribute("responseBody",responseBook.toString());
+			br.close();
+			/*System.out.println(responseBook);
+			PrintWriter out = response.getWriter();
+			out.print(jo.toString());	*/			
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 
-		return null;
+		return "AjaxView";
 	}
 }

@@ -71,25 +71,45 @@ public class LineBoardDAO extends BoardDAO{
 		System.out.println("LineBoardDAO, updateBoard() 실행");
 	}
 	
-	/*
-	 * 글 번호(검색)
-	 * 한줄 삭제하기
-	 */
-	@Override
-	public void deleteBoard(int boardNo) throws SQLException {
-		System.out.println("LineBoardDAO, deleteBoard() 실행");
-		Connection con=null;
-		PreparedStatement pstmt=null;
-		try {
-			con=getConnection();
-			String sql="delete from board where board_no=?";
-			pstmt=con.prepareStatement(sql);
-			pstmt.setInt(1, boardNo);
-			pstmt.executeUpdate();
-		}finally {
-			closeAll(pstmt, con);
-		}
-	}
+	  /*
+	    * 글 번호(검색)
+	    * 한줄 삭제하기
+	    * delete from line_board where board_no=21;
+	    * delete from reply where board_no=21;
+	    * delete from sympathy where board_no=21;
+	    * delete from board where board_no=21;
+	    */
+	   @Override
+	   public void deleteBoard(int boardNo) throws SQLException {
+	      System.out.println("LineBoardDAO, deleteBoard() 실행");
+	      Connection con=null;
+	      PreparedStatement pstmt=null;
+	      try {
+	         con=getConnection();
+	         String sql="delete from line_board where board_no=?";
+	         pstmt=con.prepareStatement(sql);
+	         pstmt.setInt(1, boardNo);
+	         pstmt.executeUpdate();
+	         pstmt.close();
+	         sql="delete from reply where board_no=?";
+	         pstmt=con.prepareStatement(sql);
+	         pstmt.setInt(1, boardNo);
+	         pstmt.executeUpdate();
+	         pstmt.close();
+	         sql="delete from sympathy where board_no=?";
+	         pstmt=con.prepareStatement(sql);
+	         pstmt.setInt(1, boardNo);
+	         pstmt.executeUpdate();
+	         pstmt.close();
+	         sql="delete from board where board_no=?";
+	         pstmt=con.prepareStatement(sql);
+	         pstmt.setInt(1, boardNo);
+	         pstmt.executeUpdate();
+	      }finally {
+	         closeAll(pstmt, con);
+	      }
+	   }
+
 	/*
 	 * 글 번호(검색)
 	 * 한줄 상세보기 
@@ -177,10 +197,13 @@ public class LineBoardDAO extends BoardDAO{
 	/*
 	 * 첫 메인 페이지 view down casting Servlet
 	 * 
+	 * SELECT br.board_no, br.boardtype_no, m.id, m.nick, 
+	 * br.board_regdate, br.hit, br.authority, br.bg_no, lb.line_content, lb.tend_code, lb.book_no FROM
+	 * (SELECT row_number() over(order by board_no desc) as rnum,board_no,line_content,tend_code,book_no
+	 * FROM line_board) lb, board br, member m 
+	 * WHERE br.board_no=lb.board_no and br.id=m.id and rnum between 1 and 5  order by br.board_no desc
 	 * 
-	 *SELECT lb.line_content,m.nick,
-	 *FROM line_board lb,board br,member m
-	 *WHERE lb.board_no=br.board_no and m.id=br.id 
+	 * 페이징 처리 완료	
 	 */
 	@Override
 	public ArrayList<BoardVO> boardList(PagingBean pagingBean) throws SQLException {
@@ -191,16 +214,20 @@ public class LineBoardDAO extends BoardDAO{
 		try {
 			con = getConnection();
 			StringBuilder sql = new StringBuilder();
-			sql.append("SELECT br.board_no,m.nick,br.board_regdate,br.hit,lb.line_content,lb.tend_code,lb.book_no ");
-			sql.append("FROM line_board lb,board br,member m ");
-			sql.append("WHERE lb.board_no=br.board_no and m.id=br.id order by br.board_no desc");
+			sql.append("SELECT br.board_no, br.boardtype_no, m.id, m.nick, ");
+			sql.append("br.board_regdate, br.hit, br.authority, br.bg_no, lb.line_content, lb.tend_code, lb.book_no FROM ");
+			sql.append("(SELECT row_number() over(order by board_no desc) as rnum,board_no,line_content,tend_code,book_no ");
+			sql.append("FROM line_board) lb, board br, member m ");
+			sql.append("WHERE br.board_no=lb.board_no and br.id=m.id and rnum between ? and ?  order by br.board_no desc");
 			pstmt = con.prepareStatement(sql.toString());
+			pstmt.setInt(1, pagingBean.getStartRowNumber());
+			pstmt.setInt(2, pagingBean.getEndRowNumber());
 			rs = pstmt.executeQuery();
-			/*int board_no, String nick, String board_regdate, int hit, String line_content,
-			int tend_code, int book_no*/
+			/*int board_no, int boardtype_no, String id, String nick, String board_regdate, int hit,
+			int sympathy, int authority, int bg_no, String line_content, int tend_code, int book_no*/
 			while (rs.next()) {
-				list.add(new LineBoardVO(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getInt(4),rs.getString(5),
-						rs.getInt(6),rs.getInt(7)));
+				list.add(new LineBoardVO(rs.getInt(1),rs.getInt(2),rs.getString(3),rs.getString(4),rs.getString(5),
+						rs.getInt(6),0,rs.getInt(7),rs.getInt(8),rs.getString(9),rs.getInt(10),rs.getInt(11)));
 			}
 			
 		} finally {
@@ -252,4 +279,5 @@ public class LineBoardDAO extends BoardDAO{
 		}
 		return ltList;
 	}
+	
 }

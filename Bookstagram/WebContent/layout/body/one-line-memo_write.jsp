@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script type="text/javascript">
-$(document).ready(function() {
+$(document).ready(function() {	
 	$("input[name=tend_ck]:checkbox").change(function() {
         if( $("input[name=tend_ck]:checkbox:checked").length==1) {
             $(":checkbox:not(:checked)").attr("disabled", "disabled");
@@ -34,6 +34,29 @@ $(document).ready(function() {
 		
 	}); //write click 
 		//textarea 부분  $("#content").val()
+	$("#book_search").change(function() {
+		alert("1");
+		var book = $(this).val();
+		alert(book);
+		$.ajax({
+			type:"get",
+			url: "DispatcherServlet",
+			data:"command=searchbook&book_search="+book,
+			dataType:"json",
+			success:function(data){//data로 서버의 응답 정보가 들어온다.
+				alert(data);
+			var book_image="";
+				  for(var i in data.items) {
+			      	$("#book_title_area").html(data.items[i].title);
+			     	$("#book_author_area").html(data.items[i].author);
+			     	$("#book_publisher_area").html(data.items[i].publisher);
+			     	$("#book_pubdate_area").html(data.items[i].pubdate);
+			     	$("#book_description_area").html(data.items[i].description);
+			  		$("#book_image_area").html("<img height=171px width=120px src="+data.items[i].image+">");
+			        }											
+			}			
+		});
+	});
 });//ready
 </script>
 <!-- 기능의 UI를 담당하는 부분(컨테이너) -->
@@ -107,36 +130,36 @@ $(document).ready(function() {
 							<!-- 책검색 -->
 							<div class="form-group" style="margin-bottom:15px">
 								<div class="col-lg-12">
-									<input type="password" class="form-control" id="book_search" placeholder="책 검색">
+									<input type="text" class="form-control" name="book_search" id="book_search" placeholder="책 검색">
 								</div>
 							</div>
 							
 							<!-- 책검색내용이 보여질 폼입니다. -->
 							<div class="form-group" style="margin-bottom:15px; padding-left: 20px">
 								<!-- 기본이미지가 보여지는 곳이며, 검색 이후 검색된 이미지로 변경됩니다. -->
-								<div class="col-lg-2">
+								<div class="col-lg-2" id="book_image_area">
 									<img height=171px width=120px src="https://search.pstatic.net/common/?src=http%3A%2F%2Fbookthumb.phinf.naver.net%2Fcover%2F109%2F245%2F10924505.jpg">
 								</div>
 								<div class="col-lg-10">
 									<!-- 책제목 -->
-									<div class="col-lg-12" style="padding-left: 0px; margin-bottom: 10px">
-										<input type="text" class="form-control" id="book_title" placeholder="책제목" readonly="readonly" value="언어의온도">
+									<div class="col-lg-12" style="padding-left: 0px; margin-bottom: 10px" id="book_title_area">
+										<input type="text" class="form-control" id="book_title" placeholder="책제목" readonly="readonly">
 									</div>
 									<!-- 저자 -->
-									<div class="col-lg-4" style="padding-left: 0px; margin-bottom: 10px; margin-left:0px; margin-right: 0px">
+									<div class="col-lg-4" style="padding-left: 0px; margin-bottom: 10px; margin-left:0px; margin-right: 0px" id="book_author_area">
 										<input type="text" class="form-control" id="author" placeholder="저자" readonly="readonly" value="이기주">
 									</div>
 									<!-- 출판사 -->
-									<div class="col-lg-4"> 
-										<input type="text" class="form-control" id="" placeholder="출판사" readonly="readonly" value="말글터">
+									<div class="col-lg-4" id="book_publisher_area"> 
+										<input type="text" class="form-control" id="publisher" placeholder="출판사" readonly="readonly" value="말글터">
 									</div>
 									<!-- 출판일자 -->
-									<div class="col-lg-4">
-										<input type="text" class="form-control" id="" placeholder="출판일자" readonly="readonly" value="2016.08.19">
+									<div class="col-lg-4" id="book_pubdate_area">
+										<input type="text" class="form-control" id="pubdate" placeholder="출판일자" readonly="readonly" value="2016.08.19">
 									</div>
 									<!-- 책소개 -->
-									<div class="col-lg-12" style="padding-left: 0px">
-										<textarea class="form-control" rows="4" id="book_content" placeholder="책소개" readonly="readonly" style="resize: none">언어의 온도』의 저자 이기주는 엿듣고 기록하는 일을 즐겨 하는 사람이다. 그는 버스나 지하철에 몸을 실으면 몹쓸 버릇이 발동한다고 고백한다. 이 책은 저자가 일상에서 발견한 의미 있는 말과 글.  단어의 어원과 유래, 그런 언어가 지닌 소중함과 절실함을 농밀하게 담아낸 것이다.</textarea>
+									<div class="col-lg-12" style="padding-left: 0px" id="book_description_area">
+										<textarea class="form-control" rows="4" id="description" placeholder="책소개" readonly="readonly" style="resize: none"></textarea>
 									</div>
 								</div>
 							</div>

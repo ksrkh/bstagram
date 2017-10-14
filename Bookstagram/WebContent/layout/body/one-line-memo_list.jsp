@@ -27,12 +27,12 @@ $(document).ready(function(){
      	alert("로그인 해주세요");
     	
 	}); */
-	$("#lineDeleteBtn").click(function() {
+/* 	$("#lineDeleteBtn").click(function() {
 		if(confirm("정말 삭제하시겠습니까?")){
 			alert("asd");
-			location.href="DispatcherServlet?command=lineDetail";	
+			location.href="DispatcherServlet?command=lineDelete";	
 			}
-	});
+	}); */
 	$("#lineUpdateBtn").click(function() {
 		if(confirm("정말 수정하시겠습니까?")){
 				location.href="";	
@@ -99,11 +99,12 @@ $(document).ready(function(){
 	<c:forEach var="lvo" items="${requestScope.lineList}">
 	<div class="bg-faded p-4 my-4"  id="line_board_btn">
 		<div class="container">
-			<div class="up_delete pull-right" style="margin-bottom:5px">
+		<c:if test="${lvo.id==sessionScope.member.id}">
+			<div class="up_delete pull-right" style="margin-bottom:5px">				
 				<a href=""><i class="fa fa-cog fa-spin" style="font-size:25px;" id="lineUpdateBtn"></i></a>
-			    <a href=""><i class="fa fa-trash-o" style="font-size:25px;" id="lineDeleteBtn"></i></a>
+			    <a href="DispatcherServlet?command=lineDelete&boardNo=${lvo.board_no}" onclick="javascript:return confirm('정말 삭제하시겠습니까?')"><i class="fa fa-trash-o" style="font-size:25px;" id="lineDeleteBtn"></i></a>
 			</div>
-		
+		</c:if> 
 			<blockquote class="quote-box" style="background-color: #2d2d2d;">
 				<p class="quotation-mark" style="margin-bottom:20px">
 					“

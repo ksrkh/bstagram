@@ -14,7 +14,14 @@ public class LineListController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		PagingBean pagingBean=null;
+		int totalCount=LineBoardDAO.getInstance().totalCountByBoard();
+		String pno=request.getParameter("pageNo");
+		PagingBean pagingBean=new PagingBean(totalCount,1);
+		if(pno==null){
+			pagingBean=new PagingBean(totalCount);
+		}else{
+			pagingBean=new PagingBean(totalCount,Integer.parseInt(pno));
+		}
 		ArrayList<BoardVO> list=LineBoardDAO.getInstance().boardList(pagingBean);
 		request.setAttribute("lineList", list);
 		request.setAttribute("url", "one-line-memo_list.jsp");
