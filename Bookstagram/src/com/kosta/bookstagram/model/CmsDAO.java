@@ -86,6 +86,33 @@ public class CmsDAO extends CommonDAO{
 		return category;
 	}
 	
+	
+	
+	/**
+	 * 비밀번호 찾기 질문 리스트를 가져오는 메서드입니다.
+	 */
+	public ArrayList<PasswordQuestionVO> getPwQuestionList() throws SQLException{
+		ArrayList<PasswordQuestionVO> answer = new ArrayList<PasswordQuestionVO>();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			con = getConnection();
+			pstmt = con.prepareStatement(CmsPageSQL.allQuestionList);
+			rs = pstmt.executeQuery();
+			while(rs.next())
+				answer.add(new PasswordQuestionVO(rs.getInt(1), rs.getString(2)));
+			
+		}finally {
+			closeAll(rs, pstmt, con);
+		}
+		
+		return answer;
+	}
+	
+	
+	
 	/**
 	 * 전체회원의 리스트를 가져오는 메서드입니다.
 	 */

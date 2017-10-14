@@ -2,7 +2,7 @@ package com.kosta.bookstagram.controller.handler;
 
 import com.kosta.bookstagram.controller.CmsCategoryPageController;
 import com.kosta.bookstagram.controller.CmsGenrePageController;
-import com.kosta.bookstagram.controller.CmsPwAnswerPageController;
+import com.kosta.bookstagram.controller.CmsPwQuestionPageController;
 import com.kosta.bookstagram.controller.CmsTendPageController;
 import com.kosta.bookstagram.controller.CreationBoardListController;
 import com.kosta.bookstagram.controller.CreationPostDeleteController;
@@ -96,8 +96,8 @@ public class HandlerMapping {
 			controller = new CmsGenrePageController();
 		else if(command.equals("cmscategorypege"))
 			controller = new CmsCategoryPageController();
-		else if(command.equals("cmspwanserpage"))
-			controller = new CmsPwAnswerPageController();
+		else if(command.equals("cmspwquestionpage"))
+			controller = new CmsPwQuestionPageController();
 		else if(command.equals("searchbook"))
 			controller = new SearchBookController();
 		else if(command.equals("reviewwrite"))

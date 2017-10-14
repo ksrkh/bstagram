@@ -19,13 +19,15 @@
 				</tr>
 			</thead>
 			<tbody class="cms-tbody">
+				<c:forEach items="${requestScope.question}" var="question">
 				<!-- start // 추후 for로 돌릴 구간입니다. -->
 				<tr>
-					<td style="font-size: 15px"><b>1</b></td>
-					<td style="font-size: 15px"><input type="text" class="form-control" name="category_name" value="비밀번호질문" style="text-align: center; font-size: 15px"></td>
+					<td style="font-size: 15px"><b>${question.question_code }</b></td>
+					<td style="font-size: 15px"><input type="text" class="form-control" name="pw_question" value="${question.question}" style="text-align: center; font-size: 15px"></td>
 					<td><button type="button" class="btn btn-info" style="width: 100%">수정</button></td>
 					<td><button type="button" class="btn btn-primary" style="width: 100%">삭제</button></td>
 				</tr>
+				</c:forEach>
 				<!-- end // 추후 for 로 돌릴 구간입니다. -->
 			</tbody>
 		</table>
@@ -35,7 +37,7 @@
 		<div class="row">
 			<label for="inputEmail" class="col-lg-1 control-label" style="margin-top:7px; margin-left:50px ;margin-right:0px; padding-right:0px; font-size: 15px"><b>분야</b></label>
 			<div class="col-lg-9">
-				<input type="text" class="form-control" name="category" placeholder="분야를 입력 해주세요.">
+				<input type="text" class="form-control" name="question" placeholder="추가할 비밀번호찾기 질문을 입력 해주세요.">
 			</div>
 			<div class="col-lg-1">
 				<button type="button" class="btn btn-info" style="width: 100%">추가</button>

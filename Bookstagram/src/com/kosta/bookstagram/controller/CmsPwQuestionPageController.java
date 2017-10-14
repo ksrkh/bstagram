@@ -6,12 +6,12 @@ import javax.servlet.http.HttpServletResponse;
 import com.kosta.bookstagram.controller.listener.Controller;
 import com.kosta.bookstagram.model.CmsDAO;
 
-public class CmsPwAnswerPageController implements Controller {
+public class CmsPwQuestionPageController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-//		request.setAttribute("answer", CmsDAO.getInstance().getTendList());
-		request.setAttribute("url", "cms_pw_answer.jsp");
+		request.setAttribute("question", CmsDAO.getInstance().getPwQuestionList());
+		request.setAttribute("url", "cms_pw_question.jsp");
 		return "home.jsp";
 	}
 
