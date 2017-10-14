@@ -175,7 +175,44 @@ from REPLY;
 select *
 from RE_REPLY;
 
+
 insert into reply(reply_no, reply_content, board_no, id)
 values(replyno_seq.nextval, '1번게시글의 첫번째 덧글입니다.',  1, 'dnwjdrnl2@naver.com');
 
 select reply_no,reply_content,board_no,id from REPLY where board_no=1;
+
+
+
+
+select s.id
+from SYMPATHY;
+
+select count(*)
+from SYMPATHY
+where board_no=4;
+
+select board_no,count(*)
+from SYMPATHY
+group by board_no;
+
+insert into sympathy(id, board_no)
+values('a',13);
+insert into sympathy(id, board_no)
+values('b',13);
+insert into sympathy(id, board_no)
+values('c',13);
+
+SELECT b.board_no as bno,m.nick as nick,b.board_regdate as regdate,b.hit as hit, cb.create_title as ctitle
+FROM (SELECT row_number() over(order by board_no desc) as rnum,board_no,create_title
+FROM CREATE_BOARD) cb,board b,member m
+WHERE b.board_no=cb.board_no and b.id=m.id and rnum between 1 and 5  order by b.board_no desc
+
+
+select a.bno,a.nick,a.regdate,a.hit,a.ctitle,s.count
+from(
+SELECT b.board_no as bno,m.nick as nick,b.board_regdate as regdate,b.hit as hit, cb.create_title as ctitle
+FROM (SELECT row_number() over(order by board_no desc) as rnum,board_no,create_title
+FROM CREATE_BOARD) cb,board b,member m
+WHERE b.board_no=cb.board_no and b.id=m.id and rnum between 1 and 5  order by b.board_no desc)a,
+(select board_no,count(*) as count from SYMPATHY group by board_no) s
+where a.bno=s.board_no;

@@ -10,6 +10,7 @@ import com.kosta.bookstagram.model.common.CommonDAO;
 import com.kosta.bookstagram.model.common.PagingBean;
 import com.kosta.bookstagram.model.common.ReReplyVO;
 import com.kosta.bookstagram.model.common.ReplyVO;
+import com.kosta.bookstagram.model.common.SympathyVO;
 import com.kosta.bookstagram.model.listener.BoardListener;
 
 /**
@@ -108,9 +109,44 @@ public abstract class BoardDAO extends CommonDAO implements BoardListener{
 		return null;
 	}
 
+	
 	@Override
 	public void likeService(String id, int boardNo) throws SQLException {
 		System.out.println("likeBoard() 실행");
+	}
+	
+	/*
+	 * 전체 게시물에 
+	 */
+	@Override
+	public ArrayList<SympathyVO> allLikeCount() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/*
+	 * ajax 이용하여 하나의 게시물에 대한 변화를 갱신해야하는 경우 
+	 */
+	@Override
+	public int likeCount(int boardNo) throws SQLException {
+		int likeCount=0;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con=getConnection(); 
+			//리덧글 먼저 삭제
+			StringBuilder sql1=new StringBuilder();
+			sql1.append("select count(*) from sympathy where board_no=?");
+			pstmt=con.prepareStatement(sql1.toString());	
+			pstmt.setInt(1, boardNo);
+			pstmt.executeUpdate();	
+			pstmt.close();
+	
+		}finally {
+			closeAll(pstmt, con);
+		}
+		return likeCount;
+		
 	}
 
 	@Override

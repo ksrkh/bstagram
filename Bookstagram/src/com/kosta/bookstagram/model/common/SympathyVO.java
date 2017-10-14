@@ -4,7 +4,7 @@ public class SympathyVO {
 	/*
 	 * 공감자 아이디
 	 */
-	private String id;
+	private int likeCount;
 	/*
 	 * 공감 게시판 번호
 	 */
@@ -15,21 +15,21 @@ public class SympathyVO {
 	public SympathyVO() {}
 	
 	/**
-	 * @param id		공감자 아이디
+	 * @param likeCount		공감자 아이디
 	 * @param board_no	공감 게시판 번호
 	 */
-	public SympathyVO(String id, int board_no) {
+	public SympathyVO(int likeCount, int board_no) {
 		super();
-		this.id = id;
+		this.likeCount = likeCount;
 		this.board_no = board_no;
 	}
 	
-	public String getId() {
-		return id;
+	public int getlikeCount() {
+		return likeCount;
 	}
 	
-	public void setId(String id) {
-		this.id = id;
+	public void setlikeCount(int likeCount) {
+		this.likeCount = likeCount;
 	}
 	
 	public int getBoard_no() {
@@ -42,6 +42,6 @@ public class SympathyVO {
 	
 	@Override
 	public String toString() {
-		return "SympathyVO [id=" + id + ", board_no=" + board_no + "]";
+		return "SympathyVO [id=" + likeCount + ", board_no=" + board_no + "]";
 	}
 }

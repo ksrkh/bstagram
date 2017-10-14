@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import com.kosta.bookstagram.model.common.ReReplyVO;
 import com.kosta.bookstagram.model.common.ReplyVO;
+import com.kosta.bookstagram.model.common.SympathyVO;
 
 public interface BoardListener {
 	
@@ -93,6 +94,28 @@ public interface BoardListener {
 	 */
 	public void likeService(String id, int boardNo) throws SQLException;
 
+	/**
+	 * 
+	 * <pre>
+	 * <b>메서드 설명</b>
+	 *    -게시글의 전체 공감수를 뿌려주기 위한 메서드입니다
+	 *    
+	 * @param boardNo
+	 * @return
+	 * @throws SQLException
+	 */
+	public ArrayList<SympathyVO> allLikeCount() throws SQLException;
+	
+	/**
+	 * <pre>
+	 * <b>메서드 설명</b>
+	 *    -게시글의 공감수를 반환하는 기능입니다.
+	 * </pre>
+	 * 
+	 * @param 	boardNo			게시글번호
+	 * @throws 	SQLException
+	 */
+	public int likeCount(int boardNo) throws SQLException;
 	/**
 	 * <pre>
 	 * <b>메서드 설명</b>

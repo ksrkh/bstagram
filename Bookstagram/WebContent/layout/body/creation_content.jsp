@@ -27,7 +27,7 @@ function chReply(){
 
 function delReply(reply_no){
 	if(confirm("덧글을 삭제하시겠습니까?")){
-		location.href="DispatcherServlet?command=deleteReply&board_no=${requestScope.cbdvo.board_no}&reply_no="+reply_no;
+		location.href="DispatcherServlet?method=post&command=deleteReply&board_no=${requestScope.cbdvo.board_no}&reply_no="+reply_no;
 		}
 }
 </script>
