@@ -15,7 +15,8 @@ public class CreationPostUpdateViewController implements Controller {
 		CreateBoardVO cbvo= (CreateBoardVO) CreateBoardDAO.getInstance().selectBoard(boardNo);
 		request.setAttribute("cbdvo", cbvo);
 		request.setAttribute("cbno", boardNo);
-		return "ex-creation_updateview.jsp";
+		request.setAttribute("url", "creation_updateview.jsp");
+		return "home.jsp";
 	}
 
 }

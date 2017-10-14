@@ -25,6 +25,6 @@ public class CreationPostWriteController implements Controller {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return "redirect:ex-creation.jsp";
+		return "redirect:DispatcherServlet?command=createboardlist";
 	}
 }

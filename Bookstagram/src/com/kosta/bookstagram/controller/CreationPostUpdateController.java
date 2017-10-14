@@ -17,7 +17,7 @@ public class CreationPostUpdateController implements Controller {
 		int category=Integer.parseInt(request.getParameter("tend_code"));
 		CreateBoardVO createVO = new CreateBoardVO(boardNo,3, "kjhsc101218@naver.com", 1,1, create_title, create_content, category);
 		CreateBoardDAO.getInstance().updateBoard(createVO);
-		return "redirect:ex-creation.jsp";
+		return "redirect:DispatcherServlet?command=createboardlist";
 	}
 
 }

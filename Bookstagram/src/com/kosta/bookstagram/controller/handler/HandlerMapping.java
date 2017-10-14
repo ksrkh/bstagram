@@ -10,6 +10,7 @@ import com.kosta.bookstagram.controller.CreationPostDetailController;
 import com.kosta.bookstagram.controller.CreationPostUpdateController;
 import com.kosta.bookstagram.controller.CreationPostUpdateViewController;
 import com.kosta.bookstagram.controller.CreationPostWriteController;
+import com.kosta.bookstagram.controller.CreationPostWriteViewController;
 import com.kosta.bookstagram.controller.DeleteMemberInfoController;
 import com.kosta.bookstagram.controller.DupleIdCheckController;
 import com.kosta.bookstagram.controller.DupleNickCheckController;
@@ -52,6 +53,8 @@ public class HandlerMapping {
 			controller = new JoinController();
 		else if(command.equals("JoinForm"))
 			controller = new JoinFormController();
+		else if (command.equals("createwriteview"))
+			controller = new CreationPostWriteViewController();
 		else if (command.equals("createpostwrite"))
 			controller = new CreationPostWriteController();
 		else if (command.equals("createboardlist"))

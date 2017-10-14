@@ -16,7 +16,7 @@ public class CreationPostDeleteController implements Controller {
 		int boardNo=Integer.parseInt(request.getParameter("board_no"));
 		CreateBoardDAO.getInstance().deleteBoard(boardNo);
 		request.setAttribute("url", "creation_list.jsp");
-		return "home.jsp";
+		return "DispatcherServlet?command=createboardlist";
 	}
 
 }
