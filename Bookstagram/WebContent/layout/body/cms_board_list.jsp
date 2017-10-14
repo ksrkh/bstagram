@@ -13,9 +13,10 @@
 			<thead class="cms-thead">
 				<tr>
 					<th>게시물 번호</th>
+					<th>게시판 이름</th>
 					<th>작성자</th>
-					<th>제목</th>
-					<th>작성일자</th>
+					<th>내용</th>
+					<th>등록일자</th>
 					<th>조회수</th>
 					<th>삭제</th>
 				</tr>
@@ -23,15 +24,17 @@
 			<tbody class="cms-tbody">
 			
 				<!-- start // 추후 for로 돌릴 구간입니다. -->
+				<c:forEach items="${requestScope.board}" var="board">
 				<tr>
-					<td>1</td>
-					<td>john@example.com</td>
-					<td>제목입니다. 블라블라 블라.제목입니다. 블라블라 블라.제목입니다. 블라블라 블라.제목입니다. 블라블라 블라</td>
-					<td>2017-10-02</td>
-					<td>0</td>
+					<td>${board.board_no}</td>
+					<td>${board.boardtype_no}</td>
+					<td>${board.id}</td>
+					<td>${board.content}</td>
+					<td>${board.board_regdate}</td>
+					<td>${board.hit}</td>
 					<td><button type="button" class="btn btn-primary">삭제</button></td>
 				</tr>
-				
+				</c:forEach>
 				<!-- end // 추후 for 로 돌릴 구간입니다. -->
 				
 			</tbody>

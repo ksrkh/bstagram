@@ -1,5 +1,9 @@
 package com.kosta.bookstagram.controller.handler;
 
+import com.kosta.bookstagram.controller.CmsAddCategoryController;
+import com.kosta.bookstagram.controller.CmsAddGenreController;
+import com.kosta.bookstagram.controller.CmsAddPwQuestionController;
+import com.kosta.bookstagram.controller.CmsAddTendController;
 import com.kosta.bookstagram.controller.CmsBoardListPageController;
 import com.kosta.bookstagram.controller.CmsCategoryPageController;
 import com.kosta.bookstagram.controller.CmsGenrePageController;
@@ -114,6 +118,14 @@ public class HandlerMapping {
 			controller = new ReviewWriteController();
 		else if(command.equals("replyRegister"))
 			controller=new ReplyRegisterController();
+		else if(command.equals("addcmstend"))
+			controller=new CmsAddTendController();
+		else if(command.equals("addcmsgenre"))
+			controller=new CmsAddGenreController();
+		else if(command.equals("addcmscategory"))
+			controller=new CmsAddCategoryController();
+		else if(command.equals("addcmspwquestion"))
+			controller=new CmsAddPwQuestionController();
 		
 		return controller;
 	}

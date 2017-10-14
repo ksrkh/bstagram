@@ -22,6 +22,11 @@ public class CmsPageSQL {
 	public final static String addCategory =
 			"insert into category(category, category_name) values(category_seq.nextval, ?)";
 	
+	/**
+	 * 비밀번호찾기질문추가
+	 */
+	public final static String addFindPwQuestion = 
+			"insert into question(question_code, question) values(question_seq.nextval, ?)";
 	
 	/**
 	 * 성향 리스트
@@ -69,7 +74,7 @@ public class CmsPageSQL {
 	 * 전체 게시글 리스트
 	 */
 	public final static String allBoardList =
-			"SELECT B.board_no, B.boardtype_no, B.id, substr(A.review_content,1,50) AS content, B.board_regdate, B.hit " + 
+			"SELECT B.board_no, B.boardtype_no, B.id, substr(A.review_content,1,40) AS content, B.board_regdate, B.hit " + 
 			"FROM (SELECT board_no, review_content FROM review_board " + 
 			"UNION ALL SELECT board_no, create_content FROM create_board " + 
 			"UNION ALL SELECT board_no, line_content FROM line_board) A, " + 
