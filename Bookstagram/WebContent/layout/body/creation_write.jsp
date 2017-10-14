@@ -28,8 +28,9 @@ function contentCheck(){
 				<div class="well bs-component col-lg-12">
 					<div class="col-lg-1"></div>
 					<div class="col-lg-10">
-					<form class="form-horizontal" action="DispatcherServlet" id="create" name="create" onsubmit="return contentCheck()">
+					<form class="form-horizontal" method="post" action="DispatcherServlet" id="create" name="create" onsubmit="return contentCheck()">
 					<input type="hidden" name="command" value="createpostwrite">
+					<input type="hidden" name="id" value="${sessionScope.member.id}">
 						<fieldset>
 							<legend>창작하기</legend>
 							<!-- 독후감 제목 -->
@@ -48,7 +49,7 @@ function contentCheck(){
 									</select>
 								</div>
 								<div class="col-lg-10">
-									<input type="text" class="form-control" id="title" name="title" placeholder="독후감 제목">
+									<input type="text" class="form-control" id="title" name="title" placeholder="창작글 제목">
 								</div>
 							</div>
 							
@@ -115,7 +116,7 @@ function contentCheck(){
 		<!-- 작석 버튼/취소 버튼 -->
 		<div class="row" style="text-align:center; margin-top: 25px; margin-bottom: 50px">
 			<div class="col-lg-12">
-				<button type="reset" class="btn btn-default">작성 취소</button>
+				<button type="reset" class="btn btn-default" form="create">작성 취소</button>
 				<button type="submit" class="btn btn-primary" form="create">작성 완료</button>
 			</div>
 		</div>

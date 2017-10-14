@@ -15,6 +15,7 @@ public class CreationPostWriteController implements Controller {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 		String id=request.getParameter("id");
+		System.out.println(id+"컨트롤러");
 		String create_title=request.getParameter("title");
 		String create_content=request.getParameter("content");
 		int category=Integer.parseInt(request.getParameter("tend_code"));
