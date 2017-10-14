@@ -11,7 +11,7 @@ $(document).ready(function() {
 	});
 });
 </script> 
-<div class="container">
+<div class="container" style="margin-bottom: 250px">
 	<!-- 현재 페이지의 타이틀  -->
 		<div class="row" style="margin-top: 0px; padding-top: 0px">
 			<div class="col-lg-12">

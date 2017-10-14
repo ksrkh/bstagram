@@ -19,7 +19,7 @@ function updateCreatePost(){
 </script>
 
 <!-- 기능의 UI를 담당하는 부분(컨테이너) -->
-<div class="container" style="margin-bottom: 50px">
+<div class="container">
 	<!-- 현재 페이지의 타이틀  -->
 	<!-- <div class="tagline-upper text-left text-heading text-shadow text-white d-none d-lg-block" style="margin-top: 5px">
 		책속의 한줄
@@ -60,7 +60,6 @@ function updateCreatePost(){
 							 		<br>${requestScope.cbdvo.create_content}
 									<br><br><br><br><br><br><br><br><br><br><br><br>
 									<br><br><br><br><br><br><br><br><br><br><br><br>
-									<br><br><br><br><br><br><br><br><br><br><br><br>
 						      	</div>
 						    </div>
 						</fieldset>
@@ -89,10 +88,12 @@ function updateCreatePost(){
 <div class="container" style="margin-bottom: 50px">
 	<div class="bg-faded p-4 my-4">
 		<form class="form-horizontal">
-			<div class="col-lg-6"> 
+			<div class="col-lg-11"> 
 				<input type="text" class="form-control" id="" name="" placeholder="댓글을 입력하세요">
 			</div>
-				<input type="submit" class="btn btn-primary" value="등록">
+			<div class="col-lg-1">
+				<input type="submit" class="btn btn-primary" value="등록" style="width:100%">
+			</div>
 		</form>
 			<br><br><br>
 
