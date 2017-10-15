@@ -1,64 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<script type="text/javascript">
-$(document).ready(function() {	
-	var book_title="";
-
-	$("input[name=tend_ck]:checkbox").change(function() {
-        if( $("input[name=tend_ck]:checkbox:checked").length==1) {
-            $(":checkbox:not(:checked)").attr("disabled", "disabled");
-        } else {
-            $("input[name=tend_ck]:checkbox").removeAttr("disabled");
-        }
-    });//change
-   
-	$("#cancelBtn").click(function() {
-		if(confirm("게시글을 작성을 취소하시겠습니까?")){
-			location.href="DispatcherServlet?command=lineList";		
-			}
-	});//cancel click
-	$("#book_search").change(function() {
-		var book = $(this).val();
-		$.ajax({
-			type:"get",
-			url: "DispatcherServlet",
-			data:"command=searchbook&book_search="+book,
-			dataType:"json",
-			success:function(data){//data로 서버의 응답 정보가 들어온다.
-				  for(var i in data.items) {
-					  
-					  $("#book_title_area").html(data.items[i].title);//제목
-					  $("#book_author_area").html(data.items[i].author);//저자
-					  $("#book_publisher_area").html(data.items[i].publisher);//출판사
-					  $("#book_pubdate_area").html(data.items[i].pubdate);//출판일
-					  $("#book_description_area").html(data.items[i].description);//내용
-					  $("#book_image_area").html("<img height=171px width=120px src="+data.items[i].image+">");//이미지
-			        }											
-			}			
-		});
-	});//search
-	
-	$("#writeLineBtn").click(function() {	
-		var content = $("#content").val();
-		var tendComp=$("#writeForm :checkbox[name=tend_ck]:checked").val();
-		if(content.length>110){
-		alert("110자 이상은 입력하실 수 없습니다.");
-		}else if(content==""){
-			alert("게시물을 작성해주세요");
-		}else if(tendComp.length==0){
-			alert("하나의 성향을 선택해주세요.");
-		}else if(content!=""){
-			if(confirm("게시글을 작성하시겠습니까?")){
-				alert($("#book_title").html());
-				location.href="DispatcherServlet?command=lineWrite&line_content="+content+"&tend_code="+tendComp;		
-			}
-	}
-		
-	}); //write click 
-		//textarea 부분  $("#content").val()
-});//ready
-</script>
 <!-- 기능의 UI를 담당하는 부분(컨테이너) -->
 <div class="container">
 	<!-- 현재 페이지의 타이틀  -->
@@ -73,6 +15,7 @@ $(document).ready(function() {
 					<div class="col-lg-1"></div>
 					<div class="col-lg-10">
 					<form class="form-horizontal" id="writeForm">
+					
 						<fieldset>
 							<legend>책속의 한줄</legend>
 							<!-- 내용 입력 부분 -->
@@ -138,28 +81,31 @@ $(document).ready(function() {
 							<div class="form-group" style="margin-bottom:15px; padding-left: 20px">
 								<!-- 기본이미지가 보여지는 곳이며, 검색 이후 검색된 이미지로 변경됩니다. -->
 								<div class="col-lg-2" id="book_image_area">
-									<img height=171px width=120px src="https://search.pstatic.net/common/?src=http%3A%2F%2Fbookthumb.phinf.naver.net%2Fcover%2F109%2F245%2F10924505.jpg">
+									<img height=171px width=120px src="${requestScope.updateBvo.book_img}">
 								</div>
 								<div class="col-lg-10">
 									<!-- 책제목 -->
 									<div class="col-lg-12" style="padding-left: 0px; margin-bottom: 10px" id="book_title_area">
-										<input type="text" class="form-control" id="book_title" placeholder="책제목" readonly="readonly">
+										<input type="text" class="form-control" id="book_title" placeholder="${requestScope.updateBvo.book_title}">
 									</div>
 									<!-- 저자 -->
 									<div class="col-lg-4" style="padding-left: 0px; margin-bottom: 10px; margin-left:0px; margin-right: 0px" id="book_author_area">
-										<input type="text" class="form-control" id="author" placeholder="저자" readonly="readonly" value="이기주">
+										<input type="text" class="form-control" id="author" placeholder="${requestScope.updateBvo.book_author}">
 									</div>
 									<!-- 출판사 -->
 									<div class="col-lg-4" id="book_publisher_area"> 
-										<input type="text" class="form-control" id="publisher" placeholder="출판사" readonly="readonly" value="말글터">
+										<input type="text" class="form-control" id="publisher" placeholder="${requestScope.updateBvo.book_publ}">
+										 
 									</div>
 									<!-- 출판일자 -->
 									<div class="col-lg-4" id="book_pubdate_area">
-										<input type="text" class="form-control" id="pubdate" placeholder="출판일자" readonly="readonly" value="2016.08.19">
+										<input type="text" class="form-control" id="pubdate" placeholder="${requestScope.updateBvo.book_sdate}">
+										
 									</div>
 									<!-- 책소개 -->
 									<div class="col-lg-12" style="padding-left: 0px" id="book_description_area">
-										<textarea class="form-control" rows="4" id="description" placeholder="책소개" readonly="readonly" style="resize: none"></textarea>
+										<textarea class="form-control" rows="4" id="description" placeholder="책소개"
+										 readonly="readonly" style="resize: none">${requestScope.updateBvo.book_intro}</textarea>
 									</div>
 								</div>
 							</div>
@@ -167,12 +113,13 @@ $(document).ready(function() {
 							<!-- 한줄 메모의 성향을 선택할 공간 입니다. ltList-->
 							<div class="bg-faded p-4 my-4">
 								<div class="checkbox" style="padding-top: 0px"><h4>성향을 선택해주세요</h4>
-									<c:forEach items="${requestScope.ltList}" var="tendList">
+									<c:forEach items="${requestScope.ultList}" var="tendList">
 									<label><input type="checkbox" value="${tendList.tend_code}" name="tend_ck" id="tend_ck"> ${tendList.tend_name}</label>
 									</c:forEach>
 								</div>
 							</div>
 						</fieldset>
+				
 					</form>
 					</div>
 					<div class="col-lg-1"></div>
@@ -183,8 +130,8 @@ $(document).ready(function() {
 		<!-- 작석 버튼/취소 버튼 -->
 		<div class="row" style="text-align:center; margin-top: 50px; margin-bottom: 100px">
 			<div class="col-lg-12">
-				<button type="reset" class="btn btn-default" id="cancelBtn">작성 취소</button>
-				<button type="submit" class="btn btn-primary" id="writeLineBtn">작성 완료</button>
+				<button type="reset" class="btn btn-default" id="">수정 취소</button>
+				<button type="submit" class="btn btn-primary" id="">수정 완료</button>
 			</div>
 		</div>
 	</div>

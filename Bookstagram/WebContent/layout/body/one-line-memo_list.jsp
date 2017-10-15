@@ -5,40 +5,53 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script type="text/javascript">
-$(document).ready(function(){
-                    lastPostFunc();
-                $(window).scroll(function(){
-                    if($(window).scrollTop() == $(document).height() - $(window).height()){
-                            lastPostFunc();
-                        }
-                    });
-			var start=0;
-            var last=10;   
-            function lastPostFunc(){
-                $.post("파일경로", {start:start, last:last}, function(data){
-                                $("#paginScroll").append(data);
-                                start += last;
-                     });
-            }
+$(document).ready(function(){	
+	function getReadList() { 
+	$('#loading').html('데이터 로딩중입니다.'); 
+	//ajax 
+	$.post("data.html?action=getLastList&lastID=" + $(".list:last").attr("id"),
+	function(data){ 
+	if (data != "") 
+	{ $(".list:last").after(data); 
+		}
+	$('#loading').empty(); 
+		});
+	};
+	//무한 스크롤 
+	$(window).scroll(function() {
+		if($(window).scrollTop() == $(document).height() - $(window).height()){
+			getReadList(); 
+			}
+		}); 
+	//hover
+	
+	$("#line_board_btn").hover(function(){
+		alert(1);
+		/* 	 $(this).css("background-color","yellow");
+			$("#deltailLine").text($(this).text());
+		},function(){
+			alert(2);
+			$(this).css("background-color","white");
+			$("#deltailLine").text("");  */
+		});
+	
+	
+/* 	alert($(this).attr("id"));
+ */
+	
+   /*  $(".hover_no").click(function(){	
+		$("#deltailLine").toggle(1000);
+	});	 */	
+    
      $("#sympathy-click").click(function() {
      	alert("공감 upup");
      });//click 공감
-/*     $("#detail_view_click").click(function() {
-     	alert("로그인 해주세요");
-    	
-	}); */
-/* 	$("#lineDeleteBtn").click(function() {
-		if(confirm("정말 삭제하시겠습니까?")){
-			alert("asd");
-			location.href="DispatcherServlet?command=lineDelete";	
-			}
-	}); */
 	$("#lineUpdateBtn").click(function() {
 		if(confirm("정말 수정하시겠습니까?")){
 				location.href="";	
 			}
 	}); 
-});//ready
+});//ready 
 </script>
 <style type="text/css">
 	a:link{text-decoration:none;}
@@ -96,12 +109,15 @@ $(document).ready(function(){
 		</div>
 	</div>
 	<!-- 추후 For로 돌릴 공간. -->
-	<c:forEach var="lvo" items="${requestScope.lineList}">
+	<c:forEach var="lvo" items="${requestScope.lineList}" varStatus="order">
+	<c:set value="${lvo.board_no}"  var="p" />
+	<div class="hover_no" id="${lvo.board_no}">
 	<div class="bg-faded p-4 my-4"  id="line_board_btn">
 		<div class="container">
 		<c:if test="${lvo.id==sessionScope.member.id}">
 			<div class="up_delete pull-right" style="margin-bottom:5px">				
-				<a href=""><i class="fa fa-cog fa-spin" style="font-size:25px;" id="lineUpdateBtn"></i></a>
+				<a href="DispatcherServlet?command=lineUpdateView&boardNo=${lvo.board_no}&line_content=${lvo.line_content}&tend_code=${lvo.tend_code}"
+				 onclick="javascript:return confirm('정말 수정하시겠습니까?')"><i class="fa fa-cog fa-spin" style="font-size:25px;" id="lineUpdateBtn"></i></a>
 			    <a href="DispatcherServlet?command=lineDelete&boardNo=${lvo.board_no}" onclick="javascript:return confirm('정말 삭제하시겠습니까?')"><i class="fa fa-trash-o" style="font-size:25px;" id="lineDeleteBtn"></i></a>
 			</div>
 		</c:if> 
@@ -111,8 +127,9 @@ $(document).ready(function(){
 				</p>
 				<c:choose>
 					<c:when test="${sessionScope.member!=null}">
-						<p class="quote-text">
-							<a href="DispatcherServlet?command=lineDetail&boardNo=${lvo.board_no}" style="color: white">${lvo.line_content}</a>
+						<p class="quote-text" id="asd">
+							<a href="DispatcherServlet?command=lineDetail&boardNo=${lvo.board_no}" style="color: white" 
+								id="deltailLine">${lvo.line_content}</a>
 						</p>
 					</c:when>
 					<c:otherwise>
@@ -122,8 +139,7 @@ $(document).ready(function(){
 					</c:otherwise>
 				</c:choose>
 				<hr>
-				
-				<div class="blog-post-actions" >
+				<div class="blog-post-actions">
 					<p class="blog-post-bottom pull-left">
 						${lvo.nick}
 					</p>
@@ -134,6 +150,8 @@ $(document).ready(function(){
 			</blockquote>
 		</div>
 	</div>
+	</div>
 	</c:forEach>
+	 <div id="loading"></div>
 </div>
 <!-- /.container -->

@@ -65,10 +65,25 @@ public class LineBoardDAO extends BoardDAO{
 
 	/*
 	 * 한줄 수정하기
+	 * update line_board set line_content='asdd',tend_code='3' where board_no='27';
 	 */
 	@Override
 	public void updateBoard(BoardVO board) throws SQLException {
 		System.out.println("LineBoardDAO, updateBoard() 실행");
+		LineBoardVO line=new LineBoardVO();
+		Connection con=null;
+	    PreparedStatement pstmt=null;
+	      try {
+	         con=getConnection();
+	         String sql="update line_board set line_content=?,tend_code=? where board_no=?";
+	         pstmt=con.prepareStatement(sql);
+	         pstmt.setString(1, line.getContent());
+	         pstmt.setInt(2, line.getTend_code());
+	         pstmt.setInt(3, board.getBoard_no());
+	         pstmt.executeQuery();
+	      }finally {
+	    	  closeAll(pstmt, con);
+	      }
 	}
 	
 	  /*
