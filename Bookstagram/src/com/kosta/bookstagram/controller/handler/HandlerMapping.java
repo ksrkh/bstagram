@@ -37,7 +37,9 @@ import com.kosta.bookstagram.controller.LoginController;
 import com.kosta.bookstagram.controller.MyPageController;
 import com.kosta.bookstagram.controller.ReplyRegisterController;
 import com.kosta.bookstagram.controller.ReviewBoardListController;
+import com.kosta.bookstagram.controller.ReviewDeleteController;
 import com.kosta.bookstagram.controller.ReviewDetailController;
+import com.kosta.bookstagram.controller.ReviewUpdateController;
 import com.kosta.bookstagram.controller.ReviewWriteController;
 import com.kosta.bookstagram.controller.SearchBookController;
 import com.kosta.bookstagram.controller.TendListController;
@@ -150,7 +152,10 @@ public class HandlerMapping {
 			controller=new CmsAddPwQuestionController();
 		else if(command.equals("deleteReply"))
 			controller=new deleteReplyController();
-		
+		else if(command.equals("reviewdelete"))
+			controller = new ReviewDeleteController(); 
+		else if(command.equals("reviewupdate"))
+			controller = new ReviewUpdateController();
 		return controller;
 	}
 }
