@@ -133,14 +133,7 @@ public abstract class BoardDAO extends CommonDAO implements BoardListener{
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		try {
-			con=getConnection(); 
-			//리덧글 먼저 삭제
-			StringBuilder sql1=new StringBuilder();
-			sql1.append("select count(*) from sympathy where board_no=?");
-			pstmt=con.prepareStatement(sql1.toString());	
-			pstmt.setInt(1, boardNo);
-			pstmt.executeUpdate();	
-			pstmt.close();
+			
 	
 		}finally {
 			closeAll(pstmt, con);
@@ -151,7 +144,20 @@ public abstract class BoardDAO extends CommonDAO implements BoardListener{
 
 	@Override
 	public void hits(int boardNo) throws SQLException {
-		System.out.println("hits() 실행");
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con=getConnection(); 
+			StringBuilder sql=new StringBuilder();
+			sql.append("Update board set hit=hit+1 where board_no=?");
+			pstmt=con.prepareStatement(sql.toString());	
+			pstmt.setInt(1, boardNo);
+			pstmt.executeUpdate();	
+			pstmt.close();
+	
+		}finally {
+			closeAll(pstmt, con);
+		}
 	}
 
 	/**

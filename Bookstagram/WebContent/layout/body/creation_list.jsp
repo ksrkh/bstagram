@@ -34,8 +34,7 @@ function createPost(){
 						<td>${cbvo.nick}</td>
 						<c:choose>
 							<c:when test="${sessionScope.member!=null}">
-								<td><a
-									href="DispatcherServlet?command=createpostdetail&board_no=${cbvo.board_no}&id=${sessionScope.member.id}">${cbvo.create_title}</a></td>
+								<td><a href="DispatcherServlet?command=createpostdetail&board_no=${cbvo.board_no}&id=${sessionScope.member.id}">${cbvo.create_title}</a></td>
 							</c:when>
 							<c:otherwise>
 								<td>${cbvo.create_title}</td>
