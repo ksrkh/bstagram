@@ -37,7 +37,7 @@ function backgroundNo(bgno){
 					<input type="hidden" name="id" value="${sessionScope.member.id}">
 	
 						<fieldset>
-							<legend>창작하기</legend>
+								<legend>창작하기</legend>
 							<!-- 독후감 제목 -->
 							<div class="form-group" style="margin-top: 20px; margin-bottom: 20px">
 								<div class="col-lg-2" style="padding-right: 0px">
@@ -64,8 +64,8 @@ function backgroundNo(bgno){
 							<div class="bg-faded p-4 my-4 form-group" style="margin-left: 0px;margin-right: 0px">
 							    <div class="col-lg-12" style="margin-top: 5px; text-align: center">
 								    <div class="radio" style="padding-top: 0px; padding-bottom: 0px">
-								    	<label><input type="radio" name="content_bg" id="radio_bg2" value="content_bg2">이미지로 하기</label>
-								    	<label><input type="radio" name="content_bg" id="radio_bg3" value="content_bg3" checked="checked">선택안함</label>
+								    	<label><input type="radio" name="bgNo" id="radio_bg2" value="" class="hidden_bg_value">이미지로 하기</label>
+								    	<label><input type="radio" name="bgNo" id="radio_bg3" value="" class="bg_empthy">선택안함</label>
 								    </div>
 							    </div>
 						    </div>

@@ -49,7 +49,7 @@ function delReply(reply_no,board_type, id){
 							<!-- 타이틀 -->
 							<legend style="padding-bottom: 15px"><b>창작글</b></legend>
 							
-							<!-- 게시글 제목 부분 -->
+						<!-- 게시글 제목 부분 -->
 							<div class="col-lg-12" style="border-bottom: #848484 1px solid; padding-left: 30px">
 								<div class="form-group">
 									<!-- 제목 -->
@@ -71,18 +71,24 @@ function delReply(reply_no,board_type, id){
 							
 							<!-- 내용 부분 -->
 							<div class="col-lg-12" style="border-bottom: #848484 1px solid; padding-left: 30px; padding-top: 15px">
-								<div class="form-group">
-							 		<br>${requestScope.cbdvo.create_content}
-									<br><br><br><br><br><br><br><br><br><br><br><br>
-									<br><br><br><br><br><br><br><br><br><br><br><br>
+								<div class="form-group" >
+								<img class="write_bg img-fluid w-100" src="img/write/write_bg${requestScope.cbdvo.bg_path}" alt="">
+									<div class="card-img-overlay">
+										<div class="text text-white">
+							 				<br><br> &nbsp; ${requestScope.cbdvo.create_content}
+											<br>
+											<br>
+										</div>
+									</div>
 						      	</div>
 						    </div>
 						</fieldset>
 					</form>
-					</div>
-				</div>
+    				</div>
+     			 </div>
 			</div>
 		</div>
+	</div>
 	
 		<!-- 작성 버튼/취소 버튼 -->
 		<div class="row" style="margin-bottom: 30px">
