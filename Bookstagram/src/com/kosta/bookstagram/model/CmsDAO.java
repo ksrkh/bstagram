@@ -419,4 +419,10 @@ public class CmsDAO extends CommonDAO {
 			CreateBoardDAO.getInstance().deleteBoard(boardNo);
 	}
 	
+	/**
+	 * 관리자 페이지 회원정보 수정
+	 */
+	public void cmsMemberUpdate(MemberVO member) {
+		//MemberDAO.getInstance().updateMember(member);
+	}
 }

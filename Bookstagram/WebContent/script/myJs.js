@@ -188,7 +188,18 @@ $( document ).ready( function() {
 		location.href="DispatcherServlet?command=cmsboarddelete&board_no="+board_no+"&boardtype_no="+boardtype_no;
 	});
 	
-	cmsboardlist_tr
+	//관리자페이지 회원 수정 버튼 클릭시
+	$(".cmsmemberlist_tr .cmsmemberupt_btn button").click(function(){
+		var id = $(this).parent().parent().find('.cmsmemberid').text();
+		var pw = $(this).parent().parent().find('.cmsmemberpw').find('#password').val();
+		var age = $(this).parent().parent().find('.cmsmemberage #age').val();
+		var tend1 = $(this).parent().parent().find('.cmsmmembertend1 select option:selected').val();
+		var tend2 = $(this).parent().parent().find('.cmsmmembertend2 select option:selected').val();
+		var tend3 = $(this).parent().parent().find('.cmsmmembertend3 select option:selected').val();
+		var tier = $(this).parent().parent().find('.tier select option:selected').val();
+		location.href="DispatcherServlet?command=cmsmemberudt&id="+id+"&pw="+pw+"&age="+age+"&tend1="+tend1+"&tend2="+tend2+"&tend3="+tend3+"&tier="+tier;
+	});
+	
 });
 
 var chkJoinIdValue = false;

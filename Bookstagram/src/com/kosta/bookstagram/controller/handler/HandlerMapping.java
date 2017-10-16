@@ -13,6 +13,7 @@ import com.kosta.bookstagram.controller.CmsGenreDeleteController;
 import com.kosta.bookstagram.controller.CmsGenrePageController;
 import com.kosta.bookstagram.controller.CmsGenreUpdateController;
 import com.kosta.bookstagram.controller.CmsMemberListPageController;
+import com.kosta.bookstagram.controller.CmsMemberUpdateController;
 import com.kosta.bookstagram.controller.CmsPwQuestionPageController;
 import com.kosta.bookstagram.controller.CmsPwQuestionUpdateController;
 import com.kosta.bookstagram.controller.CmsTendDeleteController;
@@ -139,6 +140,8 @@ public class HandlerMapping {
 			controller=new CmsPwQuestionUpdateController();
 		else if(command.equals("cmsboarddelete"))
 			controller = new CmsBoardDeleteController();
+		else if(command.equals("cmsmemberudt"))
+			controller = new CmsMemberUpdateController();
 		else if(command.equals("searchbook"))
 			controller = new SearchBookController();
 		else if(command.equals("reviewwrite"))
