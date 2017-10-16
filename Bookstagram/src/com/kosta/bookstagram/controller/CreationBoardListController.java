@@ -19,7 +19,7 @@ public class CreationBoardListController implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, SQLException {
 		int totalCount=CreateBoardDAO.getInstance().totalCountByBoard();
 		String pno=request.getParameter("pageNo");
-		PagingBean pagingBean=new PagingBean(totalCount,1);
+		PagingBean pagingBean=null;
 		if(pno==null){
 			pagingBean=new PagingBean(totalCount);
 		}else{

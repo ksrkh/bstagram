@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.kosta.bookstagram.model.common.CommonDAO;
+import com.kosta.bookstagram.model.common.PagingBean;
 import com.kosta.bookstagram.model.sql.CmsPageSQL;
 
 public class CmsDAO extends CommonDAO {
@@ -33,7 +34,7 @@ public class CmsDAO extends CommonDAO {
 
 		try {
 			con = getConnection();
-			pstmt = con.prepareStatement(CmsPageSQL.allTendList);
+			pstmt = con.prepareStatement(CmsPageSQL.ALL_TEND_LIST);
 			rs = pstmt.executeQuery();
 			while (rs.next())
 				tend.add(new LineTendVO(rs.getInt(1), rs.getString(2)));
@@ -56,7 +57,7 @@ public class CmsDAO extends CommonDAO {
 
 		try {
 			con = getConnection();
-			pstmt = con.prepareStatement(CmsPageSQL.allGenreList);
+			pstmt = con.prepareStatement(CmsPageSQL.ALL_GENRE_LIST);
 			rs = pstmt.executeQuery();
 			while (rs.next())
 				genre.add(new ReviewGenreVO(rs.getInt(1), rs.getString(2)));
@@ -79,7 +80,7 @@ public class CmsDAO extends CommonDAO {
 
 		try {
 			con = getConnection();
-			pstmt = con.prepareStatement(CmsPageSQL.allCategoryList);
+			pstmt = con.prepareStatement(CmsPageSQL.ALL_CATEGORY_LIST);
 			rs = pstmt.executeQuery();
 			while (rs.next())
 				category.add(new CreateCategoryVO(rs.getInt(1), rs.getString(2)));
@@ -102,7 +103,7 @@ public class CmsDAO extends CommonDAO {
 
 		try {
 			con = getConnection();
-			pstmt = con.prepareStatement(CmsPageSQL.allQuestionList);
+			pstmt = con.prepareStatement(CmsPageSQL.ALL_QUESTION_LIST);
 			rs = pstmt.executeQuery();
 			while (rs.next())
 				answer.add(new PasswordQuestionVO(rs.getInt(1), rs.getString(2)));
@@ -125,7 +126,7 @@ public class CmsDAO extends CommonDAO {
 
 		try {
 			con = getConnection();
-			pstmt = con.prepareStatement(CmsPageSQL.tierList);
+			pstmt = con.prepareStatement(CmsPageSQL.TIER_LIST);
 			rs = pstmt.executeQuery();
 			while (rs.next())
 				tier.add(new MemberTierVO(rs.getInt(1), rs.getString(2)));
@@ -140,7 +141,7 @@ public class CmsDAO extends CommonDAO {
 	/**
 	 * 관리자페이지 : 전체회원의 리스트를 가져오는 메서드입니다.
 	 */
-	public ArrayList<MemberVO> getAllMemberList() throws SQLException {
+	public ArrayList<MemberVO> getAllMemberList(PagingBean pagingbean) throws SQLException {
 		ArrayList<MemberVO> member = new ArrayList<MemberVO>();
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -148,7 +149,9 @@ public class CmsDAO extends CommonDAO {
 
 		try {
 			con = getConnection();
-			pstmt = con.prepareStatement(CmsPageSQL.allMemberList);
+			pstmt = con.prepareStatement(CmsPageSQL.ALL_MEMBER_LIST);
+			pstmt.setInt(1, pagingbean.getStartRowNumber());
+			pstmt.setInt(2, pagingbean.getEndRowNumber());
 			rs = pstmt.executeQuery();
 			while (rs.next())
 				member.add(new MemberVO(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getString(4),
@@ -164,7 +167,7 @@ public class CmsDAO extends CommonDAO {
 	/**
 	 * 관리자페이지 : 전체 게시판 리스트를 가져오는 메서드입니다.
 	 */
-	public ArrayList<BoardVO> getAllBoardList() throws SQLException {
+	public ArrayList<BoardVO> getAllBoardList(PagingBean pagingbean) throws SQLException {
 		ArrayList<BoardVO> board = new ArrayList<BoardVO>();
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -172,7 +175,9 @@ public class CmsDAO extends CommonDAO {
 
 		try {
 			con = getConnection();
-			pstmt = con.prepareStatement(CmsPageSQL.allBoardList);
+			pstmt = con.prepareStatement(CmsPageSQL.ALL_BOARD_LIST);
+			pstmt.setInt(1, pagingbean.getStartRowNumber());
+			pstmt.setInt(2, pagingbean.getEndRowNumber());
 			rs = pstmt.executeQuery();
 			while (rs.next())
 				board.add(new BoardVO(rs.getInt(1), rs.getInt(2), rs.getString(3), 
@@ -193,7 +198,7 @@ public class CmsDAO extends CommonDAO {
 		PreparedStatement pstmt = null;
 		try {
 			con = getConnection();
-			pstmt = con.prepareStatement(CmsPageSQL.addTend);
+			pstmt = con.prepareStatement(CmsPageSQL.ADD_TEND);
 			pstmt.setString(1, tend.getTend_name());
 			pstmt.executeUpdate();
 		} finally {
@@ -209,7 +214,7 @@ public class CmsDAO extends CommonDAO {
 		PreparedStatement pstmt = null;
 		try {
 			con = getConnection();
-			pstmt = con.prepareStatement(CmsPageSQL.addGenre);
+			pstmt = con.prepareStatement(CmsPageSQL.ADD_GENRE);
 			pstmt.setString(1, genre.getGenre_name());
 			pstmt.executeUpdate();
 		} finally {
@@ -225,7 +230,7 @@ public class CmsDAO extends CommonDAO {
 		PreparedStatement pstmt = null;
 		try {
 			con = getConnection();
-			pstmt = con.prepareStatement(CmsPageSQL.addCategory);
+			pstmt = con.prepareStatement(CmsPageSQL.ADD_CATEGORY);
 			pstmt.setString(1, category.getCategory_name());
 			pstmt.executeUpdate();
 		} finally {
@@ -241,7 +246,7 @@ public class CmsDAO extends CommonDAO {
 		PreparedStatement pstmt = null;
 		try {
 			con = getConnection();
-			pstmt = con.prepareStatement(CmsPageSQL.addFindPwQuestion);
+			pstmt = con.prepareStatement(CmsPageSQL.ADD_FIND_PW_QUESTION);
 			pstmt.setString(1, question.getQuestion());
 			pstmt.executeUpdate();
 		} finally {
@@ -257,7 +262,7 @@ public class CmsDAO extends CommonDAO {
 		PreparedStatement pstmt = null;
 		try {
 			con = getConnection();
-			pstmt = con.prepareStatement(CmsPageSQL.tendNameUpdate);
+			pstmt = con.prepareStatement(CmsPageSQL.TEND_NAME_UPDATE);
 			pstmt.setString(1, tend.getTend_name());
 			pstmt.setInt(2, tend.getTend_code());
 			pstmt.executeUpdate();
@@ -274,27 +279,27 @@ public class CmsDAO extends CommonDAO {
 		PreparedStatement pstmt = null;
 		try {
 			con = getConnection();
-			pstmt = con.prepareStatement(CmsPageSQL.boardTendUpdate);
+			pstmt = con.prepareStatement(CmsPageSQL.BOARD_TEND_UPDATE);
 			pstmt.setInt(1, tendCode);
 			pstmt.executeUpdate();
 			pstmt.close();
 			
-			pstmt = con.prepareStatement(CmsPageSQL.tendCode1Update);
+			pstmt = con.prepareStatement(CmsPageSQL.TEND_CODE1_UPDATE);
 			pstmt.setInt(1, tendCode);
 			pstmt.executeUpdate();
 			pstmt.close();
 			
-			pstmt = con.prepareStatement(CmsPageSQL.tendCode2Update);
+			pstmt = con.prepareStatement(CmsPageSQL.TEND_CODE2_UPDATE);
 			pstmt.setInt(1, tendCode);
 			pstmt.executeUpdate();
 			pstmt.close();
 			
-			pstmt = con.prepareStatement(CmsPageSQL.tendCode3Update);
+			pstmt = con.prepareStatement(CmsPageSQL.TEND_CODE3_UPDATE);
 			pstmt.setInt(1, tendCode);
 			pstmt.executeUpdate();
 			pstmt.close();
 			
-			pstmt = con.prepareStatement(CmsPageSQL.tendDelete);
+			pstmt = con.prepareStatement(CmsPageSQL.TEND_DELETE);
 			pstmt.setInt(1, tendCode);
 			pstmt.executeUpdate();
 			pstmt.close();
@@ -314,7 +319,7 @@ public class CmsDAO extends CommonDAO {
 		PreparedStatement pstmt = null;
 		try {
 			con = getConnection();
-			pstmt = con.prepareStatement(CmsPageSQL.genreNameUpdate);
+			pstmt = con.prepareStatement(CmsPageSQL.GENRE_NAME_UPDATE);
 			pstmt.setString(1, genre.getGenre_name());
 			pstmt.setInt(2, genre.getGenre());
 			pstmt.executeUpdate();
@@ -331,12 +336,12 @@ public class CmsDAO extends CommonDAO {
 		PreparedStatement pstmt = null;
 		try {
 			con = getConnection();
-			pstmt = con.prepareStatement(CmsPageSQL.boardGenreUpdate);
+			pstmt = con.prepareStatement(CmsPageSQL.BOARD_GENRE_UPDATE);
 			pstmt.setInt(1, genreCode);
 			pstmt.executeUpdate();
 			pstmt.close();
 			
-			pstmt = con.prepareStatement(CmsPageSQL.genreDelete);
+			pstmt = con.prepareStatement(CmsPageSQL.GENRE_DELETE);
 			pstmt.setInt(1, genreCode);
 			pstmt.executeUpdate();
 			pstmt.close();
@@ -356,7 +361,7 @@ public class CmsDAO extends CommonDAO {
 		PreparedStatement pstmt = null;
 		try {
 			con = getConnection();
-			pstmt = con.prepareStatement(CmsPageSQL.categoryNameUpdate);
+			pstmt = con.prepareStatement(CmsPageSQL.CATEGORY_NAME_UPDATE);
 			pstmt.setString(1, category.getCategory_name());
 			pstmt.setInt(2, category.getCategory());
 			pstmt.executeUpdate();
@@ -373,12 +378,12 @@ public class CmsDAO extends CommonDAO {
 		PreparedStatement pstmt = null;
 		try {
 			con = getConnection();
-			pstmt = con.prepareStatement(CmsPageSQL.boardCategoryUpdate);
+			pstmt = con.prepareStatement(CmsPageSQL.BOARD_CATEGORY_UPDATE);
 			pstmt.setInt(1, categoryCode);
 			pstmt.executeUpdate();
 			pstmt.close();
 			
-			pstmt = con.prepareStatement(CmsPageSQL.categoryDelete);
+			pstmt = con.prepareStatement(CmsPageSQL.CATEGORY_DELETE);
 			pstmt.setInt(1, categoryCode);
 			pstmt.executeUpdate();
 			pstmt.close();
@@ -398,7 +403,7 @@ public class CmsDAO extends CommonDAO {
 		PreparedStatement pstmt = null;
 		try {
 			con = getConnection();
-			pstmt = con.prepareStatement(CmsPageSQL.passwordQuestionUpdate);
+			pstmt = con.prepareStatement(CmsPageSQL.PASSWORD_QUESTION_UPDATE);
 			pstmt.setString(1, question.getQuestion());
 			pstmt.setInt(2, question.getQuestion_code());
 			pstmt.executeUpdate();
@@ -424,26 +429,63 @@ public class CmsDAO extends CommonDAO {
 	 * @throws SQLException 
 	 */
 	public void cmsMemberUpdate(MemberVO member) throws SQLException {
-			Connection con = null;
-			PreparedStatement pstmt = null;
-			try {
-				con = getConnection();
-				StringBuilder sql = new StringBuilder();
-				sql.append("UPDATE Member SET pw=?, age=?, tend_code=?, tend_code2=?, tend_code3=?, tier=? WHERE id=? ");
-				pstmt = con.prepareStatement(sql.toString());
-				pstmt.setString(1, member.getPw());
-				pstmt.setInt(2, member.getAge());
-				pstmt.setInt(3, member.getTend_code());
-				pstmt.setInt(4, member.getTend_code2());
-				pstmt.setInt(5, member.getTend_code3());
-				pstmt.setInt(6, member.getTier());
-				pstmt.setString(7, member.getId());
-			
-				pstmt.executeUpdate();
-
-			} finally {
-				closeAll(pstmt, con);
-			}
-			
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = getConnection();
+			StringBuilder sql = new StringBuilder();
+			sql.append("UPDATE Member SET pw=?, age=?, tend_code=?, tend_code2=?, tend_code3=?, tier=? WHERE id=? ");
+			pstmt = con.prepareStatement(sql.toString());
+			pstmt.setString(1, member.getPw());
+			pstmt.setInt(2, member.getAge());
+			pstmt.setInt(3, member.getTend_code());
+			pstmt.setInt(4, member.getTend_code2());				
+			pstmt.setInt(5, member.getTend_code3());
+			pstmt.setInt(6, member.getTier());
+			pstmt.setString(7, member.getId());
+			pstmt.executeUpdate();
+		} finally {
+			closeAll(pstmt, con);
 		}
+	}
+	
+	/*
+	 * 전체 게시물 수를 구하는 메서드입니다.
+	 */
+	public int totalCountByCmsBoard() throws SQLException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int totalCount=0;
+		try {
+			con = getConnection();
+			pstmt = con.prepareStatement(CmsPageSQL.CMS_ALL_BOARD_COUNT);
+			rs=pstmt.executeQuery();
+		if(rs.next())
+			totalCount=rs.getInt(1);
+		} finally {
+			closeAll(rs, pstmt, con);
+		}
+		return totalCount;
+	}
+	
+	/*
+	 * 전체 회원 수를 구하는 메서드입니다.
+	 */
+	public int totalCountByCmsMember() throws SQLException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int totalCount=0;
+		try {
+			con = getConnection();
+			pstmt = con.prepareStatement(CmsPageSQL.CMS_ALL_MEMBER_COUNT);
+			rs=pstmt.executeQuery();
+			if(rs.next())
+				totalCount=rs.getInt(1);
+		} finally {
+			closeAll(rs, pstmt, con);
+		}
+		return totalCount;
+	}
 }

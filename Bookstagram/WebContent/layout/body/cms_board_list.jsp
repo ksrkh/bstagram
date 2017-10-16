@@ -24,7 +24,7 @@
 			<tbody class="cms-tbody">
 			
 				<!-- start // 추후 for로 돌릴 구간입니다. -->
-				<c:forEach items="${requestScope.board}" var="board">
+				<c:forEach items="${requestScope.board.list}" var="board">
 				<tr class="cmsboardlist_tr">
 					<td class="cmsboardno">${board.board_no}<input type="hidden" name="cmsboardtypeno" value="${board.boardtype_no}"></td>
 					<td>${board.boardtype_name}</td>
@@ -41,26 +41,31 @@
 		</table>
 	</div>
 	
+	<c:set var="pb" value="${requestScope.board.pagingBean}"></c:set>
 	<div class="bg-faded p-4 my-4">
-		<div style="width: 50%; margin: 0 auto; ">
+		<div style="width: 50%; margin: 0 auto;">
 			<ul class="pagination">
-				<li><a href="#">&lt; &lt;</a></li>
-			    <li><a href="#">1</a></li>
-			    <li><a href="#">2</a></li>
-			    <li><a href="#">3</a></li>
-			    <li><a href="#">4</a></li>
-			    <li><a href="#">5</a></li>
-			    <li><a href="#">6</a></li>
-			    <li><a href="#">7</a></li>
-			    <li><a href="#">8</a></li>
-			    <li><a href="#">9</a></li>
-			    <li><a href="#">10</a></li>
-			    <li><a href="#">11</a></li>
-			    <li><a href="#">12</a></li>
-			    <li><a href="#">13</a></li>
-				<li><a href="#">&gt; &gt;</a></li>
-		 	</ul>
-	 	</div>
+				<c:if test="${pb.previousPageGroup}">
+					<li><a href="DispatcherServlet?command=cmsboardlistpage&pageNo=${pb.startPageOfPageGroup-1}">&laquo;</a></li>
+				</c:if>
+				<c:forEach var="i" begin="${pb.startPageOfPageGroup}" end="${pb.endPageOfPageGroup}">
+					<c:choose>
+						<c:when test="${pb.nowPage!=i}">
+							<li><a href="DispatcherServlet?command=cmsboardlistpage&pageNo=${i}">${i}</a></li>
+						</c:when>
+						<c:otherwise>
+							<li class="active"> <a href="#">${i}</a></li>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+				<c:if test="${pb.nextPageGroup}">
+					<li><a href="DispatcherServlet?command=cmsboardlistpage&pageNo=${pb.endPageOfPageGroup+1}">&raquo;</a></li>
+				</c:if>
+			</ul>
+		</div>
 	</div>
+	
+	
+	
 </div>
 <!-- /.container -->
