@@ -24,8 +24,10 @@
 				<tr class="category_tr">
 					<td style="font-size: 15px" class="category_code"><b>${category.category}</b></td>
 					<td style="font-size: 15px" class="category_name"><input type="text" class="form-control" name="category_name" value="${category.category_name}" style="text-align: center; font-size: 15px"></td>
+					<c:if test="${category.category != 0}">
 					<td class="category_update"><button type="button" class="btn btn-info" style="width: 100%">수정</button></td>
 					<td class="category_delete"><button type="button" class="btn btn-primary" style="width: 100%">삭제</button></td>
+					</c:if>
 				</tr>
 				</c:forEach>
 				<!-- end // 추후 for 로 돌릴 구간입니다. -->

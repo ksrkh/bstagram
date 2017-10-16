@@ -26,6 +26,8 @@ public class LoginController implements Controller {
 			}else {
 				//로그인성공
 				session = request.getSession();
+				//세션시간 20분
+				session.setMaxInactiveInterval(20*60);
 				session.setAttribute("member", member);
 				result = "DispatcherServlet?command=lineList";
 			}

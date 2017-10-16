@@ -406,4 +406,17 @@ public class CmsDAO extends CommonDAO {
 			closeAll(pstmt, con);
 		}
 	}
+	
+	/**
+	 * 관리자페이지 게시판 삭제
+	 */
+	public void cmsBoardDelete(int boardType_no, int boardNo) throws SQLException {
+		if(boardType_no == 1)
+			LineBoardDAO.getInstance().deleteBoard(boardNo);
+		else if(boardType_no == 2)
+			ReviewBoardDAO.getInstance().deleteBoard(boardNo);
+		else if(boardType_no == 3)
+			CreateBoardDAO.getInstance().deleteBoard(boardNo);
+	}
+	
 }

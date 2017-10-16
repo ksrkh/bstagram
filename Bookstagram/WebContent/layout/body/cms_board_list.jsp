@@ -32,7 +32,7 @@
 					<td>${board.content}</td>
 					<td>${board.board_regdate}</td>
 					<td>${board.hit}</td>
-					<td><button type="button" class="btn btn-primary">삭제</button></td>
+					<td><button type="button" class="btn btn-primary">삭제 게시판번호:${board.board_no}, 게시판타입:${board.boardtype_no}</button></td>
 				</tr>
 				</c:forEach>
 				<!-- end // 추후 for 로 돌릴 구간입니다. -->

@@ -32,19 +32,19 @@ public class CmsPageSQL {
 	 * 성향 리스트
 	 */
 	public final static String allTendList =
-			"select * from tend";
+			"select * from tend order by tend_code asc";
 	
 	/**
 	 * 장르 리스트
 	 */
 	public final static String allGenreList =
-			"select * from genre";
+			"select * from genre order by genre asc";
 	
 	/**
 	 * 카테고리 리스트
 	 */
 	public final static String allCategoryList =
-			"select * from category";
+			"select * from category order by category asc";
 	
 	/**
 	 * 비밀번호찾기 질문 리스트
@@ -75,7 +75,7 @@ public class CmsPageSQL {
 	 */
 	public final static String allBoardList =
 			"SELECT C.board_no, C.boardtype_no, bt.boardtype_name, C.id, C.content, C.board_regdate, C.hit " + 
-			"FROM (SELECT B.board_no, B.id, substr(A.review_content,1,50) AS content, B.board_regdate, B.hit, B.boardtype_no " + 
+			"FROM (SELECT B.board_no, B.id, substr(A.review_content,1,40) AS content, B.board_regdate, B.hit, B.boardtype_no " + 
 			"FROM (SELECT board_no, review_content FROM review_board " + 
 			"UNION ALL SELECT board_no, create_content FROM create_board " + 
 			"UNION ALL SELECT board_no, line_content FROM line_board) A, " + 
