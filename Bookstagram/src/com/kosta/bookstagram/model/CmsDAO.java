@@ -269,7 +269,42 @@ public class CmsDAO extends CommonDAO {
 	/**
 	 * 성향 삭제
 	 */
-	public void deleteTend(int tendCode) throws SQLException {}
+	public void deleteTend(int tendCode) throws SQLException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = getConnection();
+			pstmt = con.prepareStatement(CmsPageSQL.boardTendUpdate);
+			pstmt.setInt(1, tendCode);
+			pstmt.executeUpdate();
+			pstmt.close();
+			
+			pstmt = con.prepareStatement(CmsPageSQL.tendCode1Update);
+			pstmt.setInt(1, tendCode);
+			pstmt.executeUpdate();
+			pstmt.close();
+			
+			pstmt = con.prepareStatement(CmsPageSQL.tendCode2Update);
+			pstmt.setInt(1, tendCode);
+			pstmt.executeUpdate();
+			pstmt.close();
+			
+			pstmt = con.prepareStatement(CmsPageSQL.tendCode3Update);
+			pstmt.setInt(1, tendCode);
+			pstmt.executeUpdate();
+			pstmt.close();
+			
+			pstmt = con.prepareStatement(CmsPageSQL.tendDelete);
+			pstmt.setInt(1, tendCode);
+			pstmt.executeUpdate();
+			pstmt.close();
+			
+			con.commit();
+		} finally {
+			con.rollback();
+			closeAll(pstmt, con);
+		}
+	}
 	
 	/**
 	 * 장르 수정
@@ -291,7 +326,27 @@ public class CmsDAO extends CommonDAO {
 	/**
 	 * 장르 삭제
 	 */
-	public void deleteGenre(int genreCode) throws SQLException {}
+	public void deleteGenre(int genreCode) throws SQLException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = getConnection();
+			pstmt = con.prepareStatement(CmsPageSQL.boardGenreUpdate);
+			pstmt.setInt(1, genreCode);
+			pstmt.executeUpdate();
+			pstmt.close();
+			
+			pstmt = con.prepareStatement(CmsPageSQL.genreDelete);
+			pstmt.setInt(1, genreCode);
+			pstmt.executeUpdate();
+			pstmt.close();
+			
+			con.commit();
+		} finally {
+			con.rollback();
+			closeAll(pstmt, con);
+		}
+	}
 	
 	/**
 	 * 분류 수정
@@ -313,7 +368,27 @@ public class CmsDAO extends CommonDAO {
 	/**
 	 * 분류 삭제
 	 */
-	public void deleteCategory(int categoryCode) throws SQLException {}
+	public void deleteCategory(int categoryCode) throws SQLException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = getConnection();
+			pstmt = con.prepareStatement(CmsPageSQL.boardCategoryUpdate);
+			pstmt.setInt(1, categoryCode);
+			pstmt.executeUpdate();
+			pstmt.close();
+			
+			pstmt = con.prepareStatement(CmsPageSQL.categoryDelete);
+			pstmt.setInt(1, categoryCode);
+			pstmt.executeUpdate();
+			pstmt.close();
+			
+			con.commit();
+		} finally {
+			con.rollback();
+			closeAll(pstmt, con);
+		}
+	}
 	
 	/**
 	 * 비밀번호찾기 질문 수정

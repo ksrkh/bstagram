@@ -116,7 +116,7 @@ public class CmsPageSQL {
 	 * 분야 삭제
 	 */
 	public final static String boardCategoryUpdate = "UPDATE create_board set category = 0 where category = ?";
-	public final static String categoryDelete = "delete genre where category = ?";
+	public final static String categoryDelete = "delete category where category = ?";
 	
 	/*
 	* 비밀번호찾기질문 수정

@@ -13,9 +13,8 @@
 			<thead class="cms-thead">
 				<tr>
 					<th>질문 번호</th>
-					<th style="width: 60%">비밀번호 찾기 질문</th>
+					<th style="width: 70%">비밀번호 찾기 질문</th>
 					<th>수정</th>
-					<th>삭제</th>
 				</tr>
 			</thead>
 			<tbody class="cms-tbody">
@@ -25,7 +24,6 @@
 					<td style="font-size: 15px" class="findPw_code"><b>${question.question_code }</b></td>
 					<td style="font-size: 15px" class="findPw_name"><input type="text" class="form-control" name="pw_question" value="${question.question}" style="text-align: center; font-size: 15px"></td>
 					<td class="findPw_update"><button type="button" class="btn btn-info" style="width: 100%">수정</button></td>
-					<td><button type="button" class="btn btn-primary" style="width: 100%">삭제</button></td>
 				</tr>
 				</c:forEach>
 				<!-- end // 추후 for 로 돌릴 구간입니다. -->
