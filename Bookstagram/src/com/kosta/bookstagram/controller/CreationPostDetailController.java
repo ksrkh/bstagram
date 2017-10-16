@@ -21,7 +21,6 @@ public class CreationPostDetailController implements Controller {
 		int boardNo=Integer.parseInt(sboardNo);
 		String id=request.getParameter("id");	
 		String cookieNameId=null;
-		
 		if(id==null)
 			return "do.jsp";
 				
@@ -53,7 +52,8 @@ public class CreationPostDetailController implements Controller {
 			request.setAttribute("cbdvo", cbvo);
 			request.setAttribute("url", "creation_content.jsp");
 			
-			System.out.println(cbvo);
+			System.out.println(cbvo.getBg_no()+"디테일 배경 번호");
+			System.out.println(cbvo.getBg_path());
 			return "home.jsp";
 	}
 }
