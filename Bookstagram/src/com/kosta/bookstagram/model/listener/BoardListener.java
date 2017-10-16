@@ -87,12 +87,12 @@ public interface BoardListener {
 	 * <b>메서드 설명</b>
 	 *    -게시글의 대한 공감을 표현하는 기능입니다.
 	 * </pre>
-	 * 
+	 * @return 	int				해당 board에 대한 like 개수 
 	 * @param	id				아이디
 	 * @param 	boardNo			게시글번호
 	 * @throws 	SQLException
 	 */
-	public void likeService(String id, int boardNo) throws SQLException;
+	public int likeService(String id, int boardNo) throws SQLException;
 
 	/**
 	 * 
@@ -104,7 +104,7 @@ public interface BoardListener {
 	 * @return
 	 * @throws SQLException
 	 */
-	public ArrayList<SympathyVO> allLikeCount() throws SQLException;
+	public ArrayList<SympathyVO> allLikeCount(int startNum,int endNum) throws SQLException;
 	
 	/**
 	 * <pre>

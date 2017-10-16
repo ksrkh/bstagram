@@ -68,8 +68,9 @@ public abstract class BoardDAO extends CommonDAO implements BoardListener{
 			pstmt=con.prepareStatement(sql2.toString());	
 			pstmt.setInt(1, replyNo);
 			pstmt.executeUpdate();	
-	
+			con.commit();
 		}finally {
+			con.rollback();
 			closeAll(pstmt, con);
 		}
 	}
@@ -111,17 +112,80 @@ public abstract class BoardDAO extends CommonDAO implements BoardListener{
 
 	
 	@Override
-	public void likeService(String id, int boardNo) throws SQLException {
-		System.out.println("likeBoard() 실행");
+	public int likeService(String id, int boardNo) throws SQLException {
+		//liked가  1일 경우 기존에 해당 id, 해당 boardNo에 대한 공감 존재
+		int likeCount=0;
+		int liked=0;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs=null;
+		try {
+			con=getConnection(); 
+			StringBuilder sql1=new StringBuilder();
+			sql1.append("select * from SYMPATHY where id=? and board_no=?");
+			pstmt=con.prepareStatement(sql1.toString());	
+			pstmt.setString(1, id);
+			pstmt.setInt(2, boardNo);
+			rs=pstmt.executeQuery();	
+			if(rs.next()) {
+				liked=1;
+			}
+			pstmt.close();
+			if(liked==0) {
+				StringBuilder sql2=new StringBuilder();
+				sql1.append("insert into sympathy(id, board_no) values(?,?)");
+				pstmt=con.prepareStatement(sql2.toString());	
+				pstmt.setString(1, id);
+				pstmt.setInt(2, boardNo);
+				pstmt.executeUpdate();	
+			}
+			else {
+				StringBuilder sql2=new StringBuilder();
+				sql1.append("delete from SYMPATHY where id=? and board_no=?");
+				pstmt=con.prepareStatement(sql2.toString());	
+				pstmt.setString(1, id);
+				pstmt.setInt(2, boardNo);
+				pstmt.executeUpdate();	
+			}
+			pstmt.close();
+			likeCount=likeCount(boardNo);
+			con.commit();
+			}finally {
+				con.rollback();
+				closeAll(pstmt, con);
+		}
+		return likeCount;
 	}
 	
 	/*
 	 * 전체 게시물에 
 	 */
 	@Override
-	public ArrayList<SympathyVO> allLikeCount() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<SympathyVO> allLikeCount(int startNum,int endNum) throws SQLException {
+		ArrayList<SympathyVO> list= new ArrayList<SympathyVO>();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs= null;
+		try {
+			con=getConnection(); 
+			StringBuilder sql=new StringBuilder();
+			sql.append("select count,B.board_no ");
+			sql.append("from(select row_number() over(order by board_no desc) as rnum,board_no,count(*) as count ");
+			sql.append("from SYMPATHY group by board_no) B ");
+			sql.append("where B.rnum between ? and ? ");
+			pstmt=con.prepareStatement(sql.toString());	
+			pstmt.setInt(1, startNum);
+			pstmt.setInt(2, endNum);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				SympathyVO vo= new SympathyVO(rs.getInt(1),rs.getInt(2));
+				list.add(vo);
+			}
+	
+		}finally {
+			closeAll(rs, pstmt, con);
+		}
+		return list;
 	}
 
 	/*
@@ -132,8 +196,17 @@ public abstract class BoardDAO extends CommonDAO implements BoardListener{
 		int likeCount=0;
 		Connection con = null;
 		PreparedStatement pstmt = null;
+		ResultSet rs=null;
 		try {
-			
+			con=getConnection(); 
+			StringBuilder sql=new StringBuilder();
+			sql.append("select count(*) from SYMPATHY where board_no=?");
+			pstmt=con.prepareStatement(sql.toString());	
+			pstmt.setInt(1, boardNo);
+			rs=pstmt.executeQuery();	
+			if(rs.next())
+				likeCount=rs.getInt(1);
+			pstmt.close();
 	
 		}finally {
 			closeAll(pstmt, con);

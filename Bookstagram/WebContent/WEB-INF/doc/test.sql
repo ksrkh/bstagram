@@ -181,10 +181,39 @@ values(replyno_seq.nextval, '1번게시글의 첫번째 덧글입니다.',  1, '
 
 select reply_no,reply_content,board_no,id from REPLY where board_no=1;
 
+insert into board(board_no, boardtype_no, id, board_regdate, hit, authority, bg_no)
+values(board_seq.nextval, 1, 'kjhsc101218@naver.com', sysdate, 0, 1, 0);
+
+insert into book(book_no, book_title, book_intro, book_author, book_publ, book_sdate, book_edate, book_cate, book_img)
+values(book_seq.nextval, '언어의온도', '『언어의 온도』의 저자 이기주는 엿듣고 기록하는 일을 즐겨 하는 사람이다. 그는 버스나 지하철에 몸을 실으면 몹쓸 버릇이 발동한다고 고백한다. 이 책은 저자가 일상에서 발견한 의미 있는 말과 글, 단어의 어원과 유래, 그런 언어가 지닌 소중함과 절실함을 농밀하게 담아낸 것이다.','이기주', '말푸름', '2016-02-03', '2016-02-05','1', 'https://search.pstatic.net/common/?src=http%3A%2F%2Fbookthumb.phinf.naver.net%2Fcover%2F109%2F245%2F10924505.jpg%3Ftype%3Dm1%26udate%3D20171007&type=o75_108_re24');
+
+insert into line_board(board_no, line_content, tend_code, book_no)
+values(board_seq.currval, '화장실을 깨끗하게 사용해주세요. 이곳을 청소해주시는 분들, 누군가에겐 전부인 사람들입니다.', 8, 1);
+
+insert into board(board_no, boardtype_no, id, board_regdate, hit, authority, bg_no)
+values(board_seq.nextval, 1, 'a', sysdate, 0, 1, 0);
+insert into line_board(board_no, line_content, tend_code, book_no)
+values(board_seq.currval,  ' 이 책은 저자가 일상에서 발견한 의미 있는 말과', 8, 1);
+
+insert into line_board(board_no, line_content, tend_code, book_no)
+values(board_seq.currval, '누군가에겐 전부인 사람들입니다.', 8, 1);
+
+insert into sympathy(id, board_no) values('a',28);
+insert into sympathy(id, board_no) values('b',28);
+insert into sympathy(id, board_no) values('c',27);
 
 
+select * from LINE_BOARD;
 
-select s.id
+
+select *
+from BOARD
+where boardtype_no=1;
+
+delete from sympathy
+where board_no=13;
+
+select *
 from SYMPATHY;
 
 select count(*)
@@ -195,6 +224,41 @@ select board_no,count(*)
 from SYMPATHY
 group by board_no;
 
+SELECT br.board_no, br.boardtype_no, m.id, m.nick,
+br.board_regdate, br.hit, br.authority, br.bg_no, lb.line_content, lb.tend_code, lb.book_no FROM
+(SELECT row_number() over(order by board_no desc) as rnum,board_no,line_content,tend_code,book_no 
+FROM line_board) lb, board br, member m 
+WHERE br.board_no=lb.board_no and br.id=m.id and rnum between 1 and 5  order by br.board_no desc
+		
+
+
+select B.board_no,count
+from(select row_number() over(order by board_no desc) as rnum,board_no,count(*) as count
+from SYMPATHY
+group by board_no) B
+where B.rnum between 1 and 5;
+
+
+
+
+
+SELECT b.board_no as bno,m.nick as nick,b.board_regdate as regdate,b.hit as hit, cb.create_title as ctitle
+FROM (SELECT row_number() over(order by board_no desc) as rnum,board_no,create_title
+FROM CREATE_BOARD) cb,board b,member m
+WHERE b.board_no=cb.board_no and b.id=m.id and rnum between 1 and 5  order by b.board_no desc
+
+
+
+select *
+from SYMPATHY
+where board_no=13 and id='c';
+
+insert into sympathy(id, board_no)
+values('a',13);
+
+delete from SYMPATHY
+where id='a' and board_no=13;
+
 insert into sympathy(id, board_no)
 values('a',13);
 insert into sympathy(id, board_no)
@@ -202,10 +266,6 @@ values('b',13);
 insert into sympathy(id, board_no)
 values('c',13);
 
-SELECT b.board_no as bno,m.nick as nick,b.board_regdate as regdate,b.hit as hit, cb.create_title as ctitle
-FROM (SELECT row_number() over(order by board_no desc) as rnum,board_no,create_title
-FROM CREATE_BOARD) cb,board b,member m
-WHERE b.board_no=cb.board_no and b.id=m.id and rnum between 1 and 5  order by b.board_no desc
 
 
 select a.bno,a.nick,a.regdate,a.hit,a.ctitle,s.count
@@ -235,4 +295,45 @@ select *
 from member;
 
 Update board set hit=0 where board_no=13;
+
+SELECT b.board_no as bno,m.nick as nick,b.board_regdate as regdate,b.hit as hit, cb.create_title as ctitle
+FROM (SELECT row_number() over(order by board_no desc) as rnum,board_no,create_title
+FROM CREATE_BOARD) cb,board b,member m25
+WHERE b.board_no=cb.board_no and b.id=m.id and rnum between 1 and 5  order by b.board_no desc
+
+
+
+
+select row_number() over(order by D.board_no desc) as rnum, D.board_no
+from(SELECT C.board_no , C.boardtype_no, bt.boardtype_name, C.id, C.content, C.board_regdate, C.hit
+FROM (SELECT B.board_no, B.id, substr(A.review_content,1,40) AS content, B.board_regdate, B.hit, B.boardtype_no
+FROM (SELECT board_no, review_content FROM review_board 
+UNION ALL SELECT board_no, create_content FROM create_board
+UNION ALL SELECT board_no, line_content FROM line_board) A, 
+board B WHERE A.board_no = B.board_no) C, board_type bt
+WHERE bt.boardtype_no = C.boardtype_no ORDER BY C.board_no DESC) D
+where rnum between 1 and 5;
+
+select D.rnum,D.board_no
+from(SELECT row_number() over(order by C.board_no desc) as rnum ,C.board_no , C.boardtype_no, bt.boardtype_name, C.id, C.content, C.board_regdate, C.hit
+FROM (SELECT B.board_no, B.id, substr(A.review_content,1,40) AS content, B.board_regdate, B.hit, B.boardtype_no
+FROM (SELECT board_no, review_content FROM review_board 
+UNION ALL SELECT board_no, create_content FROM create_board
+UNION ALL SELECT board_no, line_content FROM line_board) A, 
+board B WHERE A.board_no = B.board_no) C, board_type bt
+WHERE bt.boardtype_no = C.boardtype_no ORDER BY C.board_no DESC) D
+where D.rnum between 1 and 5;
+
+select *
+from(select row_number() over(order by m.regdate desc) as rnum, m.id, m.pw, m.age, m.tend_name, m.tend_name2, m.tend_name3, mt.tier_name, m.regdate
+FROM (SELECT C.id, C.pw, C.age, C.regdate, C.tier, C.tend_name, C.tend_name2, D.tend_name AS tend_name3 
+FROM (SELECT A.id, A.pw, A.age, A.regdate, A.tier, A.tend_name, B.tend_name AS tend_name2
+FROM (SELECT m.id, m.pw, m.age, m.regdate, m.tier, t.tend_name FROM member m, tend t WHERE m.tend_code = t.tend_code) A, 
+(SELECT m.id, t.tend_name FROM member m, tend t WHERE m.tend_code2 = t.tend_code) B  WHERE A.id = B.id) C, 
+(SELECT m.id, t.tend_name FROM member m, tend t WHERE m.tend_code3 = t.tend_code) D WHERE C.id = D.id) m , MEMBER_TIER mt 
+WHERE m.tier=mt.tier) D
+where D.rnum between 1 and 5;
+
+order by m.regdate desc
+
 
