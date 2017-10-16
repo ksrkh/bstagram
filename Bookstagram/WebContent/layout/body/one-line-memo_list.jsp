@@ -45,6 +45,11 @@ $(document).ready(function(){
 			
 		});//ajax
 	}
+				 
+	function sympathyClick(board_no){
+		alert(1);
+	}
+		
 	
 /* 	$("#getJSONTest").click(function() {
 			//alert(1);
@@ -63,9 +68,33 @@ $(document).ready(function(){
 		$("#deltailLine").toggle(1000);
 	});	 */	
     
-     $("#sympathy-click").click(function() {
-     	alert("공감 upup");
+ $("#sympathy-click").click(function() {
+     /* $.ajax({
+ 			type:"get",
+ 			url:"DispatcherServlet",
+ 			data:"command=sympathyService&id=",
+ 			success:function(data){
+ 				if(page==1){
+ 					$("#loading").html("로딩중입니다");					
+ 				}
+ 				if(page!=1){
+ 					$("#loading").html("asd");
+ 				}else{
+ 					$("#losding").html("아");
+ 				} 
+ 				}
+ 			 
+ 			
+ 		}); */
+ 		var a='${sessionScope.member.id}';
+ 		if(a!=''){
+ 			alert(a);
+ 			alert($(this).attr('id'));
+ 		}
+ 		
      });//click 공감
+     
+     
 /* 	$("#lineUpdateBtn").click(function() {
 		if(confirm("정말 수정하시겠습니까?")){
 				location.href="";	
@@ -163,7 +192,7 @@ $(document).ready(function(){
 						${lvo.nick}
 					</p>
 					<p class="blog-post-bottom pull-right">
-						<i class="fa fa-heart" id="sympathy-click" style="font-size:20px;color:red;margin-right:5px;margin-top: 10px"></i><span class="badge quote-badge">${lvo.hit}</span>
+						<i class="fa fa-heart" id="sympathy"  style="font-size:20px;color:red;margin-right:5px;margin-top: 10px"></i><span class="badge quote-badge">${lvo.sympathy}</span>
 					</p>
 				</div>
 			</blockquote>

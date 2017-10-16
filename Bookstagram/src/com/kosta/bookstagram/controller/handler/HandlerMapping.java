@@ -49,6 +49,7 @@ import com.kosta.bookstagram.controller.ReviewUpdateController;
 import com.kosta.bookstagram.controller.ReviewUpdatePageController;
 import com.kosta.bookstagram.controller.ReviewWriteController;
 import com.kosta.bookstagram.controller.SearchBookController;
+import com.kosta.bookstagram.controller.SympathyServiceController;
 import com.kosta.bookstagram.controller.TendListController;
 import com.kosta.bookstagram.controller.UpdateFormController;
 import com.kosta.bookstagram.controller.UpdateMemberInfoController;
@@ -177,6 +178,8 @@ public class HandlerMapping {
 			controller = new LineUpdateController();
 		else if(command.equals("pangingScroll"))
 			controller = new PagingScrollerController();
+		else if(command.equals("sympathyService"))
+			controller=new SympathyServiceController();
 		return controller;
 	}
 }
