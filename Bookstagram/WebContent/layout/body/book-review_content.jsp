@@ -5,10 +5,25 @@
     function returnlist(){
     	location.href="DispatcherServlet?command=reviewboardlist";
     }
-    function deleteReviewPost(){
+     function deleteReviewPost(){
     	if(confirm("글을 삭제하시겠습니까?")){
     		location.href="DispatcherServlet?command=reviewdelete&board_no=${requestScope.reviewdetail.board_no}";
     		}
+    }
+    
+    function chReply(){
+    	var content=$('.form-horizontal #reply_content').val();
+    	if(content.length==0){
+    		alert("댓글을 입력하세요");
+    		return false;
+    	}
+    	return confirm("댓글을 작성하시겠습니까?");
+    }
+
+    function delReply(reply_no,board_type,id){
+    	if(confirm("덧글을 삭제하시겠습니까?")){
+    		location.href="DispatcherServlet?command=deleteReply&board_no=${requestScope.reviewdetail.board_no}&id="+id+"&reply_no="+reply_no+"&board_type="+board_type;
+    		} 
     }
 </script>
 <!-- 기능의 UI를 담당하는 부분(컨테이너) -->
@@ -28,11 +43,10 @@
 						<fieldset>
 							<!-- 책제목 (독후감 제목) -->
 							<legend style="padding-bottom: 15px"> <b>${requestScope.reviewdetail.review_title }</b>
-								<font style="float: right;" size="2"> 작성자 | ${requestScope.reviewdetail.nick }</font>
+							<font style="float: right; " size="2">조회수&nbsp;&nbsp; ${requestScope.reviewdetail.hit} </font>
 							</legend>
-								<font style="float: left;" size="2">작성일 |  ${requestScope.reviewdetail.board_regdate } |</font>
+							<font style="float: left;" size="2">작성일 |  ${requestScope.reviewdetail.board_regdate } |</font>
 						<font style="float: right; " size="2">조회수&nbsp;&nbsp; ${requestScope.reviewdetail.hit} </font><br>
-						
 						
 							<div class="form-group" style="margin-top: 20px; margin-bottom: 20px">
 								<!-- 책의 Thumnail 이 보여질 부분 -->
@@ -97,5 +111,53 @@
 		</div>
 	</div>
 	
+</div>
+<!-- /.container -->
+
+<!-- .container -->
+<div class="container" style="margin-bottom: 50px">
+	<div class="bg-faded p-4 my-4">
+		<form class="form-horizontal" action="DispatcherServlet" id="reply" name="reply" onsubmit="return chReply()">
+			<input type="hidden" name="board_no" value="${requestScope.reviewdetail.board_no}">
+			<input type="hidden" name="id" value="${sessionScope.member.id}">
+			<input type="hidden" name="command" value="replyRegister">
+			<input type="hidden" name="board_type" value="review">
+			<div class="col-lg-11"> 
+				<input type="text" class="form-control" id="reply_content" name="reply_content" placeholder="댓글을 입력하세요">
+			</div>
+			<div class="col-lg-1">
+				<input type="submit" class="btn btn-primary" value="등록" style="width:100%" form="reply">
+			</div>
+		</form>
+			<br><br><br>
+
+		<table class="table table-hover">
+			<c:forEach var="reVO" items="${requestScope.relist}">
+				<c:choose>
+					<c:when test="${reVO.id==sessionScope.member.id}">
+						<tr>
+							<td width="50"></td>
+							<td width="150">${reVO.id}</td>
+							<td width="1000">${reVO.reply_content}</td>
+							<td width="200"><button type="submit" class="btn btn-primary" style="float:left">답글</button>
+							<button type="submit" class="btn btn-primary" style="float:left" onclick="delReply(${reVO.reply_no},${requestScope.reviewdetail.boardtype_no},'${sessionScope.member.id }')">삭제</button></td>
+							
+						</tr>
+					</c:when>
+					<c:otherwise>
+						<tr>
+						<td width="50"></td>
+						<td width="150">${reVO.id}</td>
+						<td width="1000">${reVO.reply_content}</td>
+						<td width="200"><button type="submit" class="btn btn-primary" style="float:left">답글</button></td>
+						
+						</tr>
+					</c:otherwise>		
+			</c:choose>
+		</c:forEach>
+		</table>
+</div>
+
+
 </div>
 <!-- /.container -->

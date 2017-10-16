@@ -88,7 +88,7 @@ public abstract class BoardDAO extends CommonDAO implements BoardListener{
 		try {
 			con=getConnection(); 
 			StringBuilder sql=new StringBuilder();
-			sql.append("select reply_no,reply_content,board_no,id from REPLY where board_no=? ");
+			sql.append("select reply_no,reply_content,board_no,id from REPLY where board_no=? order by reply_no desc");
 			pstmt=con.prepareStatement(sql.toString());	
 			pstmt.setInt(1, boardNo);
 			rs=pstmt.executeQuery();

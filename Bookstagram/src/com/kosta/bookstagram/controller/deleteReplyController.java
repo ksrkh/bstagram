@@ -13,10 +13,14 @@ public class deleteReplyController implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int reply_no=Integer.parseInt(request.getParameter("reply_no"));
 		int board_no=Integer.parseInt(request.getParameter("board_no"));
-		
+		String id=request.getParameter("id");
+		int board_type=Integer.parseInt(request.getParameter("board_type"));
 		CreateBoardDAO.getInstance().removeReply(reply_no);
 		
-		return "DispatcherServlet?command=createpostdetail&board_no="+board_no;
+		if(board_type==2)
+			return "redirect:DispatcherServlet?command=reviewdetail&review_no="+board_no+"&id="+id;
+		else
+			return "redirect:DispatcherServlet?command=createpostdetail&board_no="+board_no+"&id="+id;
 	}
 
 }

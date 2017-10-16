@@ -424,6 +424,26 @@ public class CmsDAO extends CommonDAO {
 	 * @throws SQLException 
 	 */
 	public void cmsMemberUpdate(MemberVO member) throws SQLException {
-		MemberDAO.getInstance().updateMember(member);
-	}
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			try {
+				con = getConnection();
+				StringBuilder sql = new StringBuilder();
+				sql.append("UPDATE Member SET pw=?, age=?, tend_code=?, tend_code2=?, tend_code3=?, tier=? WHERE id=? ");
+				pstmt = con.prepareStatement(sql.toString());
+				pstmt.setString(1, member.getPw());
+				pstmt.setInt(2, member.getAge());
+				pstmt.setInt(3, member.getTend_code());
+				pstmt.setInt(4, member.getTend_code2());
+				pstmt.setInt(5, member.getTend_code3());
+				pstmt.setInt(6, member.getTier());
+				pstmt.setString(7, member.getId());
+			
+				pstmt.executeUpdate();
+
+			} finally {
+				closeAll(pstmt, con);
+			}
+			
+		}
 }

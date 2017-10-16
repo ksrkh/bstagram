@@ -21,6 +21,9 @@ public class CreationPostDetailController implements Controller {
 		int boardNo=Integer.parseInt(sboardNo);
 		String id=request.getParameter("id");
 		String cookieNameId=null;
+		
+		if(id==null)
+			return "do.jsp";
 				
 		if(id.contains("@")) 
 			cookieNameId=id.substring(0, id.indexOf("@"))+id.substring(id.indexOf("@")+1, id.indexOf("."));

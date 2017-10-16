@@ -228,5 +228,11 @@ values('e','1','hsc',26,sysdate,null,null,0,0,0,3,3,'황운');
 select *
 from board;
 
+select *
+from reply;
+
+select *
+from member;
+
 Update board set hit=0 where board_no=13;
 

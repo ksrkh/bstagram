@@ -16,6 +16,7 @@ function updateCreatePost(){
 		location.href="DispatcherServlet?command=createupdateview&board_no=${requestScope.cbdvo.board_no}";
 		}		
 }
+
 function chReply(){
 	var content=$('.form-horizontal #reply_content').val();
 	if(content.length==0){
@@ -25,11 +26,10 @@ function chReply(){
 	return confirm("댓글을 작성하시겠습니까?");
 }
 
-function delReply(reply_no
-		){
+function delReply(reply_no,board_type, id){
 	if(confirm("덧글을 삭제하시겠습니까?")){
-		location.href="DispatcherServlet?method=post&command=deleteReply&board_no=${requestScope.cbdvo.board_no}&reply_no="+reply_no;
-		}
+		location.href="DispatcherServlet?method=post&command=deleteReply&board_no=${requestScope.cbdvo.board_no}&id="+id+"&reply_no="+reply_no+"&board_type="+board_type;
+		} 
 }
 </script>
 
@@ -102,10 +102,12 @@ function delReply(reply_no
 <!-- /.container -->
 <div class="container" style="margin-bottom: 50px">
 	<div class="bg-faded p-4 my-4">
-		<form class="form-horizontal" action="DispatcherServlet" id="reply" name="reply" onsubmit="return chReply()" method="post">
+		<form class="form-horizontal" action="DispatcherServlet" id="reply" name="reply"  method="post" onsubmit="return chReply()" method="post">
 			<input type="hidden" name="board_no"value="${requestScope.cbdvo.board_no}">
 			<input type="hidden" name="id"value="${sessionScope.member.id}">
 			<input type="hidden" name="command" value="replyRegister">
+			<input type="hidden" name="board_type" value="create">
+			
 			<div class="col-lg-11"> 
 				<input type="text" class="form-control" id="reply_content" name="reply_content" placeholder="댓글을 입력하세요">
 			</div>
@@ -122,9 +124,10 @@ function delReply(reply_no
 						<tr>
 							<td width="50"></td>
 							<td width="150">${reVO.id}</td>
-							<td width="1000">${reVO.reply_content}</td>
+							<td width="1000">${reVO.reply_content} </td>
 							<td width="200"><button type="submit" class="btn btn-primary" style="float:left">답글</button>
-							<button type="submit" class="btn btn-primary" style="float:left" onclick="delReply(${reVO.reply_no})">삭제</button></td>
+							
+							<button type="submit" class="btn btn-primary" style="float:left" onclick="delReply(${reVO.reply_no},${requestScope.cbdvo.board_no},'${sessionScope.member.id }')">삭제</button></td>
 							
 						</tr>
 					</c:when>
