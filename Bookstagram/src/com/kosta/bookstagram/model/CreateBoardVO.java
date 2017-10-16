@@ -122,7 +122,7 @@ public class CreateBoardVO extends BoardVO {
 	 */
 	public CreateBoardVO(int board_no, int boardtype_no,String id, String nick, String board_regdate, int hit, int authority,
 			int bg_no,String bg_path, String create_title, String create_content, int category) {
-		super(board_no, boardtype_no,id, nick, board_regdate, hit, authority, bg_no);
+		super(board_no, boardtype_no,id, nick, board_regdate, hit, authority, bg_no, bg_path);
 		this.create_title = create_title;
 		this.create_content = create_content;
 		this.category = category;
