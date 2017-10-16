@@ -71,7 +71,9 @@ public class ReviewBoardDAO extends BoardDAO{
 			pstmt.setInt(3, rbvo.getGenre());
 			pstmt.setInt(4, book_no);
 			pstmt.executeUpdate();
+			con.commit();
 		}finally {
+			con.rollback();
 			closeAll(rs, pstmt, con);
 		}
 	}
@@ -95,21 +97,35 @@ public class ReviewBoardDAO extends BoardDAO{
 
 	@Override
 	public void deleteBoard(int boardNo) throws SQLException {
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		try {
-			con = dataSource.getConnection();
-			StringBuffer sql = new StringBuffer();
-			sql.append("");
-			sql.append("");
-			pstmt = con.prepareStatement(sql.toString());
-			pstmt.setInt(1, boardNo); //set값 게시물번호
-			pstmt.executeUpdate();
-		}finally {
-			closeAll(pstmt, con);
-		}
+		Connection con=null;
+	      PreparedStatement pstmt=null;
+	      try {
+	         con=getConnection();
+	         String sql="delete from review_board where board_no=?";
+	         pstmt=con.prepareStatement(sql);
+	         pstmt.setInt(1, boardNo);
+	         pstmt.executeUpdate();
+	         pstmt.close();
+	         sql="delete from reply where board_no=?";
+	         pstmt=con.prepareStatement(sql);
+	         pstmt.setInt(1, boardNo);
+	         pstmt.executeUpdate();
+	         pstmt.close();
+	         sql="delete from sympathy where board_no=?";
+	         pstmt=con.prepareStatement(sql);
+	         pstmt.setInt(1, boardNo);
+	         pstmt.executeUpdate();
+	         pstmt.close();
+	         sql="delete from board where board_no=?";
+	         pstmt=con.prepareStatement(sql);
+	         pstmt.setInt(1, boardNo);
+	         pstmt.executeUpdate();
+	         con.commit();
+	      }finally {
+	    	  con.rollback();
+	         closeAll(pstmt, con);
+	      }
 	}
-
 	@Override
 	public BoardVO selectBoard(int boardNo) throws SQLException {
 		BoardVO bvo = null;

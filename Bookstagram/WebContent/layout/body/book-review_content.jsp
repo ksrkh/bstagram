@@ -5,6 +5,11 @@
     function returnlist(){
     	location.href="DispatcherServlet?command=reviewboardlist";
     }
+    function deleteReviewPost(){
+    	if(confirm("글을 삭제하시겠습니까?")){
+    		location.href="DispatcherServlet?command=reviewdelete&board_no=${requestScope.reviewdetail.board_no}";
+    		}
+    }
 </script>
 <!-- 기능의 UI를 담당하는 부분(컨테이너) -->
 <div class="container">
@@ -23,8 +28,12 @@
 						<fieldset>
 							<!-- 책제목 (독후감 제목) -->
 							<legend style="padding-bottom: 15px"> <b>${requestScope.reviewdetail.review_title }</b>
-							<font style="float: right; " size="2">조회수&nbsp;&nbsp; ${requestScope.reviewdetail.hit} </font>
+								<font style="float: right;" size="2"> 작성자 | ${requestScope.reviewdetail.nick }</font>
 							</legend>
+								<font style="float: left;" size="2">작성일 |  ${requestScope.reviewdetail.board_regdate } |</font>
+						<font style="float: right; " size="2">조회수&nbsp;&nbsp; ${requestScope.reviewdetail.hit} </font><br>
+						
+						
 							<div class="form-group" style="margin-top: 20px; margin-bottom: 20px">
 								<!-- 책의 Thumnail 이 보여질 부분 -->
 								<div class="col-lg-4" style="padding-right: 0px">
@@ -81,7 +90,7 @@
 				<button type="reset" class="btn btn-default"  style="float:right; margin-right: 10px" onclick="returnlist()">목록으로</button>
 				<!-- 작성자와 정보가 일치했을시에만 보여줍니다. -->
 				<c:if test="${requestScope.reviewdetail.id==sessionScope.member.id}">
-				<button type="submit" class="btn btn-primary" style="float:left; margin-right: 10px; margin-left: 10px" onclick="deleteCreatePost()">삭제</button>
+				<button type="submit" class="btn btn-primary" style="float:left; margin-right: 10px; margin-left: 10px" onclick="deleteReviewPost()">삭제</button>
 				<button type="submit" class="btn btn-primary" style="float:left" onclick="updateCreatePost()">수정</button>
 				</c:if>
 			</div>
