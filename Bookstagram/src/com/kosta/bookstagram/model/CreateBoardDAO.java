@@ -94,9 +94,10 @@ public class CreateBoardDAO extends BoardDAO {
 					// board table insert
 					StringBuilder sql = new StringBuilder();
 					sql.append("insert into board(board_no, boardtype_no, id, board_regdate, hit, authority, bg_no) ");
-					sql.append("values(board_seq.nextval, 3, ?, sysdate, 0, 1, 0) ");
+					sql.append("values(board_seq.nextval, 3, ?, sysdate, 0, 1, ?) ");
 					pstmt = con.prepareStatement(sql.toString());
 					pstmt.setString(1, cbvo.getId());
+					pstmt.setInt(2, cbvo.getBg_no());
 					pstmt.executeUpdate();
 					pstmt.close();
 

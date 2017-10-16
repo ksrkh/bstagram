@@ -173,7 +173,7 @@ public class CreateBoardVO extends BoardVO {
 				+ category + ", getBoard_no()=" + getBoard_no() + ", getBoardtype_no()=" + getBoardtype_no()
 				+ ", getId()=" + getId() + ", getBoard_regdate()=" + getBoard_regdate() + ", getHit()=" + getHit()
 				+ ", getSympathy()=" + getSympathy() + ", getAuthority()=" + getAuthority() + ", getBg_no()="
-				+ getBg_no() + ", toString()=" + super.toString() + ", getClass()=" + getClass() + ", hashCode()="
+				+ getBg_no()+ getBg_path() + ", toString()=" + super.toString() + ", getClass()=" + getClass() + ", hashCode()="
 				+ hashCode() + "]";
 	}
 }
