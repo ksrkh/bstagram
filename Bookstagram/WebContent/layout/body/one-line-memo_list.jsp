@@ -31,11 +31,17 @@ $(document).ready(function(){
 					$("#loading").html("로딩중입니다");					
 				}
 				var info="";
+				var info="<tr>";
+				info+="<td>"+data.ename+"</td>";
 				
 				if(page!=1){
 					for(var i in data.list){
-						info+=data.list[i].nick;
-						$("#loading").html(info);	
+						
+						info+="<tr>";
+						info+="<td>"+data.list[i].nick+"</td>";
+						info+="</tr>"
+						
+						$("#loading").append(info);	
 						alert(page);
 					 }
 				}else{

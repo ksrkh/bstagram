@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.kosta.bookstagram.model.common.PagingBean;
-import com.kosta.bookstagram.model.common.SympathyVO;
 
 public class LineBoardDAO extends BoardDAO{
 	//Singleton pattern 
