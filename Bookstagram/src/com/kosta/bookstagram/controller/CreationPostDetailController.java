@@ -19,7 +19,7 @@ public class CreationPostDetailController implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, SQLException {
 		String sboardNo=request.getParameter("board_no");
 		int boardNo=Integer.parseInt(sboardNo);
-		String id=request.getParameter("id");
+		String id=request.getParameter("id");	
 		String cookieNameId=null;
 		
 		if(id==null)
@@ -53,7 +53,7 @@ public class CreationPostDetailController implements Controller {
 			request.setAttribute("cbdvo", cbvo);
 			request.setAttribute("url", "creation_content.jsp");
 			
-			
+			System.out.println(cbvo);
 			return "home.jsp";
 	}
 }

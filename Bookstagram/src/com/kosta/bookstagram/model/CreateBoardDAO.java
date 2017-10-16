@@ -62,10 +62,10 @@ public class CreateBoardDAO extends BoardDAO {
 					con = getConnection();
 
 					StringBuilder sql = new StringBuilder();
-					sql.append("SELECT b.board_no,b.boardtype_no,m.id,m.nick,b.board_regdate,b.hit,b.authority,b.bg_no, ");
-					sql.append("cb.create_title,cb.create_content,cb.category  ");
-					sql.append("FROM board b,create_board cb,member m ");
-					sql.append("WHERE b.board_no=cb.board_no and  b.id=m.id and b.board_no=? ");
+					sql.append("SELECT b.board_no,b.boardtype_no,m.id,m.nick,b.board_regdate,b.hit,b.authority, ");
+					sql.append("b.bg_no,bb.bg_path ,cb.create_title,cb.create_content,cb.category  ");
+					sql.append("FROM board b,create_board cb,member m, board_background bb ");
+					sql.append("WHERE b.board_no=cb.board_no and  b.id=m.id and b.bg_no=bb.bg_no and b.board_no=? ");
 					pstmt = con.prepareStatement(sql.toString());
 					pstmt.setInt(1, boardNo);
 					rs = pstmt.executeQuery();
