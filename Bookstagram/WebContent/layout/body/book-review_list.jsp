@@ -25,10 +25,14 @@
 					<h3 style="margin-top: 3px; margin-bottom:5px">
 					<c:choose>
 							<c:when test="${sessionScope.member!=null}">
-					<strong><a href="DispatcherServlet?command=reviewdetail&review_no=${review.board_no}">${review.review_title}</a></strong>
+					<strong>
+							<a href="DispatcherServlet?command=reviewdetail&review_no=${review.board_no}&id=${sessionScope.member.id}">${review.review_title}</a>
+					</strong>
+							 <font style="float: right; " size="2">조회수&nbsp;&nbsp; ${review.hit} </font>
 							</c:when>
 							<c:otherwise>
-					<strong>${review.review_title}</strong>			
+					<strong>${review.review_title} </strong>			
+					 <font style="float: right; " size="2">조회수&nbsp;&nbsp; ${review.hit} </font>
 							</c:otherwise>
 					</c:choose>		
 					</h3>

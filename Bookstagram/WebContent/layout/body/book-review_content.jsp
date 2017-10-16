@@ -22,7 +22,9 @@
 					<form class="form-horizontal">
 						<fieldset>
 							<!-- 책제목 (독후감 제목) -->
-							<legend style="padding-bottom: 15px"><b>${requestScope.reviewdetail.review_title }</b></legend>
+							<legend style="padding-bottom: 15px"> <b>${requestScope.reviewdetail.review_title }</b>
+							<font style="float: right; " size="2">조회수&nbsp;&nbsp; ${requestScope.reviewdetail.hit} </font>
+							</legend>
 							<div class="form-group" style="margin-top: 20px; margin-bottom: 20px">
 								<!-- 책의 Thumnail 이 보여질 부분 -->
 								<div class="col-lg-4" style="padding-right: 0px">
