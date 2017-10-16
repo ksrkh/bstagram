@@ -6,100 +6,46 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script type="text/javascript">
 $(document).ready(function(){	
+	
 	var page=1;
 	$(function(){
 		getList(page);
 		page++;
 	});
+	
 	$(window).scroll(function() {
-		if($(windwo).scrollTop() >=$(document).height()-$(window).height()){
+		if($(window).scrollTop() >=$(document).height()-$(window).height()){
 			getList(page);
 			page++;
 		}
 	});
-	//hover
-	/*  for(var i in data) {
-				 alert(data[i].startRowNumber);
-				 alert(data[i].endRowNumber);
-				}
-			 for(var i in data.list){
-				 alert(data.list[i].nick); */
-				 
+	
 	function getList(page){
 		$.ajax({
 			type:"get",
 			url:"DispatcherServlet",
-			data:"command=pangingScroll",
+			data:"command=pangingScroll&pageNo="+page,
 			dataType:"json",
 			success:function(data){
 				if(page==1){
 					$("#loading").html("로딩중입니다");					
 				}
 				if(page!=1){
-					$("#loading").html("asd");
+					for(var i in data.list){
+						alert(data.list[i].nick);
+						alert(page);
+					 }
 				}else{
-					$("#losding").html("아");
+					$("#loading").html("마지막 페이지 입니다");
 				} 
 				}
 			 
 			
 		});//ajax
-	}
-				 
-	function sympathyClick(board_no){
-		alert(1);
-	}
-		
-	
-/* 	$("#getJSONTest").click(function() {
-			//alert(1);
-			//jquery getJSON()--jquery ajax 함수의 축약된 형식
-			$.getJSON("JSONServlet", "command=test&id=java", function(data) {
-				$("#nameView").text(data.name);
-				$("#ageView").text(data.age);
-			});
-		});
-	 */
-	
-/* 	alert($(this).attr("id"));
- */
-	
-   /*  $(".hover_no").click(function(){	
-		$("#deltailLine").toggle(1000);
-	});	 */	
-    
- $("#sympathy-click").click(function() {
-     /* $.ajax({
- 			type:"get",
- 			url:"DispatcherServlet",
- 			data:"command=sympathyService&id=",
- 			success:function(data){
- 				if(page==1){
- 					$("#loading").html("로딩중입니다");					
- 				}
- 				if(page!=1){
- 					$("#loading").html("asd");
- 				}else{
- 					$("#losding").html("아");
- 				} 
- 				}
- 			 
- 			
- 		}); */
- 		var a='${sessionScope.member.id}';
- 		if(a!=''){
- 			alert(a);
- 			alert($(this).attr('id'));
- 		}
- 		
+	}   
+     $("#sympathy-click").click(function() {
+     	alert("공감 upup");
      });//click 공감
-     
-     
-/* 	$("#lineUpdateBtn").click(function() {
-		if(confirm("정말 수정하시겠습니까?")){
-				location.href="";	
-			}
-	});  */
 });//ready 
 </script>
 <style type="text/css">
@@ -176,23 +122,23 @@ $(document).ready(function(){
 				</p>
 				<c:choose>
 					<c:when test="${sessionScope.member!=null}">
-						<p class="quote-text" id="asd">
+						<p class="quote-text" id="line_content_login">
 							${lvo.line_content}
 						</p>
 					</c:when>
 					<c:otherwise>
-						<p class="quote-text">
+						<p class="quote-text" id="line_content">
 							${lvo.line_content}
 						</p>
 					</c:otherwise>
 				</c:choose>
 				<hr>
 				<div class="blog-post-actions">
-					<p class="blog-post-bottom pull-left">
+					<p class="blog-post-bottom pull-left" id="line_nick">
 						${lvo.nick}
 					</p>
 					<p class="blog-post-bottom pull-right">
-						<i class="fa fa-heart" id="sympathy"  style="font-size:20px;color:red;margin-right:5px;margin-top: 10px"></i><span class="badge quote-badge">${lvo.sympathy}</span>
+						<i class="fa fa-heart" id="sympathy-click" style="font-size:20px;color:red;margin-right:5px;margin-top: 10px"></i><span class="badge quote-badge">${lvo.sympathy}</span>
 					</p>
 				</div>
 			</blockquote>

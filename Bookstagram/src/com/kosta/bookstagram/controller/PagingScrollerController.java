@@ -19,8 +19,8 @@ public class PagingScrollerController implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int totalCount=LineBoardDAO.getInstance().totalCountByBoard();
 		String pno=request.getParameter("pageNo");
+		System.out.println(pno);
 		System.out.println("페이징처리");
-		System.out.println(totalCount);
 		PagingBean pagingBean=new PagingBean(totalCount,1);
 		if(pno==null){
 			pagingBean=new PagingBean(totalCount);

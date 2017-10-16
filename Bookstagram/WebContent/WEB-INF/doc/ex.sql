@@ -130,28 +130,28 @@ commit;
 create sequence board_seq;
 create sequence book_seq;
 insert into board(board_no, boardtype_no, id, board_regdate, hit, authority, bg_no)
-values(board_seq.nextval, 1, 'kjhsc101218@naver.com', sysdate, 0, 1, 0);
+values(board_seq.nextval, 1, 'ryuhyg@naver.com', sysdate, 0, 1, 0);
 insert into book(book_no, book_title, book_intro, book_author, book_publ, book_sdate, book_edate, book_cate, book_img)
 values(book_seq.nextval, '언어의온도', '『언어의 온도』의 저자 이기주는 엿듣고 기록하는 일을 즐겨 하는 사람이다. 그는 버스나 지하철에 몸을 실으면 몹쓸 버릇이 발동한다고 고백한다. 이 책은 저자가 일상에서 발견한 의미 있는 말과 글, 단어의 어원과 유래, 그런 언어가 지닌 소중함과 절실함을 농밀하게 담아낸 것이다.','이기주', '말푸름', '2016-02-03', '2016-02-05','1', 'https://search.pstatic.net/common/?src=http%3A%2F%2Fbookthumb.phinf.naver.net%2Fcover%2F109%2F245%2F10924505.jpg%3Ftype%3Dm1%26udate%3D20171007&type=o75_108_re24');
 insert into line_board(board_no, line_content, tend_code, book_no)
 values(board_seq.currval, '화장실을 깨끗하게 사용해주세요. 이곳을 청소해주시는 분들, 누군가에겐 전부인 사람들입니다.', 8, 1);
 
 insert into board(board_no, boardtype_no, id, board_regdate, hit, authority, bg_no)
-values(board_seq.nextval, 1, 'kjhsc101218@naver.com', sysdate, 0, 1, 1);
+values(board_seq.nextval, 1, 'orangss@naver.com', sysdate, 0, 1, 1);
 insert into book(book_no, book_title, book_intro, book_author, book_publ, book_sdate, book_edate, book_cate,  book_img)
 values(book_seq.nextval, '말의품격', '두 남녀의 아련한 첫사랑 이야기인 동시에  1Q84를 헤쳐나가며 겪게 되는 환상적인 이야기를 그렸다. 압도적인 이야기의 강렬함과 흡인력이 돋보인다. 스타일리시한 여자 암살자 아오마메와 작가지망생 덴고. 꽉 막힌 고속도로의 비상계단을 내려오면서 다른 세계로 접어든 아오마메와, 천재적인 문학성을 가진 열일곱 소녀 후카에리를 만나 기묘한 사건에 휘말리게 된 덴고 앞에 1Q84의 세계가 펼쳐진다. 그들은 몇 개의 달이 떠 있는 하늘 아래에서 만나게 될까? ','이기주', '말푸름', '2016-05-02', '2016-07-08','1', 'https://search.pstatic.net/common/?src=http%3A%2F%2Fbookthumb.phinf.naver.net%2Fcover%2F063%2F231%2F06323153.jpg%3Ftype%3Dm3%26udate%3D20130405&type=o75_108_re24');
 insert into line_board(board_no, line_content, tend_code, book_no)
 values(board_seq.currval, '당신의 입이아닌 귀를 내어주라', 8, 2);
 
 insert into board(board_no, boardtype_no, id, board_regdate, hit, authority, bg_no)
-values(board_seq.nextval, 1, 'kjhsc101218@naver.com', sysdate, 0, 1, 2);
+values(board_seq.nextval, 1, 'ryuhyg@naver.com', sysdate, 0, 1, 2);
 insert into book(book_no, book_title, book_intro, book_author, book_publ, book_sdate, book_edate, book_cate,  book_img)
 values(book_seq.nextval, '오직두사람', '히가시노 게이고의 소설 『가면산장 살인사건』. 저자와 독자가 아슬아슬한 두뇌 싸움을 벌이게 되는 이 작품은 외딴 산장에 모인 여덟 명의 남녀와 한밤중에 침입한 은행 강도범의 인질극을 그리고 있다. 잘 짜인 무대에서 벌어지는 연극과도 같은 이 소설은 그 누구도 상상조차 할 수 없었던 엄청난 반전을 담고 있다. 초대된 손님과 2인조 은행 강도 사이에 긴장과 서스펜스가 점차 고조되는 가운데 클라이맥스에 이르러 전개되는 대반전을 만나는 즐거움을 느낄 수 있다.','김영하', '말푸름', '2016-05-02', '2016-07-08','1', 'https://search.pstatic.net/common/?src=http%3A%2F%2Fbookthumb.phinf.naver.net%2Fcover%2F082%2F730%2F08273055.jpg%3Ftype%3Dm1%26udate%3D20170914&type=o75_108_re24');
 insert into line_board(board_no, line_content, tend_code, book_no)
 values(board_seq.currval, '똑같은 패턴이 반복됬어요. 제가 호감을 느끼는 남자를 만나고, 그 남자가 절 이상해하고, 저는 그 남자에게 실망하고, 그러다 헤어지고...', 4, 3);
 
 insert into board(board_no, boardtype_no, id, board_regdate, hit, authority, bg_no)
-values(board_seq.nextval, 1, 'kjhsc101218@naver.com', sysdate, 0, 1, 3);
+values(board_seq.nextval, 1, 'ryuhyg@naver.com', sysdate, 0, 1, 3);
 insert into book(book_no, book_title, book_intro, book_author, book_publ, book_sdate, book_edate, book_cate,  book_img)
 values(book_seq.nextval, '보통의존재', '히가시노 게이고 문학의 정수로 일컬어지는 추리 소설 『용의자 X의 헌신』. 일본 문학 전문 번역가 양억관이 자신의 번역을 대폭 손질해 원작이 지닌 문학적 향기와 감동을 오롯이 되살려냈다. 일본 추리소설에서 흔히 보여 지는 잔혹함이나 엽기 호러가 아닌 사랑과 헌신이라는 고전적이며 낭만적인 테마를 미로처럼 섬세하게 엮어낸 슬프고 아름다운 이야기로, 제134회 나오키상을 수상했다. ','이석원', '말푸름', '2014-05-02', '2016-07-08','2', 'https://search.pstatic.net/common/?src=http%3A%2F%2Fbookthumb.phinf.naver.net%2Fcover%2F124%2F818%2F12481857.jpg%3Ftype%3Dm1%26udate%3D20170914&type=o75_108_re24');
 insert into line_board(board_no, line_content, tend_code, book_no)

@@ -22,6 +22,7 @@ public class LineWriteController implements Controller {
 		String book_publ=request.getParameter("book_publisher");
 		String book_sdate=request.getParameter("book_pubdate");
 		String book_img=request.getParameter("book_image");
+		System.out.println(book_img);
 		LineBoardVO boardVO=new LineBoardVO(1, id, 1, 0, line_content, tend_code,
 				new BookVO(book_title,book_intro,book_author,book_publ,book_sdate,book_img));
 		

@@ -281,13 +281,13 @@ public class LineBoardDAO extends BoardDAO{
 						rs.getInt(6),0,rs.getInt(7),rs.getInt(8),rs.getString(9),rs.getInt(10),rs.getInt(11)));
 			}
 			ArrayList<SympathyVO> slist= allLikeCount(pagingBean.getStartRowNumber(), pagingBean.getEndRowNumber());
-			System.out.println(list.size());
-			System.out.println(slist.size());
-			System.out.println(pagingBean.getStartRowNumber()+"   "+ pagingBean.getEndRowNumber());
+			//System.out.println(list.size());
+			//System.out.println(slist.size());
+			//System.out.println(pagingBean.getStartRowNumber()+"   "+ pagingBean.getEndRowNumber());
 			
 			for(int i=0;i<list.size();i++) {
 				list.get(i).setSympathy(slist.get(i).getlikeCount());
-				System.out.println(list.get(i).getSympathy());
+				//System.out.println(list.get(i).getSympathy());
 			}
 		} finally {
 			closeAll(rs, pstmt, con);
