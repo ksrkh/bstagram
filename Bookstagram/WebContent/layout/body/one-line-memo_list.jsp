@@ -6,35 +6,55 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script type="text/javascript">
 $(document).ready(function(){	
-	function getReadList() { 
-	$('#loading').html('데이터 로딩중입니다.'); 
-	//ajax 
-	$.post("data.html?action=getLastList&lastID=" + $(".list:last").attr("id"),
-	function(data){ 
-	if (data != "") 
-	{ $(".list:last").after(data); 
-		}
-	$('#loading').empty(); 
-		});
-	};
-	//무한 스크롤 
+	var page=1;
+	$(function(){
+		getList(page);
+		page++;
+	});
 	$(window).scroll(function() {
-		if($(window).scrollTop() == $(document).height() - $(window).height()){
-			getReadList(); 
-			}
-		}); 
+		if($(windwo).scrollTop() >=$(document).height()-$(window).height()){
+			getList(page);
+			page++;
+		}
+	});
 	//hover
+	/*  for(var i in data) {
+				 alert(data[i].startRowNumber);
+				 alert(data[i].endRowNumber);
+				}
+			 for(var i in data.list){
+				 alert(data.list[i].nick); */
+				 
+	function getList(page){
+		$.ajax({
+			type:"get",
+			url:"DispatcherServlet",
+			data:"command=pangingScroll",
+			dataType:"json",
+			success:function(data){
+				if(page==1){
+					$("#loading").html("로딩중입니다");					
+				}
+				if(page!=1){
+					$("#loading").html("asd");
+				}else{
+					$("#losding").html("아");
+				} 
+				}
+			 
+			
+		});//ajax
+	}
 	
-	//$("#line_board_btn").hover(function(){
-		
-		/* 	 $(this).css("background-color","yellow");
-			$("#deltailLine").text($(this).text());
-		},function(){
-			alert(2);
-			$(this).css("background-color","white");
-			$("#deltailLine").text("");  */
-		//});
-	
+/* 	$("#getJSONTest").click(function() {
+			//alert(1);
+			//jquery getJSON()--jquery ajax 함수의 축약된 형식
+			$.getJSON("JSONServlet", "command=test&id=java", function(data) {
+				$("#nameView").text(data.name);
+				$("#ageView").text(data.age);
+			});
+		});
+	 */
 	
 /* 	alert($(this).attr("id"));
  */
@@ -104,12 +124,12 @@ $(document).ready(function(){
 		
 		<!-- Welcome Message -->
 		<div class="text-center mt-4">
-		<div class="text-heading text-muted text-lg">Welcome To</div>
+		<div class="text-heading text-muted text-lg" id="pagin">Welcome To</div>
 			<h1 class="my-2">Bookstagram</h1>
 		</div>
 	</div>
 	<!-- 추후 For로 돌릴 공간. -->
-	<c:forEach var="lvo" items="${requestScope.lineList}" varStatus="order">
+	<c:forEach var="lvo" items="${requestScope.lineList.list}" varStatus="order">
 	<c:set value="${lvo.board_no}"  var="p" />
 	<div class="hover_no" id="${lvo.board_no}">
 	<div class="bg-faded p-4 my-4"  id="line_board_btn">
@@ -128,8 +148,7 @@ $(document).ready(function(){
 				<c:choose>
 					<c:when test="${sessionScope.member!=null}">
 						<p class="quote-text" id="asd">
-							<a href="DispatcherServlet?command=lineDetail&boardNo=${lvo.board_no}" style="color: white" 
-								id="deltailLine">${lvo.line_content}</a>
+							${lvo.line_content}
 						</p>
 					</c:when>
 					<c:otherwise>
@@ -144,7 +163,7 @@ $(document).ready(function(){
 						${lvo.nick}
 					</p>
 					<p class="blog-post-bottom pull-right">
-						<i class="fa fa-heart" id="sympathy-click" style="font-size:20px;color:red;margin-right:5px;margin-top: 10px"></i><span class="badge quote-badge">${lvo.sympathy}</span>
+						<i class="fa fa-heart" id="sympathy-click" style="font-size:20px;color:red;margin-right:5px;margin-top: 10px"></i><span class="badge quote-badge">${lvo.hit}</span>
 					</p>
 				</div>
 			</blockquote>

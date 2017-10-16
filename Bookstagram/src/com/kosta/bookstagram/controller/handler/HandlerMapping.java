@@ -31,12 +31,16 @@ import com.kosta.bookstagram.controller.DupleIdCheckController;
 import com.kosta.bookstagram.controller.DupleNickCheckController;
 import com.kosta.bookstagram.controller.JoinController;
 import com.kosta.bookstagram.controller.JoinFormController;
+import com.kosta.bookstagram.controller.LineDeleteController;
 import com.kosta.bookstagram.controller.LineDetailController;
 import com.kosta.bookstagram.controller.LineListController;
+import com.kosta.bookstagram.controller.LineUpdateController;
+import com.kosta.bookstagram.controller.LineUpdateViewController;
 import com.kosta.bookstagram.controller.LineWriteController;
 import com.kosta.bookstagram.controller.LogOutController;
 import com.kosta.bookstagram.controller.LoginController;
 import com.kosta.bookstagram.controller.MyPageController;
+import com.kosta.bookstagram.controller.PagingScrollerController;
 import com.kosta.bookstagram.controller.ReplyRegisterController;
 import com.kosta.bookstagram.controller.ReviewBoardListController;
 import com.kosta.bookstagram.controller.ReviewDeleteController;
@@ -165,6 +169,14 @@ public class HandlerMapping {
 			controller = new ReviewUpdateController();
 		else if(command.equals("reviewupdatepage"))
 			controller = new ReviewUpdatePageController();
+		else if(command.equals("lineUpdateView"))
+			controller = new LineUpdateViewController();
+		else if(command.equals("lineDelete"))
+			controller = new LineDeleteController();
+		else if(command.equals("lineUpdate"))
+			controller = new LineUpdateController();
+		else if(command.equals("pangingScroll"))
+			controller = new PagingScrollerController();
 		return controller;
 	}
 }

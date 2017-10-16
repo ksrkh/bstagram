@@ -14,20 +14,8 @@ public class LineUpdateController implements Controller {
 		int boardNo=Integer.parseInt(request.getParameter("boardNo"));
 		String line_content=request.getParameter("line_content");
 		int tend_code=Integer.parseInt(request.getParameter("tend_code"));
-		String id="";
-		int book_no=0;
-		LineBoardDAO.getInstance().updateBoard(new LineBoardVO(1,id,1,0,line_content,tend_code,book_no));
-		System.out.println(boardNo);
 		System.out.println(line_content);
-		System.out.println(tend_code);
-		
-	/*	LineBoardDAO.getInstance().updateBoard(
-				LineBoardDAO.getInstance().selectBoard(boardNo));*/
-		
-		
-		/*int boardtype_no, String id, int authority, int bg_no,
-		String line_content, int tend_code, int book_no*/
-		
+		LineBoardDAO.getInstance().updateBoard(new LineBoardVO(boardNo,0,line_content,tend_code));
 		return "redirect:DispatcherServlet?command=lineList";
 	}
 
