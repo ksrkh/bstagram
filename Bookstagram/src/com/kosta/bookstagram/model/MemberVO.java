@@ -147,6 +147,26 @@ public class MemberVO {
 		this.tend_code3 = tend_code3;
 	}
 	
+	/**
+	 * -관리자 페이지 회원정보 수정
+	 * 
+	 * @param id			아이디(이메일)
+	 * @param pw			비밀번호
+	 * @param age			나이
+	 * @param tend_code		성향1
+	 * @param tend_code2	성향2
+	 * @param tend_code3	성향3
+	 * @param tier			회원등급
+	 */
+	public MemberVO(String id, String pw, int age, int tend_code, int tend_code2, int tend_code3, int tier) {
+		this.id = id;
+		this.pw = pw;
+		this.tend_code = tend_code;
+		this.tend_code2 = tend_code2;
+		this.tend_code3 = tend_code3;
+		this.tier = tier;
+	}
+	
 	
 	/**
 	 * -관리자페이지 목록보여주기

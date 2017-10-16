@@ -4,6 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kosta.bookstagram.controller.listener.Controller;
+import com.kosta.bookstagram.model.CmsDAO;
+import com.kosta.bookstagram.model.MemberVO;
 
 public class CmsMemberUpdateController implements Controller {
 
@@ -24,7 +26,7 @@ public class CmsMemberUpdateController implements Controller {
 		System.out.println("tend3:" + tend3);
 		System.out.println("tier:" + tier);
 		
-		//MemberDAO.getInstance().updateMember(new Member(id,pw,age,tend1,tend2,tend3,tier));
+		CmsDAO.getInstance().cmsMemberUpdate(new MemberVO(id,pw,age,tend1,tend2,tend3,tier));
 		return "DispatcherServlet?command=cmsmemberlistpege";
 	}
 

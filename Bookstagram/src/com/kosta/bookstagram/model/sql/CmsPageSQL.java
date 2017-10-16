@@ -61,14 +61,25 @@ public class CmsPageSQL {
 	/**
 	 * 전체 회원 리스트
 	 */
-	public final static String ALL_MEMBER_LIST =
+	/*public final static String ALL_MEMBER_LIST =
 			"SELECT  m.id, m.pw, m.age, m.tend_name, m.tend_name2, m.tend_name3, mt.tier_name, m.regdate " + 
 			"FROM (SELECT C.id, C.pw, C.age, C.regdate, C.tier, C.tend_name, C.tend_name2, D.tend_name AS tend_name3 " + 
 			"FROM (SELECT A.id, A.pw, A.age, A.regdate, A.tier, A.tend_name, B.tend_name AS tend_name2 " + 
 			"FROM (SELECT m.id, m.pw, m.age, m.regdate, m.tier, t.tend_name FROM member m, tend t WHERE m.tend_code = t.tend_code) A, " + 
 			"(SELECT m.id, t.tend_name FROM member m, tend t WHERE m.tend_code2 = t.tend_code) B  WHERE A.id = B.id) C, " + 
 			"(SELECT m.id, t.tend_name FROM member m, tend t WHERE m.tend_code3 = t.tend_code) D WHERE C.id = D.id) m , MEMBER_TIER mt " + 
-			"WHERE m.tier=mt.tier";
+			"WHERE m.tier=mt.tier";*/
+	
+	public final static String ALL_MEMBER_LIST =
+			"SELECT D.id, D.pw, D.age, D.tend_name, D.tend_name2, D.tend_name3, D.tier_name, D.regdate " + 
+			"FROM (SELECT row_number() over(order by m.regdate desc) as rnum, m.id, m.pw, m.age, m.tend_name, m.tend_name2, m.tend_name3, mt.tier_name, m.regdate " + 
+			"FROM (SELECT C.id, C.pw, C.age, C.regdate, C.tier, C.tend_name, C.tend_name2, D.tend_name AS tend_name3 " + 
+			"FROM (SELECT A.id, A.pw, A.age, A.regdate, A.tier, A.tend_name, B.tend_name AS tend_name2 " + 
+			"FROM (SELECT m.id, m.pw, m.age, m.regdate, m.tier, t.tend_name FROM member m, tend t WHERE m.tend_code = t.tend_code) A, " + 
+			"(SELECT m.id, t.tend_name FROM member m, tend t WHERE m.tend_code2 = t.tend_code) B  WHERE A.id = B.id) C, " + 
+			"(SELECT m.id, t.tend_name FROM member m, tend t WHERE m.tend_code3 = t.tend_code) D WHERE C.id = D.id) m , MEMBER_TIER mt " + 
+			"WHERE m.tier=mt.tier) D " + 
+			"WHERE D.rnum BETWEEN ? AND ?";
 	
 	/**
 	 * 전체 게시글 리스트
