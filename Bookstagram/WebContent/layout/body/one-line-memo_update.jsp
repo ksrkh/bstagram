@@ -21,7 +21,9 @@
 							<!-- 내용 입력 부분 -->
 							<div class="form-group" style="margin-top: 50px">
 								<div class="col-lg-12">
-									<textarea class="form-control ta" rows="15" id="content" placeholder="내용을 입력하세요." style="resize: none; background-image: url('img/write/write_bg6.jpg');"></textarea>
+									<textarea class="form-control ta" rows="15" id="content" placeholder="내용을 입력하세요." style="resize: none; background-image: url('img/write/write_bg6.jpg');">
+									${requestScope.line_content}
+									</textarea>
 						      	</div>
 						    </div>
 						    

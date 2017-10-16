@@ -16,6 +16,8 @@ public class LineBoardVO extends BoardVO{
 	/*
 	 * 기본생성자
 	 */
+	private BookVO bookVO;
+	
 	public LineBoardVO() {}
 	/**
 	 * 모든 매개변수를 갖고있는 생성자
@@ -56,6 +58,14 @@ public class LineBoardVO extends BoardVO{
 		this.line_content = line_content;
 		this.tend_code = tend_code;
 		this.book_no = book_no;
+	}
+	//글작성시 책 값 작성용 생성자
+	public LineBoardVO(int boardtype_no, String id, int authority, int bg_no,
+			String line_content, int tend_code,BookVO bookVO) {
+		super(boardtype_no, id, authority, bg_no);
+		this.line_content = line_content;
+		this.tend_code = tend_code;
+		this.bookVO = bookVO;
 	}
 	
 	/**
@@ -120,9 +130,17 @@ public class LineBoardVO extends BoardVO{
 	public void setBook_no(int book_no) {
 		this.book_no = book_no;
 	}
-	
+	public BookVO getBookVO() {
+		return bookVO;
+	}
+	public void setBookVO(BookVO bookVO) {
+		this.bookVO = bookVO;
+	}
 	@Override
 	public String toString() {
-		return "LineBoardVO [line_content=" + line_content + ", tend_code=" + tend_code + ", book_no=" + book_no + "]";
+		return "LineBoardVO [line_content=" + line_content + ", tend_code=" + tend_code + ", book_no=" + book_no
+				+ ", bookVO=" + bookVO + "]";
 	}
+	
+	
 }

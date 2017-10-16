@@ -25,15 +25,15 @@ $(document).ready(function(){
 		}); 
 	//hover
 	
-	$("#line_board_btn").hover(function(){
-		alert(1);
+	//$("#line_board_btn").hover(function(){
+		
 		/* 	 $(this).css("background-color","yellow");
 			$("#deltailLine").text($(this).text());
 		},function(){
 			alert(2);
 			$(this).css("background-color","white");
 			$("#deltailLine").text("");  */
-		});
+		//});
 	
 	
 /* 	alert($(this).attr("id"));
@@ -46,11 +46,11 @@ $(document).ready(function(){
      $("#sympathy-click").click(function() {
      	alert("공감 upup");
      });//click 공감
-	$("#lineUpdateBtn").click(function() {
+/* 	$("#lineUpdateBtn").click(function() {
 		if(confirm("정말 수정하시겠습니까?")){
 				location.href="";	
 			}
-	}); 
+	});  */
 });//ready 
 </script>
 <style type="text/css">

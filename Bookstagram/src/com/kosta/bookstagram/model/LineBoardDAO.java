@@ -25,43 +25,59 @@ public class LineBoardDAO extends BoardDAO{
 		LineBoardVO lineVO=new LineBoardVO();
 		Connection con=null;
 		PreparedStatement pstmt=null;
+		ResultSet rs=null;
 		try {
 			con=getConnection();
+			con.setAutoCommit(false);
 			StringBuilder sql = new StringBuilder();
+			//board
 			sql.append("insert into board(board_no, boardtype_no, id, board_regdate, hit, authority, bg_no) ");
-			sql.append("values(board_seq.nextval, 1, ?, sysdate, 0, 1, ?)");
+			sql.append("values(board_seq.nextval, 1, ?, sysdate, 0, 1, 0)");
 			pstmt=con.prepareStatement(sql.toString());
 			pstmt.setString(1, board.getId());
-			pstmt.setInt(2, board.getBg_no());
 			pstmt.executeUpdate();
 			pstmt.close();
+			//book_no 찾기
+			String sql4="select book_seq.nextval from dual";
+			pstmt=con.prepareStatement(sql4);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				lineVO.setBook_no(rs.getInt(1));
+			}
+			pstmt.executeQuery();
+			//book
 			StringBuilder sql1 = new StringBuilder();
 			sql1.append("insert into book(book_no, book_title, book_intro, book_author, book_publ, ");
 			sql1.append("book_sdate, book_edate, book_cate,  book_img) ");
-			sql1.append("values(book_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?");
+			sql1.append("values(book_seq.nextval, ?, ?, ?, ?, ?, ?");
 			pstmt=con.prepareStatement(sql1.toString());
 			pstmt.setString(1, bookVO.getBook_title());
 			pstmt.setString(2, bookVO.getBook_intro());
 			pstmt.setString(3, bookVO.getBook_author());
 			pstmt.setString(4, bookVO.getBook_publ());
 			pstmt.setString(5, bookVO.getBook_sdate());
-			pstmt.setString(6, bookVO.getBook_edate());
-			pstmt.setString(7, bookVO.getBook_cate());
 			pstmt.setString(8, bookVO.getBook_img());
 			pstmt.executeUpdate();
-			pstmt.close();
+			pstmt.close();		
+			//라인
 			StringBuilder sql2 = new StringBuilder();
 			sql2.append("insert into line_board(board_no, line_content, tend_code, book_no)");
 			sql2.append("values(board_seq.currval, ?, ?, ?)");
 			pstmt=con.prepareStatement(sql2.toString());
 			pstmt.setString(1, lineVO.getLine_content());
-			pstmt.setInt(3, lineVO.getTend_code());
+			pstmt.setInt(2, lineVO.getTend_code());
 			pstmt.setInt(3, lineVO.getBook_no());
 			pstmt.executeUpdate();
+			con.commit();
+		}catch(Exception e){
+			con.rollback();
+			e.printStackTrace();
+			throw e;
 		}finally {
 			closeAll(pstmt, con);
 		}
 	}
+	
 
 	/*
 	 * 한줄 수정하기

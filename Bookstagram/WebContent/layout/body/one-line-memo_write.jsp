@@ -4,7 +4,11 @@
 <script type="text/javascript">
 $(document).ready(function() {	
 	var book_title="";
-
+	var book_author="";
+	var book_publisher="";
+	var book_pubdate="";
+	var book_description="";
+	var book_image="";
 	$("input[name=tend_ck]:checkbox").change(function() {
         if( $("input[name=tend_ck]:checkbox:checked").length==1) {
             $(":checkbox:not(:checked)").attr("disabled", "disabled");
@@ -27,21 +31,26 @@ $(document).ready(function() {
 			dataType:"json",
 			success:function(data){//data로 서버의 응답 정보가 들어온다.
 				  for(var i in data.items) {
-					  
-					  $("#book_title_area").html(data.items[i].title);//제목
-					  $("#book_author_area").html(data.items[i].author);//저자
-					  $("#book_publisher_area").html(data.items[i].publisher);//출판사
-					  $("#book_pubdate_area").html(data.items[i].pubdate);//출판일
-					  $("#book_description_area").html(data.items[i].description);//내용
+					  book_title=data.items[i].title;
+					  book_author=data.items[i].author;
+					  book_publisher=data.items[i].publisher;
+					  book_pubdate=data.items[i].pubdate;
+					  book_description=data.items[i].description;
+					  book_image=data.items[i].image;
+					  $("#book_title_area").html(book_title);//제목
+					  $("#book_author_area").html(book_author);//저자
+					  $("#book_publisher_area").html(book_publisher);//출판사
+					  $("#book_pubdate_area").html(book_pubdate);//출판일
+					  $("#book_description_area").html(book_description);//내용
 					  $("#book_image_area").html("<img height=171px width=120px src="+data.items[i].image+">");//이미지
 			        }											
-			}			
+			}	
 		});
 	});//search
-	
 	$("#writeLineBtn").click(function() {	
 		var content = $("#content").val();
 		var tendComp=$("#writeForm :checkbox[name=tend_ck]:checked").val();
+		var memeber_id=$(".write_id").attr("id");
 		if(content.length>110){
 		alert("110자 이상은 입력하실 수 없습니다.");
 		}else if(content==""){
@@ -49,9 +58,35 @@ $(document).ready(function() {
 		}else if(tendComp.length==0){
 			alert("하나의 성향을 선택해주세요.");
 		}else if(content!=""){
-			if(confirm("게시글을 작성하시겠습니까?")){
-				alert($("#book_title").html());
-				location.href="DispatcherServlet?command=lineWrite&line_content="+content+"&tend_code="+tendComp;		
+			if(confirm("게시글을 작성하시겠습니까?")){					
+				var book_title_p="";
+				var book_author_p="";
+				var book_publisher_p="";
+				var book_pubdate_p="";
+				var book_description_p="";
+				var book_image_p="";
+				for(var i=0;i<book_title.length;i++){
+					book_title_p+=book_title[i];
+				}
+				for(var i=0;i<book_author.length;i++){
+					book_author_p+=book_author[i];
+				}
+				for(var i=0;i<book_publisher.length;i++){
+					book_publisher_p+=book_publisher[i];
+				}
+				for(var i=0;i<book_pubdate.length;i++){
+					book_pubdate_p+=book_pubdate[i];
+				}
+				for(var i=0;i<book_description.length;i++){
+					book_description_p+=book_description[i];
+				}
+				for(var i=0;i<book_image.length;i++){
+					book_image_p+=book_image[i];
+				}
+				location.href="DispatcherServlet?command=lineWrite&line_content="+content+"&tend_code="+tendComp
+						+"&id="+memeber_id+"&book_title="+book_title_p+"&book_author="+book_author_p
+						+"&book_publisher="+book_publisher_p+"&book_pubdate"+book_pubdate_p
+						+"&book_description="+book_description_p+"&book_image="+book_image_p;		
 			}
 	}
 		
@@ -102,7 +137,7 @@ $(document).ready(function() {
 										<span class="left"><img src="http://bimage.interpark.com/renewPark/welcome/main1111/btn_c_left_on.gif" alt=""></span>
 									</div>
 									<!-- 추후 for로 돌릴 템플릿 경로 -->
-									<div class="col-lg-10">
+									<div class="col-lg-10">							
 										<div class="scroll">
 											<ul class="board_background" style="padding-left: 0px">
 												<li><img class="write_bg" src="img/write/write_bg11.jpg" alt=""></li>
@@ -179,11 +214,12 @@ $(document).ready(function() {
 				</div>
 			</div>
 		</div>
-	
+		
 		<!-- 작석 버튼/취소 버튼 -->
 		<div class="row" style="text-align:center; margin-top: 50px; margin-bottom: 100px">
 			<div class="col-lg-12">
-				<button type="reset" class="btn btn-default" id="cancelBtn">작성 취소</button>
+				<div class="write_id" id="${sessionScope.member.id }"></div>
+				<button type="reset" class="btn btn-default" id="cancelBtn" onclick="">작성 취소</button>
 				<button type="submit" class="btn btn-primary" id="writeLineBtn">작성 완료</button>
 			</div>
 		</div>
