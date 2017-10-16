@@ -30,9 +30,12 @@ $(document).ready(function(){
 				if(page==1){
 					$("#loading").html("로딩중입니다");					
 				}
+				var info="";
+				
 				if(page!=1){
 					for(var i in data.list){
-						alert(data.list[i].nick);
+						info+=data.list[i].nick;
+						$("#loading").html(info);	
 						alert(page);
 					 }
 				}else{
