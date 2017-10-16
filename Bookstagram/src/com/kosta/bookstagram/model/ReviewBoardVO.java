@@ -129,6 +129,19 @@ public class ReviewBoardVO extends BoardVO{
 		this.bookVO=bookVO;
 	}
 	
+	/**
+	 * 리뷰 게시글 수정에 필요<br/>
+	 * @param bg_no
+	 * @param review_title
+	 * @param review_content
+	 * @param genre
+	 */
+	public ReviewBoardVO(int board_no, int bg_no, String review_title, String review_content, int genre) {
+		super(board_no, bg_no);
+		this.review_title = review_title;
+		this.review_content = review_content;
+		this.genre = genre;
+	}
 	public String getReview_title() {
 		return review_title;
 	}

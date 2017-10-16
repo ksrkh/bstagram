@@ -80,17 +80,21 @@ public class ReviewBoardDAO extends BoardDAO{
 
 	@Override
 	public void updateBoard(BoardVO board) throws SQLException {
+		ReviewBoardVO rbvo = (ReviewBoardVO) board;
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		try {
 			con = dataSource.getConnection();
-			StringBuffer sql = new StringBuffer();
-			sql.append("");
-			sql.append("");
-			pstmt = con.prepareStatement(sql.toString());
-			//set 값
+			String sql = ("update REVIEW_BOARD set review_title= review_content= genre=  where board_no= ");
+			pstmt = con.prepareStatement(sql);
 			pstmt.executeUpdate();
+			pstmt.close();
+			sql = ("update BOARD set bg_no= where board_no=");
+			pstmt = con.prepareStatement(sql.toString());
+			pstmt.executeUpdate();
+			con.commit();
 		}finally {
+			con.rollback();
 			closeAll(pstmt, con);
 		}
 	}

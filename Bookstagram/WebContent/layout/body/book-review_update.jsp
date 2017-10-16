@@ -2,17 +2,6 @@
     pageEncoding="UTF-8"%>
 <!-- 기능의 UI를 담당하는 부분(컨테이너) -->
 <script type="text/javascript">
-		function nullCheck(){
-			var va = document.review
-			if(va.review_title.value==""){
-				alert("제목을 입력해주세요");
-				return false;
-				}
-			if(va.review_content.value==""){
-				alert("내용을 입력해주세요");
-				return false;
-			}
-		}
 		function returnlist(){
 			location.href="DispatcherServlet?command=reviewboardlist";
 		}
@@ -43,8 +32,8 @@
 				<div class="well bs-component col-lg-12">
 					<div class="col-lg-1"></div>
 					<div class="col-lg-10">
-					<form class="form-horizontal"  id="review" action="DispatcherServlet" method="post" name="review" onsubmit="return nullCheck()">
-					<input type="hidden" name="command" value="reviewwrite">
+					<form class="form-horizontal"  id="review" action="DispatcherServlet" method="post" name="review">
+					<input type="hidden" name="command" value="reviewupdate">
 					<input type="hidden" name="id" value="${sessionScope.member.id}">
 						<fieldset>
 							<legend>독후감 작성</legend>
@@ -64,14 +53,14 @@
 									</select>
 								</div>
 								<div class="col-lg-10">
-									<input type="text" class="form-control" id="review_title" name="review_title" placeholder="독후감 제목">
+									<input type="text" class="form-control" id="review_title" name="review_title" placeholder="독후감 제목" value="">
 								</div>
 							</div>
 							
 							<!-- 내용 입력 부분 -->
 							<div class="form-group">
 								<div class="col-lg-12">
-									<textarea class="form-control ta" rows="30" id="review_content" name="review_content" placeholder="내용을 입력하세요."></textarea>
+									<textarea class="form-control ta" rows="30" id="content" name="review_content" placeholder="내용을 입력하세요."></textarea>
 						      	</div>
 						    </div>
 						    
@@ -171,8 +160,8 @@
 		<!-- 작성 버튼/취소 버튼 -->
 		<div class="row" style="text-align:center; margin-top: 25px; margin-bottom: 50px">
 			<div class="col-lg-12">
-				<button type="button" class="btn btn-default" onclick="returnlist()">작성 취소</button>
-				<button type="submit" class="btn btn-primary"  form="review">작성 완료</button>
+				<button type="button" class="btn btn-default" onclick="returnlist()">수정 취소</button>
+				<button type="submit" class="btn btn-primary"  form="review">수정 완료</button>
 			</div>
 		</div>
 	</div>

@@ -207,6 +207,18 @@ public class BoardVO {
 		this.bg_no = bg_no;
 		this.bg_path = bg_path;
 	}
+	/**
+	 *  글수정에서 필요한 배경 변경 생성자
+	 * @param board_no 
+	 * @param bg_no
+	 */
+	public BoardVO(int board_no, int bg_no) {
+		super();
+		this.board_no = board_no;
+		this.bg_no = bg_no;
+	}
+	
+	
 	public int getBoard_no() {
 		return board_no;
 	}

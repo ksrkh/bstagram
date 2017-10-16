@@ -21,27 +21,30 @@
 			</div>
 			</div>
 			<div class="col-sm-10">
-				<div style="float: left; margin-left: 20px">
+				
 					<h3 style="margin-top: 3px; margin-bottom:5px">
 					<c:choose>
 							<c:when test="${sessionScope.member!=null}">
+							<div style="float: left; margin-left: 5px">
 					<strong>
 							<a href="DispatcherServlet?command=reviewdetail&review_no=${review.board_no}&id=${sessionScope.member.id}">${review.review_title}</a>
 					</strong>
+						</div>
 							 <font style="float: right; " size="2">조회수&nbsp;&nbsp; ${review.hit} </font>
 							</c:when>
 							<c:otherwise>
-					<strong>${review.review_title} </strong>			
+					<strong>${review.review_title} </strong>
 					 <font style="float: right; " size="2">조회수&nbsp;&nbsp; ${review.hit} </font>
 							</c:otherwise>
 					</c:choose>		
 					</h3>
 					<!-- 줄을 넘기지 않고 예쁘게 보여줘야 합니다. 글자수 70~75자   줄수 4줄, -->
-					<div>${review.review_content }</div>
+					<br><br><div>${review.review_content }</div>
+						<div style="float: bottom; margin-top: 5px">
 					<h4><strong>${review.bookVO.book_title}</strong></h4>
 					<div style="float: left"><strong>${review.bookVO.book_author} </strong> | ${review.bookVO.book_publ} | ${review.bookVO.book_sdate}</div>
-					<div style="float: right">| 작성자 | ${review.nick } |</div>
-				</div>
+					<div style="float: right"> 작성자 | ${review.nick } |</div>
+					</div>
 			</div>
 		</div>
 	</div>
