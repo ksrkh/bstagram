@@ -4,6 +4,7 @@ import com.kosta.bookstagram.controller.CmsAddCategoryController;
 import com.kosta.bookstagram.controller.CmsAddGenreController;
 import com.kosta.bookstagram.controller.CmsAddPwQuestionController;
 import com.kosta.bookstagram.controller.CmsAddTendController;
+import com.kosta.bookstagram.controller.CmsBoardDeleteController;
 import com.kosta.bookstagram.controller.CmsBoardListPageController;
 import com.kosta.bookstagram.controller.CmsCategoryDeleteController;
 import com.kosta.bookstagram.controller.CmsCategoryPageController;
@@ -30,11 +31,8 @@ import com.kosta.bookstagram.controller.DupleIdCheckController;
 import com.kosta.bookstagram.controller.DupleNickCheckController;
 import com.kosta.bookstagram.controller.JoinController;
 import com.kosta.bookstagram.controller.JoinFormController;
-import com.kosta.bookstagram.controller.LineDeleteController;
 import com.kosta.bookstagram.controller.LineDetailController;
 import com.kosta.bookstagram.controller.LineListController;
-import com.kosta.bookstagram.controller.LineUpdateController;
-import com.kosta.bookstagram.controller.LineUpdateViewController;
 import com.kosta.bookstagram.controller.LineWriteController;
 import com.kosta.bookstagram.controller.LogOutController;
 import com.kosta.bookstagram.controller.LoginController;
@@ -44,6 +42,7 @@ import com.kosta.bookstagram.controller.ReviewBoardListController;
 import com.kosta.bookstagram.controller.ReviewDeleteController;
 import com.kosta.bookstagram.controller.ReviewDetailController;
 import com.kosta.bookstagram.controller.ReviewUpdateController;
+import com.kosta.bookstagram.controller.ReviewUpdatePageController;
 import com.kosta.bookstagram.controller.ReviewWriteController;
 import com.kosta.bookstagram.controller.SearchBookController;
 import com.kosta.bookstagram.controller.TendListController;
@@ -124,8 +123,6 @@ public class HandlerMapping {
 			controller = new CmsPwQuestionPageController();
 		else if(command.equals("cmsmemberlistpege"))
 			controller = new CmsMemberListPageController();
-		else if(command.equals("cmsmemberudt"))
-			controller = new CmsMemberUpdateController();
 		else if(command.equals("cmsboardlistpage"))
 			controller = new CmsBoardListPageController();
 		else if(command.equals("cmstendupdate"))
@@ -142,6 +139,10 @@ public class HandlerMapping {
 			controller=new CmsCategoryDeleteController();
 		else if(command.equals("cmspwquestionupdate"))
 			controller=new CmsPwQuestionUpdateController();
+		else if(command.equals("cmsboarddelete"))
+			controller = new CmsBoardDeleteController();
+		else if(command.equals("cmsmemberudt"))
+			controller = new CmsMemberUpdateController();
 		else if(command.equals("searchbook"))
 			controller = new SearchBookController();
 		else if(command.equals("reviewwrite"))
@@ -162,13 +163,8 @@ public class HandlerMapping {
 			controller = new ReviewDeleteController(); 
 		else if(command.equals("reviewupdate"))
 			controller = new ReviewUpdateController();
-		else if(command.equals("lineUpdateView"))
-			controller = new LineUpdateViewController();
-		else if(command.equals("lineDelete"))
-			controller = new LineDeleteController();
-		else if(command.equals("lineUpdate"))
-			controller = new LineUpdateController();
-		
-		return controller;		
+		else if(command.equals("reviewupdatepage"))
+			controller = new ReviewUpdatePageController();
+		return controller;
 	}
 }

@@ -18,7 +18,7 @@ public class ReviewUpdateController implements Controller {
 		int bg_no = 1;
 		ReviewBoardVO board = new ReviewBoardVO(boardNo, bg_no, title, content, genre);
 		ReviewBoardDAO.getInstance().updateBoard(board);
-		return null;
+		return "redirect:DispatcherServlet?command=reviewboardlist";
 	}
 
 }

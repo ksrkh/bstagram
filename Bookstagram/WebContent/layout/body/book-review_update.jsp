@@ -1,24 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- 기능의 UI를 담당하는 부분(컨테이너) -->
 <script type="text/javascript">
 		function returnlist(){
 			location.href="DispatcherServlet?command=reviewboardlist";
-		}
-		function search(){
-			alert(document.review.book_search.value);
-			var book = document.review.book_search.value;
-			$.ajax({
-				type:"get",
-				url: "DispatcherServlet",
-				data:"command=searchbook&book_search="+book,
-				dataType:"json",
-				success:function(data){//data로 서버의 응답 정보가 들어온다.
-					alert(data);
-					$("#book_intro").html(data);
-				}			
-			});
-	}			
+		}			
 </script>
 <div class="container">
 	<!-- 현재 페이지의 타이틀  -->
@@ -34,7 +21,7 @@
 					<div class="col-lg-10">
 					<form class="form-horizontal"  id="review" action="DispatcherServlet" method="post" name="review">
 					<input type="hidden" name="command" value="reviewupdate">
-					<input type="hidden" name="id" value="${sessionScope.member.id}">
+					<input type="hidden" name="board_no" value="${requestScope.review_update.board_no}">
 						<fieldset>
 							<legend>독후감 작성</legend>
 							<!-- 독후감 제목 -->
@@ -53,14 +40,14 @@
 									</select>
 								</div>
 								<div class="col-lg-10">
-									<input type="text" class="form-control" id="review_title" name="review_title" placeholder="독후감 제목" value="">
+									<input type="text" class="form-control" id="review_title" name="review_title" placeholder="독후감 제목" value="${requestScope.review_update.review_title }">
 								</div>
 							</div>
 							
 							<!-- 내용 입력 부분 -->
 							<div class="form-group">
 								<div class="col-lg-12">
-									<textarea class="form-control ta" rows="30" id="content" name="review_content" placeholder="내용을 입력하세요."></textarea>
+									<textarea class="form-control ta" rows="30" id="content" name="review_content" placeholder="내용을 입력하세요.">${requestScope.review_update.review_content }</textarea>
 						      	</div>
 						    </div>
 						    
@@ -120,32 +107,32 @@
 							<div class="form-group" style="margin-bottom:15px; padding-left: 20px">
 								<!-- 기본이미지가 보여지는 곳이며, 검색 이후 검색된 이미지로 변경됩니다. -->
 								<div class="col-lg-2">
-								<input type="hidden" name="review_book_img" value="test">
+								<input type="hidden" name="review_book_img" value="${requestScope.review_update.bookVO.book_img}">
 									<img height=171px width=120px src="">
 								</div>
 								<div class="col-lg-10">
 									<!-- 책제목 -->
 									<div class="col-lg-12" style="padding-left: 0px; margin-bottom: 10px">
-										<input type="text" class="form-control" id="book_title" name="review_book_title" placeholder="책제목" readonly="readonly" value="언어의온도">
+										<input type="text" class="form-control" id="book_title" name="review_book_title" placeholder="책제목" readonly="readonly" value="${requestScope.review_update.bookVO.book_title}">
 									</div>
 									<!-- 저자 -->
 									<div class="col-lg-4" style="padding-left: 0px; margin-bottom: 10px; margin-left:0px; margin-right: 0px">
-										<input type="text" class="form-control" id="author" name="review_author" placeholder="저자" readonly="readonly" value="이기범">
+										<input type="text" class="form-control" id="author" name="review_author" placeholder="저자" readonly="readonly" value="${requestScope.review_update.bookVO.book_author }">
 									</div>
 									<!-- 출판사 -->
 									<div class="col-lg-4"> 
-										<input type="text" class="form-control" id="publ" name="review_publ" placeholder="출판사" readonly="readonly" value="말글터">
+										<input type="text" class="form-control" id="publ" name="review_publ" placeholder="출판사" readonly="readonly" value="${requestScope.review_update.bookVO.book_publ}">
 									</div>
 									<!-- 출판일자 -->
 									<div class="col-lg-4">
-										<input type="text" class="form-control" id="sdate" name="review_sdate" placeholder="출판일자" readonly="readonly" value="2017.10.13">
+										<input type="text" class="form-control" id="sdate" name="review_sdate" placeholder="출판일자" readonly="readonly" value="${requestScope.review_update.bookVO.book_sdate }">
 									</div>
 									<!-- 책소개 -->
 									<div class="col-lg-12" style="padding-left: 0px">
-										<textarea class="form-control" rows="4" id="book_intro" name="review_book_intro" placeholder="책소개" readonly="readonly" style="resize: none">언어의 온도입니다. 인기가 아주 많은 책입니다.</textarea>
+										<textarea class="form-control" rows="4" id="book_intro" name="review_book_intro" placeholder="책소개" readonly="readonly" style="resize: none">${requestScope.review_update.bookVO.book_intro}</textarea>
 									</div>
 									<!-- 책장르 입력 -->
-									<input type="hidden" name="review_book_cate" value="test">
+									<input type="hidden" name="review_book_cate" value="${requestScope.review_update.bookVO.book_cate}">
 								</div>
 							</div>
 							

@@ -85,12 +85,18 @@ public class ReviewBoardDAO extends BoardDAO{
 		PreparedStatement pstmt = null;
 		try {
 			con = dataSource.getConnection();
-			String sql = ("update REVIEW_BOARD set review_title= review_content= genre=  where board_no= ");
+			String sql = ("update REVIEW_BOARD set review_title=?, review_content=?, genre=?  where board_no=? ");
 			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, rbvo.getReview_title());
+			pstmt.setString(2, rbvo.getReview_content());
+			pstmt.setInt(3, rbvo.getGenre());
+			pstmt.setInt(4, rbvo.getBoard_no());
 			pstmt.executeUpdate();
 			pstmt.close();
-			sql = ("update BOARD set bg_no= where board_no=");
-			pstmt = con.prepareStatement(sql.toString());
+			String sql2 = ("update BOARD set bg_no=? where board_no=?");
+			pstmt = con.prepareStatement(sql2);
+			pstmt.setInt(1, rbvo.getBg_no());
+			pstmt.setInt(2, rbvo.getBoard_no());
 			pstmt.executeUpdate();
 			con.commit();
 		}finally {
@@ -98,7 +104,6 @@ public class ReviewBoardDAO extends BoardDAO{
 			closeAll(pstmt, con);
 		}
 	}
-
 	@Override
 	public void deleteBoard(int boardNo) throws SQLException {
 		Connection con=null;

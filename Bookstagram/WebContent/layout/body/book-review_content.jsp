@@ -5,11 +5,16 @@
     function returnlist(){
     	location.href="DispatcherServlet?command=reviewboardlist";
     }
-     function deleteReviewPost(){
+     function deleteReview(){
     	if(confirm("글을 삭제하시겠습니까?")){
     		location.href="DispatcherServlet?command=reviewdelete&board_no=${requestScope.reviewdetail.board_no}";
     		}
     }
+     function updateReview(){
+    		if(confirm("글을 수정하시겠습니까?")){
+    			location.href="DispatcherServlet?command=reviewupdatepage&board_no=${requestScope.reviewdetail.board_no}";
+    			}		
+    	}
     
     function chReply(){
     	var content=$('.form-horizontal #reply_content').val();
@@ -104,8 +109,8 @@
 				<button type="reset" class="btn btn-default"  style="float:right; margin-right: 10px" onclick="returnlist()">목록으로</button>
 				<!-- 작성자와 정보가 일치했을시에만 보여줍니다. -->
 				<c:if test="${requestScope.reviewdetail.id==sessionScope.member.id}">
-				<button type="submit" class="btn btn-primary" style="float:left; margin-right: 10px; margin-left: 10px" onclick="deleteReviewPost()">삭제</button>
-				<button type="submit" class="btn btn-primary" style="float:left" onclick="updateCreatePost()">수정</button>
+				<button type="submit" class="btn btn-primary" style="float:left; margin-right: 10px; margin-left: 10px" onclick="deleteReview()">삭제</button>
+				<button type="submit" class="btn btn-primary" style="float:left" onclick="updateReview()">수정</button>
 				</c:if>
 			</div>
 		</div>
