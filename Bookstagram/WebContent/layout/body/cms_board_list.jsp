@@ -25,14 +25,14 @@
 			
 				<!-- start // 추후 for로 돌릴 구간입니다. -->
 				<c:forEach items="${requestScope.board}" var="board">
-				<tr>
-					<td>${board.board_no}</td>
+				<tr class="cmsboardlist_tr">
+					<td class="cmsboardno">${board.board_no}<input type="hidden" name="cmsboardtypeno" value="${board.boardtype_no}"></td>
 					<td>${board.boardtype_name}</td>
 					<td>${board.id}</td>
 					<td>${board.content}</td>
 					<td>${board.board_regdate}</td>
 					<td>${board.hit}</td>
-					<td><button type="button" class="btn btn-primary">삭제 게시판번호:${board.board_no}, 게시판타입:${board.boardtype_no}</button></td>
+					<td class="cmsboarddlt_btn"><button type="button" class="btn btn-primary">삭제</button></td>
 				</tr>
 				</c:forEach>
 				<!-- end // 추후 for 로 돌릴 구간입니다. -->

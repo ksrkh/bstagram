@@ -4,6 +4,7 @@ import com.kosta.bookstagram.controller.CmsAddCategoryController;
 import com.kosta.bookstagram.controller.CmsAddGenreController;
 import com.kosta.bookstagram.controller.CmsAddPwQuestionController;
 import com.kosta.bookstagram.controller.CmsAddTendController;
+import com.kosta.bookstagram.controller.CmsBoardDeleteController;
 import com.kosta.bookstagram.controller.CmsBoardListPageController;
 import com.kosta.bookstagram.controller.CmsCategoryDeleteController;
 import com.kosta.bookstagram.controller.CmsCategoryPageController;
@@ -136,6 +137,8 @@ public class HandlerMapping {
 			controller=new CmsCategoryDeleteController();
 		else if(command.equals("cmspwquestionupdate"))
 			controller=new CmsPwQuestionUpdateController();
+		else if(command.equals("cmsboarddelete"))
+			controller = new CmsBoardDeleteController();
 		else if(command.equals("searchbook"))
 			controller = new SearchBookController();
 		else if(command.equals("reviewwrite"))

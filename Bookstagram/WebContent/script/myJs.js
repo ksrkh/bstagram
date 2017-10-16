@@ -180,6 +180,15 @@ $( document ).ready( function() {
 		var findPw_name = $(this).parent().parent().find('.findPw_name').find(':input[name=pw_question]').val();
 		location.href="DispatcherServlet?command=cmspwquestionupdate&findPw_code="+findPw_code+"&findPw_name="+findPw_name;
 	});
+	
+	//관리자페이지 게시글 삭제 버튼 클릭시
+	$(".cmsboardlist_tr .cmsboarddlt_btn button").click(function(){
+		var board_no = $(this).parent().parent().find('.cmsboardno').text();
+		var boardtype_no = $(this).parent().parent().find('.cmsboardno').find(':input[name=cmsboardtypeno]').val();
+		location.href="DispatcherServlet?command=cmsboarddelete&board_no="+board_no+"&boardtype_no="+boardtype_no;
+	});
+	
+	cmsboardlist_tr
 });
 
 var chkJoinIdValue = false;
