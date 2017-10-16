@@ -42,6 +42,10 @@ public class BoardVO {
 	 */
 	private int bg_no;
 	/*
+	 * 게시판 배경 경로
+	 */
+	private String bg_path;
+	/*
 	 * 관리자게시판 제목부분에 보여줄 편집 내용
 	 */
 	private String content;
@@ -192,7 +196,17 @@ public class BoardVO {
 		this.board_regdate = board_regdate;
 		this.hit = hit;
 	}
-	
+	/**
+	 * 창작 글쓰기에서 배경 이지미 가져오기
+	 * 
+	 * @param bg_no
+	 * @param bg_path
+	 */
+	public BoardVO(int bg_no, String bg_path) {
+		super();
+		this.bg_no = bg_no;
+		this.bg_path = bg_path;
+	}
 	public int getBoard_no() {
 		return board_no;
 	}
@@ -280,10 +294,17 @@ public class BoardVO {
 	public void setContent(String content) {
 		this.content = content;
 	}
+	public String getBg_path() {
+		return bg_path;
+	}
+	public void setBg_path(String bg_path) {
+		this.bg_path = bg_path;
+	}
 	@Override
 	public String toString() {
-		return "BoardVO [board_no=" + board_no + ", boardtype_no=" + boardtype_no + ", id=" + id + ", board_regdate="
-				+ board_regdate + ", hit=" + hit + ", sympathy=" + sympathy + ", authority=" + authority + ", bg_no="
-				+ bg_no + "]";
+		return "BoardVO [board_no=" + board_no + ", boardtype_no=" + boardtype_no + ", boardtype_name=" + boardtype_name
+				+ ", id=" + id + ", nick=" + nick + ", board_regdate=" + board_regdate + ", hit=" + hit + ", sympathy="
+				+ sympathy + ", authority=" + authority + ", bg_no=" + bg_no + ", bg_path=" + bg_path + ", content="
+				+ content + "]";
 	}
 }
