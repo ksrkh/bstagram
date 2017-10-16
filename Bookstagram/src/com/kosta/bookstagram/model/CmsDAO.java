@@ -421,8 +421,9 @@ public class CmsDAO extends CommonDAO {
 	
 	/**
 	 * 관리자 페이지 회원정보 수정
+	 * @throws SQLException 
 	 */
-	public void cmsMemberUpdate(MemberVO member) {
-		//MemberDAO.getInstance().updateMember(member);
+	public void cmsMemberUpdate(MemberVO member) throws SQLException {
+		MemberDAO.getInstance().updateMember(member);
 	}
 }
