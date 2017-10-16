@@ -1,6 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <script type="text/javascript">
+    $(document).ready(function() {
+    	$("input[name=tend_ck]:checkbox").change(function() {
+            if( $("input[name=tend_ck]:checkbox:checked").length==1) {
+                $(":checkbox:not(:checked)").attr("disabled", "disabled");
+            } else {
+                $("input[name=tend_ck]:checkbox").removeAttr("disabled");
+            }
+        });//change
+    	$("#updateCancelBtn").click(function() {
+    		if(confirm("게시글을 수정을 취소하시겠습니까?")){
+    			alert("게시글 수정이 취소되었습니다");
+    			location.href="DispatcherServlet?command=lineList";		
+    			}
+    	});//cancelClick
+    	$("#updateBtn").click(function() {
+    		if(confirm("게시글을 수정하시겠습니까?")){
+    			var board_no=$(".updat_no").attr("id");
+    			var line_content=$("#up_content").val();
+    			var tendComp=$("#updateForm :checkbox[name=tend_ck]:checked").val();
+    			alert(tendComp);
+    			alert(line_content);
+    			alert("게시글이 수정되었습니다.")
+    			location.href="DispatcherServlet?command=lineUpdate&boardNo="+board_no
+    					+"&line_content="+line_content+"&tend_code="+tendComp;
+    		}
+    	});//updatclick
+    });//ready
+    </script>
 <!-- 기능의 UI를 담당하는 부분(컨테이너) -->
 <div class="container">
 	<!-- 현재 페이지의 타이틀  -->
@@ -14,14 +43,14 @@
 				<div class="well bs-component col-lg-12">
 					<div class="col-lg-1"></div>
 					<div class="col-lg-10">
-					<form class="form-horizontal" id="writeForm">
+					<form class="form-horizontal" id="updateForm">
 					
 						<fieldset>
 							<legend>책속의 한줄</legend>
 							<!-- 내용 입력 부분 -->
 							<div class="form-group" style="margin-top: 50px">
 								<div class="col-lg-12">
-									<textarea class="form-control ta" rows="15" id="content" placeholder="내용을 입력하세요." style="resize: none; background-image: url('img/write/write_bg6.jpg');">
+									<textarea class="form-control ta" rows="15" id="up_content" style="resize: none; background-image: url('img/write/write_bg6.jpg');">
 									${requestScope.line_content}
 									</textarea>
 						      	</div>
@@ -72,13 +101,13 @@
 								</div>
 							</div>
 							
-							<!-- 책검색 -->
+<!-- 							책검색
 							<div class="form-group" style="margin-bottom:15px">
 								<div class="col-lg-12">
 									<input type="text" class="form-control" name="book_search" id="book_search" placeholder="책 검색">
 								</div>
 							</div>
-							
+							 -->
 							<!-- 책검색내용이 보여질 폼입니다. -->
 							<div class="form-group" style="margin-bottom:15px; padding-left: 20px">
 								<!-- 기본이미지가 보여지는 곳이며, 검색 이후 검색된 이미지로 변경됩니다. -->
@@ -88,27 +117,28 @@
 								<div class="col-lg-10">
 									<!-- 책제목 -->
 									<div class="col-lg-12" style="padding-left: 0px; margin-bottom: 10px" id="book_title_area">
-										<input type="text" class="form-control" id="book_title" placeholder="${requestScope.updateBvo.book_title}">
+										${requestScope.updateBvo.book_title}
 									</div>
 									<!-- 저자 -->
 									<div class="col-lg-4" style="padding-left: 0px; margin-bottom: 10px; margin-left:0px; margin-right: 0px" id="book_author_area">
-										<input type="text" class="form-control" id="author" placeholder="${requestScope.updateBvo.book_author}">
+										${requestScope.updateBvo.book_author}
 									</div>
 									<!-- 출판사 -->
 									<div class="col-lg-4" id="book_publisher_area"> 
-										<input type="text" class="form-control" id="publisher" placeholder="${requestScope.updateBvo.book_publ}">
+										${requestScope.updateBvo.book_publ}
 										 
 									</div>
 									<!-- 출판일자 -->
 									<div class="col-lg-4" id="book_pubdate_area">
-										<input type="text" class="form-control" id="pubdate" placeholder="${requestScope.updateBvo.book_sdate}">
+										${requestScope.updateBvo.book_sdate}
 										
 									</div>
 									<!-- 책소개 -->
 									<div class="col-lg-12" style="padding-left: 0px" id="book_description_area">
-										<textarea class="form-control" rows="4" id="description" placeholder="책소개"
-										 readonly="readonly" style="resize: none">${requestScope.updateBvo.book_intro}</textarea>
+										${requestScope.updateBvo.book_intro}
 									</div>
+									<!-- 게시물번호 -->
+									<div class="updat_no" id="${requestScope.updateLvo.board_no}"></div>
 								</div>
 							</div>
 							
@@ -132,8 +162,8 @@
 		<!-- 작석 버튼/취소 버튼 -->
 		<div class="row" style="text-align:center; margin-top: 50px; margin-bottom: 100px">
 			<div class="col-lg-12">
-				<button type="reset" class="btn btn-default" id="">수정 취소</button>
-				<button type="submit" class="btn btn-primary" id="">수정 완료</button>
+				<button type="reset" class="btn btn-default" id="updateCancelBtn">수정 취소</button>
+				<button type="submit" class="btn btn-primary" id="updateBtn">수정 완료</button>
 			</div>
 		</div>
 	</div>

@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kosta.bookstagram.controller.listener.Controller;
-import com.kosta.bookstagram.model.BoardVO;
 import com.kosta.bookstagram.model.BookVO;
 import com.kosta.bookstagram.model.LineBoardDAO;
 import com.kosta.bookstagram.model.LineBoardVO;
@@ -21,9 +20,11 @@ public class LineUpdateViewController implements Controller {
 		int boardNo=Integer.parseInt(request.getParameter("boardNo"));
 		int tend_code=Integer.parseInt(request.getParameter("tend_code"));
 		String line_content=request.getParameter("line_content");
-		BoardVO dvo=LineBoardDAO.getInstance().selectBoard(boardNo);
+		System.out.println(line_content);
+		LineBoardVO dvo=(LineBoardVO) LineBoardDAO.getInstance().selectBoard(boardNo);
 		BookVO bvo=LineBoardDAO.getInstance().selectBook(boardNo);
 		ArrayList<LineTendVO> ultList=LineBoardDAO.getInstance().tendList();
+		System.out.println(dvo.getBoard_no());
 		LineBoardVO updateLvo=new LineBoardVO(dvo.getBoard_no(),dvo.getBoardtype_no(),dvo.getNick(),
 				dvo.getBoard_regdate(),dvo.getHit(),dvo.getAuthority(),dvo.getBg_no(),line_content,tend_code,bvo.getBook_no());
 		request.setAttribute("ultList", ultList);
@@ -31,7 +32,7 @@ public class LineUpdateViewController implements Controller {
 		request.setAttribute("updateBvo", bvo);
 		request.setAttribute("updateLvo", updateLvo);
 		request.setAttribute("url", "one-line-memo_update.jsp");
-		return "redirect:DispatcherServlet?command=lineList";
+		return "home.jsp";
 	}
 
 }

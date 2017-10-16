@@ -41,7 +41,8 @@ public class LineBoardVO extends BoardVO{
 		this.tend_code = tend_code;
 		this.book_no = book_no;
 	}
-
+	
+	
 	/**
 	 * -한줄 게시판 글 작성용 생성자<br/>
 	 * @param boardtype_no	게시글타입번호
@@ -59,9 +60,18 @@ public class LineBoardVO extends BoardVO{
 		this.tend_code = tend_code;
 		this.book_no = book_no;
 	}
-	//글작성시 책 값 작성용 생성자
+	/**
+	 * 
+	 * @param boardtype_no 글타입 번호
+	 * @param id           아이디
+	 * @param authority    저자
+	 * @param bg_no        배경번호
+	 * @param line_content 내용
+	 * @param tend_code    성향
+	 * @param bookVO       책에 들어가야할 값들
+	 */
 	public LineBoardVO(int boardtype_no, String id, int authority, int bg_no,
-			String line_content, int tend_code,BookVO bookVO) {
+			String line_content, int tend_code, BookVO bookVO) {
 		super(boardtype_no, id, authority, bg_no);
 		this.line_content = line_content;
 		this.tend_code = tend_code;

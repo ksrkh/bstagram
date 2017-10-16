@@ -50,7 +50,7 @@ $(document).ready(function() {
 	$("#writeLineBtn").click(function() {	
 		var content = $("#content").val();
 		var tendComp=$("#writeForm :checkbox[name=tend_ck]:checked").val();
-		var memeber_id=$(".write_id").attr("id");
+		var member_id=$(".write_id").attr("id");
 		if(content.length>110){
 		alert("110자 이상은 입력하실 수 없습니다.");
 		}else if(content==""){
@@ -83,9 +83,10 @@ $(document).ready(function() {
 				for(var i=0;i<book_image.length;i++){
 					book_image_p+=book_image[i];
 				}
+				
 				location.href="DispatcherServlet?command=lineWrite&line_content="+content+"&tend_code="+tendComp
-						+"&id="+memeber_id+"&book_title="+book_title_p+"&book_author="+book_author_p
-						+"&book_publisher="+book_publisher_p+"&book_pubdate"+book_pubdate_p
+						+"&member_id="+member_id+"&book_title="+book_title_p+"&book_author="+book_author_p
+						+"&book_publisher="+book_publisher_p+"&book_pubdate="+book_pubdate_p
 						+"&book_description="+book_description_p+"&book_image="+book_image_p;		
 			}
 	}

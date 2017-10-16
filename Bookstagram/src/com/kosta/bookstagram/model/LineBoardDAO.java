@@ -21,11 +21,13 @@ public class LineBoardDAO extends BoardDAO{
 	@Override
 	public void insertBoard(BoardVO board) throws SQLException {
 		System.out.println("LineBoardDAO, insertBoard() 실행");
-		BookVO bookVO=new BookVO();
-		LineBoardVO lineVO=new LineBoardVO();
+		LineBoardVO lineVO=(LineBoardVO) board;
+		System.out.println(lineVO.getId());
+		System.out.println(lineVO.getTend_code());
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
+		int book_no = 0;
 		try {
 			con=getConnection();
 			con.setAutoCommit(false);
@@ -34,39 +36,42 @@ public class LineBoardDAO extends BoardDAO{
 			sql.append("insert into board(board_no, boardtype_no, id, board_regdate, hit, authority, bg_no) ");
 			sql.append("values(board_seq.nextval, 1, ?, sysdate, 0, 1, 0)");
 			pstmt=con.prepareStatement(sql.toString());
-			pstmt.setString(1, board.getId());
+	
+			pstmt.setString(1, lineVO.getId());
 			pstmt.executeUpdate();
 			pstmt.close();
-			//book_no 찾기
-			String sql4="select book_seq.nextval from dual";
-			pstmt=con.prepareStatement(sql4);
-			rs=pstmt.executeQuery();
-			if(rs.next()) {
-				lineVO.setBook_no(rs.getInt(1));
-			}
-			pstmt.executeQuery();
+			
 			//book
 			StringBuilder sql1 = new StringBuilder();
 			sql1.append("insert into book(book_no, book_title, book_intro, book_author, book_publ, ");
 			sql1.append("book_sdate, book_edate, book_cate,  book_img) ");
-			sql1.append("values(book_seq.nextval, ?, ?, ?, ?, ?, ?");
+			sql1.append("values(book_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?)");
 			pstmt=con.prepareStatement(sql1.toString());
-			pstmt.setString(1, bookVO.getBook_title());
-			pstmt.setString(2, bookVO.getBook_intro());
-			pstmt.setString(3, bookVO.getBook_author());
-			pstmt.setString(4, bookVO.getBook_publ());
-			pstmt.setString(5, bookVO.getBook_sdate());
-			pstmt.setString(8, bookVO.getBook_img());
-			pstmt.executeUpdate();
-			pstmt.close();		
-			//라인
+			pstmt.setString(1, "언어의온도");
+			pstmt.setString(2, lineVO.getBookVO().getBook_intro());
+			pstmt.setString(3, lineVO.getBookVO().getBook_author());
+			pstmt.setString(4, lineVO.getBookVO().getBook_publ());
+			pstmt.setString(5, lineVO.getBookVO().getBook_sdate());
+			pstmt.setString(6, "0");
+			pstmt.setString(7, "0");
+			pstmt.setString(8, lineVO.getBookVO().getBook_img());
+			pstmt.executeUpdate();	
+			pstmt.close();
+			//book_no 찾기
+			pstmt=con.prepareStatement("select book_seq.currval from dual");
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				book_no = rs.getInt(1);				
+			}
+		
+			//라인		
 			StringBuilder sql2 = new StringBuilder();
-			sql2.append("insert into line_board(board_no, line_content, tend_code, book_no)");
+			sql2.append("insert into line_board(board_no, line_content, tend_code, book_no) ");
 			sql2.append("values(board_seq.currval, ?, ?, ?)");
 			pstmt=con.prepareStatement(sql2.toString());
 			pstmt.setString(1, lineVO.getLine_content());
 			pstmt.setInt(2, lineVO.getTend_code());
-			pstmt.setInt(3, lineVO.getBook_no());
+			pstmt.setInt(3, book_no);
 			pstmt.executeUpdate();
 			con.commit();
 		}catch(Exception e){
@@ -74,7 +79,7 @@ public class LineBoardDAO extends BoardDAO{
 			e.printStackTrace();
 			throw e;
 		}finally {
-			closeAll(pstmt, con);
+			closeAll(rs, pstmt, con);
 		}
 	}
 	
@@ -86,18 +91,24 @@ public class LineBoardDAO extends BoardDAO{
 	@Override
 	public void updateBoard(BoardVO board) throws SQLException {
 		System.out.println("LineBoardDAO, updateBoard() 실행");
-		LineBoardVO line=new LineBoardVO();
+		LineBoardVO line_up=(LineBoardVO) board;
 		Connection con=null;
 	    PreparedStatement pstmt=null;
 	      try {
 	         con=getConnection();
+	         con.setAutoCommit(false);
 	         String sql="update line_board set line_content=?,tend_code=? where board_no=?";
 	         pstmt=con.prepareStatement(sql);
-	         pstmt.setString(1, line.getContent());
-	         pstmt.setInt(2, line.getTend_code());
-	         pstmt.setInt(3, board.getBoard_no());
-	         pstmt.executeQuery();
-	      }finally {
+	         pstmt.setString(1, line_up.getContent());
+	         pstmt.setInt(2, line_up.getTend_code());
+	         pstmt.setInt(3, line_up.getBoard_no());
+	         pstmt.executeUpdate();
+	         con.commit();
+			}catch(Exception e){
+				con.rollback();
+				e.printStackTrace();
+				throw e;
+			}finally {
 	    	  closeAll(pstmt, con);
 	      }
 	}
@@ -109,6 +120,7 @@ public class LineBoardDAO extends BoardDAO{
 	    * delete from reply where board_no=21;
 	    * delete from sympathy where board_no=21;
 	    * delete from board where board_no=21;
+	    * 
 	    */
 	   @Override
 	   public void deleteBoard(int boardNo) throws SQLException {
@@ -117,6 +129,7 @@ public class LineBoardDAO extends BoardDAO{
 	      PreparedStatement pstmt=null;
 	      try {
 	         con=getConnection();
+	         con.setAutoCommit(false);
 	         String sql="delete from line_board where board_no=?";
 	         pstmt=con.prepareStatement(sql);
 	         pstmt.setInt(1, boardNo);
@@ -136,8 +149,13 @@ public class LineBoardDAO extends BoardDAO{
 	         pstmt=con.prepareStatement(sql);
 	         pstmt.setInt(1, boardNo);
 	         pstmt.executeUpdate();
-	      }finally {
-	         closeAll(pstmt, con);
+	         con.commit();
+	      }catch(Exception e){
+				con.rollback();
+				e.printStackTrace();
+				throw e;
+			}finally {
+	    	  closeAll(pstmt, con);
 	      }
 	   }
 
