@@ -206,4 +206,23 @@ public class CreateBoardDAO extends BoardDAO {
 			return categoryList;
 		}
 		//창작 글 쓰기 카테고리 end
+		//창작 글 쓰기 배경이미지 가져오기 start
+		public ArrayList<BoardVO> boardBackground() throws SQLException{
+			ArrayList<BoardVO> bglist=new ArrayList<BoardVO>();
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			try {
+				con = getConnection();
+				String sql = "select bg_no,bg_path from BOARD_BACKGROUND order by bg_no asc";
+				pstmt = con.prepareStatement(sql);
+				rs=pstmt.executeQuery();
+			while(rs.next())
+				bglist.add(new BoardVO(rs.getInt(1),rs.getString(2)));
+			} finally {
+				closeAll(rs,pstmt, con);
+			}
+			return bglist;
+		}
+		//창작 글 쓰기 배경이미지 가져오기 end
 	}

@@ -25,7 +25,8 @@ function chReply(){
 	return confirm("댓글을 작성하시겠습니까?");
 }
 
-function delReply(reply_no){
+function delReply(reply_no
+		){
 	if(confirm("덧글을 삭제하시겠습니까?")){
 		location.href="DispatcherServlet?method=post&command=deleteReply&board_no=${requestScope.cbdvo.board_no}&reply_no="+reply_no;
 		}

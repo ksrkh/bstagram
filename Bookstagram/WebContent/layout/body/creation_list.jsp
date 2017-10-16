@@ -11,7 +11,9 @@ function createPost(){
 	<!-- 현재 페이지의 타이틀  -->
 	<div class="tagline-upper text-left text-heading text-shadow text-white d-none d-lg-block" style="margin-top: 5px">
 	창작공간
+	<c:if test="${sessionScope.member.id!=null}">
 		<button type="submit" class="btn btn-primary" onclick="createPost()">글 쓰기</button>
+	</c:if>
 	</div>
 
 	<div class="bg-faded p-4 my-4">

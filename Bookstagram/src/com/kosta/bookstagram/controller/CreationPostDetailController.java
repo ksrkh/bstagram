@@ -20,17 +20,23 @@ public class CreationPostDetailController implements Controller {
 		String sboardNo=request.getParameter("board_no");
 		int boardNo=Integer.parseInt(sboardNo);
 		String id=request.getParameter("id");
+		String cookieNameId=null;
+				
+		if(id.contains("@")) 
+			cookieNameId=id.substring(0, id.indexOf("@"))+id.substring(id.indexOf("@")+1, id.indexOf("."));
+		else
+			cookieNameId=id;
 		
 		Cookie[] cookies=request.getCookies();
 		Cookie c=null;
 		if(cookies!=null) {
 			for(int i=0;i<cookies.length;i++) {
-				if((cookies[i].getName()).equals(sboardNo+id)){
+				if((cookies[i].getName()).equals(sboardNo+cookieNameId)){
 					c=cookies[i];
 				}
 			}
 			if(c==null) {
-				Cookie newCookie=new Cookie(sboardNo+id,sboardNo);
+				Cookie newCookie=new Cookie(sboardNo+cookieNameId,sboardNo);
 				newCookie.setMaxAge(60*60*24);
 				response.addCookie(newCookie);
 				CreateBoardDAO.getInstance().hits(boardNo);
@@ -44,7 +50,6 @@ public class CreationPostDetailController implements Controller {
 			request.setAttribute("cbdvo", cbvo);
 			request.setAttribute("url", "creation_content.jsp");
 			
-			System.out.println(cbvo.getHit());
 			
 			return "home.jsp";
 	}
