@@ -63,7 +63,7 @@ public class CreateBoardDAO extends BoardDAO {
 
 					StringBuilder sql = new StringBuilder();
 					sql.append("SELECT b.board_no,b.boardtype_no,m.id,m.nick,b.board_regdate,b.hit,b.authority, ");
-					sql.append("b.bg_no,bb.bg_path ,cb.create_title,cb.create_content,cb.category  ");
+					sql.append("b.bg_no,bb.bg_path,cb.create_title,cb.create_content,cb.category  ");
 					sql.append("FROM board b,create_board cb,member m, board_background bb ");
 					sql.append("WHERE b.board_no=cb.board_no and  b.id=m.id and b.bg_no=bb.bg_no and b.board_no=? ");
 					pstmt = con.prepareStatement(sql.toString());
@@ -71,7 +71,7 @@ public class CreateBoardDAO extends BoardDAO {
 					rs = pstmt.executeQuery();
 
 					if (rs.next()) {
-						cbvo = new CreateBoardVO(rs.getInt(1),rs.getInt(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6),rs.getInt(7),rs.getInt(8),rs.getString(9),rs.getString(10),rs.getInt(11));
+						cbvo = new CreateBoardVO(rs.getInt(1),rs.getInt(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6),rs.getInt(7),rs.getInt(8),rs.getInt(9),rs.getString(10),rs.getString(11),rs.getInt(12));
 					}
 
 				} finally {
