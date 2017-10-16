@@ -104,6 +104,29 @@ public class CreateBoardVO extends BoardVO {
 		this.create_content = create_content;
 		this.category = category;
 	}
+	/**
+	 * 창작게시글 상세보기에 필요<br/>
+	 * 
+	 * @param board_no			게시글번호
+	 * @param boardtype_no		게시글타입
+	 * @param id				아이디
+	 * @param nick				닉네임
+	 * @param board_regdate		게시글작성일자
+	 * @param hit				조회수
+	 * @param authority			공개권한
+	 * @param bg_no				게시글배경번호
+	 * @param bg_path			게시글배경경로
+	 * @param create_title		창작게시글제목
+	 * @param create_content	창작게시글내용
+	 * @param category			창작게시글분류
+	 */
+	public CreateBoardVO(int board_no, int boardtype_no,String id, String nick, String board_regdate, int hit, int authority,
+			int bg_no,String bg_path, String create_title, String create_content, int category) {
+		super(board_no, boardtype_no,id, nick, board_regdate, hit, authority, bg_no);
+		this.create_title = create_title;
+		this.create_content = create_content;
+		this.category = category;
+	}
 
 	/**
 	 * 창작게시글 목록 보기에 필요<br/>

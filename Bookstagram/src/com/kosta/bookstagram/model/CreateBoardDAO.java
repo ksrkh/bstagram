@@ -71,7 +71,7 @@ public class CreateBoardDAO extends BoardDAO {
 					rs = pstmt.executeQuery();
 
 					if (rs.next()) {
-						cbvo = new CreateBoardVO(rs.getInt(1),rs.getInt(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6),rs.getInt(7),rs.getInt(8),rs.getInt(9),rs.getString(10),rs.getString(11),rs.getInt(12));
+						cbvo = new CreateBoardVO(rs.getInt(1),rs.getInt(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6),rs.getInt(7),rs.getInt(8),rs.getString(9),rs.getString(10),rs.getString(11),rs.getInt(12));
 					}
 
 				} finally {
