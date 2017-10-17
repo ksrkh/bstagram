@@ -8,15 +8,28 @@ import javax.servlet.http.HttpServletResponse;
 import com.kosta.bookstagram.controller.listener.Controller;
 import com.kosta.bookstagram.model.ReviewBoardDAO;
 import com.kosta.bookstagram.model.ReviewBoardVO;
+import com.kosta.bookstagram.model.common.ListVO;
 import com.kosta.bookstagram.model.common.PagingBean;
 
 public class ReviewBoardListController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		ArrayList<ReviewBoardVO> plist=new ArrayList<ReviewBoardVO>();
-		String content = null;
+		int totalCount = ReviewBoardDAO.getInstance().totalCountByBoard();
+		String pno = request.getParameter("pageNo");		
+		int pageCountPerPageGroup = 5;
+		int postCountPerPage = 10;
 		PagingBean pagingBean=null;
+		String content = null;
+		//System.out.println("pano : "+pno);
+		//추가**************************************************************************************************
+		if(pno==null){
+			pagingBean=new PagingBean(postCountPerPage,pageCountPerPageGroup,totalCount);
+		}else{
+			pagingBean=new PagingBean(Integer.parseInt(pno),postCountPerPage,pageCountPerPageGroup,totalCount);
+		}
+		//*****************************************************************************************************
+		ArrayList<ReviewBoardVO> plist=new ArrayList<ReviewBoardVO>();
 		for(int i=0; i<ReviewBoardDAO.getInstance().boardList(pagingBean).size();i++) {
 			plist.add((ReviewBoardVO)ReviewBoardDAO.getInstance().boardList(pagingBean).get(i));
 		}	
@@ -29,7 +42,8 @@ public class ReviewBoardListController implements Controller {
 				plist.get(i).setReview_content(content);
 			}
 		}
-		request.setAttribute("reviewlist", plist);
+		ListVO<ReviewBoardVO> listVO=new ListVO<ReviewBoardVO>(plist,pagingBean);
+		request.setAttribute("reviewlist", listVO);
 		request.setAttribute("url", "book-review_list.jsp");
 	return "home.jsp";
 	}

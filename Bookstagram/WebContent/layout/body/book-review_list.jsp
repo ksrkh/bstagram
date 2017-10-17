@@ -16,7 +16,7 @@
 	</div>
 	  
 	<!-- start 추후 For로 돌릴 공간. -->
-	<c:forEach items="${requestScope.reviewlist}"  var="review">
+	<c:forEach items="${requestScope.reviewlist.list}"  var="review">
 	<div class="bg-faded p-4 my-4">
 		<div class="container">
 		<div class="col-sm-2">
@@ -54,6 +54,28 @@
 	</div>
 	</c:forEach>
 	<!-- end 추후 For로 돌릴 공간. -->
-	 <div id="loading"></div>
+	 <c:set var="pb" value="${requestScope.reviewlist.pagingBean}"></c:set>
+	<div class="bg-faded p-4 my-4">
+		<div style="width: 50%; margin: 0 auto;">
+			<ul class="pagination">
+				<c:if test="${pb.previousPageGroup}">
+					<li><a href="DispatcherServlet?command=createboardlist&pageNo=${pb.startPageOfPageGroup-1}">&laquo;</a></li>
+				</c:if>
+				<c:forEach var="i" begin="${pb.startPageOfPageGroup}" end="${pb.endPageOfPageGroup}">
+					<c:choose>
+						<c:when test="${pb.nowPage!=i}">
+							<li><a href="DispatcherServlet?command=reviewboardlist&pageNo=${i}">${i}</a></li>
+						</c:when>
+						<c:otherwise>
+							<li class="active"> <a href="#">${i}</a></li>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+				<c:if test="${pb.nextPageGroup}">
+					<li><a href="DispatcherServlet?command=reviewboardlist&pageNo=${pb.endPageOfPageGroup+1}">&raquo;</a></li>
+				</c:if>
+			</ul>
+		</div>
+	</div>
 </div>
 <!-- /.container -->
