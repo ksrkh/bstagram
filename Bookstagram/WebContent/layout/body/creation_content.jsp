@@ -103,6 +103,7 @@ function delReply(reply_no,board_type, id){
 				</c:choose>
 			</div>
 		</div>
+</div>
 <!-- /.container -->
 <div class="container" style="margin-bottom: 50px">
 	<div class="bg-faded p-4 my-4">
