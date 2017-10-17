@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- 기능의 UI를 담당하는 부분(컨테이너) -->
 <script type="text/javascript">
 		function nullCheck(){
@@ -18,7 +19,7 @@
 		}
 		function search(){
 			alert(document.review.book_search.value);
-			var book = document.review.book_search.value;
+			 var book = document.review.book_search.value;
 			$.ajax({
 				type:"get",
 				url: "DispatcherServlet",
@@ -51,17 +52,13 @@
 							<!-- 독후감 제목 -->
 							<div class="form-group" style="margin-top: 20px; margin-bottom: 20px">
 								<div class="col-lg-2" style="padding-right: 0px">
+								
 									<select class="form-control" id="select" name="review_genre">
-										<option value="1">소설</option>
-										<option value="2">에세이/시</option>
-										<option value="3">경영/경제</option>
-										<option value="4">자기계발</option>
-										<option value="5">인문/사회/역사</option>
-										<option value="6">건강/다이어트</option>
-										<option value="7">가정/생활</option>
-										<option value="8">종교</option>
-										<option value="9">여행</option>	
+									<c:forEach items="${requestScope.genreList}" var="genre">
+										<option value="${genre.genre}">${genre.genre_name}</option>	
+									</c:forEach>
 									</select>
+										
 								</div>
 								<div class="col-lg-10">
 									<input type="text" class="form-control" id="review_title" name="review_title" placeholder="독후감 제목">
@@ -128,7 +125,8 @@
 							</div>
 							
 							<!-- 책검색내용이 보여질 폼입니다. -->
-							<div class="form-group" style="margin-bottom:15px; padding-left: 20px">
+							<div  class="form-group" style="display: none; position: absolute; margin-bottom:15px; padding-left: 20px" id="searchDropDown">
+							<div class="form-group" style=" position: absolute; margin-bottom:15px; padding-left: 20px">
 								<!-- 기본이미지가 보여지는 곳이며, 검색 이후 검색된 이미지로 변경됩니다. -->
 								<div class="col-lg-2">
 								<input type="hidden" name="review_book_img" value="test">
@@ -157,9 +155,9 @@
 									</div>
 									<!-- 책장르 입력 -->
 									<input type="hidden" name="review_book_cate" value="test">
-								</div>
-							</div>
-							
+								</div><!--  상위 -->
+							</div><!--  block -->
+							</div><!-- none -->
 						</fieldset>
 					</form>
 					</div>

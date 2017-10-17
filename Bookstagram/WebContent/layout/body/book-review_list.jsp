@@ -7,7 +7,7 @@
 	<div class="tagline-upper text-left text-heading text-shadow text-white d-none d-lg-block" style="margin-top: 5px">
 		Book-Review
 	<c:if test="${sessionScope.member!=null}">
-	<button type="button" class="btn btn-primary bookreview_write">글쓰기</button>
+	<button type="submit" class="btn btn-primary bookreview_write">글쓰기</button>
 	</c:if>
 	</div>
 	  
