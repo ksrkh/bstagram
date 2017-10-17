@@ -49,10 +49,18 @@ public class BoardVO {
 	 * 관리자게시판 제목부분에 보여줄 편집 내용
 	 */
 	private String content;
+	
+	private int mySympathy=0;
 	/*
 	 * 기본 생성자
 	 */
 	public BoardVO() {}
+	public int getMySympathy() {
+		return mySympathy;
+	}
+	public void setMySympathy(int mySympathy) {
+		this.mySympathy = mySympathy;
+	}
 	/**
 	 * -모든 매개변수를 갖고있는 생성자 <br/>
 	 * -닉네임 포함되어있음<br/>
