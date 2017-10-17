@@ -34,4 +34,8 @@ public class ReviewBoardListController implements Controller {
 	return "home.jsp";
 	}
 
+	
+	
+	
+	
 }

@@ -10,7 +10,6 @@ import org.json.JSONObject;
 import com.kosta.bookstagram.controller.listener.Controller;
 import com.kosta.bookstagram.model.LineBoardDAO;
 import com.kosta.bookstagram.model.LineBoardVO;
-import com.kosta.bookstagram.model.ReviewBoardDAO;
 import com.kosta.bookstagram.model.common.ListVO;
 import com.kosta.bookstagram.model.common.PagingBean;
 
