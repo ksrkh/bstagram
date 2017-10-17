@@ -1,11 +1,18 @@
 package com.kosta.bookstagram.model;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import com.kosta.bookstagram.model.common.BookSearchInfo;
 import com.kosta.bookstagram.model.common.CommonDAO;
 import com.kosta.bookstagram.model.common.PagingBean;
 import com.kosta.bookstagram.model.common.ReReplyVO;
@@ -231,6 +238,42 @@ public abstract class BoardDAO extends CommonDAO implements BoardListener{
 		}finally {
 			closeAll(pstmt, con);
 		}
+	}
+	
+	/**
+	 * 게시판에서 책을 검색하는 기능입니다.
+	 * @throws IOException 
+	 */
+	public String searchBook(String book_name) throws IOException {
+		String text 				= URLEncoder.encode(book_name, "UTF-8");
+		String apiURL 				= "https://openapi.naver.com/v1/search/book.json?query=" + text + "&display=1"; // json 결과
+		String inputLine			= null;
+		BufferedReader br 			= null;
+		URL url 					= new URL(apiURL);
+		StringBuffer responseBook	= new StringBuffer();
+		
+		try {
+			
+			HttpURLConnection con = (HttpURLConnection) url.openConnection();
+			con.setRequestMethod("GET");
+			con.setRequestProperty("X-Naver-Client-Id", BookSearchInfo.BOOK_SEARCH_CLIENT_ID);
+			con.setRequestProperty("X-Naver-Client-Secret", BookSearchInfo.BOOK_SEARCH_CLIENT_SECRET);
+			int responseCode = con.getResponseCode();
+			if (responseCode == 200) {
+				// 정상 호출
+				br = new BufferedReader(new InputStreamReader(con.getInputStream(), "UTF-8"));
+			} else {
+				// 에러 발생
+				br = new BufferedReader(new InputStreamReader(con.getErrorStream(), "UTF-8"));
+			}
+			
+			while ((inputLine = br.readLine()) != null)
+				responseBook.append(inputLine);
+			
+		}finally {
+			br.close();
+		}
+		return responseBook.toString();
 	}
 
 	/**

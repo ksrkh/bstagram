@@ -28,6 +28,7 @@ public class DispatcherServlet extends HttpServlet {
 	protected void handler(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			String command = request.getParameter("command");
+			System.out.println("Command:"+command);
 			String url = HandlerMapping.getInstance().create(command).execute(request, response).trim();
 			if (url.startsWith("redirect:")) {
 				response.sendRedirect(url.substring(9));

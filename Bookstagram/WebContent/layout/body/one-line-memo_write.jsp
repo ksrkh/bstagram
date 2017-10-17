@@ -22,31 +22,6 @@ $(document).ready(function() {
 			location.href="DispatcherServlet?command=lineList";		
 			}
 	});//cancel click
-	$("#book_search").change(function() {
-		var book = $(this).val();
-		$.ajax({
-			type:"get",
-			url: "DispatcherServlet",
-			data:"command=searchbook&book_search="+book,
-			dataType:"json",
-			success:function(data){//data로 서버의 응답 정보가 들어온다.
-				  for(var i in data.items) {
-					  book_title=data.items[i].title;
-					  book_author=data.items[i].author;
-					  book_publisher=data.items[i].publisher;
-					  book_pubdate=data.items[i].pubdate;
-					  book_description=data.items[i].description;
-					  book_image=data.items[i].image;
-					  $("#book_title_area").html(book_title);//제목
-					  $("#book_author_area").html(book_author);//저자
-					  $("#book_publisher_area").html(book_publisher);//출판사
-					  $("#book_pubdate_area").html(book_pubdate);//출판일
-					  $("#book_description_area").html(book_description);//내용
-					  $("#book_image_area").html("<img height=171px width=120px src="+data.items[i].image+">");//이미지
-			        }											
-			}	
-		});
-	});//search
 	
 	$("#writeLineBtn").click(function() {	
 		var content = $("#content").val();
@@ -119,15 +94,8 @@ $(document).ready(function() {
 								</div>
 							</div>
 							
-							<!-- 내용 입력 부분 -->
-							<div class="form-group">
-								<div class="col-lg-12">
-									<textarea class="form-control ta" rows="15" id="content" placeholder="내용을 입력하세요." style="resize: none"></textarea>
-						      	</div>
-						    </div>
-							
 							<!-- 책검색내용이 보여질 폼입니다. -->
-							<div class="form-group" style="margin-bottom:15px; padding-left: 20px">
+							<div id="searchForm" class="form-group" style="display:none; margin-bottom:15px; padding-left: 20px">
 								<!-- 기본이미지가 보여지는 곳이며, 검색 이후 검색된 이미지로 변경됩니다. -->
 								<div class="col-lg-2" id="book_image_area">
 									<img height=171px width=120px src="https://search.pstatic.net/common/?src=http%3A%2F%2Fbookthumb.phinf.naver.net%2Fcover%2F109%2F245%2F10924505.jpg">
@@ -155,6 +123,14 @@ $(document).ready(function() {
 									</div>
 								</div>
 							</div>
+							
+							<!-- 내용 입력 부분 -->
+							<div class="form-group">
+								<div class="col-lg-12">
+									<textarea class="form-control ta" rows="5" id="content" placeholder="내용을 입력하세요." style="resize: none"></textarea>
+						      	</div>
+						    </div>
+							
 							
 							<!-- 한줄 메모의 성향을 선택할 공간 입니다. ltList-->
 							<div class="bg-faded p-4 my-4">

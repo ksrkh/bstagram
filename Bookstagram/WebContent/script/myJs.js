@@ -53,6 +53,7 @@ $( document ).ready( function() {
     
     $("#book_search").keypress(function(e) { 
 	    if (e.keyCode == 13){
+	    	alert("zzz");
 	    	var book = $(this).val();
 			$.ajax({
 				type:"get",
@@ -60,6 +61,7 @@ $( document ).ready( function() {
 				data:"command=searchbook&book_search="+book,
 				dataType:"json",
 				success:function(data){//data로 서버의 응답 정보가 들어온다.
+					$("#searchForm").css("display","block");
 					for(var i in data.items) {
 						book_title=data.items[i].title;
 						book_author=data.items[i].author;
