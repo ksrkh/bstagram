@@ -6,7 +6,31 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script type="text/javascript">
 $(document).ready(function(){	
-	
+	function getPageList(board_no,member_id,line_content,nick){
+		info="<div class='bg-faded p-4 my-4'>";
+		info+="<div class='container'>";
+		info+="<blockquote class='quote-box' style='background-color: #4ADFCC;'>";
+		info+="<p class='quotation-mark'>";
+		info+="“";
+		info+="</p>";
+		info+="<p class='quote-text'>";
+		info+=line_content;
+		info+="</p>";
+		info+="<hr>";		
+		info+="<div class='blog-post-actions'>";
+		info+="<p class='blog-post-bottom pull-left'>";
+		info+=nick;
+		info+="</p>";
+		info+="<p class='blog-post-bottom pull-right'>";
+		info+="<span class='badge quote-badge'>";
+		info+="896</span> ❤";
+		info+="</p>";
+		info+="</div>";
+		info+="</blockquote>";
+		info+="</div>";
+		info+="</div>";
+		return info;
+	}
 	var page=1;
 	$(function(){
 		getList(page);
@@ -27,31 +51,31 @@ $(document).ready(function(){
 			data:"command=pangingScroll&pageNo="+page,
 			dataType:"json",
 			success:function(data){
-				if(page==1){
+			/* 	if(page==1){
 					$("#loading").html("로딩중입니다");					
-				}
-				var info="";
-				var info="<tr>";
-				info+="<td>"+data.ename+"</td>";
-				
+				} */
+				var board_no="";
+				var member_id="";
+				var content="";
+				var nick="";
+				var page_f="";
 				if(page!=1){
 					for(var i in data.list){
-						
-						info+="<tr>";
-						info+="<td>"+data.list[i].nick+"</td>";
-						info+="</tr>"
-						
-						$("#loading").append(info);	
-						alert(page);
+						board_no=data.list[i].board_no;
+						member_id=data.list[i].id;
+						line_content=data.list[i].line_content;
+						nick=data.list[i].nick;
+						page_f=getPageList(board_no,member_id,line_content,nick);
+						$("#loading").append(page_f);	
 					 }
-				}else{
-					$("#loading").html("마지막 페이지 입니다");
-				} 
-				}
-			 
-			
+					} 
+				}	
 		});//ajax
-	}   
+		
+	}  
+	$("#line_board_btn").click(function() {
+		$(this).toggle(1000);
+	});
      $("#sympathy-click").click(function() {
      	alert("공감 upup");
      });//click 공감
@@ -147,9 +171,7 @@ $(document).ready(function(){
 						${lvo.nick}
 					</p>
 					<p class="blog-post-bottom pull-right">
-						       <a href="#"><img src="icon_img/like0.png"></a> 
-						       <a href="#"><img src="icon_img/like1.png"></a>  		
-						<span class="badge quote-badge">${lvo.sympathy}</span>
+						<i class="fa fa-heart" id="sympathy-click" style="font-size:20px;color:red;margin-right:5px;margin-top: 10px"></i><span class="badge quote-badge">${lvo.sympathy}</span>
 					</p>
 				</div>
 			</blockquote>
