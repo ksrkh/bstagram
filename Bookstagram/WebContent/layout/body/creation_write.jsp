@@ -21,6 +21,9 @@ function contentCheck(){
 function backgroundNo(bgno){
 	$('.hidden_bg_value').val(bgno);
 }
+function writecancle(){
+	location.href="DispatcherServlet?command=createboardlist";
+}
 </script>
 <!-- 기능의 UI를 담당하는 부분(컨테이너) -->
 <div class="container">
@@ -111,7 +114,7 @@ function backgroundNo(bgno){
 		<!-- 작석 버튼/취소 버튼 -->
 		<div class="row" style="text-align:center; margin-top: 25px; margin-bottom: 50px">
 			<div class="col-lg-12">
-				<button type="reset" class="btn btn-default" form="create">작성 취소</button>
+				<button type="reset" class="btn btn-default" onclick="writecancle()">작성 취소</button>
 				<button type="submit" class="btn btn-primary" form="create">작성 완료</button>
 			</div>
 		</div>

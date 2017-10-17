@@ -5,7 +5,11 @@
 function backgroundNo(bgno){
 	$('.hidden_bg_value').val(bgno);
 }
+function updatecancle(){
+	location.href="DispatcherServlet?command=createboardlist";
+}
 </script>
+
 <!-- 기능의 UI를 담당하는 부분(컨테이너) -->
 <div class="container">
 	<!-- 현재 페이지의 타이틀  -->
@@ -48,7 +52,8 @@ function backgroundNo(bgno){
 							<!-- 내용 입력 부분 -->
 							<div class="form-group">
 								<div class="col-lg-12">
-									<textarea class="form-control ta" rows="30" id="content" name="content">${requestScope.cbdvo.create_content} </textarea>
+									<textarea class="form-control ta" rows="30" id="content" name="content" style="background-image:url('img/write/write_bg${requestScope.cbdvo.bg_path}')" >
+											${requestScope.cbdvo.create_content} </textarea>
 						      	</div>
 						    </div>
 						    
@@ -58,7 +63,7 @@ function backgroundNo(bgno){
 							    <div class="col-lg-12" style="margin-top: 5px; text-align: center">
 								    <div class="radio" style="padding-top: 0px; padding-bottom: 0px">
 								    	<label><input type="radio" name="content_bg" id="radio_bg2" value="content_bg2">이미지로 하기</label>
-								    	<label><input type="radio" name="content_bg" id="radio_bg3" value="content_bg3" checked="checked" onclick="backgroundNo(0)">선택안함</label>
+								    	<label><input type="radio" name="content_bg" id="radio_bg3" value="content_bg3" onclick="backgroundNo(0)">선택안함</label>
 								    </div>
 							    </div>
 						    </div>
@@ -88,7 +93,7 @@ function backgroundNo(bgno){
 									</div>
 								</div>
 							</div>
-						<input type="hidden" class="hidden_bg_value" name="bgNo" value="0">			
+						<input type="hidden" class="hidden_bg_value" name="bgNo" value="${requestScope.cbdvo.bg_no}">			
 						</fieldset>
 					</form>
 					</div>
@@ -100,7 +105,7 @@ function backgroundNo(bgno){
 		<!-- 작석 버튼/취소 버튼 -->
 		<div class="row" style="text-align:center; margin-top: 25px; margin-bottom: 50px">
 			<div class="col-lg-12">
-				<button type="reset" class="btn btn-default">작성 취소</button>
+				<button type="reset" class="btn btn-default" onclick="updatecancle()">작성 취소</button>
 				<button type="submit" class="btn btn-primary" form="update">작성 완료</button>
 			</div>
 		</div>
