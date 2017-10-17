@@ -11,12 +11,18 @@ function contentCheck(){
 	}else if(f.content.value==""){
 		alert("내용을 입력하세요!");
 		flag=false;
+	}else if(f.bgNo.value==""){
+		alert("배경 이미지를 선택하세요!");
+		flag=false;
 	}
 	return flag;
 }
 
 function backgroundNo(bgno){
 	$('.hidden_bg_value').val(bgno);
+}
+function writecancle(){
+	location.href="DispatcherServlet?command=createboardlist";
 }
 </script>
 <!-- 기능의 UI를 담당하는 부분(컨테이너) -->
@@ -38,7 +44,7 @@ function backgroundNo(bgno){
 	
 						<fieldset>
 								<legend>창작하기</legend>
-							<!-- 독후감 제목 -->
+							<!-- 창작글 제목 -->
 							<div class="form-group" style="margin-top: 20px; margin-bottom: 20px">
 								<div class="col-lg-2" style="padding-right: 0px">
 									<select class="form-control" id="select" name="tend_code">
@@ -65,7 +71,7 @@ function backgroundNo(bgno){
 							    <div class="col-lg-12" style="margin-top: 5px; text-align: center">
 								    <div class="radio" style="padding-top: 0px; padding-bottom: 0px">
 								    	<label><input type="radio" name="bgNo" id="radio_bg2" value="" class="hidden_bg_value">이미지로 하기</label>
-								    	<label><input type="radio" name="bgNo" id="radio_bg3" value="" class="bg_empthy">선택안함</label>
+								    	<label><input type="radio" name="bgNo" id="radio_bg3" value="" class="hidden_bg_value" onclick="backgroundNo(0)" >선택안함</label>
 								    </div>
 							    </div>
 						    </div>
@@ -97,7 +103,7 @@ function backgroundNo(bgno){
 							</div>
 							
 						</fieldset>
-						<input type="hidden" class="hidden_bg_value" name="bgNo" value="">
+						<input type="hidden" class="hidden_bg_value" name="bgNo" id="bgNo" value="0">
 					</form>
 					</div>
 					<div class="col-lg-1"></div>
@@ -108,7 +114,7 @@ function backgroundNo(bgno){
 		<!-- 작석 버튼/취소 버튼 -->
 		<div class="row" style="text-align:center; margin-top: 25px; margin-bottom: 50px">
 			<div class="col-lg-12">
-				<button type="reset" class="btn btn-default" form="create">작성 취소</button>
+				<button type="reset" class="btn btn-default" onclick="writecancle()">작성 취소</button>
 				<button type="submit" class="btn btn-primary" form="create">작성 완료</button>
 			</div>
 		</div>

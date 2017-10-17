@@ -336,4 +336,8 @@ where D.rnum between 1 and 5;
 
 order by m.regdate desc
 
+UPDATE BOARD_BACKGROUND
+SET bg_path='empthy.jpg'
+WHERE bg_no=0;
 
+select*from BOARD_BACKGROUND;

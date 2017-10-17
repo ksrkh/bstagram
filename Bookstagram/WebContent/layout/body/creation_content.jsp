@@ -32,13 +32,19 @@ function delReply(reply_no,board_type, id){
 		} 
 }
 </script>
+<style>
 
+#content-name {
+    text-align: right;
+} 
+</style>
 <!-- 기능의 UI를 담당하는 부분(컨테이너) -->
 <div class="container">
 	<!-- 현재 페이지의 타이틀  -->
-	<!-- <div class="tagline-upper text-left text-heading text-shadow text-white d-none d-lg-block" style="margin-top: 5px">
-		책속의 한줄
-	</div> -->  
+	<div class="tagline-upper text-left text-heading text-shadow text-white d-none d-lg-block" style="margin-top: 5px">
+		창작 글
+	</div> 
+	
 	<div class="bg-faded p-4 my-4">
 		<div class="row">
 			<div class="col-lg-12">
@@ -46,35 +52,20 @@ function delReply(reply_no,board_type, id){
 					<div class="col-lg-12">
 					<form class="form-horizontal">
 						<fieldset>
-							<!-- 타이틀 -->
-							<legend style="padding-bottom: 15px"><b>창작글</b></legend>
-							
-						<!-- 게시글 제목 부분 -->
-							<div class="col-lg-12" style="border-bottom: #848484 1px solid; padding-left: 30px">
-								<div class="form-group">
-									<!-- 제목 -->
-									<label style="float: left">${requestScope.cbdvo.create_title}</label>
-									<!-- 작성일자 -->
-									<label style="float: right"><b>작성일자</b>&nbsp;&nbsp; ${requestScope.cbdvo.board_regdate}</label>
-								</div>
-							</div>
-							
-							<!-- 게시글 작성자 부분 -->
-							<div class="col-lg-12" style="border-bottom: #848484 1px solid; padding-left: 30px; padding-top: 10px">
-								<div class="form-group">
-									<!-- 작성자 -->
-									<label style="float: left"><b>작성자</b>&nbsp;&nbsp; ${requestScope.cbdvo.nick}</label>
-									<!-- 조회수 -->
-									<label style="float: right"><b>조회수</b>&nbsp;&nbsp; ${requestScope.cbdvo.hit}</label>
-								</div>
-						    </div>
-							
-							<!-- 내용 부분 -->
+							<!-- content 부분 -->
 							<div class="col-lg-12" style="border-bottom: #848484 1px solid; padding-left: 15px; padding-top: 0px">
 								<div class="form-group">
 								<img class="write_bg img-fluid w-100" src="img/write/write_bg${requestScope.cbdvo.bg_path}" alt="">
 									<div class="card-img-overlay bg-overlay" >
-										<div class="text text-white">
+										<div class="text text-white" >
+											<div class="form-group" style="float: right; margin-right: 5px">
+													<!-- 작성자 -->
+														<b>작성자</b>&nbsp;&nbsp; ${requestScope.cbdvo.nick}&nbsp;&nbsp; 
+													<!-- 조회수 -->
+														<b>조회수</b>&nbsp;&nbsp; ${requestScope.cbdvo.hit}&nbsp;&nbsp; 
+											</div>
+											<h2 class="card-title text-shadow text-white text-uppercase mb-0">${requestScope.cbdvo.create_title}</h2>
+											<h4 class="text-shadow text-white">${requestScope.cbdvo.board_regdate}</h4>
 							 				<br><br> &nbsp; ${requestScope.cbdvo.create_content}
 											<br>
 											<br>

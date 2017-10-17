@@ -110,8 +110,9 @@ public class CreateBoardDAO extends BoardDAO {
 					pstmt.setString(2, cbvo.getCreate_content());
 					pstmt.setInt(3, cbvo.getCategory());
 					pstmt.executeUpdate();
-
+					con.commit();
 				} finally {
+					con.rollback();
 					closeAll(pstmt, con);
 				}
 			}
@@ -146,8 +147,9 @@ public class CreateBoardDAO extends BoardDAO {
 					pstmt.setInt(3, cbvo.getCategory());
 					pstmt.setInt(4, cbvo.getBoard_no());
 					pstmt.executeUpdate();
-
+					con.commit();
 				} finally {
+					con.rollback();
 					closeAll(pstmt, con);
 				}
 			}
@@ -171,8 +173,9 @@ public class CreateBoardDAO extends BoardDAO {
 					pstmt = con.prepareStatement(sql2);
 					pstmt.setInt(1, boardNo);
 					pstmt.executeUpdate();
-
+					con.commit();
 				} finally {
+					con.rollback();
 					closeAll(pstmt, con);
 				}
 			}

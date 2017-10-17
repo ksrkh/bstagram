@@ -51,9 +51,6 @@ public class CreationPostDetailController implements Controller {
 			request.setAttribute("relist", relist);
 			request.setAttribute("cbdvo", cbvo);
 			request.setAttribute("url", "creation_content.jsp");
-			
-			System.out.println(cbvo.getBg_no()+"디테일 배경 번호");
-			System.out.println(cbvo.getBg_path());
 			return "home.jsp";
 	}
 }
