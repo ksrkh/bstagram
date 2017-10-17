@@ -14,20 +14,21 @@
 					<form class="form-horizontal" action="DispatcherServlet" method="post" name="LoginMainFrame">
 						<fieldset>
 							<!-- 로고 -->
-							<div class="form-group" style="margin-top: 65px">
+							<div class="form-group" style="margin-top: 65px; margin-bottom: 80px" >
 								<div class="col-lg-3"></div>
-								<div class="col-lg-5"><img alt="" src="icon_img/pwfind_logo.png" style="width: 400px; height: 100px"></div>
-								<div class="col-lg-2"></div>
+								<div class="col-lg-4"><img alt="" src="icon_img/pwfind_logo.png" style="width: 400px; height: 100px"></div>
+								<div class="col-lg-3"></div>
 							</div>
 							
-							<!-- 이메일 -->
+							
+							<!-- 비밀번호찾기질문답변 -->
 							<div class="form-group" style="margin-top: 30px; margin-bottom:100px">
 								<div class="col-lg-2"></div>
-								<label for="inputEmail" class="col-lg-2 control-label">아이디</label>
-								<div class="col-lg-3">
-									<input type="text" class="col-lg-12 form-control" id="usermainid" name="id" placeholder="이메일을 입력 해주세요.">
+								<div class="col-lg-5">
+									<label for="select" class="col-lg-12 control-label">***회원님의 비밀번호 찾기 결과입니다.</label>
+									<label for="select" class="col-lg-12 control-label">회원님의 비밀번호 ***** 입니다.</label>
 								</div>
-								<div class="col-lg-3"><input type="button" class="btn btn-info main_login" value="로그인" style="width: 140px"></div>
+								<div class="col-lg-3"></div>
 							</div>
 						</fieldset>
 					</form>
