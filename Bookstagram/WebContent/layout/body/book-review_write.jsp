@@ -68,7 +68,7 @@
 							<!-- 내용 입력 부분 -->
 							<div class="form-group">
 								<div class="col-lg-12">
-									<textarea class="form-control ta" rows="30" id="review_content" name="review_content" placeholder="내용을 입력하세요."></textarea>
+									<strong><textarea style="resize:none; font-size:20px;" class="form-control ta" rows="20" id="review_content" name="review_content" placeholder="내용을 입력하세요."></textarea></strong>
 						      	</div>
 						    </div>
 						    
@@ -97,6 +97,7 @@
 											<ul class="board_background" style="padding-left: 0px">
 												<li><img class="write_bg" src="img/write/write_bg11.jpg" alt=""></li>
 												<li><img class="write_bg" src="img/write/write_bg12.jpg" alt=""></li>
+												<li><img class="write_bg" src="img/write/write_bg13.jpg" alt=""></li>
 												<li><img class="write_bg" src="img/write/write_bg8.jpg" alt=""></li>
 												<li><img class="write_bg" src="img/write/write_bg4.jpg" alt=""></li>
 												<li><img class="write_bg" src="img/write/write_bg5.jpg" alt=""></li>
