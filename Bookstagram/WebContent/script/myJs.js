@@ -92,13 +92,13 @@ $( document ).ready( function() {
 	
 	//독후감쓰기 버튼
 	$('.bookreview_write').click(function () {
-	   	location.href="ex-book_review_write.jsp";
+	   	location.href="DispatcherServlet?command=reviewwrite";
 	});
 	 
 	 
 	//창작게시판 글쓰기 버튼
 	$('.creation_write').click(function () {
-		location.href="ex-creation_write.jsp";
+		location.href="DispatcherServlet?command=createwriteview";
 	});
 	
 	
