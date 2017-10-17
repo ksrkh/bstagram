@@ -47,7 +47,7 @@ public class LineBoardDAO extends BoardDAO{
 			sql1.append("book_sdate, book_edate, book_cate,  book_img) ");
 			sql1.append("values(book_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?)");
 			pstmt=con.prepareStatement(sql1.toString());
-			pstmt.setString(1, lineVO.getBookVO().getBook_title());
+			pstmt.setString(1, "언어의온도");
 			pstmt.setString(2, lineVO.getBookVO().getBook_intro());
 			pstmt.setString(3, lineVO.getBookVO().getBook_author());
 			pstmt.setString(4, lineVO.getBookVO().getBook_publ());

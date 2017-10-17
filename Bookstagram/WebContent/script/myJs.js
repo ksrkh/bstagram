@@ -120,7 +120,7 @@ $( document ).ready( function() {
 	
 	//독후감쓰기 버튼
 	$('.bookreview_write').click(function () {
-	   	location.href="DispatcherServlet?command=reviewwrite";
+	   	location.href="DispatcherServlet?command=reviewwritebutton";
 	});
 	 
 	 

@@ -70,10 +70,10 @@ function delReply(reply_no,board_type, id){
 						    </div>
 							
 							<!-- 내용 부분 -->
-							<div class="col-lg-12" style="border-bottom: #848484 1px solid; padding-left: 30px; padding-top: 15px">
-								<div class="form-group" >
+							<div class="col-lg-12" style="border-bottom: #848484 1px solid; padding-left: 15px; padding-top: 0px">
+								<div class="form-group">
 								<img class="write_bg img-fluid w-100" src="img/write/write_bg${requestScope.cbdvo.bg_path}" alt="">
-									<div class="card-img-overlay">
+									<div class="card-img-overlay bg-overlay" >
 										<div class="text text-white">
 							 				<br><br> &nbsp; ${requestScope.cbdvo.create_content}
 											<br>
@@ -103,7 +103,6 @@ function delReply(reply_no,board_type, id){
 				</c:choose>
 			</div>
 		</div>
-</div>
 <!-- /.container -->
 <div class="container" style="margin-bottom: 50px">
 	<div class="bg-faded p-4 my-4">
