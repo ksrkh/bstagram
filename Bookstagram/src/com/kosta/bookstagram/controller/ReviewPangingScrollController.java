@@ -14,19 +14,19 @@ import com.kosta.bookstagram.model.ReviewBoardDAO;
 import com.kosta.bookstagram.model.common.ListVO;
 import com.kosta.bookstagram.model.common.PagingBean;
 
-public class PagingScrollerController implements Controller {
+public class ReviewPangingScrollController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		int lineTotalCount=LineBoardDAO.getInstance().totalCountByBoard();
-		String pno=request.getParameter("pageNo");
-		System.out.println(pno);
+		int reviewTotalCount = ReviewBoardDAO.getInstance().totalCountByBoard();
+		String rpno = request.getParameter("reviewpageNo");
+		System.out.println(rpno);
 		System.out.println("페이징처리");
-		PagingBean pagingBean=new PagingBean(lineTotalCount,1);
-		if(pno==null){
-			pagingBean=new PagingBean(lineTotalCount);
+		PagingBean pagingBean=new PagingBean(reviewTotalCount,1);
+		if(rpno==null){
+			pagingBean=new PagingBean(reviewTotalCount);
 		}else{
-			pagingBean=new PagingBean(lineTotalCount,Integer.parseInt(pno));
+			pagingBean=new PagingBean(reviewTotalCount,Integer.parseInt(rpno));
 		}		
 		ArrayList<LineBoardVO> list=new ArrayList<LineBoardVO>();
 		for(int i=0;i<LineBoardDAO.getInstance().boardList(pagingBean).size();i++) {
@@ -39,5 +39,6 @@ public class PagingScrollerController implements Controller {
 		request.setAttribute("responseBody", ja);
 		return "AjaxView";
 	}
+
 
 }

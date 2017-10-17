@@ -1,6 +1,77 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <script type="text/javascript">
+    $(document).ready(function(){	
+    	function getPageList(board_no,member_id,line_content,nick){
+    		info="<div class='bg-faded p-4 my-4'>";
+    		info+="<div class='container'>";
+    		info+="<blockquote class='quote-box' style='background-color: #4ADFCC;'>";
+    		info+="<p class='quotation-mark'>";
+    		info+="“";
+    		info+="</p>";
+    		info+="<p class='quote-text'>";
+    		info+=line_content;
+    		info+="</p>";
+    		info+="<hr>";		
+    		info+="<div class='blog-post-actions'>";
+    		info+="<p class='blog-post-bottom pull-left'>";
+    		info+=nick;
+    		info+="</p>";
+    		info+="<p class='blog-post-bottom pull-right'>";
+    		info+="<span class='badge quote-badge'>";
+    		info+="896</span> ❤";
+    		info+="</p>";
+    		info+="</div>";
+    		info+="</blockquote>";
+    		info+="</div>";
+    		info+="</div>";
+    		return info;
+    	}
+    	var page=1;
+    	$(function(){
+    		getList(page);
+    		page++;
+    	});
+    	
+    	$(window).scroll(function() {
+    		if($(window).scrollTop() >=$(document).height()-$(window).height()){
+    			getList(page);
+    			page++;
+    		}
+    	});
+    	
+    	function getList(page){
+    		$.ajax({
+    			type:"get",
+    			url:"DispatcherServlet",
+    			data:"command=pangingScroll&reviewpageNo="+page,
+    			dataType:"json",
+    			success:function(data){
+    			/* 	if(page==1){
+    					$("#loading").html("로딩중입니다");					
+    				} */
+    				var board_no="";
+    				var member_id="";
+    				var content="";
+    				var nick="";
+    				var page_f="";
+    				if(page!=1){
+    					for(var i in data.list){
+    						board_no=data.list[i].board_no;
+    						member_id=data.list[i].id;
+    						line_content=data.list[i].line_content;
+    						nick=data.list[i].nick;
+    						page_f=getPageList(board_no,member_id,line_content,nick);
+    						$("#loading").append(page_f);	
+    					 }
+    					} 
+    				}	
+    		});
+    		
+    	}
+    
+</script>
 <!-- 기능의 UI를 담당하는 부분(컨테이너) -->
 <div class="container">
 	<!-- 현재 페이지의 타이틀  -->
