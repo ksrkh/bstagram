@@ -3,34 +3,74 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- 기능의 UI를 담당하는 부분(컨테이너) -->
 <script type="text/javascript">
-		function nullCheck(){
-			var va = document.review
-			if(va.review_title.value==""){
-				alert("제목을 입력해주세요");
-				return false;
-				}
-			if(va.review_content.value==""){
-				alert("내용을 입력해주세요");
-				return false;
+		$(document).ready(function() {
+			var book_title="";
+			var book_author="";
+			var book_publisher="";
+			var book_pubdate="";
+			var book_description="";
+			var book_image="";
+			$("#returnlist").click(function() {
+				if(confirm("게시글을 작성을 취소하시겠습니까?")){
+					location.href="DispatcherServlet?command=reviewboardlist";		
+					}
+			});//returnlist.click
+			$("#reviewwrite").click(function(){
+				var title = $("#review_title").val();
+				var content = $("#review_content").val();
+				var member_id=$(".write_id").attr("id");
+				var genre = $("#select").val
+				if(title==""){
+					alert("제목을 작성해주세요");
+				}else if(content==""){
+					alert("게시물을 작성해주세요");
+				}else if(content!=""&&title!=""){
+					if(confirm("게시글을 작성하시겠습니까?")){					
+						var book_title_p="";
+						var book_author_p="";
+						var book_publisher_p="";
+						var book_pubdate_p="";
+						var book_description_p="";
+						var book_image_p="";
+						for(var i=0;i<book_title.length;i++){
+							book_title_p+=book_title[i];
+						}
+						for(var i=0;i<book_author.length;i++){
+							book_author_p+=book_author[i];
+						}
+						for(var i=0;i<book_publisher.length;i++){
+							book_publisher_p+=book_publisher[i];
+						}
+						for(var i=0;i<book_pubdate.length;i++){
+							book_pubdate_p+=book_pubdate[i];
+						}
+						for(var i=0;i<book_description.length;i++){
+							book_description_p+=book_description[i];
+						}
+						for(var i=0;i<book_image.length;i++){
+							book_image_p+=book_image[i];
+						}
+						location.href=
+							"DispatcherServlet?command=reviewwrite&review_title="+title
+																+"&review_content="+content
+																+"&review_genre="+genre
+																+"&member_id="+member_id
+																+"&review_book_title="+book_title_p
+																+"&review_author="+book_author_p
+																+"&review_publ="+book_publisher_p
+																+"&review_sdate="+book_pubdate_p
+																+"&review_book_img="+book_image_p
+																+"&review_book_description="+book_description_p;
+					}
 			}
-		}
-		function returnlist(){
-			location.href="DispatcherServlet?command=reviewboardlist";
-		}
-		function search(){
-			alert(document.review.book_search.value);
-			 var book = document.review.book_search.value;
-			$.ajax({
-				type:"get",
-				url: "DispatcherServlet",
-				data:"command=searchbook&book_search="+book,
-				dataType:"json",
-				success:function(data){//data로 서버의 응답 정보가 들어온다.
-					alert(data);
-					$("#book_intro").html(data);
-				}			
-			});
-	}			
+				
+				
+				
+			})//reviewwrite.click	
+			
+		})//ready
+		
+				
 </script>
 <div class="container">
 	<!-- 현재 페이지의 타이틀  -->
@@ -44,9 +84,9 @@
 				<div class="well bs-component col-lg-12">
 					<div class="col-lg-1"></div>
 					<div class="col-lg-10">
-					<form class="form-horizontal"  id="review" action="DispatcherServlet" method="post" name="review" onsubmit="return nullCheck()">
+					<div class="form-horizontal"  id="review">
 					<input type="hidden" name="command" value="reviewwrite">
-					<input type="hidden" name="id" value="${sessionScope.member.id}">
+					<div class="write_id" id="${sessionScope.member.id }"></div>
 						<fieldset>
 							<legend>독후감 작성</legend>
 							<!-- 독후감 제목 -->
@@ -97,7 +137,6 @@
 											<ul class="board_background" style="padding-left: 0px">
 												<li><img class="write_bg" src="img/write/write_bg11.jpg" alt=""></li>
 												<li><img class="write_bg" src="img/write/write_bg12.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg13.jpg" alt=""></li>
 												<li><img class="write_bg" src="img/write/write_bg8.jpg" alt=""></li>
 												<li><img class="write_bg" src="img/write/write_bg4.jpg" alt=""></li>
 												<li><img class="write_bg" src="img/write/write_bg5.jpg" alt=""></li>
@@ -119,48 +158,39 @@
 							</div>
 							
 							<!-- 책검색 -->
-							<div class="form-group" style="margin-bottom:15px">
+							<div class="form-group">
 								<div class="col-lg-12">
-									<input type="text" class="form-control" name="book_search" id="book_search" placeholder="책 검색" onkeypress="if(event.keyCode==13) {search(); return false;}">
+									<div class="col-lg-11" style="margin-left: 0px; padding-left: 0px">
+										<input type="text" class="form-control" name="book_search" id="book_search" placeholder="책을 검색해주세요.">
+									</div>
+									<div class="col-lg-1" style="margin-left: 0px; padding-left: 0px;margin-right: 0px; padding-right: 0px">
+										<button type="button" class="btn btn-info" onclick="bookSearch()">책검색</button>
+									</div>
 								</div>
 							</div>
 							
 							<!-- 책검색내용이 보여질 폼입니다. -->
-							<div  class="form-group" style="display: none; position: absolute; margin-bottom:15px; padding-left: 20px" id="searchDropDown">
-							<div class="form-group" style=" position: absolute; margin-bottom:15px; padding-left: 20px">
+							<div id="searchForm" class="form-group" style="display:none; margin-bottom:15px; padding-left: 20px">
 								<!-- 기본이미지가 보여지는 곳이며, 검색 이후 검색된 이미지로 변경됩니다. -->
-								<div class="col-lg-2">
-								<input type="hidden" name="review_book_img" value="test">
-									<img height=171px width=120px src="">
+								<div class="col-lg-2" id="book_image_area">
+									<img class="book_search_thumnail" height=171px width=120px src="">
 								</div>
 								<div class="col-lg-10">
 									<!-- 책제목 -->
-									<div class="col-lg-12" style="padding-left: 0px; margin-bottom: 10px">
-										<input type="text" class="form-control" id="book_title" name="review_book_title" placeholder="책제목" readonly="readonly" value="언어의온도">
-									</div>
+									<div id="book_title_area" class="col-lg-12" style="padding-left: 0px; margin-bottom: 10px" ></div>
 									<!-- 저자 -->
-									<div class="col-lg-4" style="padding-left: 0px; margin-bottom: 10px; margin-left:0px; margin-right: 0px">
-										<input type="text" class="form-control" id="author" name="review_author" placeholder="저자" readonly="readonly" value="이기범">
-									</div>
+									<div id="book_author_area" class="col-lg-4" style="padding-left: 0px; margin-bottom: 10px; margin-left:0px; margin-right: 0px"></div>
 									<!-- 출판사 -->
-									<div class="col-lg-4"> 
-										<input type="text" class="form-control" id="publ" name="review_publ" placeholder="출판사" readonly="readonly" value="말글터">
-									</div>
+									<div id="book_publisher_area" class="col-lg-4"></div>
 									<!-- 출판일자 -->
-									<div class="col-lg-4">
-										<input type="text" class="form-control" id="sdate" name="review_sdate" placeholder="출판일자" readonly="readonly" value="2017.10.13">
-									</div>
+									<div id="book_pubdate_area" class="col-lg-4"></div>
 									<!-- 책소개 -->
-									<div class="col-lg-12" style="padding-left: 0px">
-										<textarea class="form-control" rows="4" id="book_intro" name="review_book_intro" placeholder="책소개" readonly="readonly" style="resize: none">언어의 온도입니다. 인기가 아주 많은 책입니다.</textarea>
-									</div>
-									<!-- 책장르 입력 -->
-									<input type="hidden" name="review_book_cate" value="test">
-								</div><!--  상위 -->
-							</div><!--  block -->
-							</div><!-- none -->
+									<div class="col-lg-12" style="padding-left: 0px" id="book_description_area"></div>
+								</div>
+							</div>
+							<input id="searchbook" type="hidden" name="command" value="searchbook">
 						</fieldset>
-					</form>
+					</div>
 					</div>
 					<div class="col-lg-1"></div>
 				</div>
@@ -170,8 +200,8 @@
 		<!-- 작성 버튼/취소 버튼 -->
 		<div class="row" style="text-align:center; margin-top: 25px; margin-bottom: 50px">
 			<div class="col-lg-12">
-				<button type="button" class="btn btn-default" onclick="returnlist()">작성 취소</button>
-				<button type="submit" class="btn btn-primary"  form="review">작성 완료</button>
+				<button type="button" class="btn btn-default" id="returnlist">작성 취소</button>
+				<button type="button" class="btn btn-primary" id="reviewwrite">작성 완료</button>
 			</div>
 		</div>
 	</div>

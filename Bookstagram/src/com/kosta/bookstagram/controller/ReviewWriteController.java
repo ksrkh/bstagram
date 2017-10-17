@@ -12,7 +12,7 @@ public class ReviewWriteController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String id=request.getParameter("id");
+		String id=request.getParameter("member_id");
 		int genre = Integer.parseInt(request.getParameter("review_genre"));
 		String title = request.getParameter("review_title");
 		String content = request.getParameter("review_content");
@@ -20,7 +20,7 @@ public class ReviewWriteController implements Controller {
 		String book_auth = request.getParameter("review_author");
 		String book_publ = request.getParameter("review_publ");
 		String book_title = request.getParameter("review_book_title");
-		String book_intro = request.getParameter("review_book_intro");
+		String book_intro = request.getParameter("review_book_description");
 		String book_sdate = request.getParameter("review_sdate");
 		//String book_cate = request.getParameter("review_book_cate");
 		int bg_no = 1;//Integer.parseInt(request.getParameter(""));
