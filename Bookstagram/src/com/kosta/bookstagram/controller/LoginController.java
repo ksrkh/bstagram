@@ -22,7 +22,7 @@ public class LoginController implements Controller {
 		if(member != null) {
 			if (member.getTier() == 0){
 				//탈퇴회원
-				result = "ex-login_fail.jsp";
+				result = "DispatcherServlet?command=LoginFail";
 			}else {
 				//로그인성공
 				session = request.getSession();

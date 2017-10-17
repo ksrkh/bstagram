@@ -17,7 +17,8 @@ public class JoinFormController implements Controller {
 		ArrayList<LineTendVO> tendlist = MemberDAO.getInstance().tendList();
 		request.setAttribute("question", questionlist);
 		request.setAttribute("tend", tendlist);
-		return "ex-join.jsp";
+		request.setAttribute("url", "join.jsp");
+		return "home.jsp";
 	}
 
 }
