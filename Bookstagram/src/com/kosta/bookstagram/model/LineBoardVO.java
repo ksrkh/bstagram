@@ -18,6 +18,7 @@ public class LineBoardVO extends BoardVO{
 	 */
 	private BookVO bookVO;
 	
+	
 	public LineBoardVO() {}
 	/**
 	 * 모든 매개변수를 갖고있는 생성자
