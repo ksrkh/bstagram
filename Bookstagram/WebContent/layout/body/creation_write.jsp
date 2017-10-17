@@ -65,7 +65,7 @@ function backgroundNo(bgno){
 							    <div class="col-lg-12" style="margin-top: 5px; text-align: center">
 								    <div class="radio" style="padding-top: 0px; padding-bottom: 0px">
 								    	<label><input type="radio" name="bgNo" id="radio_bg2" value="" class="hidden_bg_value">이미지로 하기</label>
-								    	<label><input type="radio" name="bgNo" id="radio_bg3" value="" onclick="backgroundNo(0)">선택안함</label>
+								    	<label><input type="radio" name="bgNo" id="radio_bg3" value="" class="hidden_bg_value" onclick="backgroundNo(0)">선택안함</label>
 								    </div>
 							    </div>
 						    </div>
@@ -97,7 +97,7 @@ function backgroundNo(bgno){
 							</div>
 							
 						</fieldset>
-						<input type="hidden" class="hidden_bg_value" name="bgNo" value="">
+						<input type="hidden" class="hidden_bg_value" name="bgNo" value="0">
 					</form>
 					</div>
 					<div class="col-lg-1"></div>
