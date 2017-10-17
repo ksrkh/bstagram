@@ -38,6 +38,35 @@ public class PagingBean {
 		this.totalPostCount = totalPostCount;
 		this.nowPage = nowPage;
 	}
+    /**
+     * 창작게시판용 페이징 생성자
+     * 
+     * @param postCountPerPage
+     * @param pageCountPerPageGroup
+     * @param totalPostCount
+     */
+	public PagingBean(int postCountPerPage, int pageCountPerPageGroup, int totalPostCount) {
+		super();
+		this.postCountPerPage = postCountPerPage;
+		this.pageCountPerPageGroup = pageCountPerPageGroup;
+		this.totalPostCount = totalPostCount;
+	}
+
+	/**
+	 * 창작게시판 페이징 처리 생성자
+	 * 
+	 * @param nowPage
+	 * @param postCountPerPage
+	 * @param pageCountPerPageGroup
+	 * @param totalPostCount
+	 */
+	public PagingBean(int nowPage, int postCountPerPage, int pageCountPerPageGroup, int totalPostCount) {
+		super();
+		this.nowPage = nowPage;
+		this.postCountPerPage = postCountPerPage;
+		this.pageCountPerPageGroup = pageCountPerPageGroup;
+		this.totalPostCount = totalPostCount;
+	}
 
 	public int getNowPage() {
 		return nowPage;

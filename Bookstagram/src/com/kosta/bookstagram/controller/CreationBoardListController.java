@@ -19,11 +19,13 @@ public class CreationBoardListController implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, SQLException {
 		int totalCount=CreateBoardDAO.getInstance().totalCountByBoard();
 		String pno=request.getParameter("pageNo");
+		int pageCountPerPageGroup = 5;
+		int postCountPerPage =20;
 		PagingBean pagingBean=null;
 		if(pno==null){
-			pagingBean=new PagingBean(totalCount);
+			pagingBean=new PagingBean(postCountPerPage,pageCountPerPageGroup,totalCount);
 		}else{
-			pagingBean=new PagingBean(totalCount,Integer.parseInt(pno));
+			pagingBean=new PagingBean(Integer.parseInt(pno),postCountPerPage,pageCountPerPageGroup,totalCount);
 		}
 		ArrayList<CreateBoardVO> list=new ArrayList<CreateBoardVO>();
 			for(int i=0; i<CreateBoardDAO.getInstance().boardList(pagingBean).size();i++) {

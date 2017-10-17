@@ -58,7 +58,7 @@ function delReply(reply_no,board_type, id){
 								<img class="write_bg img-fluid w-100" src="img/write/write_bg${requestScope.cbdvo.bg_path}" alt="">
 									<div class="card-img-overlay bg-overlay" >
 										<div class="text text-white" >
-											<div class="form-group" style="float: right; margin-right: 5px">
+											<div style="float: right; margin-right: 5px">
 													<!-- 작성자 -->
 														<b>작성자</b>&nbsp;&nbsp; ${requestScope.cbdvo.nick}&nbsp;&nbsp; 
 													<!-- 조회수 -->
@@ -66,9 +66,10 @@ function delReply(reply_no,board_type, id){
 											</div>
 											<h2 class="card-title text-shadow text-white text-uppercase mb-0">${requestScope.cbdvo.create_title}</h2>
 											<h4 class="text-shadow text-white">${requestScope.cbdvo.board_regdate}</h4>
-							 				<br><br> &nbsp; ${requestScope.cbdvo.create_content}
-											<br>
-											<br>
+							 					<div>
+							 						<br><br> &nbsp; ${requestScope.cbdvo.create_content}
+													<br><br>
+							 					</div>
 										</div>
 									</div>
 						      	</div>
