@@ -109,6 +109,13 @@ $( document ).ready( function() {
 		location.href="DispatcherServlet?command=Login&id="+id+"&pw="+pw;
 	});
 	
+	//메인로그인 버튼 클릭시 submit
+	$('.main_login').click(function () {
+		var id = $('#usermainid').val();
+		var pw = $('#usermainpw').val();
+		location.href="DispatcherServlet?command=Login&id="+id+"&pw="+pw;
+	});
+	
 	//로그아웃 버튼 클릭시 submit
 	$('#logout').click(function () {
 		location.href="DispatcherServlet?command=Logout";

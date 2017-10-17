@@ -104,8 +104,8 @@
 								</div>
 							</div>
 							
-							<div class="form-group" style="margin-top: 300px; text-align:center">
-								<div class="col-lg-10 col-lg-offset-2">
+							<div class="form-group" style="margin-top: 200px; text-align:center">
+								<div class="col-lg-10 col-lg-offset-1">
 									<button type="reset" class="btn btn-default">취소</button>
 									<button type="button" class="btn btn-primary" onclick="chkSubmit()">가입</button>
 								</div>
