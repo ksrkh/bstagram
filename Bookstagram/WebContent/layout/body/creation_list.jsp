@@ -1,18 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<script type="text/javascript">
-function createPost(){
-	location.href="DispatcherServlet?command=createwriteview";
-}
-</script>
+
 <!-- 기능의 UI를 담당하는 부분(컨테이너) -->
 <div class="container">
 	<!-- 현재 페이지의 타이틀  -->
 	<div class="tagline-upper text-left text-heading text-shadow text-white d-none d-lg-block" style="margin-top: 5px">
 	창작공간
 	<c:if test="${sessionScope.member.id!=null}">
-		<button type="submit" class="btn btn-primary" onclick="createPost()">글 쓰기</button>
+		<button type="submit" class="btn btn-primary creation_write">글 쓰기</button>
 	</c:if>
 	</div>
 
