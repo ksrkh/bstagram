@@ -20,16 +20,16 @@
 	
 $(document).ready(function(){
 	
-/* 	var ss='${sessionScope.member.id}';
-	var sessionComp=ss; */
+	var sId=$(".idCheck").attr("id");
 	
 	function getPageList(board_no,member_id,line_content,nick,tend_code){
+	if(member_id==sId){
 	var info="<div class='bg-faded p-4 my-4'>";
 		info+="<div class='container'>";
 		info+="<c:if test='true'>";
 		info+="<div class='up_delete pull-right' style='margin-bottom:5px'>";
-		info+="<a href="
-		info+="DispatcherServlet?command=lineUpdateView&boardNo="
+		info+="<a href=";
+		info+="DispatcherServlet?command=lineUpdateView&boardNo=";
 		info+=board_no;
 		info+="&line_content=";
 		info+=line_content;
@@ -70,6 +70,54 @@ $(document).ready(function(){
 		info+="</div>";
 		info+="</div>";
 		return info;
+		}else{
+			var info="<div class='bg-faded p-4 my-4'>";
+			info+="<div class='container'>";
+			info+="<c:if test='false'>";
+			info+="<div class='up_delete pull-right' style='margin-bottom:5px'>";
+			info+="<a href=";
+			info+="DispatcherServlet?command=lineUpdateView&boardNo=";
+			info+=board_no;
+			info+="&line_content=";
+			info+=line_content;
+			info+="&tend_code=";
+			info+=tend_code;
+			info+=" onclick='javascript:return confirm('";
+			info+="정말 수정하시겠습니까 ?')'>";
+			info+="<i class='fa fa-cog fa-spin' style='font-size:25px;' id='lineUpdateBtn'></i>";
+			info+="</a>";
+			info+="<a href=";
+			info+="DispatcherServlet?command=lineDelete&boardNo=";
+			info+=board_no;
+			info+=" onclick="
+			info+=" javascript:return confirm('정말 삭제하시겠습니까?')>";
+			info+="<i class='fa fa-trash-o' style='font-size:25px;' id='lineDeleteBtn'></i>";
+			info+="</a>"
+			info+="</div>";
+			info+="</c:if>";
+			info+="<blockquote class='quote-box' style='background-color: #2d2d2d;'>";
+			info+="<p class='quotation-mark'>";
+			info+="“";
+			info+="</p>";	
+			info+="<p class='quote-text' id='line_content_login'>";
+			info+=line_content;
+			info+="</a>";
+			info+="</p>";
+			info+="<hr>";		
+			info+="<div class='blog-post-actions'>";
+			info+="<p class='blog-post-bottom pull-left'>";
+			info+=nick;
+			info+="</p>";
+			info+="<p class='blog-post-bottom pull-right'>";
+			info+="<span class='badge quote-badge'>";
+			info+="896</span> ❤";
+			info+="</p>";
+			info+="</div>";
+			info+="</blockquote>";
+			info+="</div>";
+			info+="</div>";
+			return info;
+		}
 	}
 	var page=1;
 	$(function(){
@@ -161,7 +209,7 @@ $(document).ready(function(){
 <div class="container">
 	<!-- 현재 페이지의 타이틀  -->
 	<div class="tagline-upper text-left text-heading text-shadow text-white d-none d-lg-block" style="margin-top: 5px">
-	
+	<div class="idCheck" id="${sessionScope.member.id}"></div>
 		One-Line-Memo
 	<c:if test="${sessionScope.member!=null}">
 	<button type="button" class="btn btn-primary linememo_write" >글쓰기</button>
