@@ -18,7 +18,6 @@ public class CreationPostWriteController implements Controller {
 		int bgNo=Integer.parseInt(request.getParameter("bgNo"));
 		String create_title=request.getParameter("title");
 		String create_content=request.getParameter("content");
-		create_content=create_content.replace("", "<br>");
 		int category=Integer.parseInt(request.getParameter("tend_code"));
 		CreateBoardVO createVO = new CreateBoardVO(3, id, 1,bgNo, create_title, create_content, category);
 		try {									  

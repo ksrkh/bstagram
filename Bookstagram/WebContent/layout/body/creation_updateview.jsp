@@ -88,7 +88,7 @@ function backgroundNo(bgno){
 									</div>
 								</div>
 							</div>
-						<input type="hidden" class="hidden_bg_value" name="bgNo" value="">			
+						<input type="hidden" class="hidden_bg_value" name="bgNo" value="0">			
 						</fieldset>
 					</form>
 					</div>
