@@ -11,7 +11,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="well bs-component">
-					<form class="form-horizontal" action="DispatcherServlet" method="post" name="LoginMainFrame">
+					<form class="form-horizontal" action="DispatcherServlet" method="post" name="PasswordFindFrame">
 						<fieldset>
 							<!-- 로고 -->
 							<div class="form-group" style="margin-top: 65px">
@@ -25,9 +25,9 @@
 								<div class="col-lg-2"></div>
 								<label for="inputEmail" class="col-lg-2 control-label">아이디</label>
 								<div class="col-lg-3">
-									<input type="text" class="col-lg-12 form-control" id="usermainid" name="id" placeholder="이메일을 입력 해주세요.">
+									<input type="text" class="col-lg-12 form-control" id="pwfindid" name="pwfindid" placeholder="이메일을 입력 해주세요.">
 								</div>
-								<div class="col-lg-3"><input type="button" class="btn btn-info main_login" value="로그인" style="width: 140px"></div>
+								<div class="col-lg-3"><input type="button" class="btn btn-info pw_find_btn" value="비밀번호찾기" style="width: 140px"></div>
 							</div>
 						</fieldset>
 					</form>

@@ -42,7 +42,9 @@ import com.kosta.bookstagram.controller.LoginController;
 import com.kosta.bookstagram.controller.LoginFailController;
 import com.kosta.bookstagram.controller.MyPageController;
 import com.kosta.bookstagram.controller.PagingScrollerController;
-import com.kosta.bookstagram.controller.PassworFindFormController;
+import com.kosta.bookstagram.controller.PasswordFindFormController;
+import com.kosta.bookstagram.controller.PasswordFindQuestionController;
+import com.kosta.bookstagram.controller.PasswordFindSolveController;
 import com.kosta.bookstagram.controller.ReplyRegisterController;
 import com.kosta.bookstagram.controller.ReviewBoardListController;
 import com.kosta.bookstagram.controller.ReviewDeleteController;
@@ -84,7 +86,7 @@ public class HandlerMapping {
 		else if(command.equals("JoinForm"))
 			controller = new JoinFormController();
 		else if(command.equals("PasswordFindForm"))
-			controller = new PassworFindFormController();
+			controller = new PasswordFindFormController();
 		else if (command.equals("createwriteview"))
 			controller = new CreationPostWriteViewController();
 		else if (command.equals("createpostwrite"))
@@ -189,6 +191,11 @@ public class HandlerMapping {
 			controller=new SympathyServiceController();
 		else if(command.equals("reviewwritebutton"))
 			controller = new ReviewWriteGerneController();
+		else if(command.equals("passwordfind2"))
+			controller = new PasswordFindQuestionController();
+		else if(command.equals("passwordfind3"))
+			controller = new PasswordFindSolveController();
+			
 		return controller;
 	}
 }

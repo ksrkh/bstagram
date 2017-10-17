@@ -5,11 +5,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.kosta.bookstagram.controller.listener.Controller;
 
-public class PassworFindFormController implements Controller {
+public class PasswordFindSolveController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		request.setAttribute("url", "login_passwordfind.jsp");
+
+		
+		
+		
+		
+		
+		request.setAttribute("url", "passwordfindquestion2.jsp");
 		return "home.jsp";
 	}
+
 }

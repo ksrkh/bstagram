@@ -263,6 +263,21 @@ $( document ).ready( function() {
 		location.href="DispatcherServlet?command=cmsmemberudt&id="+id+"&pw="+pw+"&age="+age+"&tend1="+tend1+"&tend2="+tend2+"&tend3="+tend3+"&tier="+tier;
 	});
 	
+	$("pw_find_btn").click(function(){
+		var id = $("#pwfindid").val();
+		alert(id);
+		location.href="DispatcherServlet?command=passwordfind2&id="+id;
+	});
+	
+	
+	$("findpassword_btn").click(function(){
+		var chk_pw = $("#pwfind_question:checked").val();
+		var id = $("#pwfind_answer").val();
+		alert(id+" "+chk_pw);
+		location.href="DispatcherServlet?command=passwordfind3&id="+id;
+	});
+	
+	
 });
 
 var chkJoinIdValue = false;

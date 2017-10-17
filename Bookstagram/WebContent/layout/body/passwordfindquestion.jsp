@@ -24,7 +24,7 @@
 							<div class="form-group" style="margin-top: 30px; margin-bottom:15px">
 								<div class="col-lg-3"></div>
 								<div class="col-lg-5">
-									<select class="form-control" name="pw_question" id="pw_question">
+									<select class="form-control" name="pwfind_question" id="pwfind_question">
 										<option value="">비밀번호찾기질문</option>
 									</select>
 								</div>
@@ -35,9 +35,9 @@
 							<div class="form-group" style="margin-top: 30px; margin-bottom:100px">
 								<div class="col-lg-3"></div>
 								<div class="col-lg-5">
-									<input type="text" class="col-lg-12 form-control" id="answer" name="answer" placeholder="답변을 입력 해주세요.">
+									<input type="text" class="col-lg-12 form-control" id="pwfind_answer" name="pwfind_answer" placeholder="답변을 입력 해주세요.">
 								</div>
-								<div class="col-lg-3"><input type="button" class="btn btn-info main_login" value="찾기" style="width: 140px"></div>
+								<div class="col-lg-3"><input type="button" class="btn btn-info findpassword_btn" value="찾기" style="width: 140px"></div>
 							</div>
 						</fieldset>
 					</form>
