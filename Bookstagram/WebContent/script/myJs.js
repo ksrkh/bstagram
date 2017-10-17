@@ -53,33 +53,59 @@ $( document ).ready( function() {
     
     $("#book_search").keypress(function(e) { 
 	    if (e.keyCode == 13){
-	    	alert("zzz");
 	    	var book = $(this).val();
+	    	var command = $('#searchbook').val();
 			$.ajax({
 				type:"get",
 				url: "DispatcherServlet",
-				data:"command=searchbook&book_search="+book,
+				data:"command="+command+"&book_search="+book,
 				dataType:"json",
 				success:function(data){//data로 서버의 응답 정보가 들어온다.
-					$("#searchForm").css("display","block");
 					for(var i in data.items) {
+						$("#searchForm").css("display","block");
 						book_title=data.items[i].title;
 						book_author=data.items[i].author;
 						book_publisher=data.items[i].publisher;
 						book_pubdate=data.items[i].pubdate;
 						book_description=data.items[i].description;
 						book_image=data.items[i].image;
-						$("#book_title_area").html(book_title);//제목
-						$("#book_author_area").html(book_author);//저자
-						$("#book_publisher_area").html(book_publisher);//출판사
-						$("#book_pubdate_area").html(book_pubdate);//출판일
-						$("#book_description_area").html(book_description);//내용
-						$("#book_image_area").html("<img height=171px width=120px src="+data.items[i].image+">");//이미지
-				    }
+						/*$("#searchForm").append(addSearchForm(book_image, book_title, book_author, book_publisher, book_pubdate, book_description));*/
+						$(".book_search_thumnail").attr('src',book_image);
+						$("#book_title_area").html(book_title);
+						$("#book_author_area").html(book_author);
+						$("#book_publisher_area").html(book_publisher);
+						$("#book_pubdate_area").html(book_pubdate);
+						$("#book_description_area").html(book_description);
+					}
 				}
 			});
 		}    
 	});
+    
+    
+    
+    //책검색시 여러게 보여주기
+    function addSearchForm(thumnail, title, author, publisher, pubdate, description){
+		var data = thumnail+"@"+title+"@"+author+"@"+publisher+"@"+pubdate+"@"+description;
+    	
+    	var info="<div class='form-group' style='margin-bottom:15px; padding-left: 20px'>";
+    	info+="<input class='hidden_data' type='hidden' value='"+data+"'>";
+    	info+="<div class='col-lg-2' id='book_image_area'>";
+		info+="<img class='book_search_thumnail' height=171px width=120px src='";
+		info+=thumnail;
+		info+="'></div><div class='col-lg-10'><div id='book_title_area' class='col-lg-12' style='padding-left: 0px; margin-bottom: 10px'>"
+		info+=title;
+		info+="</div><div id='book_author_area' class='col-lg-4' style='padding-left: 0px; margin-bottom: 10px; margin-left:0px; margin-right: 0px'>";
+		info+=author;
+		info+="</div><div id='book_publisher_area' class='col-lg-4'>";
+		info+=publisher;
+		info+="</div><div id='book_pubdate_area' class='col-lg-4'>";
+		info+=pubdate;
+		info+="</div><div class='col-lg-12' style='padding-left: 0px' id='book_description_area'>";
+		info+=description;
+		info+="</div></div></div>";
+		return info;
+    }
     
     //한줄메모작성 배경선택 애니메이션(왼쪽버튼,오른쪽버튼)
     var pos = 0;
@@ -494,4 +520,42 @@ function addCategory(){
 */
 function addPwFindQuest(){
 	document.pwfindQwForm.submit();
+}
+
+
+
+//검색기능
+function bookSearch(){
+	var book = $("#book_search").val();
+	var command = $('#searchbook').val();
+	var book_title;
+	var book_author;
+	var book_publisher;
+	var book_pubdate;
+	var book_description;
+	var book_image;
+	$.ajax({
+		type:"get",
+		url: "DispatcherServlet",
+		data:"command="+command+"&book_search="+book,
+		dataType:"json",
+		success:function(data){//data로 서버의 응답 정보가 들어온다.
+			for(var i in data.items) {
+				$("#searchForm").css("display","block");
+				book_title=data.items[i].title;
+				book_author=data.items[i].author;
+				book_publisher=data.items[i].publisher;
+				book_pubdate=data.items[i].pubdate;
+				book_description=data.items[i].description;
+				book_image=data.items[i].image;
+				/*$("#searchForm").append(addSearchForm(book_image, book_title, book_author, book_publisher, book_pubdate, book_description));*/
+					$(".book_search_thumnail").attr('src',book_image);
+					$("#book_title_area").html(book_title);
+					$("#book_author_area").html(book_author);
+					$("#book_publisher_area").html(book_publisher);
+					$("#book_pubdate_area").html(book_pubdate);
+					$("#book_description_area").html(book_description);
+			}
+		}
+	});
 }

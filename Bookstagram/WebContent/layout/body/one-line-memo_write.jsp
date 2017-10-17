@@ -84,46 +84,9 @@ $(document).ready(function() {
 				<div class="well bs-component col-lg-12">
 					<div class="col-lg-1"></div>
 					<div class="col-lg-10">
-					<form class="form-horizontal" id="writeForm">
+					<div class="form-horizontal">
 						<fieldset>
 							<legend>책속의 한줄</legend>
-							<!-- 책검색 -->
-							<div class="form-group">
-								<div class="col-lg-12">
-									<input type="text" class="form-control" name="book_search" id="book_search" placeholder="책 검색">
-								</div>
-							</div>
-							
-							<!-- 책검색내용이 보여질 폼입니다. -->
-							<div id="searchForm" class="form-group" style="display:none; margin-bottom:15px; padding-left: 20px">
-								<!-- 기본이미지가 보여지는 곳이며, 검색 이후 검색된 이미지로 변경됩니다. -->
-								<div class="col-lg-2" id="book_image_area">
-									<img height=171px width=120px src="https://search.pstatic.net/common/?src=http%3A%2F%2Fbookthumb.phinf.naver.net%2Fcover%2F109%2F245%2F10924505.jpg">
-								</div>
-								<div class="col-lg-10">
-									<!-- 책제목 -->
-									<div class="col-lg-12" style="padding-left: 0px; margin-bottom: 10px" id="book_title_area">
-										<input type="text" class="form-control" id="book_title" placeholder="책제목" readonly="readonly">
-									</div>
-									<!-- 저자 -->
-									<div class="col-lg-4" style="padding-left: 0px; margin-bottom: 10px; margin-left:0px; margin-right: 0px" id="book_author_area">
-										<input type="text" class="form-control" id="author" placeholder="저자" readonly="readonly" value="이기주">
-									</div>
-									<!-- 출판사 -->
-									<div class="col-lg-4" id="book_publisher_area"> 
-										<input type="text" class="form-control" id="publisher" placeholder="출판사" readonly="readonly" value="말글터">
-									</div>
-									<!-- 출판일자 -->
-									<div class="col-lg-4" id="book_pubdate_area">
-										<input type="text" class="form-control" id="pubdate" placeholder="출판일자" readonly="readonly" value="2016.08.19">
-									</div>
-									<!-- 책소개 -->
-									<div class="col-lg-12" style="padding-left: 0px" id="book_description_area">
-										<textarea class="form-control" rows="4" id="description" placeholder="책소개" readonly="readonly" style="resize: none"></textarea>
-									</div>
-								</div>
-							</div>
-							
 							<!-- 내용 입력 부분 -->
 							<div class="form-group">
 								<div class="col-lg-12">
@@ -131,6 +94,37 @@ $(document).ready(function() {
 						      	</div>
 						    </div>
 							
+							<!-- 책검색 -->
+							<div class="form-group">
+								<div class="col-lg-12">
+									<div class="col-lg-11" style="margin-left: 0px; padding-left: 0px">
+										<input type="text" class="form-control" name="book_search" id="book_search" placeholder="책을 검색해주세요.">
+									</div>
+									<div class="col-lg-1" style="margin-left: 0px; padding-left: 0px;margin-right: 0px; padding-right: 0px">
+										<button type="button" class="btn btn-info" onclick="bookSearch()">책검색</button>
+									</div>
+								</div>
+							</div>
+							
+							<!-- 책검색내용이 보여질 폼입니다. -->
+							<div id="searchForm" class="form-group" style="display:none; margin-bottom:15px; padding-left: 20px">
+								<!-- 기본이미지가 보여지는 곳이며, 검색 이후 검색된 이미지로 변경됩니다. -->
+								<div class="col-lg-2" id="book_image_area">
+									<img class="book_search_thumnail" height=171px width=120px src="">
+								</div>
+								<div class="col-lg-10">
+									<!-- 책제목 -->
+									<div id="book_title_area" class="col-lg-12" style="padding-left: 0px; margin-bottom: 10px" ></div>
+									<!-- 저자 -->
+									<div id="book_author_area" class="col-lg-4" style="padding-left: 0px; margin-bottom: 10px; margin-left:0px; margin-right: 0px"></div>
+									<!-- 출판사 -->
+									<div id="book_publisher_area" class="col-lg-4"></div>
+									<!-- 출판일자 -->
+									<div id="book_pubdate_area" class="col-lg-4"></div>
+									<!-- 책소개 -->
+									<div class="col-lg-12" style="padding-left: 0px" id="book_description_area"></div>
+								</div>
+							</div>
 							
 							<!-- 한줄 메모의 성향을 선택할 공간 입니다. ltList-->
 							<div class="bg-faded p-4 my-4">
@@ -140,8 +134,10 @@ $(document).ready(function() {
 									</c:forEach>
 								</div>
 							</div>
+							
+							<input id="searchbook" type="hidden" name="command" value="searchbook">
 						</fieldset>
-					</form>
+					</div>
 					</div>
 					<div class="col-lg-1"></div>
 				</div>
@@ -153,7 +149,7 @@ $(document).ready(function() {
 			<div class="col-lg-12">
 				<div class="write_id" id="${sessionScope.member.id }"></div>
 				<button type="reset" class="btn btn-default" id="cancelBtn" onclick="">작성 취소</button>
-				<button type="submit" class="btn btn-primary" id="writeLineBtn">작성 완료</button>
+				<button type="button" class="btn btn-primary" id="writeLineBtn">작성 완료</button>
 			</div>
 		</div>
 	</div>

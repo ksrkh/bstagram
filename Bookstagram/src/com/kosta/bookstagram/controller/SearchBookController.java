@@ -13,7 +13,6 @@ public class SearchBookController implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String book_name	= request.getParameter("book_search");
 		String bookInfo		= LineBoardDAO.getInstance().searchBook(book_name);
-		
 		request.setAttribute("responseBody",bookInfo);
 		return "AjaxView";
 	}

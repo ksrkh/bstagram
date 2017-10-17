@@ -244,21 +244,23 @@ public abstract class BoardDAO extends CommonDAO implements BoardListener{
 	 * 게시판에서 책을 검색하는 기능입니다.
 	 * @throws IOException 
 	 */
-	public String searchBook(String book_name) throws IOException {
+	public String searchBook(String book_name) throws IOException, NullPointerException {
 		String text 				= URLEncoder.encode(book_name, "UTF-8");
-		String apiURL 				= "https://openapi.naver.com/v1/search/book.json?query=" + text + "&display=1"; // json 결과
+		String apiURL 				= "https://openapi.naver.com/v1/search/book.json?query="+text+"&sort=sim"; // json 결과
 		String inputLine			= null;
 		BufferedReader br 			= null;
+		HttpURLConnection con 		= null;
 		URL url 					= new URL(apiURL);
 		StringBuffer responseBook	= new StringBuffer();
 		
 		try {
 			
-			HttpURLConnection con = (HttpURLConnection) url.openConnection();
+			con = (HttpURLConnection) url.openConnection();
 			con.setRequestMethod("GET");
 			con.setRequestProperty("X-Naver-Client-Id", BookSearchInfo.BOOK_SEARCH_CLIENT_ID);
 			con.setRequestProperty("X-Naver-Client-Secret", BookSearchInfo.BOOK_SEARCH_CLIENT_SECRET);
 			int responseCode = con.getResponseCode();
+			System.out.println("responseCode"+responseCode);
 			if (responseCode == 200) {
 				// 정상 호출
 				br = new BufferedReader(new InputStreamReader(con.getInputStream(), "UTF-8"));

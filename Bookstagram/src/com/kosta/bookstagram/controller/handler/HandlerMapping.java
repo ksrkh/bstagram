@@ -72,7 +72,6 @@ public class HandlerMapping {
 
 	public Controller create(String command) {
 		Controller controller = null;
-		
 		if(command.equals("Login"))
 			controller = new LoginController();
 		else if(command.equals("LoginFail"))
@@ -189,6 +188,7 @@ public class HandlerMapping {
 			controller=new SympathyServiceController();
 		else if(command.equals("reviewwritebutton"))
 			controller = new ReviewWriteGerneController();
+		
 		return controller;
 	}
 }
