@@ -147,7 +147,9 @@ $(document).ready(function(){
 						${lvo.nick}
 					</p>
 					<p class="blog-post-bottom pull-right">
-						<i class="fa fa-heart" id="sympathy-click" style="font-size:20px;color:red;margin-right:5px;margin-top: 10px"></i><span class="badge quote-badge">${lvo.sympathy}</span>
+						       <a href=”#“><img src=”icon_img/like0.png“></a> 
+						       <a href=”#“><img src=”icon_img/like1.png“></a>  		
+						<span class="badge quote-badge">${lvo.sympathy}</span>
 					</p>
 				</div>
 			</blockquote>
