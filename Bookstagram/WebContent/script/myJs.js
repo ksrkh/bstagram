@@ -51,6 +51,34 @@ $( document ).ready( function() {
     	location.href="DispatcherServlet?command=tendList";
 	});
     
+    $("#book_search").keypress(function(e) { 
+	    if (e.keyCode == 13){
+	    	var book = $(this).val();
+			$.ajax({
+				type:"get",
+				url: "DispatcherServlet",
+				data:"command=searchbook&book_search="+book,
+				dataType:"json",
+				success:function(data){//data로 서버의 응답 정보가 들어온다.
+					for(var i in data.items) {
+						book_title=data.items[i].title;
+						book_author=data.items[i].author;
+						book_publisher=data.items[i].publisher;
+						book_pubdate=data.items[i].pubdate;
+						book_description=data.items[i].description;
+						book_image=data.items[i].image;
+						$("#book_title_area").html(book_title);//제목
+						$("#book_author_area").html(book_author);//저자
+						$("#book_publisher_area").html(book_publisher);//출판사
+						$("#book_pubdate_area").html(book_pubdate);//출판일
+						$("#book_description_area").html(book_description);//내용
+						$("#book_image_area").html("<img height=171px width=120px src="+data.items[i].image+">");//이미지
+				    }
+				}
+			});
+		}    
+	});
+    
     //한줄메모작성 배경선택 애니메이션(왼쪽버튼,오른쪽버튼)
     var pos = 0;
 	var li_width = 100;

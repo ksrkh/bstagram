@@ -22,31 +22,7 @@ $(document).ready(function() {
 			location.href="DispatcherServlet?command=lineList";		
 			}
 	});//cancel click
-	$("#book_search").change(function() {
-		var book = $(this).val();
-		$.ajax({
-			type:"get",
-			url: "DispatcherServlet",
-			data:"command=searchbook&book_search="+book,
-			dataType:"json",
-			success:function(data){//data로 서버의 응답 정보가 들어온다.
-				  for(var i in data.items) {
-					  book_title=data.items[i].title;
-					  book_author=data.items[i].author;
-					  book_publisher=data.items[i].publisher;
-					  book_pubdate=data.items[i].pubdate;
-					  book_description=data.items[i].description;
-					  book_image=data.items[i].image;
-					  $("#book_title_area").html(book_title);//제목
-					  $("#book_author_area").html(book_author);//저자
-					  $("#book_publisher_area").html(book_publisher);//출판사
-					  $("#book_pubdate_area").html(book_pubdate);//출판일
-					  $("#book_description_area").html(book_description);//내용
-					  $("#book_image_area").html("<img height=171px width=120px src="+data.items[i].image+">");//이미지
-			        }											
-			}	
-		});
-	});//search
+	
 	$("#writeLineBtn").click(function() {	
 		var content = $("#content").val();
 		var tendComp=$("#writeForm :checkbox[name=tend_ck]:checked").val();
@@ -111,64 +87,19 @@ $(document).ready(function() {
 					<form class="form-horizontal" id="writeForm">
 						<fieldset>
 							<legend>책속의 한줄</legend>
-							<!-- 내용 입력 부분 -->
-							<div class="form-group" style="margin-top: 50px">
-								<div class="col-lg-12">
-									<textarea class="form-control ta" rows="15" id="content" placeholder="내용을 입력하세요." style="resize: none; background-image: url('img/write/write_bg6.jpg');"></textarea>
-						      	</div>
-						    </div>
-						    
-						    <!-- 배경 선택 부분 -->
-						    <!-- 2차구현 예정입니다. -->
-							<div class="bg-faded p-4 my-4 form-group" style="margin-left: 0px;margin-right: 0px">
-							    <div class="col-lg-12" style="margin-top: 5px; text-align: center">
-								    <div class="radio" style="padding-top: 0px; padding-bottom: 0px">
-								    	<label><input type="radio" name="content_bg" id="radio_bg1" value="content_bg1">색상으로 하기</label>
-								    	<label><input type="radio" name="content_bg" id="radio_bg2" value="content_bg2" checked="checked">이미지로 하기</label>
-								    	<label><input type="radio" name="content_bg" id="radio_bg3" value="content_bg3">선택안함</label>
-								    </div>
-							    </div>
-						    </div>
-							
-							<!-- 한줄 메모의 배경 템플릿 입니다. -->
-							<div id="bg_template" class="bg-faded p-4 my-4 form-group" style="margin-left: 0px;margin-right: 0px">
-								<div id="scroll_wrap" class="col-lg-12">
-									<!-- 왼쪽 슬라이드 버튼 -->
-									<div class="col-lg-1" style="padding-top: 30px">
-										<span class="left"><img src="http://bimage.interpark.com/renewPark/welcome/main1111/btn_c_left_on.gif" alt=""></span>
-									</div>
-									<!-- 추후 for로 돌릴 템플릿 경로 -->
-									<div class="col-lg-10">							
-										<div class="scroll">
-											<ul class="board_background" style="padding-left: 0px">
-												<li><img class="write_bg" src="img/write/write_bg11.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg12.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg8.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg4.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg5.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg6.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg7.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg3.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg9.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg10.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg1.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg2.jpg" alt=""></li>
-											</ul>
-										</div>
-									</div>
-									<!-- 오른쪽 슬라이드 버튼 -->
-									<div class="col-lg-1" style="padding-top: 30px">
-										<span class="right"><img src="http://bimage.interpark.com/renewPark/welcome/main1111/btn_c_right_on.gif" alt=""></span>	
-									</div>
-								</div>
-							</div>
-							
 							<!-- 책검색 -->
-							<div class="form-group" style="margin-bottom:15px">
+							<div class="form-group">
 								<div class="col-lg-12">
 									<input type="text" class="form-control" name="book_search" id="book_search" placeholder="책 검색">
 								</div>
 							</div>
+							
+							<!-- 내용 입력 부분 -->
+							<div class="form-group">
+								<div class="col-lg-12">
+									<textarea class="form-control ta" rows="15" id="content" placeholder="내용을 입력하세요." style="resize: none"></textarea>
+						      	</div>
+						    </div>
 							
 							<!-- 책검색내용이 보여질 폼입니다. -->
 							<div class="form-group" style="margin-bottom:15px; padding-left: 20px">

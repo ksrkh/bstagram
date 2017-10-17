@@ -39,8 +39,10 @@ import com.kosta.bookstagram.controller.LineUpdateViewController;
 import com.kosta.bookstagram.controller.LineWriteController;
 import com.kosta.bookstagram.controller.LogOutController;
 import com.kosta.bookstagram.controller.LoginController;
+import com.kosta.bookstagram.controller.LoginFailController;
 import com.kosta.bookstagram.controller.MyPageController;
 import com.kosta.bookstagram.controller.PagingScrollerController;
+import com.kosta.bookstagram.controller.PassworFindFormController;
 import com.kosta.bookstagram.controller.ReplyRegisterController;
 import com.kosta.bookstagram.controller.ReviewBoardListController;
 import com.kosta.bookstagram.controller.ReviewDeleteController;
@@ -72,12 +74,16 @@ public class HandlerMapping {
 		
 		if(command.equals("Login"))
 			controller = new LoginController();
+		else if(command.equals("LoginFail"))
+			controller = new LoginFailController();
 		else if(command.equals("Logout"))
 			controller = new LogOutController();
 		else if(command.equals("Join"))
 			controller = new JoinController();
 		else if(command.equals("JoinForm"))
 			controller = new JoinFormController();
+		else if(command.equals("PasswordFindForm"))
+			controller = new PassworFindFormController();
 		else if (command.equals("createwriteview"))
 			controller = new CreationPostWriteViewController();
 		else if (command.equals("createpostwrite"))

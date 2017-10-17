@@ -33,7 +33,7 @@ public class LoginController implements Controller {
 			}
 		}else {
 			//로그인실패
-			result = "ex-login_fail.jsp";
+			result = "DispatcherServlet?command=LoginFail";
 		}
 		
 		return result;
