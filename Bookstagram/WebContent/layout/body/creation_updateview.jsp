@@ -52,8 +52,7 @@ function updatecancle(){
 							<!-- 내용 입력 부분 -->
 							<div class="form-group">
 								<div class="col-lg-12">
-									<textarea class="form-control ta" rows="30" id="content" name="content" style="background-image:url('img/write/write_bg${requestScope.cbdvo.bg_path}')" >
-											${requestScope.cbdvo.create_content} </textarea>
+									<textarea class="form-control ta" rows="30" id="content" name="content" style="background-image:url('img/write/write_bg${requestScope.cbdvo.bg_path}')" >${requestScope.cbdvo.create_content}</textarea>
 						      	</div>
 						    </div>
 						    
