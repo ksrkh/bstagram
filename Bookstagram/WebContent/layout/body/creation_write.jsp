@@ -11,6 +11,9 @@ function contentCheck(){
 	}else if(f.content.value==""){
 		alert("내용을 입력하세요!");
 		flag=false;
+	}else if(f.bgNo.value==""){
+		alert("배경 이미지를 선택하세요!");
+		flag=false;
 	}
 	return flag;
 }
@@ -38,7 +41,7 @@ function backgroundNo(bgno){
 	
 						<fieldset>
 								<legend>창작하기</legend>
-							<!-- 독후감 제목 -->
+							<!-- 창작글 제목 -->
 							<div class="form-group" style="margin-top: 20px; margin-bottom: 20px">
 								<div class="col-lg-2" style="padding-right: 0px">
 									<select class="form-control" id="select" name="tend_code">
@@ -65,7 +68,7 @@ function backgroundNo(bgno){
 							    <div class="col-lg-12" style="margin-top: 5px; text-align: center">
 								    <div class="radio" style="padding-top: 0px; padding-bottom: 0px">
 								    	<label><input type="radio" name="bgNo" id="radio_bg2" value="" class="hidden_bg_value">이미지로 하기</label>
-								    	<label><input type="radio" name="bgNo" id="radio_bg3" value="" class="hidden_bg_value" onclick="backgroundNo(0)" checked="checked">선택안함</label>
+								    	<label><input type="radio" name="bgNo" id="radio_bg3" value="" class="hidden_bg_value" onclick="backgroundNo(0)" >선택안함</label>
 								    </div>
 							    </div>
 						    </div>
@@ -97,7 +100,7 @@ function backgroundNo(bgno){
 							</div>
 							
 						</fieldset>
-						<input type="hidden" class="hidden_bg_value" name="bgNo" value="0">
+						<input type="hidden" class="hidden_bg_value" name="bgNo" id="bgNo" value="0">
 					</form>
 					</div>
 					<div class="col-lg-1"></div>
