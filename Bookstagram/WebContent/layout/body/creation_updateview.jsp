@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script type="text/javascript">
+function backgroundNo(bgno){
+	$('.hidden_bg_value').val(bgno);
+}
+</script>
 <!-- 기능의 UI를 담당하는 부분(컨테이너) -->
 <div class="container">
 	<!-- 현재 페이지의 타이틀  -->
@@ -42,7 +48,7 @@
 							<!-- 내용 입력 부분 -->
 							<div class="form-group">
 								<div class="col-lg-12">
-									<textarea class="form-control ta" rows="30" id="content" name="content">${requestScope.cbdvo.create_content}</textarea>
+									<textarea class="form-control ta" rows="30" id="content" name="content">${requestScope.cbdvo.create_content} </textarea>
 						      	</div>
 						    </div>
 						    
@@ -51,9 +57,8 @@
 							<div class="bg-faded p-4 my-4 form-group" style="margin-left: 0px;margin-right: 0px">
 							    <div class="col-lg-12" style="margin-top: 5px; text-align: center">
 								    <div class="radio" style="padding-top: 0px; padding-bottom: 0px">
-								    	<label><input type="radio" name="content_bg" id="radio_bg1" value="content_bg1">색상으로 하기</label>
 								    	<label><input type="radio" name="content_bg" id="radio_bg2" value="content_bg2">이미지로 하기</label>
-								    	<label><input type="radio" name="content_bg" id="radio_bg3" value="content_bg3" checked="checked">선택안함</label>
+								    	<label><input type="radio" name="content_bg" id="radio_bg3" value="content_bg3" checked="checked" onclick="backgroundNo(0)">선택안함</label>
 								    </div>
 							    </div>
 						    </div>
@@ -68,19 +73,12 @@
 									<!-- 추후 for로 돌릴 템플릿 경로 -->
 									<div class="col-lg-10">
 										<div class="scroll">
-											<ul class="board_background" style="padding-left: 0px">
-												<li><img class="write_bg" src="img/write/write_bg11.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg12.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg8.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg4.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg5.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg6.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg7.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg3.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg9.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg10.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg1.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg2.jpg" alt=""></li>
+											<ul class="board_background" style="padding-left: 0px">					
+											<c:forEach items="${requestScope.bglist}" var="bg">
+												<c:if test="${bg.bg_no!=0}">
+													<li><img class="write_bg" src="img/write/write_bg${bg.bg_path}" alt="" onclick="backgroundNo(${bg.bg_no})"></li>
+												</c:if>
+											</c:forEach>
 											</ul>
 										</div>
 									</div>
@@ -90,7 +88,7 @@
 									</div>
 								</div>
 							</div>
-							
+						<input type="hidden" class="hidden_bg_value" name="bgNo" value="">			
 						</fieldset>
 					</form>
 					</div>
