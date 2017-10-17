@@ -20,17 +20,13 @@
 	
 $(document).ready(function(){
 	
-	var ss='${sessionScope.member.id}';
-	var sessionComp=ss;
+/* 	var ss='${sessionScope.member.id}';
+	var sessionComp=ss; */
 	
 	function getPageList(board_no,member_id,line_content,nick,tend_code){
 	var info="<div class='bg-faded p-4 my-4'>";
 		info+="<div class='container'>";
-		info+="<c:if test='";
-		info+=member_id;
-		info+="==";
-		info+=sessionComp;
-		info+="')>";
+		info+="<c:if test='true'>";
 		info+="<div class='up_delete pull-right' style='margin-bottom:5px'>";
 		info+="<a href="
 		info+="DispatcherServlet?command=lineUpdateView&boardNo="
