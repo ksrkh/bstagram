@@ -146,7 +146,7 @@ $(document).ready(function(){
 	          data:"command=sympathyService&id="+id+"&board_no="+board_no,
 	          //data:"command=sympathyService&id="+id+"&board_no="+board_no,
 	          success:function(data){
-	          //   alert(data);
+	             alert(data);
 	             $("#sympathy_count").text(data);
 	          }
 	       });//ajax
