@@ -122,10 +122,10 @@ $( document ).ready( function() {
 		pos -= li_width;
 		$(".scroll").animate({scrollLeft: pos},500);
 	});
-	
 	//배경 선택시 textarea 이미지 변경
 	$(".scroll .board_background li img").click(function() {
 		$(".col-lg-12 .ta").css("background-image","url('"+$(this).attr('src')+"')");
+		$(".col-lg-12 .ta").css("background-size","100%");
 		$(this).parent().parent().parent().find(".board_background li").removeClass("on");
 		$(this).parent().addClass("on");
 	});
