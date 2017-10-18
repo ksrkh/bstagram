@@ -14,6 +14,7 @@ public class ReviewUpdateController implements Controller {
 		int boardNo = Integer.parseInt(request.getParameter("board_no"));
 		String title = request.getParameter("review_title");
 		String content = request.getParameter("review_content");
+		content = content.replace("\r\n","<br>");
 		int genre = Integer.parseInt(request.getParameter("review_genre"));
 		int bg_no = 1;
 		ReviewBoardVO board = new ReviewBoardVO(boardNo, bg_no, title, content, genre);

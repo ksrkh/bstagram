@@ -18,6 +18,8 @@ public class ReviewUpdatePageController implements Controller {
 		int boardNo=Integer.parseInt(request.getParameter("board_no"));
 		ReviewBoardVO rbvo= (ReviewBoardVO) ReviewBoardDAO.getInstance().selectBoard(boardNo);
 		ArrayList<ReviewGenreVO> rgvo = CmsDAO.getInstance().getGenreList();
+		String content = rbvo.getReview_content();
+		rbvo.setReview_content(content.replace("<br>","\r\n"));
 		request.setAttribute("genreList", rgvo);
 		request.setAttribute("review_update", rbvo);
 		request.setAttribute("url", "book-review_update.jsp");

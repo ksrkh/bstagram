@@ -41,6 +41,7 @@ public class ReviewBoardListController implements Controller {
 				content = plist.get(i).getReview_content();
 				plist.get(i).setReview_content(content);
 			}
+			plist.get(i).setReview_content(content.replace("<br>","\r\n"));
 		}
 		ListVO<ReviewBoardVO> listVO=new ListVO<ReviewBoardVO>(plist,pagingBean);
 		request.setAttribute("reviewlist", listVO);

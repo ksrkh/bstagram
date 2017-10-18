@@ -14,6 +14,7 @@
 				var boardNo = $("#board_no").val();
 				var title = $("#review_title").val();
 				var content = $("#review_content").val();
+				content = content.replace(/(?:\r\n|\r|\n)/g, '<br>')
 				var genre = $("#select").val();
 				if(title==""){
 					alert("제목을 작성해주세요");

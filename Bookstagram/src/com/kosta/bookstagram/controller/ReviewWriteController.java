@@ -16,6 +16,7 @@ public class ReviewWriteController implements Controller {
 		int genre = Integer.parseInt(request.getParameter("review_genre"));
 		String title = request.getParameter("review_title");
 		String content = request.getParameter("review_content");
+		//content = content.replace("\r\n","<br>");
 		String book_img = request.getParameter("review_book_img");
 		String book_auth = request.getParameter("review_author");
 		String book_publ = request.getParameter("review_publ");

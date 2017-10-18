@@ -24,9 +24,9 @@
 			$("#reviewwrite").click(function(){
 				var title = $("#review_title").val();
 				var content = $("#review_content").val();
+				content = content.replace(/(?:\r\n|\r|\n)/g, '<br>')
 				var member_id=$(".write_id").attr("id");
-				var genre = $("#select").val();
-				
+				var genre = $("#select").val();				
 				var book_title_p=$("#book_title_area").text();
 				var book_author_p=$("#book_author_area").text();
 				var book_publisher_p=$("#book_publisher_area").text();
@@ -101,7 +101,7 @@
 							<!-- 내용 입력 부분 -->
 							<div class="form-group">
 								<div class="col-lg-12">
-									<strong><textarea style="resize:none; font-size:15px;" class="form-control ta" rows="20" id="review_content" name="review_content" placeholder="내용을 입력하세요."></textarea></strong>
+									<textarea class="form-control ta" rows="20" id="review_content" name="review_content" placeholder="내용을 입력하세요."></textarea>
 						      	</div>
 						    </div>
 						    
