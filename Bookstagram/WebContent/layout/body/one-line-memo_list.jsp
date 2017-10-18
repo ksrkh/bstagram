@@ -23,7 +23,6 @@ $(document).ready(function(){
 	var sId=$(".idCheck").attr("id");
 	
 	function getPageList(board_no,member_id,line_content,nick,tend_code,mySympathy,sympathy){
-		alert(mySympathy);
 	var info="<div class='bg-faded p-4 my-4'>";
 		info+="<div class='container'>";
 		if(member_id==sId){
@@ -61,7 +60,7 @@ $(document).ready(function(){
 		info+="<p class='blog-post-bottom pull-left'>";
 		info+=nick;
 		info+="</p>";
-		info+="<p class='blog-post-bottom pull-right'>";	
+		info+="<p class='blog-post-bottom pull-right' id='symapthy_plus'>";	
 		if(mySympathy==0){
 		info+="<img src='icon_img/like0.png' class='sympathy_img' id='";
 		info+=board_no; 
@@ -81,7 +80,7 @@ $(document).ready(function(){
 		info+="</div>";
 		return info;
 	}
-	var page=1;
+	var page=0;
 	$(function(){
 		getList(page);
 		page++;
@@ -109,7 +108,21 @@ $(document).ready(function(){
 				var nick="";
 				var tend_code="";
 				var page_f="";
-				if(page!=1){
+				if(page==1){
+					for(var i in data.list){
+						board_no=data.list[i].board_no;
+						member_id=data.list[i].id;
+						line_content=data.list[i].line_content;
+						nick=data.list[i].nick;
+						tend_code=data.list[i].tend_code;
+						mySympathy=data.list[i].mySympathy;
+						sympathy=data.list[i].sympathy;
+						page_f=getPageList(board_no,member_id,line_content,nick,tend_code,
+								mySympathy,sympathy);
+						$("#loading").append(page_f);	
+					 }
+				}
+				else if(page!=1){
 					for(var i in data.list){
 						board_no=data.list[i].board_no;
 						member_id=data.list[i].id;
@@ -146,13 +159,43 @@ $(document).ready(function(){
 	          data:"command=sympathyService&id="+id+"&board_no="+board_no,
 	          //data:"command=sympathyService&id="+id+"&board_no="+board_no,
 	          success:function(data){
-	             alert(data);
+	          //   alert(data);
 	             $("#sympathy_count").text(data);
 	          }
 	       });//ajax
 	       }//if   
-	       
 	      });//click
+	//대상을 보유하는 요소를 선택하고
+		//on(event type,선택자,handler) 
+		//즉 id menu div 를 선택한 후 on 을 적용하고 
+		//이 div 내부에 동적으로 생성되는 p 를 대상으로
+		//click 이벤트 발생시 해당 handler 익명함수를 실행하도록 한다 
+		$(".container").on("click","#loading .sympathy_img",function(){
+			
+			var id='${sessionScope.member.id}';
+	          
+		       if(id!=''){
+		         var src=($(this).attr('src')==='icon_img/like0.png')
+		            ?'icon_img/like1.png'
+		            :'icon_img/like0.png'
+		            $(this).attr('src',src);
+		         id='${sessionScope.member.id}';
+		         var board_no=$(this).attr('id');
+		         
+		         alert(board_no);
+		        
+		         $.ajax({
+		          type:"get",
+		          url:"DispatcherServlet",
+		          data:"command=sympathyService&id="+id+"&board_no="+board_no,
+		          //data:"command=sympathyService&id="+id+"&board_no="+board_no,
+		          success:function(data){
+		          //   alert(data);
+		             $("#sympathy_count").text(data);
+		          }
+		       });//ajax
+		       }//if   
+		});
 	   });//ready 
 </script>
 <style type="text/css">
@@ -211,7 +254,7 @@ $(document).ready(function(){
 		</div>
 	</div>
 	<!-- 추후 For로 돌릴 공간. -->
-	<c:forEach var="lvo" items="${requestScope.lineList.list}" varStatus="order">
+	<%-- <c:forEach var="lvo" items="${requestScope.lineList.list}" varStatus="order">
 	<c:set value="${lvo.board_no}"  var="p" />
 	<div class="hover_no" id="${lvo.board_no}">
 	<div class="bg-faded p-4 my-4"  id="line_board_btn">
@@ -245,9 +288,9 @@ $(document).ready(function(){
 						${lvo.nick}
 					</p>
 					<p class="blog-post-bottom pull-right">
-				<%-- 	<p class="blog-post-bottom pull-right">
+					<p class="blog-post-bottom pull-right">
 						<i class="fa fa-heart" id="sympathy-click" style="font-size:20px;color:red;margin-right:5px;margin-top: 10px"></i><span class="badge quote-badge">${lvo.sympathy}</span>
-					</p> --%>
+					</p>
                       <c:choose>
                      <c:when test="${lvo.mySympathy==0}">
                         <img src="icon_img/like0.png" class="sympathy_img"id="${lvo.board_no}" alt="" style="height:20px; width:20px" >
@@ -264,7 +307,7 @@ $(document).ready(function(){
 		</div>
 	</div>
 	</div>
-	</c:forEach>
+	</c:forEach> --%>
 	 <div id="loading"></div>
 </div>
 <!-- /.container -->
