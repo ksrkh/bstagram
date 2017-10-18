@@ -20,8 +20,9 @@ public class LineBoardVO extends BoardVO{
 	
 	
 	public LineBoardVO() {}
+	
 	/**
-	 * 모든 매개변수를 갖고있는 생성자
+	 * LineBoardVO 생성자
 	 * @param board_no			게시판번호
 	 * @param boardtype_no		게시판타입번호
 	 * @param id				아이디
@@ -42,6 +43,31 @@ public class LineBoardVO extends BoardVO{
 		this.tend_code = tend_code;
 		this.book_no = book_no;
 	}
+	/**
+	 * 모든 매개변수를 갖고있는 생성자
+	 * @param board_no			게시판번호
+	 * @param boardtype_no		게시판타입번호
+	 * @param id				아이디
+	 * @param nick				닉네임
+	 * @param board_regdate		게시판등록일짜
+	 * @param hit				조회수
+	 * @param sympathy			공감
+	 * @param authority			공개권한
+	 * @param bg_no				게시글배경번호
+	 * @param line_content		한줄게시판내용
+	 * @param tend_code			한줄게시판성향
+	 * @param bookVO            책 정보
+	 * 
+	 */
+	public LineBoardVO(int board_no, int boardtype_no, String id, String nick, String board_regdate, int hit,
+			int sympathy, int authority, int bg_no, String line_content, int tend_code, int book_no, BookVO bookVO) {
+		super(board_no, boardtype_no, id, nick, board_regdate, hit, sympathy, authority);
+		this.line_content = line_content;
+		this.tend_code = tend_code;
+		this.book_no = book_no;
+		this.bookVO=bookVO;
+	}
+	
 	/**
 	 * 글수정
 	 * @param board_no       게시판 번호
