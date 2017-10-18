@@ -18,7 +18,7 @@ public class ReviewBoardListController implements Controller {
 		int totalCount = ReviewBoardDAO.getInstance().totalCountByBoard();
 		String pno = request.getParameter("pageNo");		
 		int pageCountPerPageGroup = 5;
-		int postCountPerPage = 10;
+		int postCountPerPage = 5;
 		PagingBean pagingBean=null;
 		String content = null;
 		//System.out.println("pano : "+pno);
