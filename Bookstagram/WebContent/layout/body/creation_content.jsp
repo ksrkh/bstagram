@@ -146,23 +146,22 @@ function delReply(reply_no,board_type, id){
 			<c:forEach var="reVO" items="${requestScope.relist}">
 				<c:choose>
 					<c:when test="${reVO.id==sessionScope.member.id}">
-						<tr>
-							<td width="50"></td>
-							<td width="150">${reVO.id}</td>
-							<td width="1000">${reVO.reply_content} </td>
-							<td width="200"><button type="submit" class="btn btn-primary" style="float:left">답글</button>
-							<button type="submit" class="btn btn-primary" style="float:left" onclick="delReply(${reVO.reply_no},${requestScope.cbdvo.board_no},'${sessionScope.member.id }')">삭제</button>
+						<tr style="margin-bottom: 10px">
+							<td width="50" style="padding-top: 15px"></td>
+							<td width="150" style="padding-top: 15px">${reVO.id}</td>
+							<td width="1000" style="padding-top: 15px">${reVO.reply_content} </td>
+							<td width="90"><button type="submit" class="btn btn-primary" style="float:left" onclick="delReply(${reVO.reply_no},${requestScope.cbdvo.board_no},'${sessionScope.member.id }')">삭제</button></td>
 						</tr>
 					</c:when>
 					<c:otherwise>
 						<tr>
-							<td width="50"></td>
-							<td width="150">${reVO.id}</td>
-							<td width="1000">${reVO.reply_content}</td>
-							<td width="200"><button type="submit" class="btn btn-primary" style="float:left">답글</button></td>
+							<td width="50" style="padding-top: 15px"></td>
+							<td width="150" style="padding-top: 15px">${reVO.id}</td>
+							<td width="1000" style="padding-top: 15px">${reVO.reply_content}</td>
+							<td width="90" style="padding-top: 15px"></td>
 						</tr>
 					</c:otherwise>		
-			</c:choose>
+				</c:choose>
 		</c:forEach>
 		</table>
 	</div>
