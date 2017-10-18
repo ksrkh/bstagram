@@ -70,7 +70,9 @@ $(document).ready(function(){
 		info+=board_no;
 		info+="' alt='' style='height:20px; width:20px' >";
 		}
-		info+="<span id='sympathy_count' class='badge quote-badge'>";
+		info+="<span id='sympathy_count";
+		info+=board_no;
+		info+="' class='badge quote-badge'>";
 		info+=sympathy;
 		info+="</span>";
 		info+="</p>";
@@ -119,11 +121,13 @@ $(document).ready(function(){
 						sympathy=data.list[i].sympathy;
 						page_f=getPageList(board_no,member_id,line_content,nick,tend_code,
 								mySympathy,sympathy);
+					/* 	alert(mySympathy); */
 						$("#loading").append(page_f);	
 					 }
 				}
 				else if(page!=1){
 					for(var i in data.list){
+						
 						board_no=data.list[i].board_no;
 						member_id=data.list[i].id;
 						line_content=data.list[i].line_content;
@@ -133,6 +137,7 @@ $(document).ready(function(){
 						sympathy=data.list[i].sympathy;
 						page_f=getPageList(board_no,member_id,line_content,nick,tend_code,
 								mySympathy,sympathy);
+					/* 	alert(mySympathy); */
 						$("#loading").append(page_f);	
 					 }
 					} 
@@ -140,7 +145,7 @@ $(document).ready(function(){
 		});//ajax
 		
 	}  
-	 $(".hover_no .sympathy_img").click(function() {
+	/*  $(".hover_no .sympathy_img").click(function() {
 	        var id='${sessionScope.member.id}';
 	          
 	       if(id!=''){
@@ -164,7 +169,7 @@ $(document).ready(function(){
 	          }
 	       });//ajax
 	       }//if   
-	      });//click
+	      });//click */
 	//대상을 보유하는 요소를 선택하고
 		//on(event type,선택자,handler) 
 		//즉 id menu div 를 선택한 후 on 을 적용하고 
@@ -173,7 +178,8 @@ $(document).ready(function(){
 		$(".container").on("click","#loading .sympathy_img",function(){
 			
 			var id='${sessionScope.member.id}';
-	          
+	        var count=$(this).text();
+	        alert(count);
 		       if(id!=''){
 		         var src=($(this).attr('src')==='icon_img/like0.png')
 		            ?'icon_img/like1.png'
@@ -182,16 +188,16 @@ $(document).ready(function(){
 		         id='${sessionScope.member.id}';
 		         var board_no=$(this).attr('id');
 		         
-		         alert(board_no);
-		        
+		    /*      alert(board_no); */
+		      
 		         $.ajax({
 		          type:"get",
 		          url:"DispatcherServlet",
 		          data:"command=sympathyService&id="+id+"&board_no="+board_no,
 		          //data:"command=sympathyService&id="+id+"&board_no="+board_no,
 		          success:function(data){
-		          //   alert(data);
-		             $("#sympathy_count").text(data);
+		          alert(data);
+		            $(this).text(data);
 		          }
 		       });//ajax
 		       }//if   

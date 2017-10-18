@@ -63,12 +63,12 @@ public abstract class BoardDAO extends CommonDAO implements BoardListener{
 		try {
 			con=getConnection(); 
 			//리덧글 먼저 삭제
-			StringBuilder sql1=new StringBuilder();
-			sql1.append("delete from RE_REPLY where reply_no=?");
-			pstmt=con.prepareStatement(sql1.toString());	
-			pstmt.setInt(1, replyNo);
-			pstmt.executeUpdate();	
-			pstmt.close();
+//			StringBuilder sql1=new StringBuilder();
+//			sql1.append("delete from RE_REPLY where reply_no=?");
+//			pstmt=con.prepareStatement(sql1.toString());	
+//			pstmt.setInt(1, replyNo);
+//			pstmt.executeUpdate();	
+//			pstmt.close();
 			
 			StringBuilder sql2=new StringBuilder();
 			sql2.append("delete from REPLY where reply_no=?");
