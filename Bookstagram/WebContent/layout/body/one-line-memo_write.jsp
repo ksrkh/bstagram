@@ -25,47 +25,33 @@ $(document).ready(function() {
 	
 	$("#writeLineBtn").click(function() {	
 		var content = $("#content").val();
-		var tendComp=$("#writeForm :checkbox[name=tend_ck]:checked").val();
+		var tendComp= $("input[name=tend_ck]:checkbox:checked").length;
 		var member_id=$(".write_id").attr("id");
+		
+		var book_title_p=$("#book_title_area").text();
+		var book_author_p=$("#book_author_area").text();
+		var book_publisher_p=$("#book_publisher_area").text();
+		var book_pubdate_p=$("#book_pubdate_area").text();
+		var book_description_p=$("#book_description_area").text();
+		var book_image_p=$(".book_search_thumnail").attr('src');
+		
 		if(content.length>110){
-		alert("110자 이상은 입력하실 수 없습니다.");
-		}else if(content==""){
+			alert("110자 이상은 입력하실 수 없습니다.");
+		}else if(content == ""){
 			alert("게시물을 작성해주세요");
-		}else if(tendComp.length==0){
+		}else if(book_title_p == ""){
+			alert("도서 검색을 해주세요.");
+		}else if(tendComp == 0){
 			alert("하나의 성향을 선택해주세요.");
 		}else if(content!=""){
 			if(confirm("게시글을 작성하시겠습니까?")){					
-				var book_title_p="";
-				var book_author_p="";
-				var book_publisher_p="";
-				var book_pubdate_p="";
-				var book_description_p="";
-				var book_image_p="";
-				for(var i=0;i<book_title.length;i++){
-					book_title_p+=book_title[i];
-				}
-				for(var i=0;i<book_author.length;i++){
-					book_author_p+=book_author[i];
-				}
-				for(var i=0;i<book_publisher.length;i++){
-					book_publisher_p+=book_publisher[i];
-				}
-				for(var i=0;i<book_pubdate.length;i++){
-					book_pubdate_p+=book_pubdate[i];
-				}
-				for(var i=0;i<book_description.length;i++){
-					book_description_p+=book_description[i];
-				}
-				for(var i=0;i<book_image.length;i++){
-					book_image_p+=book_image[i];
-				}
 				location.href="DispatcherServlet?command=lineWrite&line_content="+content+"&tend_code="+tendComp
-						+"&member_id="+member_id+"&book_title="+book_title_p+"&book_author="+book_author_p
-						+"&book_publisher="+book_publisher_p+"&book_pubdate="+book_pubdate_p
-						+"&book_img="+book_image_p		
-						+"&book_description="+book_description_p;
+					+"&member_id="+member_id+"&book_title="+book_title_p+"&book_author="+book_author_p
+					+"&book_publisher="+book_publisher_p+"&book_pubdate="+book_pubdate_p
+					+"&book_img="+book_image_p		
+					+"&book_description="+book_description_p;
 			}
-	}
+		}
 		
 	}); //write click 
 		//textarea 부분  $("#content").val()
