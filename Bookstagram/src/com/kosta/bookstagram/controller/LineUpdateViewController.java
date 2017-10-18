@@ -29,6 +29,7 @@ public class LineUpdateViewController implements Controller {
 				dvo.getBoard_regdate(),dvo.getHit(),dvo.getAuthority(),dvo.getBg_no(),line_content,tend_code,bvo.getBook_no());
 		request.setAttribute("ultList", ultList);
 		request.setAttribute("line_content", line_content);
+		System.out.println(line_content);
 		request.setAttribute("updateBvo", bvo);
 		request.setAttribute("updateLvo", updateLvo);
 		request.setAttribute("url", "one-line-memo_update.jsp");

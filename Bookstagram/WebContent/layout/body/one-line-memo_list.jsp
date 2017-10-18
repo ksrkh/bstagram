@@ -22,65 +22,76 @@ $(document).ready(function(){
 	
 	var sId=$(".idCheck").attr("id");
 	
-	function getPageList(board_no,member_id,line_content,nick,tend_code,mySympathy,sympathy){
-	var info="<div class='bg-faded p-4 my-4'>";
-		info+="<div class='container'>";
-		if(member_id==sId){
-		info+="<div class='up_delete pull-right' style='margin-bottom:5px'>";
-		info+="<a href=";
-		info+="DispatcherServlet?command=lineUpdateView&boardNo=";
-		info+=board_no;
-		info+="&line_content=";
-		info+=line_content;
-		info+="&tend_code=";
-		info+=tend_code;
-		info+=" onclick='javascript:return confirm('";
-		info+="정말 수정하시겠습니까 ?')'>";
-		info+="<i class='fa fa-cog fa-spin' style='font-size:25px;' id='lineUpdateBtn'></i>";
-		info+="</a>";
-		info+="<a href=";
-		info+="DispatcherServlet?command=lineDelete&boardNo=";
-		info+=board_no;
-		info+=" onclick="
-		info+=" javascript:return confirm('정말 삭제하시겠습니까?')>";
-		info+="<i class='fa fa-trash-o' style='font-size:25px;' id='lineDeleteBtn'></i>";
-		info+="</a>"
-		info+="</div>";
-		}
-		info+="<blockquote class='quote-box' style='background-color: #2d2d2d;'>";
-		info+="<p class='quotation-mark'>";
-		info+="“";
-		info+="</p>";	
-		info+="<p class='quote-text' id='line_content_login'>";
-		info+=line_content;
-		info+="</a>";
-		info+="</p>";
-		info+="<hr>";		
-		info+="<div class='blog-post-actions'>";
-		info+="<p class='blog-post-bottom pull-left'>";
-		info+=nick;
-		info+="</p>";
-		info+="<p class='blog-post-bottom pull-right' id='symapthy_plus'>";	
-		if(mySympathy==0){
-		info+="<img src='icon_img/like0.png' class='sympathy_img' id='";
-		info+=board_no; 
-		info+="' alt='' style='height:20px; width:20px' >";	
-		}else{
-		info+="<img src='icon_img/like1.png' class='sympathy_img' id='";
-		info+=board_no;
-		info+="' alt='' style='height:20px; width:20px' >";
-		}
-		info+="<span id='sympathy_count";
-		info+=board_no;
-		info+="' class='badge quote-badge'>";
-		info+=sympathy;
-		info+="</span>";
-		info+="</p>";
-		info+="</div>";
-		info+="</blockquote>";
-		info+="</div>";
-		info+="</div>";
-		return info;
+	function getPageList(board_no,member_id,line_content,nick,tend_code,
+			mySympathy,sympathy,book_title,book_intro,book_author,book_publ,
+			book_sdate,book_img){
+		  var info="<div class='bg-faded p-4 my-4'>";
+	      info+="<div class='container'>";
+	      if(member_id==sId){
+	      info+="<div class='up_delete pull-right' style='margin-bottom:5px'>";
+	      info+="<a href=";
+	      info+="DispatcherServlet?command=lineUpdateView&boardNo=";
+	      info+=board_no;
+	      info+="&line_content=";
+	      info+=line_content;
+	      info+="&tend_code=";
+	      info+=tend_code;
+	      info+=" onclick='javascript:return confirm('";
+	      info+="정말 수정하시겠습니까 ?')'>";
+	      info+="<i class='fa fa-cog fa-spin' style='font-size:25px;' id='lineUpdateBtn'></i>";
+	      info+="</a>";
+	      info+="<a href=";
+	      info+="DispatcherServlet?command=lineDelete&boardNo=";
+	      info+=board_no;
+	      info+=" onclick="
+	      info+=" javascript:return confirm('정말 삭제하시겠습니까?')>";
+	      info+="<i class='fa fa-trash-o' style='font-size:25px;' id='lineDeleteBtn'></i>";
+	      info+="</a>"
+	      info+="</div>";
+	      }
+	      info+="<div class='bg-faded p-4 my-4'  id='line_board_btn' data-toggle='collapse' data-target='#demo"; //toggle할 div 영역 잡아주고  target 설정 '#demo'로 설정해두었음
+	      info+=board_no;
+	      info+="'>";
+	      info+="<blockquote class='quote-box' style='background-color: #2d2d2d;'>";
+	      info+="<p class='quotation-mark'>";
+	      info+="“";
+	      info+="</p>";   
+	      info+="<p class='quote-text' id='line_content_login'>";
+	      info+=line_content;
+	      info+="</a>";
+	      info+="</p>";
+	      info+="<hr>";      
+	      info+="<div class='blog-post-actions'>";
+	      info+="<p class='blog-post-bottom pull-left'>";
+	      info+=nick;
+	      info+="</p>";
+	      info+="<p class='blog-post-bottom pull-right' id='symapthy_plus'>";   
+	      if(mySympathy==0){
+	      info+="<img src='icon_img/like0.png' class='sympathy_img' id='";
+	      info+=board_no; 
+	      info+="' alt='' style='height:20px; width:20px' >";   
+	      }else{
+	      info+="<img src='icon_img/like1.png' class='sympathy_img' id='";
+	      info+=board_no;
+	      info+="' alt='' style='height:20px; width:20px' >";
+	      }
+	      info+="<span id='sympathy_count";
+		  info+=board_no;
+		  info+="' class='badge quote-badge'>";
+		  info+=sympathy;
+		  info+="</span>";
+	      info+="</p>";
+	      info+="</div>";
+	      info+="</blockquote>";                  
+	      info+="<div id='demo";                                                               //target toggle start
+	      info+=board_no;
+	      info+="' class='collapse'>";                                             
+	      info+=book_title;                              //책 정보 들어갈  영역
+	      info+="</div>";                                                                     //target toggle close
+	      info+="</div>";                                                                     //토글 영역
+	      info+="</div>";
+	      info+="</div>";
+	      return info;
 	}
 	var page=0;
 	$(function(){
@@ -119,8 +130,16 @@ $(document).ready(function(){
 						tend_code=data.list[i].tend_code;
 						mySympathy=data.list[i].mySympathy;
 						sympathy=data.list[i].sympathy;
+						book_title=data.list[i].bookVO.book_title;
+						book_intro=data.list[i].bookVO.book_intro;
+						book_author=data.list[i].bookVO.book_author;
+						book_publ=data.list[i].bookVO.book_publ;
+						book_sdate=data.list[i].bookVO.book_sdate;
+						book_img=data.list[i].bookVO.book_img;
 						page_f=getPageList(board_no,member_id,line_content,nick,tend_code,
-								mySympathy,sympathy);
+								mySympathy,sympathy,book_title,book_intro,book_author,book_publ,
+								book_sdate,book_img);
+						alert(book_title);
 					/* 	alert(mySympathy); */
 						$("#loading").append(page_f);	
 					 }
@@ -135,11 +154,21 @@ $(document).ready(function(){
 						tend_code=data.list[i].tend_code;
 						mySympathy=data.list[i].mySympathy;
 						sympathy=data.list[i].sympathy;
+						book_title=data.list[i].bookVO.book_title;
+						book_intro=data.list[i].bookVO.book_intro;
+						book_author=data.list[i].bookVO.book_author;
+						book_publ=data.list[i].bookVO.book_publ;
+						book_sdate=data.list[i].bookVO.book_sdate;
+						book_img=data.list[i].bookVO.book_img;
 						page_f=getPageList(board_no,member_id,line_content,nick,tend_code,
-								mySympathy,sympathy);
+								mySympathy,sympathy,book_title,book_intro,book_author,book_publ,
+								book_sdate,book_img);
+						alert(book_title);
 					/* 	alert(mySympathy); */
 						$("#loading").append(page_f);	
 					 }
+					}else if(page==0){
+						
 					} 
 				}	
 		});//ajax
@@ -197,7 +226,7 @@ $(document).ready(function(){
 		          //data:"command=sympathyService&id="+id+"&board_no="+board_no,
 		          success:function(data){
 		          alert(data);
-		            $(this).text(data);
+		            $("#sympathy_count"+board_no).text(data);
 		          }
 		       });//ajax
 		       }//if   
@@ -260,7 +289,7 @@ $(document).ready(function(){
 		</div>
 	</div>
 	<!-- 추후 For로 돌릴 공간. -->
-	<%-- <c:forEach var="lvo" items="${requestScope.lineList.list}" varStatus="order">
+<%-- 	 <c:forEach var="lvo" items="${requestScope.lineList.list}" varStatus="order">
 	<c:set value="${lvo.board_no}"  var="p" />
 	<div class="hover_no" id="${lvo.board_no}">
 	<div class="bg-faded p-4 my-4"  id="line_board_btn">
@@ -297,23 +326,24 @@ $(document).ready(function(){
 					<p class="blog-post-bottom pull-right">
 						<i class="fa fa-heart" id="sympathy-click" style="font-size:20px;color:red;margin-right:5px;margin-top: 10px"></i><span class="badge quote-badge">${lvo.sympathy}</span>
 					</p>
-                      <c:choose>
-                     <c:when test="${lvo.mySympathy==0}">
+                     <p class="blog-post-bottom pull-right">
+                     <c:choose>
+                     <c:if test="${lvo.mySympathy==0 }">
                         <img src="icon_img/like0.png" class="sympathy_img"id="${lvo.board_no}" alt="" style="height:20px; width:20px" >
-                     </c:when>
+                     </c:if>
                      <c:otherwise>
                        <img src="icon_img/like1.png" class="sympathy_img"id="${lvo.board_no}" alt="" style="height:20px; width:20px" >
                      </c:otherwise>
                      </c:choose>
                   
                   <span id="sympathy_count"class="badge quote-badge">${lvo.sympathy}</span>
-               </p> 
+               </p>
 				</div>
 			</blockquote>
 		</div>
 	</div>
 	</div>
-	</c:forEach> --%>
+	</c:forEach> --%> 
 	 <div id="loading"></div>
 </div>
 <!-- /.container -->

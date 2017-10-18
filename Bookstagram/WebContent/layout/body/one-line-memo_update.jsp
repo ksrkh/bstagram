@@ -18,11 +18,12 @@
     	});//cancelClick
     	$("#updateBtn").click(function() {
     		if(confirm("게시글을 수정하시겠습니까?")){
-    			var board_no=$(".updat_no").attr("id");
+    			var board_no=$(".update_no").attr("id");  
     			var line_content=$("#up_content").val();
-    			var tendComp=$("#updateForm :checkbox[name=tend_ck]:checked").val();
-    			alert(tendComp);
-    			alert(line_content);
+    			var tendComp=$("input[name=tend_ck]:checkbox:checked").val();
+    			if(tendComp.length==0){
+    				alert("성향을 다시 선택해주세요");
+    			}
     			alert("게시글이 수정되었습니다.")
     			location.href="DispatcherServlet?command=lineUpdate&boardNo="+board_no
     					+"&line_content="+line_content+"&tend_code="+tendComp;
@@ -43,102 +44,44 @@
 				<div class="well bs-component col-lg-12">
 					<div class="col-lg-1"></div>
 					<div class="col-lg-10">
-					<form class="form-horizontal" id="updateForm">
-					
+					<div class="form-horizontal">
 						<fieldset>
 							<legend>책속의 한줄</legend>
 							<!-- 내용 입력 부분 -->
-							<div class="form-group" style="margin-top: 50px">
+							<div class="form-group">
 								<div class="col-lg-12">
-									<textarea class="form-control ta" rows="15" id="up_content" style="resize: none; background-image: url('img/write/write_bg6.jpg');">
-									${requestScope.line_content}
-									</textarea>
+									<textarea class="form-control ta" rows="5" id="up_content" style="resize: none">${requestScope.line_content}</textarea>											
 						      	</div>
 						    </div>
-						    
-						    <!-- 배경 선택 부분 -->
-						    <!-- 2차구현 예정입니다. -->
-							<div class="bg-faded p-4 my-4 form-group" style="margin-left: 0px;margin-right: 0px">
-							    <div class="col-lg-12" style="margin-top: 5px; text-align: center">
-								    <div class="radio" style="padding-top: 0px; padding-bottom: 0px">
-								    	<label><input type="radio" name="content_bg" id="radio_bg1" value="content_bg1">색상으로 하기</label>
-								    	<label><input type="radio" name="content_bg" id="radio_bg2" value="content_bg2" checked="checked">이미지로 하기</label>
-								    	<label><input type="radio" name="content_bg" id="radio_bg3" value="content_bg3">선택안함</label>
-								    </div>
-							    </div>
-						    </div>
 							
-							<!-- 한줄 메모의 배경 템플릿 입니다. -->
-							<div id="bg_template" class="bg-faded p-4 my-4 form-group" style="margin-left: 0px;margin-right: 0px">
-								<div id="scroll_wrap" class="col-lg-12">
-									<!-- 왼쪽 슬라이드 버튼 -->
-									<div class="col-lg-1" style="padding-top: 30px">
-										<span class="left"><img src="http://bimage.interpark.com/renewPark/welcome/main1111/btn_c_left_on.gif" alt=""></span>
-									</div>
-									<!-- 추후 for로 돌릴 템플릿 경로 -->
-									<div class="col-lg-10">
-										<div class="scroll">
-											<ul class="board_background" style="padding-left: 0px">
-												<li><img class="write_bg" src="img/write/write_bg11.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg12.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg8.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg4.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg5.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg6.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg7.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg3.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg9.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg10.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg1.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg2.jpg" alt=""></li>
-											</ul>
-										</div>
-									</div>
-									<!-- 오른쪽 슬라이드 버튼 -->
-									<div class="col-lg-1" style="padding-top: 30px">
-										<span class="right"><img src="http://bimage.interpark.com/renewPark/welcome/main1111/btn_c_right_on.gif" alt=""></span>	
-									</div>
-								</div>
-							</div>
-							
-<!-- 							책검색
-							<div class="form-group" style="margin-bottom:15px">
-								<div class="col-lg-12">
-									<input type="text" class="form-control" name="book_search" id="book_search" placeholder="책 검색">
-								</div>
-							</div>
-							 -->
+
 							<!-- 책검색내용이 보여질 폼입니다. -->
-							<div class="form-group" style="margin-bottom:15px; padding-left: 20px">
+							<div id="searchForm" class="form-group" style="display:block; margin-bottom:15px; padding-left: 20px">
 								<!-- 기본이미지가 보여지는 곳이며, 검색 이후 검색된 이미지로 변경됩니다. -->
 								<div class="col-lg-2" id="book_image_area">
-									<img height=171px width=120px src="${requestScope.updateBvo.book_img}">
+									<img class="book_search_thumnail" height=171px width=120px src="${requestScope.updateBvo.book_img}">
 								</div>
 								<div class="col-lg-10">
 									<!-- 책제목 -->
-									<div class="col-lg-12" style="padding-left: 0px; margin-bottom: 10px" id="book_title_area">
-										${requestScope.updateBvo.book_title}
+									<div id="book_title_area" class="col-lg-12" style="padding-left: 0px; margin-bottom: 10px" >
+									${requestScope.updateBvo.book_title}
 									</div>
 									<!-- 저자 -->
-									<div class="col-lg-4" style="padding-left: 0px; margin-bottom: 10px; margin-left:0px; margin-right: 0px" id="book_author_area">
-										${requestScope.updateBvo.book_author}
+									<div id="book_author_area" class="col-lg-4" style="padding-left: 0px; margin-bottom: 10px; margin-left:0px; margin-right: 0px">
+									${requestScope.updateBvo.book_author}
 									</div>
 									<!-- 출판사 -->
-									<div class="col-lg-4" id="book_publisher_area"> 
-										${requestScope.updateBvo.book_publ}
-										 
+									<div id="book_publisher_area" class="col-lg-4">
+									${requestScope.updateBvo.book_publ}
 									</div>
 									<!-- 출판일자 -->
-									<div class="col-lg-4" id="book_pubdate_area">
-										${requestScope.updateBvo.book_sdate}
-										
-									</div>
+									<div id="book_pubdate_area" class="col-lg-4">
+									${requestScope.updateBvo.book_sdate}</div>
 									<!-- 책소개 -->
 									<div class="col-lg-12" style="padding-left: 0px" id="book_description_area">
-										${requestScope.updateBvo.book_intro}
+									${requestScope.updateBvo.book_intro}
 									</div>
-									<!-- 게시물번호 -->
-									<div class="updat_no" id="${requestScope.updateLvo.board_no}"></div>
+								<div class="updat_no" id="${requestScope.updateLvo.board_no}"></div>
 								</div>
 							</div>
 							
@@ -150,20 +93,22 @@
 									</c:forEach>
 								</div>
 							</div>
+							
+							<input id="searchbook" type="hidden" name="command" value="searchbook">
 						</fieldset>
-				
-					</form>
+					</div>
 					</div>
 					<div class="col-lg-1"></div>
 				</div>
 			</div>
 		</div>
-	
+		
 		<!-- 작석 버튼/취소 버튼 -->
 		<div class="row" style="text-align:center; margin-top: 50px; margin-bottom: 100px">
 			<div class="col-lg-12">
-				<button type="reset" class="btn btn-default" id="updateCancelBtn">수정 취소</button>
-				<button type="submit" class="btn btn-primary" id="updateBtn">수정 완료</button>
+				<div class="update_no" id="${requestScope.updateLvo.board_no}"></div>
+				<button type="reset" class="btn btn-default" id="updateBtn" onclick="">수정 완료</button>
+				<button type="button" class="btn btn-primary" id="updateCancelBtn">수정 취소</button>
 			</div>
 		</div>
 	</div>
