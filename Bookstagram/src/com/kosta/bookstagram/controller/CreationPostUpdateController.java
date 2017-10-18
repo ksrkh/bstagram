@@ -15,6 +15,7 @@ public class CreationPostUpdateController implements Controller {
 		int bgNo=Integer.parseInt(request.getParameter("bgNo"));
 		String create_title=request.getParameter("title");
 		String create_content=request.getParameter("content");
+		create_content=create_content.replace("\r\n","<br>");
 		int category=Integer.parseInt(request.getParameter("tend_code"));
 		CreateBoardVO createVO = new CreateBoardVO(boardNo,3, "kjhsc101218@naver.com", 1,bgNo, create_title, create_content, category);
 		CreateBoardDAO.getInstance().updateBoard(createVO);
