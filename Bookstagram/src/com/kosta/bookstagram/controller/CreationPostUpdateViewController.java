@@ -17,6 +17,8 @@ public class CreationPostUpdateViewController implements Controller {
 		int boardNo=Integer.parseInt(request.getParameter("board_no"));
 		ArrayList<BoardVO> bglist=CreateBoardDAO.getInstance().boardBackground(); 
 		CreateBoardVO cbvo= (CreateBoardVO) CreateBoardDAO.getInstance().selectBoard(boardNo);
+		String content=cbvo.getCreate_content();
+		cbvo.setCreate_content(content.replace("<br>","\r\n"));
 		request.setAttribute("bglist", bglist);
 		request.setAttribute("cbdvo", cbvo);
 		request.setAttribute("cbno", boardNo);
