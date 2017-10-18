@@ -323,6 +323,13 @@ public class LineBoardDAO extends BoardDAO{
          while(rs.next()) {
             list.add(rs.getInt(1));
          }
+         
+         System.out.println("2: ");
+         for(int i=0;i<list.size();i++)
+         	System.out.println(list.get(i));
+         
+         
+         
       }finally {
          closeAll(rs, pstmt, con);
       }

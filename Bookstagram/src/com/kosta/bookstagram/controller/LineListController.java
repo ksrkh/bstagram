@@ -43,6 +43,17 @@ public class LineListController implements Controller {
       ArrayList<BoardVO> blist=LineBoardDAO.getInstance().boardList(pagingBean);
       
       
+      /*
+       * ************
+       */
+      System.out.println("1: ");
+      for(int i=0;i<blist.size();i++)
+      	System.out.println(blist.get(i).getBoard_no());
+      
+      /*
+       * 
+       */
+      
       
       if(!(id.equals("-1"))) {
          ArrayList<Integer> mlist=LineBoardDAO.getInstance().mySympathyList(pagingBean.getStartRowNumber(), pagingBean.getEndRowNumber(), id);
@@ -53,6 +64,12 @@ public class LineListController implements Controller {
             }
          }
          }
+      
+      
+    System.out.println("3: ");
+      for(int i=0;i<blist.size();i++)
+      	System.out.println(blist.get(i).getMySympathy());
+      
       
       for(int i=0;i<blist.size();i++) {
          list.add((LineBoardVO)blist.get(i));
