@@ -15,7 +15,6 @@ public class MemberDAO extends CommonDAO implements MemberListener {
 	private static MemberDAO instance = new MemberDAO();
 
 	private MemberDAO() {
-		System.out.println("MemberDAO 객체 생성");
 	}
 
 	public static MemberDAO getInstance() {

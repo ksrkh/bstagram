@@ -24,7 +24,6 @@ public class ReviewBoardDAO extends BoardDAO{
 
 	@Override
 	public void insertBoard(BoardVO board) throws SQLException {
-		System.out.println("ReviewBoardDAO, insertBoard() 실행");
 		ReviewBoardVO rbvo = (ReviewBoardVO)board;
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -151,10 +150,8 @@ public class ReviewBoardDAO extends BoardDAO{
 			pstmt.setInt(1, boardNo); //set값 게시물번호
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				System.out.println(rs.getString(19));
 				bvo = new ReviewBoardVO(rs.getInt(1),rs.getInt(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6),rs.getInt(7),rs.getInt(8),rs.getString(9),rs.getString(10),rs.getInt(11),rs.getInt(12),rs.getInt(13),new BookVO(rs.getString(14), rs.getString(15), rs.getString(16), rs.getString(17), rs.getString(18), rs.getString(19)));
 			}
-			System.out.println(bvo);
 		}finally {
 			closeAll(rs, pstmt, con);
 		}

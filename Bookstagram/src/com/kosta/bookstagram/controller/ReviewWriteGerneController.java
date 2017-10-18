@@ -14,7 +14,6 @@ public class ReviewWriteGerneController implements Controller {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ArrayList<ReviewGenreVO> rgvo = CmsDAO.getInstance().getGenreList();
-		System.out.println("genre"+rgvo);
 		request.setAttribute("genreList", rgvo);
 		request.setAttribute("url", "book-review_write.jsp");
 		return "home.jsp";

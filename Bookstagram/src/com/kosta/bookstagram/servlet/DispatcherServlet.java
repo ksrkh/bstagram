@@ -30,9 +30,10 @@ public class DispatcherServlet extends HttpServlet {
 			String command = request.getParameter("command");
 			String url = HandlerMapping.getInstance().create(command).execute(request, response).trim();
 			if (url.startsWith("redirect:")) {
+				System.out.println("["+request.getRemoteAddr()+"]접속 URL :" + request.getAttribute("url"));
 				response.sendRedirect(url.substring(9));
 			}else {
-				System.out.println("forward:" + url);
+				System.out.println("["+request.getRemoteAddr()+"]접속 URL :" + request.getAttribute("url"));
 				request.getRequestDispatcher(url).forward(request, response);
 			}
 		} catch (Exception e) {

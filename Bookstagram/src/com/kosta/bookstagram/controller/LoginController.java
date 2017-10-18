@@ -14,11 +14,8 @@ public class LoginController implements Controller {
 		HttpSession session = null;
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
-		System.out.println("id:"+id);
-		System.out.println("pw:"+pw);
 		MemberVO member = MemberDAO.getInstance().checkMember(id, pw);
 		String result = null;
-		System.out.println("member : "+member);
 		if(member != null) {
 			if (member.getTier() == 0){
 				//탈퇴회원
@@ -30,6 +27,7 @@ public class LoginController implements Controller {
 				session.setMaxInactiveInterval(20*60);
 				session.setAttribute("member", member);
 				result = "DispatcherServlet?command=lineList";
+				System.out.println("["+request.getRemoteAddr()+"]"+"로그인 성공");
 			}
 		}else {
 			//로그인실패

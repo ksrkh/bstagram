@@ -12,7 +12,7 @@ import com.kosta.bookstagram.model.common.SympathyVO;
 public class LineBoardDAO extends BoardDAO{
    //Singleton pattern 
    private static LineBoardDAO instance = new LineBoardDAO();   
-   private LineBoardDAO(){System.out.println("LineBoardDAO() 객체생성 싱글톤 적용");}
+   private LineBoardDAO(){}
    public static LineBoardDAO getInstance(){return instance;}
    
    /*

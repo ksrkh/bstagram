@@ -12,9 +12,6 @@ public class SympathyServiceController implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String id=request.getParameter("id");
 		int board_no=Integer.parseInt(request.getParameter("board_no"));
-		
-		System.out.println(id+"보드넘버"+board_no);
-		
 		int likeCount=LineBoardDAO.getInstance().likeService(id,board_no);
 		request.setAttribute("responseBody",likeCount);
 		return "AjaxView";

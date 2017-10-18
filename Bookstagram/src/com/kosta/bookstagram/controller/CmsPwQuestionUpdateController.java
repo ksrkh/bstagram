@@ -11,7 +11,6 @@ public class CmsPwQuestionUpdateController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("수정컨트롤러/"+request.getParameter("findPw_code") + "/" + request.getParameter("findPw_name"));
 		CmsDAO.getInstance().updatePwFindQuestion(new PasswordQuestionVO(Integer.parseInt(request.getParameter("findPw_code")), request.getParameter("findPw_name")));
 		return "DispatcherServlet?command=cmspwquestionpage";
 	}

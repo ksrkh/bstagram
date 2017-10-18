@@ -14,7 +14,6 @@ public class CmsDAO extends CommonDAO {
 	private static CmsDAO instance = new CmsDAO();
 
 	private CmsDAO() {
-		System.out.println("MemberDAO 객체 생성");
 	}
 
 	public static CmsDAO getInstance() {
