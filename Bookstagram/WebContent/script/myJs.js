@@ -265,18 +265,30 @@ $( document ).ready( function() {
 	
 	$(".pw_find_btn").click(function(){
 		var id = $("#pwfindid").val();
-		alert(id);
-		location.href="DispatcherServlet?command=passwordfind2&id="+id;
+		$.ajax({
+		      type:"get",
+		      url:"DispatcherServlet",
+		      data:"command=passwordfind2&id="+id,
+		      success:function(data){
+		     	 if(data=="fail"){
+		     		alert("일치하는 아이디가 없습니다");
+		     		$("#pwfindid").val("");
+		     	 }
+		     	else{
+		     		location.href="DispatcherServlet?command=passwordFindForm&id="+data;
+		     	}
+		      }
+		   });
 	});
 	
 	
-	$(".findpassword_btn").click(function(){
+	/*$(".findpassword_btn").click(function(){
 		var chk_pw = $("#pwfind_question:checked").val();
 		var id = $("#pwfind_answer").val();
 		alert(id+" "+chk_pw);
 		location.href="DispatcherServlet?command=passwordfind3&id="+id;
 	});
-	
+	*/
 	
 });
 

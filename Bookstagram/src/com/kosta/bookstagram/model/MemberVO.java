@@ -190,7 +190,21 @@ public class MemberVO {
 		this.tier_name = tier_name;
 		this.regdate = regdate;
 	}
-
+	
+	/**
+	 * -비밀번호 찾기
+	 * 
+	 * @param id					아이디
+	 * @param question_code			비밀번호 찾기 질문
+	 * @param pw_ans				비밀번호 찾기 답변
+	 */
+	public MemberVO(String id, int question_code, String pw_ans, String pw) {
+		super();
+		this.id = id;
+		this.question_code = question_code;
+		this.pw_ans = pw_ans;
+		this.pw=pw;
+	}
 	public String getId() {
 		return id;
 	}

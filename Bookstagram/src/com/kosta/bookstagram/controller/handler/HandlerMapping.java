@@ -43,6 +43,7 @@ import com.kosta.bookstagram.controller.LoginFailController;
 import com.kosta.bookstagram.controller.MyPageController;
 import com.kosta.bookstagram.controller.PagingScrollerController;
 import com.kosta.bookstagram.controller.PasswordFindFormController;
+import com.kosta.bookstagram.controller.PasswordFindInputFormController;
 import com.kosta.bookstagram.controller.PasswordFindQuestionController;
 import com.kosta.bookstagram.controller.PasswordFindSolveController;
 import com.kosta.bookstagram.controller.ReplyRegisterController;
@@ -195,7 +196,9 @@ public class HandlerMapping {
 			controller = new PasswordFindQuestionController();
 		else if(command.equals("passwordfind3"))
 			controller = new PasswordFindSolveController();
-			
+		else if(command.equals("passwordFindForm"))
+			controller=new PasswordFindInputFormController();
+		
 		return controller;
 	}
 }

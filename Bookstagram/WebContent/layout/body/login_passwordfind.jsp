@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!-- 기능의 UI를 담당하는 부분(컨테이너) -->
 <div class="container" style="margin-bottom: 150px">
 	<!-- 현재 페이지의 타이틀  -->
@@ -11,8 +12,8 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="well bs-component">
-					<form class="form-horizontal" action="DispatcherServlet" method="post" name="PasswordFindFrame">
-						<fieldset>
+					<form class="form-horizontal" action="DispatcherServlet" method="post" name="PasswordFindFrame"-->	
+					<fieldset>
 							<!-- 로고 -->
 							<div class="form-group" style="margin-top: 65px">
 								<div class="col-lg-3"></div>
@@ -30,7 +31,7 @@
 								<div class="col-lg-3"><input type="button" class="btn btn-info pw_find_btn" value="비밀번호찾기" style="width: 140px"></div>
 							</div>
 						</fieldset>
-					</form>
+					</form> 
 				</div>
 			</div>
 		</div>

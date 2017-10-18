@@ -332,6 +332,30 @@ public class MemberDAO extends CommonDAO implements MemberListener {
 			rs = pstmt.executeQuery();
 			if(rs.next())
 				member = new MemberVO();
+			} finally {
+			closeAll(rs,pstmt,con);
+		}
+		
+		return member;
+	}
+	
+	public MemberVO idCheckForPWFind(String id) throws SQLException {
+		MemberVO member = null;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			
+			con = getConnection();
+			StringBuilder sql = new StringBuilder();
+			sql.append("select question_code,pw_ans,pw ");
+			sql.append("from member where id=? ");
+			pstmt = con.prepareStatement(sql.toString());
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if(rs.next())
+				member = new MemberVO(id,rs.getInt(1),rs.getString(2),rs.getString(3));
+		
 		} finally {
 			closeAll(rs,pstmt,con);
 		}

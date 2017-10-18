@@ -341,3 +341,9 @@ SET bg_path='empthy.jpg'
 WHERE bg_no=0;
 
 select*from BOARD_BACKGROUND;
+
+select * from member;
+
+select question_code,pw_ans
+from member
+where id='a';

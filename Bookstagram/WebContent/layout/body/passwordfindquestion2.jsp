@@ -25,8 +25,8 @@
 							<div class="form-group" style="margin-top: 30px; margin-bottom:100px">
 								<div class="col-lg-2"></div>
 								<div class="col-lg-5">
-									<label for="select" class="col-lg-12 control-label">***회원님의 비밀번호 찾기 결과입니다.</label>
-									<label for="select" class="col-lg-12 control-label">회원님의 비밀번호 ***** 입니다.</label>
+									<label for="select" class="col-lg-12 control-label"><b>${requestScope.id}</b>&nbsp;회원님의 비밀번호 찾기 결과입니다.</label>
+									<label for="select" class="col-lg-12 control-label">회원님의 비밀번호는&nbsp; <b>${requestScope.pw}</b> &nbsp;입니다.</label>
 									<label for="select" class="col-lg-12 control-label"><a href="DispatcherServlet?command=LoginFail">click>로그인페이지로 go!</a></label>
 								</div>
 								<div class="col-lg-3"></div>
