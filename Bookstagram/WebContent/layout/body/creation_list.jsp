@@ -6,7 +6,7 @@
 <div class="container">
 	<!-- 현재 페이지의 타이틀  -->
 	<div class="tagline-upper text-left text-heading text-shadow text-white d-none d-lg-block" style="margin-top: 5px">
-	창작글
+	창작 글
 	<c:if test="${sessionScope.member.id!=null}">
 		<button type="submit" class="btn btn-primary creation_write">글 쓰기</button>
 	</c:if>
