@@ -79,6 +79,7 @@ public class LineListController implements Controller {
          list.add((LineBoardVO)LineBoardDAO.getInstance().boardList(pagingBean).get(i));
       }*/
       ListVO<LineBoardVO> listVO=new ListVO<LineBoardVO>(list,pagingBean);
+     System.out.println("listVO확인 : "+listVO.getList().get(1).getBookVO().getBook_title());
       request.setAttribute("lineList", listVO);
       request.setAttribute("url", "one-line-memo_list.jsp");
       return "home.jsp";

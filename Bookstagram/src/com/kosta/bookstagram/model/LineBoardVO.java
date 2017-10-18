@@ -56,17 +56,20 @@ public class LineBoardVO extends BoardVO{
 	 * @param bg_no				게시글배경번호
 	 * @param line_content		한줄게시판내용
 	 * @param tend_code			한줄게시판성향
+	 * @param book_no			책 번호
 	 * @param bookVO            책 정보
 	 * 
 	 */
+	
 	public LineBoardVO(int board_no, int boardtype_no, String id, String nick, String board_regdate, int hit,
-			int sympathy, int authority, int bg_no, String line_content, int tend_code, BookVO bookVO) {
-		super(board_no, boardtype_no, id, nick, board_regdate, hit, sympathy, authority);
+			int sympathy, int authority, int bg_no, String line_content, int tend_code, int book_no, BookVO bookVO) {
+		super(board_no, boardtype_no, id, nick, board_regdate, hit, sympathy, authority, bg_no);
 		this.line_content = line_content;
 		this.tend_code = tend_code;
-		
+		this.book_no = book_no;
 		this.bookVO = bookVO;
 	}
+	
 	
 	/**
 	 * 글수정
@@ -81,6 +84,7 @@ public class LineBoardVO extends BoardVO{
 		this.line_content = line_content;
 		this.tend_code = tend_code;
 	}
+
 	/**
 	 * -한줄 게시판 글 작성용 생성자<br/>
 	 * @param boardtype_no	게시글타입번호

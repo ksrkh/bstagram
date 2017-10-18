@@ -21,7 +21,6 @@
 $(document).ready(function(){
 	
 	var sId=$(".idCheck").attr("id");
-	
 	function getPageList(board_no,member_id,line_content,nick,tend_code,
 			mySympathy,sympathy,book_title,book_intro,book_author,book_publ,
 			book_sdate,book_img){
@@ -94,10 +93,10 @@ $(document).ready(function(){
 	      return info;
 	}
 	var page=1;
-	$(function(){
+ 	$(function(){
 		getList(page);
 		page++;
-	});
+	}); 
 	
 	$(window).scroll(function() {
 		if($(window).scrollTop() >=$(document).height()-$(window).height()){
@@ -112,9 +111,6 @@ $(document).ready(function(){
 			data:"command=pangingScroll&pageNo="+page,
 			dataType:"json",
 			success:function(data){
-			/* 	if(page==1){
-					$("#loading").html("로딩중입니다");					
-				} */
 				var board_no="";
 				var member_id="";
 				var content="";
@@ -127,28 +123,10 @@ $(document).ready(function(){
 				var book_publ="";
 				var book_sdate="";
 				var book_img="";
-			/* 	if(page==1){
-					for(var i in data.list){
-						board_no=data.list[i].board_no;
-						member_id=data.list[i].id;
-						line_content=data.list[i].line_content;
-						nick=data.list[i].nick;
-						tend_code=data.list[i].tend_code;
-						mySympathy=data.list[i].mySympathy;
-						sympathy=data.list[i].sympathy;
-						book_title=data.list[i].bookVO.book_title;
-						book_intro=data.list[i].bookVO.book_intro;
-						book_author=data.list[i].bookVO.book_author;
-						book_publ=data.list[i].bookVO.book_publ;
-						book_sdate=data.list[i].bookVO.book_sdate;
-						book_img=data.list[i].bookVO.book_img;
-						page_f=getPageList(board_no,member_id,line_content,nick,tend_code,
-								mySympathy,sympathy,book_title,book_intro,book_author,book_publ,
-								book_sdate,book_img);
-						$("#loading").append(page_f);	
-					 }
-				} */
-				if(page!=1){
+			  	if(page==1){
+			 		$("#loading").html("");
+				} 
+			 	else if(page!=1){
 					for(var i in data.list){						
 						board_no=data.list[i].board_no;
 						member_id=data.list[i].id;
@@ -168,37 +146,16 @@ $(document).ready(function(){
 								book_sdate,book_img);	
 						$("#loading").append(page_f);	
 					 }
-					}/* else if(page==0){
-						for(var i in data.list){						
-							board_no=data.list[i].board_no;
-							member_id=data.list[i].id;
-							line_content=data.list[i].line_content;
-							nick=data.list[i].nick;
-							tend_code=data.list[i].tend_code;
-							mySympathy=data.list[i].mySympathy;
-							sympathy=data.list[i].sympathy;
-							book_title=data.list[i].bookVO.book_title;
-							book_intro=data.list[i].bookVO.book_intro;
-							book_author=data.list[i].bookVO.book_author;
-							book_publ=data.list[i].bookVO.book_publ;
-							book_sdate=data.list[i].bookVO.book_sdate;
-							book_img=data.list[i].bookVO.book_img;
-							page_f=getPageList(board_no,member_id,line_content,nick,tend_code,
-									mySympathy,sympathy,book_title,book_intro,book_author,book_publ,
-									book_sdate,book_img);
-						
-				
-							$("#loading").append(page_f);	
-					} 
-				} */
-			}	
-		
+					}
+			} 		
 			});//ajax
 		
-	}  
-	  $(".hover_no .sympathy_img").click(function() {
+	} 
+	//이미지 고정 이미지값
+	  $(".sympathy_img").click(function() {
 	        var id='${sessionScope.member.id}';
-	          
+	       var sdf =$(".badge quote-badge").attr("id")          
+	         alert(sdf);
 	       if(id!=''){
 	         var src=($(this).attr('src')==='icon_img/like0.png')
 	            ?'icon_img/like1.png'
@@ -206,7 +163,6 @@ $(document).ready(function(){
 	            $(this).attr('src',src);
 	         id='${sessionScope.member.id}';
 	         var board_no=$(this).attr('id');
-	         
 	         alert(board_no);
 	        
 	         $.ajax({
@@ -215,32 +171,25 @@ $(document).ready(function(){
 	          data:"command=sympathyService&id="+id+"&board_no="+board_no,
 	          //data:"command=sympathyService&id="+id+"&board_no="+board_no,
 	          success:function(data){
-	          //   alert(data);
-	             $("#sympathy_count").text(data);
+	            alert(data);
+	             $("#sympathy_count"+board_no).text(data);
 	          }
 	       });//ajax
 	       }//if   
 	      });//click 
-	//대상을 보유하는 요소를 선택하고
-		//on(event type,선택자,handler) 
-		//즉 id menu div 를 선택한 후 on 을 적용하고 
-		//이 div 내부에 동적으로 생성되는 p 를 대상으로
-		//click 이벤트 발생시 해당 handler 익명함수를 실행하도록 한다 
-		$(".container").on("click","#loading .sympathy_img",function(){
-			
+		
+	      //동적으로 생성되는 이미지 값 클릭
+	      
+		$(".container").on("click","#loading .sympathy_img",function(){		
 			var id='${sessionScope.member.id}';
-	        var count=$(this).text();
-	        alert(count);
 		       if(id!=''){
 		         var src=($(this).attr('src')==='icon_img/like0.png')
 		            ?'icon_img/like1.png'
 		            :'icon_img/like0.png'
 		            $(this).attr('src',src);
 		         id='${sessionScope.member.id}';
-		         var board_no=$(this).attr('id');
-		         
-		    /*      alert(board_no); */
-		      
+		         var board_no=$(this).attr('id');		   		         
+		  		      
 		         $.ajax({
 		          type:"get",
 		          url:"DispatcherServlet",
@@ -322,23 +271,15 @@ $(document).ready(function(){
 				 onclick="javascript:return confirm('정말 수정하시겠습니까?')"><i class="fa fa-cog fa-spin" style="font-size:25px;" id="lineUpdateBtn"></i></a>
 			    <a href="DispatcherServlet?command=lineDelete&boardNo=${lvo.board_no}" onclick="javascript:return confirm('정말 삭제하시겠습니까?')"><i class="fa fa-trash-o" style="font-size:25px;" id="lineDeleteBtn"></i></a>
 			</div>
-		</c:if> 
+		</c:if>
+		<div class="bg-faded p-4 my-4"  id='line_board_btn' data-toggle="collapse" data-target="#demo${lvo.board_no}"> 
 			<blockquote class="quote-box" style="background-color: #2d2d2d;">
 				<p class="quotation-mark" style="margin-bottom:20px">
 					“
 				</p>
-				<c:choose>
-					<c:when test="${sessionScope.member!=null}">
-						<p class="quote-text" id="line_content_login">
-							${lvo.line_content}
-						</p>
-					</c:when>
-					<c:otherwise>
-						<p class="quote-text" id="line_content">
-							${lvo.line_content}
-						</p>
-					</c:otherwise>
-				</c:choose>
+				<p class="quote-text" id="line_content">
+				${lvo.line_content}
+				</p>
 				<hr>
 				<div class="blog-post-actions">
 					<p class="blog-post-bottom pull-left" id="line_nick">
@@ -352,12 +293,29 @@ $(document).ready(function(){
                      <c:otherwise>
                        <img src="icon_img/like1.png" class="sympathy_img"id="${lvo.board_no}" alt="" style="height:20px; width:20px" >
                      </c:otherwise>
-                     </c:choose>
-                  
-                  <span id="sympathy_count" class="badge quote-badge">${lvo.sympathy}</span>
+                     </c:choose>       
+                  <span id="sympathy_count${lvo.board_no}" class="badge quote-badge">${lvo.sympathy}</span>
                </p>
 				</div>
 			</blockquote>
+			<div id="demo${lvo.board_no}" class="collapse">			
+			<div class="col-lg-2" id="book_image_area">
+									<img class="book_search_thumnail" height=171px width=120px src="${lvo.bookVO.book_img}">
+								</div>
+								<div class="col-lg-10">
+									<!-- 책제목 -->
+									<div id="book_title_area" class="col-lg-12" style="padding-left: 0px; margin-bottom: 10px" >${lvo.bookVO.book_title}</div>
+									<!-- 저자 -->
+									<div id="book_author_area" class="col-lg-4" style="padding-left: 0px; margin-bottom: 10px; margin-left:0px; margin-right: 0px">${lvo.bookVO.book_author}</div>
+									<!-- 출판사 -->
+									<div id="book_publisher_area" class="col-lg-4">${lvo.bookVO.book_publ}</div>
+									<!-- 출판일자 -->
+									<div id="book_pubdate_area" class="col-lg-4">${lvo.bookVO.book_sdate}</div>
+									<!-- 책소개 -->
+									<div class="col-lg-12" style="padding-left: 0px" id="book_description_area">${lvo.bookVO.book_intro}</div>
+								</div>                   
+	      </div>                                                                    
+	     </div>
 		</div>
 	</div>
 	</div>

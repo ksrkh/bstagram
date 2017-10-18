@@ -248,42 +248,40 @@ public class LineBoardDAO extends BoardDAO{
    /*
     * 첫 메인 페이지 view down casting Servlet
     * 
-    * SELECT br.board_no, br.boardtype_no, m.id, m.nick, 
-    * br.board_regdate, br.hit, br.authority, br.bg_no, lb.line_content, lb.tend_code, lb.book_no FROM
-    * (SELECT row_number() over(order by board_no desc) as rnum,board_no,line_content,tend_code,book_no
-    * FROM line_board) lb, board br, member m 
-    * WHERE br.board_no=lb.board_no and br.id=m.id and rnum between 1 and 5  order by br.board_no desc
+    * SELECT br.board_no, br.boardtype_no, m.id, m.nick, lb.book_no, br.board_regdate, br.hit,   
+ 	* br.authority, br.bg_no, lb.line_content, lb.tend_code, lb.book_no, bk.book_title, bk.book_intro,
+ 	* bk.book_author, bk.book_publ, bk.book_sdate, bk.book_img FROM
+ 	* (SELECT row_number() over(order by board_no desc) as rnum,board_no,line_content,tend_code,book_no
+ 	* FROM line_board) lb, board br, member m,book bk 
+ 	* WHERE br.board_no=lb.board_no and br.id=m.id and bk.book_no=lb.book_no and rnum between 1 and 5  order by br.board_no desc;
     * 
     * 페이징 처리 완료   
     */
    public ArrayList<BoardVO> boardList(PagingBean pagingBean) throws SQLException {
 	      ArrayList<BoardVO> list = new ArrayList<BoardVO>();
-	      BookVO bvo=null;
+	  
 	      Connection con = null;
 	      PreparedStatement pstmt = null;
 	      ResultSet rs = null;
 	      try {
 	         con = getConnection();
 	         StringBuilder sql = new StringBuilder();
-	         sql.append("SELECT br.board_no, br.boardtype_no, m.id, m.nick, ");
-	         sql.append("br.board_regdate, br.hit, br.authority, br.bg_no, lb.line_content, lb.tend_code, lb.book_no FROM ");
+	         sql.append("SELECT br.board_no, br.boardtype_no, m.id, m.nick, br.board_regdate, br.hit, ");
+	         sql.append("br.authority, br.bg_no, lb.line_content, lb.tend_code, lb.book_no, bk.book_title, bk.book_intro, ");
+	         sql.append("bk.book_author, bk.book_publ, bk.book_sdate, bk.book_img FROM ");
 	         sql.append("(SELECT row_number() over(order by board_no desc) as rnum,board_no,line_content,tend_code,book_no ");
-	         sql.append("FROM line_board) lb, board br, member m ");
-	         sql.append("WHERE br.board_no=lb.board_no and br.id=m.id and rnum between ? and ?  order by br.board_no desc");
+	         sql.append("FROM line_board) lb, board br, member m, book bk ");
+	         sql.append("WHERE br.board_no=lb.board_no and br.id=m.id and bk.book_no=lb.book_no and rnum between ? and ? order by br.board_no desc");
 	         pstmt = con.prepareStatement(sql.toString());
 	         pstmt.setInt(1, pagingBean.getStartRowNumber());
 	         pstmt.setInt(2, pagingBean.getEndRowNumber());
-	         rs = pstmt.executeQuery();
-	         if(rs.next()) {
-	         bvo=selectBook(rs.getInt(11));
-	         }
+	         rs = pstmt.executeQuery();	        
 	         /*int board_no, int boardtype_no, String id, String nick, String board_regdate, int hit,
-			int sympathy, int authority, int bg_no, String line_content, int tend_code, BookVO bookVO*/
-	         while (rs.next()) {
-	            list.add(new LineBoardVO(rs.getInt(1),rs.getInt(2),rs.getString(3),rs.getString(4),rs.getString(5),
-	                  rs.getInt(6),0,rs.getInt(7),rs.getInt(8),rs.getString(9),rs.getInt(10),
-	                  new BookVO(bvo.getBook_title(),bvo.getBook_intro(),bvo.getBook_author(),bvo.getBook_publ(),bvo.getBook_sdate()
-	                		  ,bvo.getBook_img())));
+			int sympathy, int authority, int bg_no, String line_content, int tend_code, int book_no, BookVO bookVO*/
+	         while (rs.next()) {  
+	            list.add(new LineBoardVO(rs.getInt(1),rs.getInt(2),rs.getString(3),rs.getString(4), rs.getString(5), rs.getInt(6),
+	            		0, rs.getInt(7), rs.getInt(8), rs.getString(9), rs.getInt(10), rs.getInt(11), new BookVO(rs.getString(12), 
+	            			rs.getString(13), rs.getString(14), rs.getString(15), rs.getString(16),  rs.getString(17))));
 	         }
 	         ArrayList<SympathyVO> slist= allLikeCount(pagingBean.getStartRowNumber(), pagingBean.getEndRowNumber());
 	         
