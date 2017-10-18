@@ -23,7 +23,8 @@ public class LineListController implements Controller {
       PagingBean pagingBean=new PagingBean(totalCount,1);
       String id=null;
       HttpSession session=request.getSession(false);
-      if(session.getAttribute("member")==null) {
+     
+      if(session==null||session.getAttribute("member")==null) {
          System.out.println("로그인안됨");
          id="-1";
       }
