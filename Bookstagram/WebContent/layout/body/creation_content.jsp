@@ -80,7 +80,7 @@ function delReply(reply_no,board_type, id){
 									<!-- 이미지 선택했을 시 -->
 									<c:if test="${requestScope.cbdvo.bg_no != 0}">
 									<div class="form-group">
-										<img class="write_bg img-fluid w-100" src="img/write/write_bg${requestScope.cbdvo.bg_path}" alt="">
+										<img class="write_bg img-fluid w-100" src="icon_img/write_bg${requestScope.cbdvo.bg_path}" alt="">
 										<div class="card-img-overlay bg-overlay" >
 											<div class="text text-white" >
 												<div style="float: right; margin-right: 5px">
