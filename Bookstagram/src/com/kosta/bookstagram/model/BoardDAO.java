@@ -140,7 +140,7 @@ public abstract class BoardDAO extends CommonDAO implements BoardListener{
 			pstmt.close();
 			if(liked==0) {
 				StringBuilder sql2=new StringBuilder();
-				sql1.append("insert into sympathy(id, board_no) values(?,?)");
+				sql2.append("insert into sympathy(id, board_no) values(?,?)");
 				pstmt=con.prepareStatement(sql2.toString());	
 				pstmt.setString(1, id);
 				pstmt.setInt(2, boardNo);
@@ -148,7 +148,7 @@ public abstract class BoardDAO extends CommonDAO implements BoardListener{
 			}
 			else {
 				StringBuilder sql2=new StringBuilder();
-				sql1.append("delete from SYMPATHY where id=? and board_no=?");
+				sql2.append("delete from SYMPATHY where id=? and board_no=?");
 				pstmt=con.prepareStatement(sql2.toString());	
 				pstmt.setString(1, id);
 				pstmt.setInt(2, boardNo);

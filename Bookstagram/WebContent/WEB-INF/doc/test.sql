@@ -345,5 +345,17 @@ select*from BOARD_BACKGROUND;
 select * from member;
 
 select question_code,pw_ans
-from member
+from 
 where id='a';
+
+
+
+select B.board_no from (select board_no
+from(select row_number() over(order by board_no desc) as rnum, board_no from board) b 
+where b.rnum between 1 and 5) B, SYMPATHY S 
+where B.board_no=S.board_no and id='a';
+
+
+
+
+
