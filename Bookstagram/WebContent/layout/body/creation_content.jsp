@@ -53,7 +53,7 @@ function delReply(reply_no,board_type, id){
 					<form class="form-horizontal">
 						<fieldset>
 							<!-- content 부분 -->
-							<div class="col-lg-12" style="border-bottom: #848484 1px solid; padding-left: 15px; padding-top: 0px">
+							<div class="col-lg-12" style="padding-left: 15px; padding-top: 0px">
 								
 									<!-- 이미지 선택안했을 시 -->
 									<c:if test="${requestScope.cbdvo.bg_no == 0}">
