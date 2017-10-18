@@ -11,6 +11,9 @@
 			var book_description="";
 			var book_image="";
 			
+			
+			
+			
 			$("#returnlist").click(function() {
 				if(confirm("게시글을 작성을 취소하시겠습니까?")){
 					location.href="DispatcherServlet?command=reviewboardlist";		
@@ -18,38 +21,39 @@
 			});//returnlist.click
 			
 			
-			
 			$("#reviewwrite").click(function(){
 				var title = $("#review_title").val();
 				var content = $("#review_content").val();
 				var member_id=$(".write_id").attr("id");
 				var genre = $("#select").val();
+				
+				var book_title_p=$("#book_title_area").text();
+				var book_author_p=$("#book_author_area").text();
+				var book_publisher_p=$("#book_publisher_area").text();
+				var book_pubdate_p=$("#book_pubdate_area").text();
+				var book_description_p=$("#book_description_area").text();
+				var book_image_p=$(".book_search_thumnail").attr('src');
+				
 				if(title==""){
 					alert("제목을 작성해주세요");
 				}else if(content==""){
 					alert("게시물을 작성해주세요");
-				}else if(content!=""&&title!=""){
+				}else if(book_title_p == ""){
+			         alert("도서 검색을 해주세요.");
+			      }else if(content!=""&&title!=""){
 					if(confirm("게시글을 작성하시겠습니까?")){			
+//						var tt = book_title_p.replace('&',' ');
 						
-						
-						var book_title_p=$("#book_title_area").text();
-						var book_author_p=$("#book_author_area").text();
-						var book_publisher_p=$("#book_publisher_area").text();
-						var book_pubdate_p=$("#book_pubdate_area").text();
-						var book_description_p=$("#book_description_area").text();
-						var book_image_p=$(".book_search_thumnail").attr('src');
-						alert(book_image_p);
-	
-				 location.href="DispatcherServlet?command=reviewwrite&review_title="+title
-																+"&review_content="+content
-																+"&review_genre="+genre
-																+"&member_id="+member_id
-																+"&review_book_title="+book_title_p
-																+"&review_author="+book_author_p
-																+"&review_publ="+book_publisher_p
-																+"&review_sdate="+book_pubdate_p
-																+"&review_book_img="+book_image_p
-																+"&review_book_description="+book_description_p;
+						location.href="DispatcherServlet?command=reviewwrite&review_title="+title
+																		+"&review_content="+content
+																		+"&review_genre="+genre
+																		+"&member_id="+member_id
+																		+"&review_book_title="+book_title_p
+																		+"&review_author="+book_author_p
+																		+"&review_publ="+book_publisher_p
+																		+"&review_sdate="+book_pubdate_p
+																		+"&review_book_img="+book_image_p
+																		+"&review_book_description="+book_description_p;
 					}
 			}
 				
@@ -90,62 +94,17 @@
 										
 								</div>
 								<div class="col-lg-10">
-									<input type="text" class="form-control" id="review_title" name="review_title" placeholder="독후감 제목">
+									<input type="text" class="form-control" maxlength="48" id="review_title" name="review_title" placeholder="독후감 제목">
 								</div>
 							</div>
 							
 							<!-- 내용 입력 부분 -->
 							<div class="form-group">
 								<div class="col-lg-12">
-									<strong><textarea style="resize:none; font-size:20px;" class="form-control ta" rows="20" id="review_content" name="review_content" placeholder="내용을 입력하세요."></textarea></strong>
+									<strong><textarea style="resize:none; font-size:15px;" class="form-control ta" rows="20" id="review_content" name="review_content" placeholder="내용을 입력하세요."></textarea></strong>
 						      	</div>
 						    </div>
 						    
-						    <!-- 배경 선택 부분 -->
-						    <!-- 2차구현 예정입니다. -->
-							<div class="bg-faded p-4 my-4 form-group" style="margin-left: 0px;margin-right: 0px">
-							    <div class="col-lg-12" style="margin-top: 5px; text-align: center">
-								    <div class="radio" style="padding-top: 0px; padding-bottom: 0px">
-								    	<label><input type="radio" name="content_bg" id="radio_bg1" value="content_bg1">색상으로 하기</label>
-								    	<label><input type="radio" name="content_bg" id="radio_bg2" value="content_bg2">이미지로 하기</label>
-								    	<label><input type="radio" name="content_bg" id="radio_bg3" value="content_bg3" checked="checked">선택안함</label>
-								    </div>
-							    </div>
-						    </div>
-							
-							<!-- 독후감의 배경 템플릿 입니다. -->
-							<div id="bg_template" class="bg-faded p-4 my-4 form-group" style="margin-left: 0px;margin-right: 0px; display: none">
-								<div id="scroll_wrap" class="col-lg-12">
-									<!-- 왼쪽 슬라이드 버튼 -->
-									<div class="col-lg-1" style="padding-top: 30px">
-										<span class="left"><img src="http://bimage.interpark.com/renewPark/welcome/main1111/btn_c_left_on.gif" alt=""></span>
-									</div>
-									<!-- 추후 for로 돌릴 템플릿 경로 -->
-									<div class="col-lg-10">
-										<div class="scroll">
-											<ul class="board_background" style="padding-left: 0px">
-												<li><img class="write_bg" src="img/write/write_bg11.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg12.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg8.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg4.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg5.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg6.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg7.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg3.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg9.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg10.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg1.jpg" alt=""></li>
-												<li><img class="write_bg" src="img/write/write_bg2.jpg" alt=""></li>
-											</ul>
-										</div>
-									</div>
-									<!-- 오른쪽 슬라이드 버튼 -->
-									<div class="col-lg-1" style="padding-top: 30px">
-										<span class="right"><img src="http://bimage.interpark.com/renewPark/welcome/main1111/btn_c_right_on.gif" alt=""></span>	
-									</div>
-								</div>
-							</div>
-							
 							<!-- 책검색 -->
 							<div class="form-group">
 								<div class="col-lg-12">

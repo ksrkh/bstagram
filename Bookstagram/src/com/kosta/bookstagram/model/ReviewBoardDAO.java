@@ -171,16 +171,16 @@ public class ReviewBoardDAO extends BoardDAO{
 			con = getConnection();
 
 			StringBuilder sql = new StringBuilder();
-			sql.append("SELECT  b.board_no, m.nick, b.board_regdate, b.hit, rb.review_title, rb.review_content, rb.star_point, rb.genre,bo.book_no, bo.book_title, bo.book_intro, bo.book_author, bo.book_publ, bo.book_sdate, bo.book_img ");
-			sql.append("FROM (   SELECT row_number() over(order by board_no desc) as rnum,board_no,review_title,review_content,star_point,genre,book_no FROM review_board) rb, board b, member m, book bo ");
-			sql.append("WHERE b.board_no = rb.board_no and b.id=m.id and rb.book_no=bo.book_no and rnum between ? and ? order by b.board_no desc");
+			sql.append("SELECT  b.board_no, m.nick, b.board_regdate, b.hit, rb.review_title, rb.review_content, rb.star_point, rb.genre,bo.book_no, bo.book_title, bo.book_intro, bo.book_author, bo.book_publ, bo.book_sdate, bo.book_img, g.genre_name ");
+			sql.append("FROM (   SELECT row_number() over(order by board_no desc) as rnum,board_no,review_title,review_content,star_point,genre,book_no FROM review_board) rb, board b, member m, book bo,genre g  ");
+			sql.append("WHERE b.board_no = rb.board_no and b.id=m.id and rb.book_no=bo.book_no and g.genre = rb.genre and rnum between ? and ? order by b.board_no desc");
 			pstmt = con.prepareStatement(sql.toString());
 			pstmt.setInt(1, pagingBean.getStartRowNumber());
 			pstmt.setInt(2, pagingBean.getEndRowNumber());
 			rs = pstmt.executeQuery();
 			con.commit();
 			while (rs.next()) {
-				list.add(new ReviewBoardVO(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getInt(4),rs.getString(5),rs.getString(6),rs.getInt(7),rs.getInt(8),rs.getInt(9),new BookVO(rs.getString(10),rs.getString(11),rs.getString(12),rs.getString(13),rs.getString(14),rs.getString(15))));
+				list.add(new ReviewBoardVO(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getInt(4),rs.getString(5),rs.getString(6),rs.getInt(7),rs.getInt(8),rs.getInt(9),rs.getString(16),new BookVO(rs.getString(10),rs.getString(11),rs.getString(12),rs.getString(13),rs.getString(14),rs.getString(15))));
 			}
 		} finally {
 			con.rollback();
