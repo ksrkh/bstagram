@@ -52,7 +52,7 @@ function updatecancle(){
 							<!-- 내용 입력 부분 -->
 							<div class="form-group">
 								<div class="col-lg-12">
-									<textarea class="form-control ta text-white" rows="30" id="content" name="content" style="background-image:url('img/write/write_bg${requestScope.cbdvo.bg_path}')" >${requestScope.cbdvo.create_content}</textarea>
+									<textarea class="form-control ta text-white" rows="30" id="content" name="content" style="background-image:url('icon_img/write_bg${requestScope.cbdvo.bg_path}')" >${requestScope.cbdvo.create_content}</textarea>
 						      	</div>
 						    </div>
 						    
@@ -80,7 +80,7 @@ function updatecancle(){
 											<ul class="board_background" style="padding-left: 0px">					
 											<c:forEach items="${requestScope.bglist}" var="bg">
 												<c:if test="${bg.bg_no!=0}">
-													<li><img class="write_bg" src="img/write/write_bg${bg.bg_path}" alt="" onclick="backgroundNo(${bg.bg_no})"></li>
+													<li><img class="write_bg" src="icon_img/write_bg${bg.bg_path}" alt="" onclick="backgroundNo(${bg.bg_no})"></li>
 												</c:if>
 											</c:forEach>
 											</ul>
