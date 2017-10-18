@@ -296,24 +296,6 @@ commit;
 
 
 /*
- * 리리플등록
- */
-create sequence rereplyno_seq;
-insert into re_reply(re_reply_no, re_reply_content, reply_no, id)
-values(rereplyno_seq.nextval, '리덧글 내용1', 1, 'orangss@naver.com');
-insert into re_reply(re_reply_no, re_reply_content, reply_no, id)
-values(rereplyno_seq.nextval, '리덧글 내용2', 2, 'ryuhyg@naver.com');
-insert into re_reply(re_reply_no, re_reply_content, reply_no, id)
-values(rereplyno_seq.nextval, '리덧글 내용3', 3, 'kjhsc101218@naver.com');
-insert into re_reply(re_reply_no, re_reply_content, reply_no, id)
-values(rereplyno_seq.nextval, '리덧글 내용4', 4, 'will0324@hanmail.net');
-insert into re_reply(re_reply_no, re_reply_content, reply_no, id)
-values(rereplyno_seq.nextval, '리덧글 내용5', 5, 'dnwjdrnl2@naver.com');
-commit;
-
-
-
-/*
  * 공감
  */
 insert into sympathy(id, board_no)

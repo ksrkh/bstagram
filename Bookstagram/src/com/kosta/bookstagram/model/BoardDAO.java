@@ -275,6 +275,7 @@ public abstract class BoardDAO extends CommonDAO implements BoardListener{
 		}finally {
 			br.close();
 		}
+		
 		return responseBook.toString();
 	}
 

@@ -8,8 +8,6 @@
 	<div class="col-sm-1"></div>
 	<div class="col-sm-10">
 		<div class="form-group" style="margin-top: 5px">
-			<input type="text" class="form-control" placeholder="Searcch" style="width: 150px; display: block; float: left">
-			<button type="submit" class="btn btn-default" style="margin-left: 5px">검색</button>
 			<c:choose>
 				<c:when test="${sessionScope.member == null }">
 					<!-- 로그인 전 -->
