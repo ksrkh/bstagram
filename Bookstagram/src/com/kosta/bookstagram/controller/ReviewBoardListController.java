@@ -35,7 +35,7 @@ public class ReviewBoardListController implements Controller {
 		}	
 		for(int i=0;i<ReviewBoardDAO.getInstance().boardList(pagingBean).size();i++) {
 			if(plist.get(i).getReview_content().length()>320) {
-				content = plist.get(i).getReview_content().substring(0,320);
+				content = plist.get(i).getReview_content().substring(0,300);
 				plist.get(i).setReview_content(content+"...");	
 			}else {
 				content = plist.get(i).getReview_content();

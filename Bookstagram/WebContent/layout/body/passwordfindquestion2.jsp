@@ -16,20 +16,20 @@
 							<!-- 로고 -->
 							<div class="form-group" style="margin-top: 65px; margin-bottom: 80px" >
 								<div class="col-lg-3"></div>
-								<div class="col-lg-4"><img alt="" src="icon_img/pwfind_logo.png" style="width: 400px; height: 100px"></div>
-								<div class="col-lg-3"></div>
+								<div class="col-lg-6"><img alt="" src="icon_img/pwfind_logo.png" style="width: 500px; height: 100px"></div>
+								<div class="col-lg-1"></div>
 							</div>
 							
 							
 							<!-- 비밀번호찾기질문답변 -->
 							<div class="form-group" style="margin-top: 30px; margin-bottom:100px">
-								<div class="col-lg-2"></div>
-								<div class="col-lg-5">
-									<label for="select" class="col-lg-12 control-label"><b>${requestScope.id}</b>&nbsp;회원님의 비밀번호 찾기 결과입니다.</label>
-									<label for="select" class="col-lg-12 control-label">회원님의 비밀번호는&nbsp; <b>${requestScope.pw}</b> &nbsp;입니다.</label>
-									<label for="select" class="col-lg-12 control-label"><a href="DispatcherServlet?command=LoginFail">click>로그인페이지로 go!</a></label>
+								<div class="col-lg-4"></div>
+								<div class="col-lg-5"  style="font-size: 15px; margin-left: 40px">
+									<div><b>${requestScope.id}</b>&nbsp;회원님의 비밀번호 찾기 결과입니다.</div>
+									<div>회원님의 비밀번호는&nbsp; <b>${requestScope.pw}</b> &nbsp;입니다.</div>
+									<div style="margin-left: 45px"><a href="DispatcherServlet?command=LoginFail">click>로그인페이지로 go!</a></div>
 								</div>
-								<div class="col-lg-3"></div>
+								<div class="col-lg-1"></div>
 							</div>
 						</fieldset>
 					</form>

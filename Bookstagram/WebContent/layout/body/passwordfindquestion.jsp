@@ -37,31 +37,38 @@ function pwInfoCheck(ques_code,ans){
 							<!-- 로고 -->
 							<div class="form-group" style="margin-top: 65px" >
 								<div class="col-lg-3"></div>
-								<div class="col-lg-4"><img alt="" src="icon_img/pwfind_logo.png" style="width: 400px; height: 100px"></div>
-								<div class="col-lg-3"></div>
+								<div class="col-lg-6"><img alt="" src="icon_img/pwfind_logo.png" style="width: 500px; height: 100px"></div>
+								<div class="col-lg-1"></div>
 							</div>
 							
-							<!-- 비밀번호찾기질문 -->
-							<div class="form-group" style="margin-top: 30px; margin-bottom:15px">
-								<div class="col-lg-3"></div>
-								<div class="col-lg-5">
-									<select class="form-control" name="pwfind_question" id="pwfind_question">
-										<option value="">비밀번호찾기질문</option>
-										<c:forEach items="${requestScope.question}" var="qlist">
-											<option value="${qlist.question_code}">${qlist.question}</option>
-										</c:forEach>
-									</select>
-								</div>
-								<div class="col-lg-3"></div>
-							</div>
+										
 							
-							<!-- 비밀번호찾기질문답변 -->
-							<div class="form-group" style="margin-top: 30px; margin-bottom:100px">
+							
+							
+							<!-- 비밀번호찾기질문/답변/찾기버튼 테이블 -->
+							<div class="form-group" style="margin-left:10px; margin-top: 30px; margin-bottom:15px">
 								<div class="col-lg-3"></div>
 								<div class="col-lg-5">
-									<input type="text" class="col-lg-12 form-control" id="pwfind_answer" name="pwfind_answer" placeholder="답변을 입력 해주세요.">
-								</div>
-								<div class="col-lg-3"><input type="submit" class="btn btn-info findpassword_btn" value="찾기" style="width: 140px"></div>
+								<table style="margin-top:50px;  margin-bottom: 100px;">
+								<tr>
+									<td style="padding: 15px">
+										<select class="form-control" name="pwfind_question" id="pwfind_question" style="width:300px;">
+												<option value="">비밀번호찾기질문</option>
+											<c:forEach items="${requestScope.question}" var="qlist">
+												<option value="${qlist.question_code}">${qlist.question}</option>
+											</c:forEach>
+										</select>
+									</td>
+									<td rowspan="2" style="padding: 15px"><input type="submit" class="btn btn-info findpassword_btn" value="찾기" style="width: 110px; height: 100px" ></td>
+								</tr>
+								<tr>
+									<td style="padding: 15px">
+									<input type="text" class="col-lg-12 form-control" id="pwfind_answer" name="pwfind_answer"  style="width:300px;" placeholder="답변을 입력 해주세요.">
+									</td>
+								</tr>
+							</table>
+																		
+							</div>
 							</div>
 						</fieldset>
 					</form>

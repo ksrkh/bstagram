@@ -37,6 +37,7 @@ public class DispatcherServlet extends HttpServlet {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			response.sendRedirect("home.jsp");
 		}
 	}
 }
