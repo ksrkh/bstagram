@@ -133,7 +133,7 @@ $( document ).ready( function() {
 	
 	//이미지로하기
 	$(".radio label #radio_bg2").click(function() {
-		$(".col-lg-12 .ta").css("background-image","url('img/write/write_bg6.jpg')");
+		$(".col-lg-12 .ta").css("background-image","url('icon_img/write_bg1.jpg')");
 		$("#bg_template").show();
 	
 	});

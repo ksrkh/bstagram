@@ -61,7 +61,7 @@ function writecancle(){
 							<!-- 내용 입력 부분 -->
 							<div class="form-group">
 								<div class="col-lg-12">
-									<textarea class="form-control ta" rows="26" id="content" name="content" placeholder="내용을 입력하세요."></textarea>
+									<textarea class="form-control ta" rows="25" id="content" name="content" placeholder="내용을 입력하세요."></textarea>
 						      	</div>
 						    </div>
 	
@@ -89,7 +89,7 @@ function writecancle(){
 											<ul class="board_background" style="padding-left: 0px">					
 											<c:forEach items="${requestScope.bglist}" var="bg">
 												<c:if test="${bg.bg_no!=0}">
-													<li><img class="write_bg" src="img/write/write_bg${bg.bg_path}" alt="" onclick="backgroundNo(${bg.bg_no})"></li>
+													<li><img class="write_bg" src="icon_img/write_bg${bg.bg_path}" alt="" onclick="backgroundNo(${bg.bg_no})"></li>
 												</c:if>
 											</c:forEach>
 											</ul>
