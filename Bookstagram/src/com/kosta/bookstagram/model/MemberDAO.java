@@ -156,7 +156,7 @@ public class MemberDAO extends CommonDAO implements MemberListener {
 			sql.append("SELECT b.board_no,b.id,l.line_content,b.board_regdate,b.hit FROM( ");
 			sql.append("SELECT row_number() over(order by board_no desc) as rnum,board_no,id, ");
 			sql.append("to_char(board_regdate,'YYYY.MM.DD') as board_regdate,hit ");
-			sql.append("FROM BOARD WHERE id=? boardtype_no=1 ");
+			sql.append("FROM BOARD WHERE id=? and boardtype_no=1 ");
 			sql.append(") b,LINE_BOARD l where b.board_no=l.board_no and rnum between ? and ? ");
 			sql.append("order by board_no desc ");
 			pstmt=con.prepareStatement(sql.toString());
@@ -205,7 +205,7 @@ public class MemberDAO extends CommonDAO implements MemberListener {
 			sql.append("SELECT row_number() over(order by board_no desc) as rnum,board_no,id, ");
 			sql.append("to_char(board_regdate,'YYYY.MM.DD') as board_regdate,hit ");
 			sql.append("FROM BOARD WHERE id=? and boardtype_no=2 ");
-			sql.append(") b,REVIEW_BOARD r where b.board_no=r.board_no and rnum between ? and ?");
+			sql.append(") b,REVIEW_BOARD r where b.board_no=r.board_no and rnum between ? and ? ");
 			sql.append("order by board_no desc ");
 			pstmt=con.prepareStatement(sql.toString());	
 			pstmt.setString(1, id);
@@ -253,8 +253,8 @@ public class MemberDAO extends CommonDAO implements MemberListener {
 			sql.append("SELECT b.board_no,b.id,c.create_title,b.board_regdate,b.hit FROM( ");
 			sql.append("SELECT row_number() over(order by board_no desc) as rnum,board_no,id, ");
 			sql.append("to_char(board_regdate,'YYYY.MM.DD') as board_regdate,hit ");
-			sql.append("FROM BOARD WHERE id=? boardtype_no=3 ");
-			sql.append(") b,CREATE_BOARD c where b.board_no=c.board_no and rnum between ? and ?");
+			sql.append("FROM BOARD WHERE id=? and boardtype_no=3 ");
+			sql.append(") b,CREATE_BOARD c where b.board_no=c.board_no and rnum between ? and ? ");
 			sql.append("order by board_no desc ");
 			pstmt=con.prepareStatement(sql.toString());	
 			pstmt.setString(1, id);
