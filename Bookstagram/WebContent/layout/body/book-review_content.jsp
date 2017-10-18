@@ -47,11 +47,14 @@
 					<form class="form-horizontal">
 						<fieldset>
 							<!-- 책제목 (독후감 제목) -->
-							<legend style="padding-bottom: 15px"> <b>${requestScope.reviewdetail.review_title }</b>
-							<font style="float: right; " size="2">조회수&nbsp;&nbsp; ${requestScope.reviewdetail.hit} </font>
-							</legend>
-							<font style="float: left;" size="2">작성일 |  ${requestScope.reviewdetail.board_regdate } |</font>
-						<font style="float: right; " size="2">조회수&nbsp;&nbsp; ${requestScope.reviewdetail.hit} </font><br>
+								<div style="margin-bottom: 15px">
+									 <strong style="font-size: 35px"><b>${requestScope.reviewdetail.review_title }</b></strong>
+									<font style="float: right; margin-top: 18px" size="2">작성자 | ${requestScope.reviewdetail.nick} </font>
+								</div>
+								<div style="padding-bottom:10px; border-bottom: #d9d9d9 1px solid">
+									<font style="float: left;" size="2">작성일 |  ${requestScope.reviewdetail.board_regdate } </font>
+									<font style="float: right; " size="2">조회수 |  ${requestScope.reviewdetail.hit} </font><br>
+								</div>
 						
 							<div class="form-group" style="margin-top: 20px; margin-bottom: 20px">
 								<!-- 책의 Thumnail 이 보여질 부분 -->
@@ -62,7 +65,7 @@
 								<div class="col-lg-8">
 									<!-- 저자,출판사,출판일자 -->
 									<div class="row" style="margin-right: 0px">
-										<div class="col-lg-12" style="border-bottom: #222222 1px solid;padding-bottom:8px">
+										<div class="col-lg-12" style="border-bottom: #d9d9d9 1px solid;padding-bottom:8px">
 											<div class="col-lg-4" style="padding-left: 0px">
 												<label style="font-size: 15px"><b>저자</b></label>&nbsp;&nbsp;${requestScope.reviewdetail.bookVO.book_author }
 											</div>
@@ -75,22 +78,21 @@
 										</div>
 									</div>
 									<!-- 책소개  [최대13줄] -->
-									<div class="row" style="margin-right: 0px">
-										<div class="col-lg-12" style="border-bottom: #222222 1px solid; padding-top: 10px; padding-bottom:20px">
+									<div class="row" style="margin-right: 0px ">
+										<div class="col-lg-12" style=" height: 310px;  padding-top: 10px; padding-bottom:20px">
 											<h4><b>소개</b></h4>
 											<label style="font-size: 15px">
 											${requestScope.reviewdetail.bookVO.book_intro}
 											</label>
-											<br><br><br><br><br><br><br><br><br>
+		
 										</div>
 									</div>
 								</div>
 							</div>
-							
 							<!-- 내용 입력 부분 -->
 							<div class="form-group">
 								<div class="col-lg-12" style="font-size: 14px">
-									<b>${requestScope.reviewdetail.bookVO.book_title }</b><br>
+									<div style="border-top: #d9d9d9 1px solid; margin-bottom: 10px;"><br><b>${requestScope.reviewdetail.bookVO.book_title }</b><br></div>
 									${requestScope.reviewdetail.review_content}
 									 <br><br>
 						      	</div>
