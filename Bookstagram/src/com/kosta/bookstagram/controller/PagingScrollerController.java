@@ -25,7 +25,6 @@ public class PagingScrollerController implements Controller {
 		PagingBean pagingBean=new PagingBean(lineTotalCount,1);
 		String id=null;
 	    HttpSession session=request.getSession(false);
-	    System.out.println("현재페이지 : "+pno);
 	    if(session==null||session.getAttribute("member")==null) {
 	         System.out.println("로그인안됨");
 	         id="-1";

@@ -82,10 +82,31 @@ $(document).ready(function(){
 	      info+="</p>";
 	      info+="</div>";
 	      info+="</blockquote>";                  
-	      info+="<div id='demo";                                                               //target toggle start
+	      info+="<div id='demo";  //target toggle start
 	      info+=board_no;
 	      info+="' class='collapse'>";                                             
-	      info+=book_title;                              //책 정보 들어갈  영역
+	      info+="<div class='col-lg-2' id='book_image_area'>"; //책이미지 첫지점
+		  info+="<img class='book_search_thumnail' height=171px width=120px src='";
+		  info+=book_img;
+		  info+="'>";
+		  info+="</div>";
+		  info+="<div class='col-lg-10'>";
+		  info+="<div id='book_title_area' class='col-lg-12' style='padding-left: 0px; margin-bottom: 10px' >";
+		  info+=book_title;
+		  info+="</div>";
+		  info+="<div id='book_author_area' class='col-lg-4' style='padding-left: 0px; margin-bottom: 10px; margin-left:0px; margin-right: 0px'>";
+		  info+=book_author;
+		  info+="</div>";
+		  info+="<div id='book_publisher_area' class='col-lg-4'>";
+		  info+=book_publ;
+		  info+="</div>";
+		  info+="<div id='book_pubdate_area' class='col-lg-4'>";
+		  info+=book_sdate;
+		  info+="</div>";
+		  info+="<div class='col-lg-12' style='padding-left: 0px' id='book_description_area'>";
+		  info+=book_intro;
+		  info+="</div>";
+		  info+="</div>"; //책정보끝지점     
 	      info+="</div>";                                                                     //target toggle close
 	      info+="</div>";                                                                     //토글 영역
 	      info+="</div>";
@@ -180,7 +201,7 @@ $(document).ready(function(){
 		
 	      //동적으로 생성되는 이미지 값 클릭
 	      
-		$(".container").on("click","#loading .sympathy_img",function(){		
+		$("#loading").on("click",".sympathy_img",function(){		
 			var id='${sessionScope.member.id}';
 		       if(id!=''){
 		         var src=($(this).attr('src')==='icon_img/like0.png')
