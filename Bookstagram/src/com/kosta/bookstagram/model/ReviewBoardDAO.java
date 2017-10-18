@@ -153,6 +153,7 @@ public class ReviewBoardDAO extends BoardDAO{
 			if(rs.next()) {
 				bvo = new ReviewBoardVO(rs.getInt(1),rs.getInt(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6),rs.getInt(7),rs.getInt(8),rs.getString(9),rs.getString(10),rs.getInt(11),rs.getInt(12),rs.getInt(13),new BookVO(rs.getString(14), rs.getString(15), rs.getString(16), rs.getString(17), rs.getString(18), rs.getString(19)));
 			}
+			System.out.println(bvo);
 		}finally {
 			closeAll(rs, pstmt, con);
 		}

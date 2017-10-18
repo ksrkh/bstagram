@@ -10,48 +10,37 @@
 			var book_pubdate="";
 			var book_description="";
 			var book_image="";
+			
 			$("#returnlist").click(function() {
 				if(confirm("게시글을 작성을 취소하시겠습니까?")){
 					location.href="DispatcherServlet?command=reviewboardlist";		
 					}
 			});//returnlist.click
+			
+			
+			
 			$("#reviewwrite").click(function(){
 				var title = $("#review_title").val();
 				var content = $("#review_content").val();
 				var member_id=$(".write_id").attr("id");
-				var genre = $("#select").val
+				var genre = $("#select").val();
 				if(title==""){
 					alert("제목을 작성해주세요");
 				}else if(content==""){
 					alert("게시물을 작성해주세요");
 				}else if(content!=""&&title!=""){
-					if(confirm("게시글을 작성하시겠습니까?")){					
-						var book_title_p="";
-						var book_author_p="";
-						var book_publisher_p="";
-						var book_pubdate_p="";
-						var book_description_p="";
-						var book_image_p="";
-						for(var i=0;i<book_title.length;i++){
-							book_title_p+=book_title[i];
-						}
-						for(var i=0;i<book_author.length;i++){
-							book_author_p+=book_author[i];
-						}
-						for(var i=0;i<book_publisher.length;i++){
-							book_publisher_p+=book_publisher[i];
-						}
-						for(var i=0;i<book_pubdate.length;i++){
-							book_pubdate_p+=book_pubdate[i];
-						}
-						for(var i=0;i<book_description.length;i++){
-							book_description_p+=book_description[i];
-						}
-						for(var i=0;i<book_image.length;i++){
-							book_image_p+=book_image[i];
-						}
-						location.href=
-							"DispatcherServlet?command=reviewwrite&review_title="+title
+					if(confirm("게시글을 작성하시겠습니까?")){			
+						
+						
+						var book_title_p=$("#book_title_area").text();
+						var book_author_p=$("#book_author_area").text();
+						var book_publisher_p=$("#book_publisher_area").text();
+						var book_pubdate_p=$("#book_pubdate_area").text();
+						var book_description_p=$("#book_description_area").text();
+						var book_image_p=$(".book_search_thumnail").attr('src');
+						alert(book_image_p);
+	
+				 location.href="DispatcherServlet?command=reviewwrite&review_title="+title
 																+"&review_content="+content
 																+"&review_genre="+genre
 																+"&member_id="+member_id

@@ -56,7 +56,7 @@
 							<div class="form-group" style="margin-top: 20px; margin-bottom: 20px">
 								<!-- 책의 Thumnail 이 보여질 부분 -->
 								<div class="col-lg-4" style="padding-right: 0px">
-									<img height=342px width=240px src="https://search.pstatic.net/common/?src=http%3A%2F%2Fbookthumb.phinf.naver.net%2Fcover%2F109%2F245%2F10924505.jpg">
+									<img height=342px width=240px src="${requestScope.reviewdetail.bookVO.book_img}">
 								</div>
 								<!-- 책의 상세 내용이 보여질 부분 -->
 								<div class="col-lg-8">
