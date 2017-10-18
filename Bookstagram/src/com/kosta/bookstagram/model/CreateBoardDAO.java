@@ -168,9 +168,15 @@ public class CreateBoardDAO extends BoardDAO {
 					pstmt.setInt(1, boardNo);
 					pstmt.executeUpdate();
 					pstmt.close();
-
-					String sql2 = "DELETE FROM board WHERE board_no=?";
+					
+					String sql2 = "DELETE FROM reply WHERE board_no=?";
 					pstmt = con.prepareStatement(sql2);
+					pstmt.setInt(1, boardNo);
+					pstmt.executeUpdate();
+					pstmt.close();
+
+					String sql3 = "DELETE FROM board WHERE board_no=?";
+					pstmt = con.prepareStatement(sql3);
 					pstmt.setInt(1, boardNo);
 					pstmt.executeUpdate();
 					con.commit();
