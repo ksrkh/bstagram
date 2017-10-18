@@ -93,7 +93,7 @@ $(document).ready(function(){
 	      info+="</div>";
 	      return info;
 	}
-	var page=0;
+	var page=1;
 	$(function(){
 		getList(page);
 		page++;
@@ -121,7 +121,13 @@ $(document).ready(function(){
 				var nick="";
 				var tend_code="";
 				var page_f="";
-				if(page==1){
+				var book_title="";
+				var	book_intro="";
+				var book_author="";
+				var book_publ="";
+				var book_sdate="";
+				var book_img="";
+			/* 	if(page==1){
 					for(var i in data.list){
 						board_no=data.list[i].board_no;
 						member_id=data.list[i].id;
@@ -139,14 +145,11 @@ $(document).ready(function(){
 						page_f=getPageList(board_no,member_id,line_content,nick,tend_code,
 								mySympathy,sympathy,book_title,book_intro,book_author,book_publ,
 								book_sdate,book_img);
-						alert(book_title);
-					/* 	alert(mySympathy); */
 						$("#loading").append(page_f);	
 					 }
-				}
-				else if(page!=1){
-					for(var i in data.list){
-						
+				} */
+				if(page!=1){
+					for(var i in data.list){						
 						board_no=data.list[i].board_no;
 						member_id=data.list[i].id;
 						line_content=data.list[i].line_content;
@@ -162,19 +165,38 @@ $(document).ready(function(){
 						book_img=data.list[i].bookVO.book_img;
 						page_f=getPageList(board_no,member_id,line_content,nick,tend_code,
 								mySympathy,sympathy,book_title,book_intro,book_author,book_publ,
-								book_sdate,book_img);
-						alert(book_title);
-					/* 	alert(mySympathy); */
+								book_sdate,book_img);	
 						$("#loading").append(page_f);	
 					 }
-					}else if(page==0){
+					}/* else if(page==0){
+						for(var i in data.list){						
+							board_no=data.list[i].board_no;
+							member_id=data.list[i].id;
+							line_content=data.list[i].line_content;
+							nick=data.list[i].nick;
+							tend_code=data.list[i].tend_code;
+							mySympathy=data.list[i].mySympathy;
+							sympathy=data.list[i].sympathy;
+							book_title=data.list[i].bookVO.book_title;
+							book_intro=data.list[i].bookVO.book_intro;
+							book_author=data.list[i].bookVO.book_author;
+							book_publ=data.list[i].bookVO.book_publ;
+							book_sdate=data.list[i].bookVO.book_sdate;
+							book_img=data.list[i].bookVO.book_img;
+							page_f=getPageList(board_no,member_id,line_content,nick,tend_code,
+									mySympathy,sympathy,book_title,book_intro,book_author,book_publ,
+									book_sdate,book_img);
 						
+				
+							$("#loading").append(page_f);	
 					} 
-				}	
-		});//ajax
+				} */
+			}	
+		
+			});//ajax
 		
 	}  
-	/*  $(".hover_no .sympathy_img").click(function() {
+	  $(".hover_no .sympathy_img").click(function() {
 	        var id='${sessionScope.member.id}';
 	          
 	       if(id!=''){
@@ -198,7 +220,7 @@ $(document).ready(function(){
 	          }
 	       });//ajax
 	       }//if   
-	      });//click */
+	      });//click 
 	//대상을 보유하는 요소를 선택하고
 		//on(event type,선택자,handler) 
 		//즉 id menu div 를 선택한 후 on 을 적용하고 
@@ -289,7 +311,7 @@ $(document).ready(function(){
 		</div>
 	</div>
 	<!-- 추후 For로 돌릴 공간. -->
-<%-- 	 <c:forEach var="lvo" items="${requestScope.lineList.list}" varStatus="order">
+	 <c:forEach var="lvo" items="${requestScope.lineList.list}" varStatus="order">
 	<c:set value="${lvo.board_no}"  var="p" />
 	<div class="hover_no" id="${lvo.board_no}">
 	<div class="bg-faded p-4 my-4"  id="line_board_btn">
@@ -322,28 +344,24 @@ $(document).ready(function(){
 					<p class="blog-post-bottom pull-left" id="line_nick">
 						${lvo.nick}
 					</p>
-					<p class="blog-post-bottom pull-right">
-					<p class="blog-post-bottom pull-right">
-						<i class="fa fa-heart" id="sympathy-click" style="font-size:20px;color:red;margin-right:5px;margin-top: 10px"></i><span class="badge quote-badge">${lvo.sympathy}</span>
-					</p>
                      <p class="blog-post-bottom pull-right">
                      <c:choose>
-                     <c:if test="${lvo.mySympathy==0 }">
+                     <c:when test="${lvo.mySympathy==0}">
                         <img src="icon_img/like0.png" class="sympathy_img"id="${lvo.board_no}" alt="" style="height:20px; width:20px" >
-                     </c:if>
+                     </c:when>
                      <c:otherwise>
                        <img src="icon_img/like1.png" class="sympathy_img"id="${lvo.board_no}" alt="" style="height:20px; width:20px" >
                      </c:otherwise>
                      </c:choose>
                   
-                  <span id="sympathy_count"class="badge quote-badge">${lvo.sympathy}</span>
+                  <span id="sympathy_count" class="badge quote-badge">${lvo.sympathy}</span>
                </p>
 				</div>
 			</blockquote>
 		</div>
 	</div>
 	</div>
-	</c:forEach> --%> 
+	</c:forEach>
 	 <div id="loading"></div>
 </div>
 <!-- /.container -->
