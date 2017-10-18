@@ -21,7 +21,7 @@
 		<div class="container">
 		<div class="col-sm-2">
 			<div style="display: block; float: left">
-				<img height=171px width=120px src="https://search.pstatic.net/common/?src=http%3A%2F%2Fbookthumb.phinf.naver.net%2Fcover%2F109%2F245%2F10924505.jpg">
+				<img height=171px width=120px src="${review.bookVO.book_img}">
 			</div>
 			</div>
 			<div class="col-sm-10">

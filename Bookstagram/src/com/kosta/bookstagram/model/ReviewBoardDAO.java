@@ -144,13 +144,14 @@ public class ReviewBoardDAO extends BoardDAO{
 		try {
 			con = dataSource.getConnection();
 			StringBuffer sql = new StringBuffer();
-			sql.append("SELECT b.board_no,b.boardtype_no, m.id, m.nick, b.board_regdate, b.hit,b.authority,b.bg_no, rb.review_title, rb.review_content, rb.star_point, rb.genre, bo.book_no, bo.book_title, bo.book_intro, bo.book_author, bo.book_publ, bo.book_sdate, bo.book_edate, bo.book_cate, bo.book_img ");
+			sql.append("SELECT b.board_no,b.boardtype_no, m.id, m.nick, b.board_regdate, b.hit,b.authority,b.bg_no, rb.review_title, rb.review_content, rb.star_point, rb.genre, bo.book_no, bo.book_title, bo.book_intro, bo.book_author, bo.book_publ, bo.book_sdate, bo.book_img ");
 			sql.append("FROM board b,review_board rb,member m,book bo ");
 			sql.append("WHERE b.board_no = rb.board_no and b.id=m.id and rb.book_no=bo.book_no and b.board_no=?");
 			pstmt = con.prepareStatement(sql.toString());
 			pstmt.setInt(1, boardNo); //set값 게시물번호
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
+				System.out.println(rs.getString(19));
 				bvo = new ReviewBoardVO(rs.getInt(1),rs.getInt(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6),rs.getInt(7),rs.getInt(8),rs.getString(9),rs.getString(10),rs.getInt(11),rs.getInt(12),rs.getInt(13),new BookVO(rs.getString(14), rs.getString(15), rs.getString(16), rs.getString(17), rs.getString(18), rs.getString(19)));
 			}
 			System.out.println(bvo);
