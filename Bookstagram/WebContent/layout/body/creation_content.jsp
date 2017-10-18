@@ -54,25 +54,53 @@ function delReply(reply_no,board_type, id){
 						<fieldset>
 							<!-- content 부분 -->
 							<div class="col-lg-12" style="border-bottom: #848484 1px solid; padding-left: 15px; padding-top: 0px">
-								<div class="form-group">
-								<img class="write_bg img-fluid w-100" src="img/write/write_bg${requestScope.cbdvo.bg_path}" alt="">
-									<div class="card-img-overlay bg-overlay" >
-										<div class="text text-white" >
-											<div style="float: right; margin-right: 5px">
-													<!-- 작성자 -->
-														<b>작성자</b>&nbsp;&nbsp; ${requestScope.cbdvo.nick}&nbsp;&nbsp; 
-													<!-- 조회수 -->
-														<b>조회수</b>&nbsp;&nbsp; ${requestScope.cbdvo.hit}&nbsp;&nbsp; 
+								
+									<!-- 이미지 선택안했을 시 -->
+									<c:if test="${requestScope.cbdvo.bg_no == 0}">
+									<div class="form-group" style="height: 500px">
+										<div class="card-img-overlay" >
+											<div class="text" >
+												<div style="float: right; margin-right: 5px">
+														<!-- 작성자 -->
+															<b>작성자</b>&nbsp;&nbsp; ${requestScope.cbdvo.nick}&nbsp;&nbsp; 
+														<!-- 조회수 -->
+															<b>조회수</b>&nbsp;&nbsp; ${requestScope.cbdvo.hit}&nbsp;&nbsp; 
+												</div>
+												<h2 class="card-title text-shadow text-uppercase mb-0">${requestScope.cbdvo.create_title}</h2>
+												<h4 class="text-shadow">${requestScope.cbdvo.board_regdate}</h4>
+								 					<div>
+								 						<br><br> &nbsp; ${requestScope.cbdvo.create_content}
+														<br><br>
+								 					</div>
 											</div>
-											<h2 class="card-title text-shadow text-white text-uppercase mb-0">${requestScope.cbdvo.create_title}</h2>
-											<h4 class="text-shadow text-white">${requestScope.cbdvo.board_regdate}</h4>
-							 					<div>
-							 						<br><br> &nbsp; ${requestScope.cbdvo.create_content}
-													<br><br>
-							 					</div>
 										</div>
 									</div>
-						      	</div>
+									</c:if>
+									
+									<!-- 이미지 선택했을 시 -->
+									<c:if test="${requestScope.cbdvo.bg_no != 0}">
+									<div class="form-group">
+										<img class="write_bg img-fluid w-100" src="img/write/write_bg${requestScope.cbdvo.bg_path}" alt="">
+										<div class="card-img-overlay bg-overlay" >
+											<div class="text text-white" >
+												<div style="float: right; margin-right: 5px">
+														<!-- 작성자 -->
+															<b>작성자</b>&nbsp;&nbsp; ${requestScope.cbdvo.nick}&nbsp;&nbsp; 
+														<!-- 조회수 -->
+															<b>조회수</b>&nbsp;&nbsp; ${requestScope.cbdvo.hit}&nbsp;&nbsp; 
+												</div>
+												<h2 class="card-title text-shadow text-white text-uppercase mb-0">${requestScope.cbdvo.create_title}</h2>
+												<h4 class="text-shadow text-white">${requestScope.cbdvo.board_regdate}</h4>
+								 					<div>
+								 						<br><br> &nbsp; ${requestScope.cbdvo.create_content}
+														<br><br>
+								 					</div>
+											</div>
+										</div>
+									</div>
+									</c:if>
+
+									
 						    </div>
 						</fieldset>
 					</form>
@@ -99,7 +127,7 @@ function delReply(reply_no,board_type, id){
 <!-- /.container -->
 <div class="container" style="margin-bottom: 50px">
 	<div class="bg-faded p-4 my-4">
-		<form class="form-horizontal" action="DispatcherServlet" id="reply" name="reply"  method="post" onsubmit="return chReply()" method="post">
+		<form class="form-horizontal" action="DispatcherServlet" id="reply" name="reply" method="post" onsubmit="return chReply()" method="post">
 			<input type="hidden" name="board_no"value="${requestScope.cbdvo.board_no}">
 			<input type="hidden" name="id"value="${sessionScope.member.id}">
 			<input type="hidden" name="command" value="replyRegister">
@@ -112,7 +140,7 @@ function delReply(reply_no,board_type, id){
 				<input type="submit" class="btn btn-primary" value="등록" style="width:100%" form="reply">
 			</div>
 		</form>
-			<br><br><br>
+		<br><br><br>
 
 		<table class="table table-hover">
 			<c:forEach var="reVO" items="${requestScope.relist}">
