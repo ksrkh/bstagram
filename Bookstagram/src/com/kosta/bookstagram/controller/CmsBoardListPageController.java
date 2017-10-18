@@ -25,6 +25,10 @@ public class CmsBoardListPageController implements Controller {
 		}
 		
 		listVO = new ListVO<BoardVO>(CmsDAO.getInstance().getAllBoardList(pagingBean), pagingBean);
+		for(int i=0; i<listVO.getList().size() ;i++) {
+			listVO.getList().get(i).setContent((listVO.getList().get(i).getContent().replace("<br>","\r\n")));
+		}
+		
 		request.setAttribute("board", listVO);
 		request.setAttribute("url", "cms_board_list.jsp");
 		
