@@ -61,7 +61,7 @@ function writecancle(){
 							<!-- 내용 입력 부분 -->
 							<div class="form-group">
 								<div class="col-lg-12">
-									<textarea class="form-control ta text-white" rows="25" id="content" name="content" placeholder="내용을 입력하세요."></textarea>
+									<textarea class="form-control ta text-white" rows="25" id="content" name="content" placeholder="내용을 입력하세요." style="resize: none"></textarea>
 						      	</div>
 						    </div>
 	
@@ -71,7 +71,7 @@ function writecancle(){
 							    <div class="col-lg-12" style="margin-top: 5px; text-align: center">
 								    <div class="radio" style="padding-top: 0px; padding-bottom: 0px">
 								    	<label><input type="radio" name="bgNo" id="radio_bg2" value="" class="hidden_bg_value">이미지로 하기</label>
-								    	<label><input type="radio" name="bgNo" id="radio_bg3" value="" class="hidden_bg_value" onclick="backgroundNo(0)" >선택안함</label>
+								    	<label><input type="radio" name="bgNo" id="radio_bg3" value="" class="hidden_bg_value" onclick="backgroundNo(0)" checked="checked">선택안함</label>
 								    </div>
 							    </div>
 						    </div>
