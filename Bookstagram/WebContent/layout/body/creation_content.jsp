@@ -66,8 +66,8 @@ function delReply(reply_no,board_type, id){
 														<!-- 조회수 -->
 															<b>조회수</b>&nbsp;&nbsp; ${requestScope.cbdvo.hit}&nbsp;&nbsp; 
 												</div>
-												<h2 class="card-title text-shadow text-uppercase mb-0">${requestScope.cbdvo.create_title}</h2>
-												<h4 class="text-shadow">${requestScope.cbdvo.board_regdate}</h4>
+												<h2 class="card-title text text-uppercase mb-0">${requestScope.cbdvo.create_title}</h2>
+												<h4 class="text">${requestScope.cbdvo.board_regdate}</h4>
 								 					<div>
 								 						<br><br> &nbsp; ${requestScope.cbdvo.create_content}
 														<br><br>
