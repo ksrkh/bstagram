@@ -487,4 +487,27 @@ public class CmsDAO extends CommonDAO {
 		}
 		return totalCount;
 	}
+	
+	/*
+	 * 회원의 등급을 가져오는 메서드입니다.
+	 */
+	public int getMemberTier(String id) throws SQLException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int tier = 0;
+		
+		try {
+			con = getConnection();
+			pstmt = con.prepareStatement(CmsPageSQL.CMS_MEMBER_TIER);
+			pstmt.setString(1, id);
+			rs=pstmt.executeQuery();
+			if(rs.next())
+				tier=rs.getInt(1);
+		} finally {
+			closeAll(rs, pstmt, con);
+		}
+		
+		return tier;
+	}
 }

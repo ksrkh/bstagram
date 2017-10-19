@@ -19,7 +19,7 @@ public class LoginController implements Controller {
 		if(member != null) {
 			if (member.getTier() == 0){
 				//탈퇴회원
-				result = "DispatcherServlet?command=LoginFail";
+				result = "error.jsp";
 			}else {
 				//로그인성공
 				session = request.getSession();

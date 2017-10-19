@@ -145,4 +145,9 @@ public class CmsPageSQL {
 	 * 전체 회원 수
 	 */
 	public final static String CMS_ALL_MEMBER_COUNT = "SELECT COUNT(*) FROM MEMBER";
+	
+	/**
+	 * 회원의 등급을 가져오기
+	 */
+	public final static String CMS_MEMBER_TIER = "SELECT TIER FROM MEMBER WHERE ID=?";
 }
