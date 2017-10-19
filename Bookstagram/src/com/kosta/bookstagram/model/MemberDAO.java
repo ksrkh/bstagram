@@ -152,7 +152,7 @@ public class MemberDAO extends CommonDAO implements MemberListener {
 		try{
 			con=getConnection(); 
 			StringBuilder sql=new StringBuilder();
-			sql.append("SELECT b.board_no,b.id,l.line_content,b.board_regdate,b.hit FROM( ");
+			sql.append("SELECT b.board_no,b.id,l.line_content,b.board_regdate,b.hit,l.tend_code FROM( ");
 			sql.append("SELECT row_number() over(order by board_no desc) as rnum,board_no,id, ");
 			sql.append("to_char(board_regdate,'YYYY.MM.DD') as board_regdate,hit ");
 			sql.append("FROM BOARD WHERE id=? and boardtype_no=1 ");
@@ -172,6 +172,7 @@ public class MemberDAO extends CommonDAO implements MemberListener {
 				bvo.setLine_content(rs.getString(3));
 				bvo.setBoard_regdate(rs.getString(4));
 				bvo.setHit(rs.getInt(5));
+				bvo.setTend_code(rs.getInt(6));
 				list.add(bvo);			
 			}			
 		}finally{

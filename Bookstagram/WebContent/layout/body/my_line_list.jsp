@@ -1,6 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script type="text/javascript">
+function lineDelete(boardNO){
+	location.href="DispatcherServlet?command=lineDelete&boardNo="+boardNO;
+}
+function lineUpdate(boardNO,tend_code,line_content){
+	location.href="DispatcherServlet?command=lineUpdateView&boardNo="+boardNO+"&tend_code="+tend_code+"&line_content="+line_content;
+}
+</script>
+
+
 <!-- 기능의 UI를 담당하는 부분(컨테이너) -->
 <div class="container" style="margin-bottom: 250px">
 	<!-- 현재 페이지의 타이틀  -->
@@ -26,12 +36,12 @@
 			<c:forEach var="bvo" items="${requestScope.lvo.list}">
 				<tr>
 				<td>${bvo.board_no}</td>
-				<td>${bvo.id}</td>
+				<td>${bvo.id} </td>
 				<td>${bvo.line_content}</td>
 				<td>${bvo.board_regdate}</td>
 				<td>${bvo.hit}</td>
-				<td><button type="button" class="btn btn-primary">수정</button></td>
-				<td><button type="button" class="btn btn-primary">삭제</button></td>
+				<td><button type="button" class="btn btn-primary" onclick="lineUpdate(${bvo.board_no},${bvo.tend_code},'${bvo.line_content}')">수정</button></td>
+				<td><button type="button" class="btn btn-primary" onclick="lineDelete(${bvo.board_no})">삭제</button></td>
 				
 				</tr>
 				</c:forEach>

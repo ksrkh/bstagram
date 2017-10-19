@@ -355,7 +355,26 @@ from(select row_number() over(order by board_no desc) as rnum, board_no from boa
 where b.rnum between 1 and 5) B, SYMPATHY S 
 where B.board_no=S.board_no and id='a';
 
+SELECT b.board_no,b.id,r.review_title,b.board_regdate,b.hit FROM(
+SELECT row_number() over(order by board_no desc) as rnum,board_no,id,
+to_char(board_regdate,'YYYY.MM.DD') as board_regdate,hit
+FROM BOARD WHERE id='a'
+) b,REVIEW_BOARD r where b.board_no=r.board_no and rnum between 1 and 5
+order by board_no desc
+
+SELECT row_number() over(order by board_no desc) as rnum,board_no,id,boardtype_no,
+to_char(board_regdate,'YYYY.MM.DD') as board_regdate,hit
+FROM BOARD WHERE id='dnwjdrnl2@naver.com'and boardtype_no=3;
+
+SELECT b.board_no,b.id,l.line_content,b.board_regdate,b.hit,l.tend_code FROM( 
+SELECT row_number() over(order by board_no desc) as rnum,board_no,id,
+to_char(board_regdate,'YYYY.MM.DD') as board_regdate,hit
+FROM BOARD WHERE id='a' and boardtype_no=1 
+) b,LINE_BOARD l where b.board_no=l.board_no and rnum between 1 and 5 
+order by board_no desc 
 
 
 
+
+select * from LINE_BOARD;
 
