@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:forward page="DispatcherServlet">
  	<jsp:param value="lineList" name="command"/>
- </jsp:forward>
+</jsp:forward>
  
  
  

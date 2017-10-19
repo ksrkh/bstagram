@@ -123,7 +123,7 @@ $(document).ready(function(){
 	$(window).scroll(function() {
 		if($(window).scrollTop() >=$(document).height()-$(window).height()){
  			if(totalPage<startRowNumber){
- 				alert("마지막 페이지입니다");
+ 				/* alert("마지막 페이지입니다"); */
  				return false;
  			}
 			getList(page);
