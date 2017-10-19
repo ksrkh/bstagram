@@ -5,19 +5,6 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script type="text/javascript">
-	function deleteLine(boardNo){
-		if(confirm("정말로 삭제하시겠습니까?")){
-			alert("삭제가 완료 되었습니다");
-			location.href="DispatcherServlet?command=lineDelete&boardNo="+boardNo;
-		}
-	}
-	function updateLine(boardNo,line_content,tend_code){
-		if(confirm("정말로 수정하시겠습니가?")){
-		 	alert("수정페이지로 이동하겠습니다");
-		 	location.href="DispatcherServlet?command=lineUpdateView&boardNo="+boardNo;
-		}
-	}
-	
 $(document).ready(function(){
 	
 	var sId=$(".idCheck").attr("id");
@@ -25,24 +12,19 @@ $(document).ready(function(){
 		mySympathy,sympathy,book_title,book_intro,book_author,book_publ,
 		book_sdate,book_img){
 		  var info="<div class='bg-faded p-4 my-4'>";
-	      
 		  info+="<div class='container'>";
 	      if(member_id==sId){
 		      info+="<div class='up_delete pull-right' style='margin-bottom:5px'>";
-		      info+="<a href=";
-		      info+="DispatcherServlet?command=lineUpdateView&boardNo=";
+		      info+="<a class='updateLineBtn' id='";
 		      info+=board_no;
-		      info+=" onclick='javascript:return confirm('";
-		      info+="정말 수정하시겠습니까 ?')'>";
+		      info+="' href='#' >";
 		      info+="<i class='fa fa-cog fa-spin' style='font-size:25px;' id='lineUpdateBtn'></i>";
 		      info+="</a>";
-		      info+="<a href=";
-		      info+="DispatcherServlet?command=lineDelete&boardNo=";
+		      info+="<a class='deleteLineBtn' id='";
 		      info+=board_no;
-		      info+=" onclick="
-		      info+=" javascript:return confirm('정말 삭제하시겠습니까?')>";
+		      info+="' href='#' >";
 		      info+="<i class='fa fa-trash-o' style='font-size:25px;' id='lineDeleteBtn'></i>";
-		      info+="</a>"
+		      info+="</a>";
 		      info+="</div>";
 	      }
 	      info+="<div class='bg-faded p-4'  id='line_board_btn' data-toggle='collapse' data-target='#demo"; //toggle할 div 영역 잡아주고  target 설정 '#demo'로 설정해두었음
@@ -181,7 +163,7 @@ $(document).ready(function(){
 			});//ajax
 		
 	} 
-	//이미지 고정 이미지값
+	//이미지 공감 하트 클릭
 	  $(".sympathy_img").click(function() {
 	       var id='${sessionScope.member.id}';
 	       var sdf =$(".badge quote-badge").attr("id")          
@@ -203,8 +185,25 @@ $(document).ready(function(){
 	          });//ajax
 	       }//if   
 	   });//click 
-		
-	    //동적으로 생성되는 이미지 값 클릭
+	   
+	   //동적 페이징 삭제
+		$("#loading").on("click",".deleteLineBtn",function(){
+			var boardNop=$(this).attr("id");
+			if(confirm("정말로 삭제하시겠습니까?")){
+				alert("삭제가 완료되었습니다");
+			 	location.href="DispatcherServlet?command=lineDelete&boardNo="+boardNop; 
+			}
+		});
+	   
+		  //동적 페이징 수정
+		$("#loading").on("click",".updateLineBtn",function(){
+			var boardNop=$(this).attr("id");
+			if(confirm("정말로 수정하시겠습니까?")){
+			 	location.href="DispatcherServlet?command=lineUpdateView&boardNo="+boardNop; 
+			}
+		});
+		  
+	    //동적으로 생성되는 공감  하트 클릭
 		$("#loading").on("click",".sympathy_img",function(){		
 			var id='${sessionScope.member.id}';
 		       if(id!=''){
