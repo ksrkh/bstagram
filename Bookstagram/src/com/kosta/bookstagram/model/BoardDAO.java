@@ -28,9 +28,7 @@ import com.kosta.bookstagram.model.listener.BoardListener;
  * 
  */
 public abstract class BoardDAO extends CommonDAO implements BoardListener{
-	
-	public BoardDAO(){System.out.println("BoardDAO 객체생성");}
-
+	public BoardDAO(){}
 	@Override
 	public void registerReply(String id, int boardNo, String content) throws SQLException {
 		Connection con = null;
