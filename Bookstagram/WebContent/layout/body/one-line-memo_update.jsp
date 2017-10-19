@@ -50,7 +50,7 @@
 							<!-- 내용 입력 부분 -->
 							<div class="form-group">
 								<div class="col-lg-12">
-									<textarea class="form-control ta" rows="5" id="up_content" style="resize: none">${requestScope.line_content}</textarea>											
+									<textarea class="form-control ta" rows="5" id="up_content" style="resize: none">${requestScope.lvo.line_content}</textarea>											
 						      	</div>
 						    </div>
 							
@@ -81,7 +81,7 @@
 									<div class="col-lg-12" style="padding-left: 0px" id="book_description_area">
 									${requestScope.updateBvo.book_intro}
 									</div>
-								<div class="updat_no" id="${requestScope.updateLvo.board_no}"></div>
+								<div class="updat_no" id="${requestScope.lvo.board_no}"></div>
 								</div>
 							</div>
 							
@@ -106,7 +106,7 @@
 		<!-- 작석 버튼/취소 버튼 -->
 		<div class="row" style="text-align:center; margin-top: 50px; margin-bottom: 100px">
 			<div class="col-lg-12">
-				<div class="update_no" id="${requestScope.updateLvo.board_no}"></div>
+				<div class="update_no" id="${requestScope.lvo.board_no}"></div>
 				<button type="reset" class="btn btn-default" id="updateBtn" onclick="">수정 완료</button>
 				<button type="button" class="btn btn-primary" id="updateCancelBtn">수정 취소</button>
 			</div>

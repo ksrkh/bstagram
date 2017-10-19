@@ -50,6 +50,8 @@ public class BoardVO {
 	 */
 	private String content;
 	
+	
+	
 	private int mySympathy=0;
 	/*
 	 * 기본 생성자

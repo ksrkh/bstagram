@@ -14,7 +14,8 @@
 	function updateLine(boardNo,line_content,tend_code){
 		if(confirm("정말로 수정하시겠습니가?")){
 		 	alert("수정페이지로 이동하겠습니다");
-		 	location.href="DispatcherServlet?command=lineUpdateView&boardNo="+boardNo+"&line_content="+line_content+"&tend_code="+tend_code;
+		 	location.href="DispatcherServlet?command=lineUpdateView&boardNo="+boardNo;
+		 		/* 	+"&line_content="+line_content+"&tend_code="+tend_code; */
 		}
 	}
 	
@@ -31,10 +32,6 @@ $(document).ready(function(){
 	      info+="<a href=";
 	      info+="DispatcherServlet?command=lineUpdateView&boardNo=";
 	      info+=board_no;
-	      info+="&line_content=";
-	      info+=line_content;
-	      info+="&tend_code=";
-	      info+=tend_code;
 	      info+=" onclick='javascript:return confirm('";
 	      info+="정말 수정하시겠습니까 ?')'>";
 	      info+="<i class='fa fa-cog fa-spin' style='font-size:25px;' id='lineUpdateBtn'></i>";
@@ -48,9 +45,9 @@ $(document).ready(function(){
 	      info+="</a>"
 	      info+="</div>";
 	      }
-	      info+="<div class='bg-faded p-4 my-4'  id='line_board_btn' data-toggle='collapse' data-target='#demo"; //toggle할 div 영역 잡아주고  target 설정 '#demo'로 설정해두었음
+	      info+="<div class='bg-faded p-4'  id='line_board_btn' data-toggle='collapse' data-target='#demo"; //toggle할 div 영역 잡아주고  target 설정 '#demo'로 설정해두었음
 	      info+=board_no;
-	      info+="'>";
+	      info+="'style='margin-top: 30px'>";
 	      info+="<blockquote class='quote-box' style='background-color: #2d2d2d;'>";
 	      info+="<p class='quotation-mark'>";
 	      info+="“";
@@ -84,7 +81,7 @@ $(document).ready(function(){
 	      info+="</blockquote>";                  
 	      info+="<div id='demo";  //target toggle start
 	      info+=board_no;
-	      info+="' class='collapse'>";                                             
+	      info+="' class='collapse' style='background-color: white; height:171px'>";                                             
 	      info+="<div class='col-lg-2' id='book_image_area'>"; //책이미지 첫지점
 		  info+="<img class='book_search_thumnail' height=171px width=120px src='";
 		  info+=book_img;
@@ -113,6 +110,7 @@ $(document).ready(function(){
 	      info+="</div>";
 	      return info;
 	}
+	
 	var page=1;
  	$(function(){
 		getList(page);
@@ -121,10 +119,16 @@ $(document).ready(function(){
 	
 	$(window).scroll(function() {
 		if($(window).scrollTop() >=$(document).height()-$(window).height()){
+ 			if(totalPage<startRowNumber){
+ 				alert("마지막 페이지입니다");
+ 				return false;
+ 				}
 			getList(page);
 			page++;
 		}
 	});
+	var startRowNumber="";
+	var totalPage="";
 	function getList(page){
 		$.ajax({
 			type:"get",
@@ -132,6 +136,8 @@ $(document).ready(function(){
 			data:"command=pangingScroll&pageNo="+page,
 			dataType:"json",
 			success:function(data){
+				startRowNumber=data.pagingBean.startRowNumber;
+				totalPage=data.pagingBean.totalPage;
 				var board_no="";
 				var member_id="";
 				var content="";
@@ -144,17 +150,17 @@ $(document).ready(function(){
 				var book_publ="";
 				var book_sdate="";
 				var book_img="";
-			  	if(page==1){
+				var mySympathy="";
+				 if(page==1){
 			 		$("#loading").html("");
-				} 
-			 	else if(page!=1){
+				} else if(page!=1){
 					for(var i in data.list){						
 						board_no=data.list[i].board_no;
 						member_id=data.list[i].id;
 						line_content=data.list[i].line_content;
 						nick=data.list[i].nick;
 						tend_code=data.list[i].tend_code;
-						mySympathy=data.list[i].mySympathy;
+						mySympathy=data.list[i].mySym;
 						sympathy=data.list[i].sympathy;
 						book_title=data.list[i].bookVO.book_title;
 						book_intro=data.list[i].bookVO.book_intro;
@@ -167,7 +173,7 @@ $(document).ready(function(){
 								book_sdate,book_img);	
 						$("#loading").append(page_f);	
 					 }
-					}
+					}		 
 			} 		
 			});//ajax
 		
@@ -176,7 +182,6 @@ $(document).ready(function(){
 	  $(".sympathy_img").click(function() {
 	        var id='${sessionScope.member.id}';
 	       var sdf =$(".badge quote-badge").attr("id")          
-	         alert(sdf);
 	       if(id!=''){
 	         var src=($(this).attr('src')==='icon_img/like0.png')
 	            ?'icon_img/like1.png'
@@ -184,13 +189,11 @@ $(document).ready(function(){
 	            $(this).attr('src',src);
 	         id='${sessionScope.member.id}';
 	         var board_no=$(this).attr('id');
-	         alert(board_no);
 	        
 	         $.ajax({
 	          type:"get",
 	          url:"DispatcherServlet",
 	          data:"command=sympathyService&id="+id+"&board_no="+board_no,
-	          //data:"command=sympathyService&id="+id+"&board_no="+board_no,
 	          success:function(data){
 	            alert(data);
 	             $("#sympathy_count"+board_no).text(data);
@@ -210,14 +213,12 @@ $(document).ready(function(){
 		            $(this).attr('src',src);
 		         id='${sessionScope.member.id}';
 		         var board_no=$(this).attr('id');		   		         
-		  		      
+		  		      alert(board_no);
 		         $.ajax({
 		          type:"get",
 		          url:"DispatcherServlet",
 		          data:"command=sympathyService&id="+id+"&board_no="+board_no,
-		          //data:"command=sympathyService&id="+id+"&board_no="+board_no,
 		          success:function(data){
-		          alert(data);
 		            $("#sympathy_count"+board_no).text(data);
 		          }
 		       });//ajax
@@ -293,7 +294,7 @@ $(document).ready(function(){
 			    <a href="DispatcherServlet?command=lineDelete&boardNo=${lvo.board_no}" onclick="javascript:return confirm('정말 삭제하시겠습니까?')"><i class="fa fa-trash-o" style="font-size:25px;" id="lineDeleteBtn"></i></a>
 			</div>
 		</c:if>
-		<div class="bg-faded p-4 my-4"  id='line_board_btn' data-toggle="collapse" data-target="#demo${lvo.board_no}"> 
+		<div class="bg-faded p-4"  id='line_board_btn' data-toggle="collapse" data-target="#demo${lvo.board_no}" style="margin-top: 30px"> 
 			<blockquote class="quote-box" style="background-color: #2d2d2d;">
 				<p class="quotation-mark" style="margin-bottom:20px">
 					“
@@ -319,7 +320,7 @@ $(document).ready(function(){
                </p>
 				</div>
 			</blockquote>
-			<div id="demo${lvo.board_no}" class="collapse">			
+			<div id="demo${lvo.board_no}" class="collapse" style="background-color: white; height:171px">			
 			<div class="col-lg-2" id="book_image_area">
 									<img class="book_search_thumnail" height=171px width=120px src="${lvo.bookVO.book_img}">
 								</div>

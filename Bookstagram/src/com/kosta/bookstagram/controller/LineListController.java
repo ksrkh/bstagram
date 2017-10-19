@@ -40,19 +40,9 @@ public class LineListController implements Controller {
       }
       
       ArrayList<LineBoardVO> list=new ArrayList<LineBoardVO>();
-      ArrayList<BoardVO> blist=LineBoardDAO.getInstance().boardList(pagingBean);
+      ArrayList<BoardVO> blist=LineBoardDAO.getInstance().symCheck(pagingBean, id);
       
       
-      /*
-       * ************
-       */
-      System.out.println("1: ");
-      for(int i=0;i<blist.size();i++)
-      	System.out.println(blist.get(i).getBoard_no());
-      
-      /*
-       * 
-       */
       
       
       if(!(id.equals("-1"))) {
@@ -64,12 +54,7 @@ public class LineListController implements Controller {
             }
          }
          }
-      
-      
-    System.out.println("3: ");
-      for(int i=0;i<blist.size();i++)
-      	System.out.println(blist.get(i).getMySympathy());
-      
+        
       
       for(int i=0;i<blist.size();i++) {
          list.add((LineBoardVO)blist.get(i));

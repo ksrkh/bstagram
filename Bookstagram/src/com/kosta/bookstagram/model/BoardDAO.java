@@ -28,7 +28,9 @@ import com.kosta.bookstagram.model.listener.BoardListener;
  * 
  */
 public abstract class BoardDAO extends CommonDAO implements BoardListener{
+	
 	public BoardDAO(){}
+
 	@Override
 	public void registerReply(String id, int boardNo, String content) throws SQLException {
 		Connection con = null;
@@ -119,6 +121,7 @@ public abstract class BoardDAO extends CommonDAO implements BoardListener{
 	@Override
 	public int likeService(String id, int boardNo) throws SQLException {
 		//liked가  1일 경우 기존에 해당 id, 해당 boardNo에 대한 공감 존재
+		System.out.println("likeService메서드실행");
 		int likeCount=0;
 		int liked=0;
 		Connection con = null;

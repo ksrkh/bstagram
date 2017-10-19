@@ -14,6 +14,10 @@ public class LineBoardVO extends BoardVO{
 	 */
 	private int book_no;
 	/*
+	 * 공감 확인
+	 */
+	private int mySym;
+	/*
 	 * 기본생성자
 	 */
 	private BookVO bookVO;
@@ -67,6 +71,16 @@ public class LineBoardVO extends BoardVO{
 		this.line_content = line_content;
 		this.tend_code = tend_code;
 		this.book_no = book_no;
+		this.bookVO = bookVO;
+	}
+	
+	public LineBoardVO(int board_no, int boardtype_no, String id, String nick, String board_regdate, int hit,
+			int sympathy, int authority, int bg_no, String line_content, int tend_code, int book_no, int mySym, BookVO bookVO) {
+		super(board_no, boardtype_no, id, nick, board_regdate, hit, sympathy, authority, bg_no);
+		this.line_content = line_content;
+		this.tend_code = tend_code;
+		this.book_no = book_no;
+		this.mySym = mySym;
 		this.bookVO = bookVO;
 	}
 	
@@ -188,6 +202,15 @@ public class LineBoardVO extends BoardVO{
 	public void setBookVO(BookVO bookVO) {
 		this.bookVO = bookVO;
 	}
+	
+	public int getMySym() {
+		return mySym;
+	}
+
+	public void setMySym(int mySym) {
+		this.mySym = mySym;
+	}
+
 	@Override
 	public String toString() {
 		return "LineBoardVO [line_content=" + line_content + ", tend_code=" + tend_code + ", book_no=" + book_no
