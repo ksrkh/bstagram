@@ -17,16 +17,19 @@
     			}
     	});//cancelClick
     	$("#updateBtn").click(function() {
-    		if(confirm("게시글을 수정하시겠습니까?")){
-    			var board_no=$(".update_no").attr("id");  
-    			var line_content=$("#up_content").val();
-    			var tendComp=$("input[name=tend_ck]:checkbox:checked").val();
-    			if(tendComp.length==0){
-    				alert("성향을 다시 선택해주세요");
-    			}
-    			alert("게시글이 수정되었습니다.")
+    		var board_no=$(".update_no").attr("id");  
+			var line_content=$("#up_content").val();
+			var tendComp= $("input[name=tend_ck]:checkbox:checked").length;
+			var tendCode= $("input[name=tend_ck]:checkbox:checked").val();
+    		
+    		if(line_content == ""){
+				alert("게시물을 작성해주세요");
+			}else if(tendComp == 0){
+				alert("하나의 성향을 선택해주세요.");
+			}else if(confirm("게시글을 수정하시겠습니까?")){
+	    		alert("게시글이 수정되었습니다.")
     			location.href="DispatcherServlet?command=lineUpdate&boardNo="+board_no
-    					+"&line_content="+line_content+"&tend_code="+tendComp;
+    					+"&line_content="+line_content+"&tend_code="+tendCode;
     		}
     	});//updatclick
     });//ready
@@ -37,9 +40,7 @@
 	<!-- <div class="tagline-upper text-left text-heading text-shadow text-white d-none d-lg-block" style="margin-top: 5px">
 		책속의 한줄
 	</div> -->
-	  	  <div class="tagline-upper text-left text-heading text-shadow text-white d-none d-lg-block" style="margin-top: 5px">
-	  One-Line-Memo
-	  	</div> 
+	  
 	<div class="bg-faded p-4 my-4">
 		<div class="row">
 			<div class="col-lg-12">
@@ -91,7 +92,14 @@
 							<div class="bg-faded p-4 my-4">
 								<div class="checkbox" style="padding-top: 0px"><h4>성향을 선택해주세요</h4>
 									<c:forEach items="${requestScope.ultList}" var="tendList">
-									<label><input type="checkbox" value="${tendList.tend_code}" name="tend_ck" id="tend_ck"> ${tendList.tend_name}</label>
+										<c:choose>
+											<c:when test="${requestScope.lvo.tend_code == tendList.tend_code}">
+												<label><input type="checkbox" value="${tendList.tend_code}" name="tend_ck" id="tend_ck" checked="checked"> ${tendList.tend_name}</label>
+											</c:when>
+											<c:otherwise>
+												<label><input type="checkbox" value="${tendList.tend_code}" name="tend_ck" id="tend_ck" disabled="disabled"> ${tendList.tend_name}</label>
+											</c:otherwise>	
+										</c:choose>
 									</c:forEach>
 								</div>
 							</div>

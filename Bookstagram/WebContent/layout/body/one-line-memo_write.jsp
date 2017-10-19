@@ -23,9 +23,10 @@ $(document).ready(function() {
 			}
 	});//cancel click
 	
-	$("#writeLineBtn").click(function() {	
+	$("#writeLineBtn").click(function() {
 		var content = $("#content").val();
 		var tendComp= $("input[name=tend_ck]:checkbox:checked").length;
+		var tendCode= $("input[name=tend_ck]:checkbox:checked").val();
 		var member_id=$(".write_id").attr("id");
 		
 		var book_title_p=$("#book_title_area").text();
@@ -45,7 +46,7 @@ $(document).ready(function() {
 			alert("하나의 성향을 선택해주세요.");
 		}else if(content!=""){
 			if(confirm("게시글을 작성하시겠습니까?")){					
-				location.href="DispatcherServlet?command=lineWrite&line_content="+content+"&tend_code="+tendComp
+				location.href="DispatcherServlet?command=lineWrite&line_content="+content+"&tend_code="+tendCode
 					+"&member_id="+member_id+"&book_title="+book_title_p+"&book_author="+book_author_p
 					+"&book_publisher="+book_publisher_p+"&book_pubdate="+book_pubdate_p
 					+"&book_img="+book_image_p		
@@ -63,9 +64,7 @@ $(document).ready(function() {
 	<!-- <div class="tagline-upper text-left text-heading text-shadow text-white d-none d-lg-block" style="margin-top: 5px">
 		책속의 한줄
 	</div> -->
-	  <div class="tagline-upper text-left text-heading text-shadow text-white d-none d-lg-block" style="margin-top: 5px">
-	  One-Line-Memo
-	  	</div>  
+	  
 	<div class="bg-faded p-4 my-4">
 		<div class="row">
 			<div class="col-lg-12">
