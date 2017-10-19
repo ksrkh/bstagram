@@ -8,14 +8,13 @@
 	function deleteLine(boardNo){
 		if(confirm("정말로 삭제하시겠습니까?")){
 			alert("삭제가 완료 되었습니다");
-		location.href="DispatcherServlet?command=lineDelete&boardNo="+boardNo;
+			location.href="DispatcherServlet?command=lineDelete&boardNo="+boardNo;
 		}
 	}
 	function updateLine(boardNo,line_content,tend_code){
 		if(confirm("정말로 수정하시겠습니가?")){
 		 	alert("수정페이지로 이동하겠습니다");
 		 	location.href="DispatcherServlet?command=lineUpdateView&boardNo="+boardNo;
-		 		/* 	+"&line_content="+line_content+"&tend_code="+tend_code; */
 		}
 	}
 	
@@ -23,27 +22,28 @@ $(document).ready(function(){
 	
 	var sId=$(".idCheck").attr("id");
 	function getPageList(board_no,member_id,line_content,nick,tend_code,
-			mySympathy,sympathy,book_title,book_intro,book_author,book_publ,
-			book_sdate,book_img){
+		mySympathy,sympathy,book_title,book_intro,book_author,book_publ,
+		book_sdate,book_img){
 		  var info="<div class='bg-faded p-4 my-4'>";
-	      info+="<div class='container'>";
+	      
+		  info+="<div class='container'>";
 	      if(member_id==sId){
-	      info+="<div class='up_delete pull-right' style='margin-bottom:5px'>";
-	      info+="<a href=";
-	      info+="DispatcherServlet?command=lineUpdateView&boardNo=";
-	      info+=board_no;
-	      info+=" onclick='javascript:return confirm('";
-	      info+="정말 수정하시겠습니까 ?')'>";
-	      info+="<i class='fa fa-cog fa-spin' style='font-size:25px;' id='lineUpdateBtn'></i>";
-	      info+="</a>";
-	      info+="<a href=";
-	      info+="DispatcherServlet?command=lineDelete&boardNo=";
-	      info+=board_no;
-	      info+=" onclick="
-	      info+=" javascript:return confirm('정말 삭제하시겠습니까?')>";
-	      info+="<i class='fa fa-trash-o' style='font-size:25px;' id='lineDeleteBtn'></i>";
-	      info+="</a>"
-	      info+="</div>";
+		      info+="<div class='up_delete pull-right' style='margin-bottom:5px'>";
+		      info+="<a href=";
+		      info+="DispatcherServlet?command=lineUpdateView&boardNo=";
+		      info+=board_no;
+		      info+=" onclick='javascript:return confirm('";
+		      info+="정말 수정하시겠습니까 ?')'>";
+		      info+="<i class='fa fa-cog fa-spin' style='font-size:25px;' id='lineUpdateBtn'></i>";
+		      info+="</a>";
+		      info+="<a href=";
+		      info+="DispatcherServlet?command=lineDelete&boardNo=";
+		      info+=board_no;
+		      info+=" onclick="
+		      info+=" javascript:return confirm('정말 삭제하시겠습니까?')>";
+		      info+="<i class='fa fa-trash-o' style='font-size:25px;' id='lineDeleteBtn'></i>";
+		      info+="</a>"
+		      info+="</div>";
 	      }
 	      info+="<div class='bg-faded p-4'  id='line_board_btn' data-toggle='collapse' data-target='#demo"; //toggle할 div 영역 잡아주고  target 설정 '#demo'로 설정해두었음
 	      info+=board_no;
@@ -61,16 +61,18 @@ $(document).ready(function(){
 	      info+="<p class='blog-post-bottom pull-left'>";
 	      info+=nick;
 	      info+="</p>";
-	      info+="<p class='blog-post-bottom pull-right' id='symapthy_plus'>";   
+	      info+="<p class='blog-post-bottom pull-right' id='symapthy_plus'>";
+	      
 	      if(mySympathy==0){
-	      info+="<img src='icon_img/like0.png' class='sympathy_img' id='";
-	      info+=board_no; 
-	      info+="' alt='' style='height:20px; width:20px' >";   
+		      info+="<img src='icon_img/like0.png' class='sympathy_img' id='";
+		      info+=board_no; 
+		      info+="' alt='' style='height:20px; width:20px; cursor: pointer'>";   
 	      }else{
-	      info+="<img src='icon_img/like1.png' class='sympathy_img' id='";
-	      info+=board_no;
-	      info+="' alt='' style='height:20px; width:20px' >";
+		      info+="<img src='icon_img/like1.png' class='sympathy_img' id='";
+		      info+=board_no;
+		      info+="' alt='' style='height:20px; width:20px; cursor: pointer'>";
 	      }
+	      
 	      info+="<span id='sympathy_count";
 		  info+=board_no;
 		  info+="' class='badge quote-badge'>";
@@ -104,10 +106,11 @@ $(document).ready(function(){
 		  info+=book_intro;
 		  info+="</div>";
 		  info+="</div>"; //책정보끝지점     
-	      info+="</div>";                                                                     //target toggle close
-	      info+="</div>";                                                                     //토글 영역
+	      info+="</div>"; //target toggle close
+	      info+="</div>"; //토글 영역
 	      info+="</div>";
 	      info+="</div>";
+	      
 	      return info;
 	}
 	
@@ -122,7 +125,7 @@ $(document).ready(function(){
  			if(totalPage<startRowNumber){
  				alert("마지막 페이지입니다");
  				return false;
- 				}
+ 			}
 			getList(page);
 			page++;
 		}
@@ -151,7 +154,7 @@ $(document).ready(function(){
 				var book_sdate="";
 				var book_img="";
 				var mySympathy="";
-				 if(page==1){
+				if(page==1){
 			 		$("#loading").html("");
 				} else if(page!=1){
 					for(var i in data.list){						
@@ -173,14 +176,14 @@ $(document).ready(function(){
 								book_sdate,book_img);	
 						$("#loading").append(page_f);	
 					 }
-					}		 
+				}		 
 			} 		
 			});//ajax
 		
 	} 
 	//이미지 고정 이미지값
 	  $(".sympathy_img").click(function() {
-	        var id='${sessionScope.member.id}';
+	       var id='${sessionScope.member.id}';
 	       var sdf =$(".badge quote-badge").attr("id")          
 	       if(id!=''){
 	         var src=($(this).attr('src')==='icon_img/like0.png')
@@ -188,22 +191,20 @@ $(document).ready(function(){
 	            :'icon_img/like0.png'
 	            $(this).attr('src',src);
 	         id='${sessionScope.member.id}';
+	         
 	         var board_no=$(this).attr('id');
-	        
 	         $.ajax({
-	          type:"get",
-	          url:"DispatcherServlet",
-	          data:"command=sympathyService&id="+id+"&board_no="+board_no,
-	          success:function(data){
-	            alert(data);
-	             $("#sympathy_count"+board_no).text(data);
-	          }
-	       });//ajax
+		          type:"get",
+		          url:"DispatcherServlet",
+		          data:"command=sympathyService&id="+id+"&board_no="+board_no,
+		          success:function(data){
+		             $("#sympathy_count"+board_no).text(data);
+		          }
+	          });//ajax
 	       }//if   
-	      });//click 
+	   });//click 
 		
-	      //동적으로 생성되는 이미지 값 클릭
-	      
+	    //동적으로 생성되는 이미지 값 클릭
 		$("#loading").on("click",".sympathy_img",function(){		
 			var id='${sessionScope.member.id}';
 		       if(id!=''){
@@ -213,17 +214,16 @@ $(document).ready(function(){
 		            $(this).attr('src',src);
 		         id='${sessionScope.member.id}';
 		         var board_no=$(this).attr('id');		   		         
-		  		      alert(board_no);
 		         $.ajax({
-		          type:"get",
-		          url:"DispatcherServlet",
-		          data:"command=sympathyService&id="+id+"&board_no="+board_no,
-		          success:function(data){
-		            $("#sympathy_count"+board_no).text(data);
-		          }
-		       });//ajax
-		       }//if   
-		});
+			        type:"get",
+			        url:"DispatcherServlet",
+			       	data:"command=sympathyService&id="+id+"&board_no="+board_no,
+		         	success:function(data){
+		            		$("#sympathy_count"+board_no).text(data);
+		          	}
+		     	 });//ajax
+		   	  }//if   
+			});
 	   });//ready 
 </script>
 <style type="text/css">
@@ -295,48 +295,48 @@ $(document).ready(function(){
 			</div>
 		</c:if>
 		<div class="bg-faded p-4"  id='line_board_btn' data-toggle="collapse" data-target="#demo${lvo.board_no}" style="margin-top: 30px"> 
-			<blockquote class="quote-box" style="background-color: #2d2d2d;">
-				<p class="quotation-mark" style="margin-bottom:20px">
-					“
-				</p>
-				<p class="quote-text" id="line_content">
-				${lvo.line_content}
-				</p>
-				<hr>
-				<div class="blog-post-actions">
-					<p class="blog-post-bottom pull-left" id="line_nick">
-						${lvo.nick}
-					</p>
-                     <p class="blog-post-bottom pull-right">
-                     <c:choose>
-                     <c:when test="${lvo.mySympathy==0}">
-                        <img src="icon_img/like0.png" class="sympathy_img"id="${lvo.board_no}" alt="" style="height:20px; width:20px" >
-                     </c:when>
-                     <c:otherwise>
-                       <img src="icon_img/like1.png" class="sympathy_img"id="${lvo.board_no}" alt="" style="height:20px; width:20px" >
-                     </c:otherwise>
-                     </c:choose>       
-                  <span id="sympathy_count${lvo.board_no}" class="badge quote-badge">${lvo.sympathy}</span>
-               </p>
-				</div>
-			</blockquote>
-			<div id="demo${lvo.board_no}" class="collapse" style="background-color: white; height:171px">			
-			<div class="col-lg-2" id="book_image_area">
-									<img class="book_search_thumnail" height=171px width=120px src="${lvo.bookVO.book_img}">
-								</div>
-								<div class="col-lg-10">
-									<!-- 책제목 -->
-									<div id="book_title_area" class="col-lg-12" style="padding-left: 0px; margin-bottom: 10px" >${lvo.bookVO.book_title}</div>
-									<!-- 저자 -->
-									<div id="book_author_area" class="col-lg-4" style="padding-left: 0px; margin-bottom: 10px; margin-left:0px; margin-right: 0px">${lvo.bookVO.book_author}</div>
-									<!-- 출판사 -->
-									<div id="book_publisher_area" class="col-lg-4">${lvo.bookVO.book_publ}</div>
-									<!-- 출판일자 -->
-									<div id="book_pubdate_area" class="col-lg-4">${lvo.bookVO.book_sdate}</div>
-									<!-- 책소개 -->
-									<div class="col-lg-12" style="padding-left: 0px" id="book_description_area">${lvo.bookVO.book_intro}</div>
-								</div>                   
-	      </div>                                                                    
+					<blockquote class="quote-box" style="background-color: #2d2d2d;">
+						<p class="quotation-mark" style="margin-bottom:20px">
+							“
+						</p>
+						<p class="quote-text" id="line_content">
+						${lvo.line_content}
+						</p>
+						<hr>
+						<div class="blog-post-actions">
+							<p class="blog-post-bottom pull-left" id="line_nick">
+								${lvo.nick}
+							</p>
+		                     <p class="blog-post-bottom pull-right">
+		                     <c:choose>
+		                     <c:when test="${lvo.mySympathy==0}">
+		                        <img src="icon_img/like0.png" class="sympathy_img"id="${lvo.board_no}" alt="" style="height:20px; width:20px; cursor: pointer" >
+		                     </c:when>
+		                     <c:otherwise>
+		                       <img src="icon_img/like1.png" class="sympathy_img"id="${lvo.board_no}" alt="" style="height:20px; width:20px; cursor: pointer" >
+		                     </c:otherwise>
+		                     </c:choose>       
+		                  <span id="sympathy_count${lvo.board_no}" class="badge quote-badge">${lvo.sympathy}</span>
+		               </p>
+						</div>
+					</blockquote>
+					<div id="demo${lvo.board_no}" class="collapse" style="background-color: white; height:171px">			
+					<div class="col-lg-2" id="book_image_area">
+						<img class="book_search_thumnail" height=171px width=120px src="${lvo.bookVO.book_img}">
+					</div>
+					<div class="col-lg-10">
+							<!-- 책제목 -->
+							<div id="book_title_area" class="col-lg-12" style="padding-left: 0px; margin-bottom: 10px" >${lvo.bookVO.book_title}</div>
+							<!-- 저자 -->
+							<div id="book_author_area" class="col-lg-4" style="padding-left: 0px; margin-bottom: 10px; margin-left:0px; margin-right: 0px">${lvo.bookVO.book_author}</div>
+							<!-- 출판사 -->
+							<div id="book_publisher_area" class="col-lg-4">${lvo.bookVO.book_publ}</div>
+							<!-- 출판일자 -->
+							<div id="book_pubdate_area" class="col-lg-4">${lvo.bookVO.book_sdate}</div>
+							<!-- 책소개 -->
+							<div class="col-lg-12" style="padding-left: 0px" id="book_description_area">${lvo.bookVO.book_intro}</div>
+					</div>                   
+	      	</div>                                                                    
 	     </div>
 		</div>
 	</div>
