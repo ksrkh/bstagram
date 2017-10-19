@@ -61,7 +61,7 @@ function writecancle(){
 							<!-- 내용 입력 부분 -->
 							<div class="form-group">
 								<div class="col-lg-12">
-									<textarea class="form-control ta text-white" rows="25" id="content" name="content" placeholder="내용을 입력하세요." style="resize: none; background-image: url('icon_img/write_bg1.jpg');"></textarea>
+									<textarea class="form-control ta text-white" rows="24" id="content" name="content" placeholder="내용을 입력하세요." style="resize: none; background-image: url('icon_img/write_bg0.jpg');"></textarea>
 						      	</div>
 						    </div>
 	
