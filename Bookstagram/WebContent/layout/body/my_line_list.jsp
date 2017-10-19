@@ -26,7 +26,7 @@ function lineUpdate(boardNO,tend_code,line_content){
 					<th>작성자</th>
 					<th>내용</th>
 					<th>작성일자</th>
-					<th>조회수</th>
+					<th>공감</th>
 					<th>수정</th>
 					<th>삭제</th>
 				</tr>

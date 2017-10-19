@@ -25,6 +25,7 @@ public class LineBoardDAO extends BoardDAO {
 	@Override
 	public void insertBoard(BoardVO board) throws SQLException {
 		LineBoardVO lineVO = (LineBoardVO) board;
+			System.out.println(lineVO.getTend_code());
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -387,7 +388,9 @@ public class LineBoardDAO extends BoardDAO {
 		}
 		return ltList;
 	}
-
+	/*
+	 * 공감 유무
+	 */
 	public int sympathyCheck(String id, int board_no) throws SQLException {
 		int symContains = 0;
 		ArrayList<String> list = new ArrayList<String>();
@@ -411,5 +414,28 @@ public class LineBoardDAO extends BoardDAO {
 			closeAll(rs, pstmt, con);
 		}
 		return symContains;
+	}
+	/*
+	 * 공감 갯수 확인
+	 * select count(*) from sympathy where board_no=?
+	 */
+	public int sympathyCount(int board_no) throws SQLException {
+		int symCount=0;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			con = getConnection();
+			String sql = "select count(*) from sympathy where board_no=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, board_no);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				symCount=rs.getInt(1);
+			}
+		}finally {
+			closeAll(rs, pstmt, con);
+		}
+		return symCount;
 	}
 }

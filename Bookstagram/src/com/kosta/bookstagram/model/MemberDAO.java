@@ -171,7 +171,7 @@ public class MemberDAO extends CommonDAO implements MemberListener {
 				bvo.setId(rs.getString(2));
 				bvo.setLine_content(rs.getString(3));
 				bvo.setBoard_regdate(rs.getString(4));
-				bvo.setHit(rs.getInt(5));
+				bvo.setHit(LineBoardDAO.getInstance().sympathyCount(rs.getInt(1)));
 				bvo.setTend_code(rs.getInt(6));
 				list.add(bvo);			
 			}			
