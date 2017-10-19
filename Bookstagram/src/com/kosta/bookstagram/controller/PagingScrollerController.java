@@ -24,12 +24,10 @@ public class PagingScrollerController implements Controller {
 		String pno=request.getParameter("pageNo");
 		PagingBean pagingBean=new PagingBean(lineTotalCount,1);
 		String id=null;
-		System.out.println("페이징 pno : "+pno);
 		
 	    HttpSession session=request.getSession(false);
 	    
 	    if(session==null||session.getAttribute("member")==null) {
-	         System.out.println("로그인안됨");
 	         id="-1";
 	    }else {
 	         id=((MemberVO) session.getAttribute("member")).getId();
@@ -44,9 +42,9 @@ public class PagingScrollerController implements Controller {
 		ArrayList<LineBoardVO> list=new ArrayList<LineBoardVO>();
 	    ArrayList<BoardVO> blist=LineBoardDAO.getInstance().symCheck(pagingBean, id);
 	    
-	    for(int i=0;i<blist.size();i++)
+	    /*for(int i=0;i<blist.size();i++)
 	      	System.out.println(blist.get(i).getBoard_no());
-	    
+	    */
 	    /*if(!(id.equals("-1"))) {
 	         ArrayList<Integer> mlist=LineBoardDAO.getInstance().mySympathyList(pagingBean.getStartRowNumber(), pagingBean.getEndRowNumber(), id);
 	         for(int i=0;i<blist.size();i++) {
