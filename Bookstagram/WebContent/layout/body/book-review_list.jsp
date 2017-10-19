@@ -55,7 +55,7 @@
 		<div style="width: 50%; margin: 0 auto;">
 			<ul class="pagination">
 				<c:if test="${pb.previousPageGroup}">
-					<li><a href="DispatcherServlet?command=createboardlist&pageNo=${pb.startPageOfPageGroup-1}">&laquo;</a></li>
+					<li><a href="DispatcherServlet?command=reviewboardlist&pageNo=${pb.startPageOfPageGroup-1}">&laquo;</a></li>
 				</c:if>
 				<c:forEach var="i" begin="${pb.startPageOfPageGroup}" end="${pb.endPageOfPageGroup}">
 					<c:choose>
