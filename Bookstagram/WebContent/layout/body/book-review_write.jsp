@@ -70,16 +70,18 @@
 	<!-- <div class="tagline-upper text-left text-heading text-shadow text-white d-none d-lg-block" style="margin-top: 5px">
 		책속의 한줄
 	</div> -->
-	  
+	  	<div class="tagline-upper text-left text-heading text-shadow text-white d-none d-lg-block" style="margin-top: 5px">
+	  	Book-Review
+	  	</div>
 	<div class="bg-faded p-4 my-4">
 		<div class="row">
-			<div class="col-lg-12">
+			<div class="col-lg-12">			
 				<div class="well bs-component col-lg-12">
 					<div class="col-lg-1"></div>
-					<div class="col-lg-10">
+					<div class="col-lg-10">				
 					<div class="form-horizontal"  id="review">
 					<input type="hidden" name="command" value="reviewwrite">
-					<div class="write_id" id="${sessionScope.member.id }"></div>
+					<div class="write_id" id="${sessionScope.member.id }"></div>					
 						<fieldset>
 							<legend>독후감 작성</legend>
 							<!-- 독후감 제목 -->

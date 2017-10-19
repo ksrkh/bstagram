@@ -16,7 +16,9 @@ function updatecancle(){
 	<!-- <div class="tagline-upper text-left text-heading text-shadow text-white d-none d-lg-block" style="margin-top: 5px">
 		책속의 한줄
 	</div> -->
-	  
+	  <div class="tagline-upper text-left text-heading text-shadow text-white d-none d-lg-block" style="margin-top: 5px">
+	  창작 글
+	  	</div>  
 	<div class="bg-faded p-4 my-4">
 		<div class="row">
 			<div class="col-lg-12">
