@@ -15,49 +15,28 @@ $(document).ready(function() {
 	<!-- 현재 페이지의 타이틀  -->
 		<div class="row" style="margin-top: 0px; padding-top: 0px">
 			<div class="col-lg-12">
-				<div class="col-lg-4" >
-					<div class="col-lg-12">
-						<div class="m_container">
-							<div class="bg-faded p-4 my-4" style="height: 230px">
-								<div>
-									<img class="d-block img-fluid" src="icon_img/mypage1.jpg" alt="" style="height:200px; width:100%">		
-								</div>
-<%-- 								<h5>아이디:${sessionScope.member.id}</h5>
-								<h5>닉네임:${sessionScope.member.nick}</h5> 
-								<h5>나이: ${sessionScope.member.age}</h5> 
-								<h5>가입일자: ${sessionScope.member.regdate}</h5>  --%>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				
-				<div class="col-lg-4" >
-					<div class="col-lg-12">
-						<div class="m_container">
-							<div class="bg-faded p-4 my-4" style="height: 230px">
+				<div class="col-lg-6" >
+					<div class="col-lg-12" style="padding-right: 0px; margin-right: 0px">
+						<div class="m_container" style="padding-right: 0px; margin-right: 0px">
+							<div class="bg-faded p-4 my-4" style="height: 330px">
 								<a href="${pageContext.request.contextPath}/DispatcherServlet?command=updateForm">
-									<img class="d-block img-fluid w-100" src="icon_img/mypage2.jpg" alt="" style="height:200px; width:100%">
+									<img class="d-block img-fluid w-100" src="icon_img/mypage2.jpg" alt="" style="height:295px; width:100%">
 								</a>&nbsp;
 							</div>
 						</div>
 					</div>
 				</div>
-				
-				
-				<div class="col-lg-4" >
-					<div class="col-lg-12">
-						<div class="m_container">
-							<div class="bg-faded p-4 my-4" style="height: 230px">
+				<div class="col-lg-6" >
+					<div class="col-lg-12" style="padding-left: 0px; margin-left: 0px">
+						<div class="m_container" style="padding-left: 0px; margin-left: 0px">
+							<div class="bg-faded p-4 my-4" style="height: 330px">
 								<a href="${pageContext.request.contextPath}/DispatcherServlet?command=deleteMemberInfo&id=${sessionScope.member.id}">
-									<img id="deleteMember" class="d-block img-fluid w-100" src="icon_img/mypage3.jpg" alt="" style="height:200px; width:100%">
+									<img id="deleteMember" class="d-block img-fluid w-100" src="icon_img/mypage3.jpg" alt="" style="height:295px; width:100%">
 								</a> &nbsp;
 							</div>
 						</div>
 					</div>
 				</div>
-				
-
 		</div>
 	</div>
 </div>

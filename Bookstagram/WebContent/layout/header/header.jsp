@@ -22,7 +22,6 @@
 							<li><a href="${pageContext.request.contextPath}/DispatcherServlet?command=viewMyBoard&b_name=1">내 한줄 관리</a></li>
 							<li><a href="${pageContext.request.contextPath}/DispatcherServlet?command=viewMyBoard&b_name=2">내 독후감 관리</a></li>
 							<li><a href="${pageContext.request.contextPath}/DispatcherServlet?command=viewMyBoard&b_name=3">내 창작글 관리</a></li>
-							<li><a href="ex-my_reply.jsp">내 덧글 관리</a></li>
 							<li class="divider"></li>
 							<li><a href="#" id="logout">로그아웃</a></li>
 						</ul>

@@ -61,23 +61,23 @@ function writecancle(){
 							<!-- 내용 입력 부분 -->
 							<div class="form-group">
 								<div class="col-lg-12">
-									<textarea class="form-control ta text-white" rows="25" id="content" name="content" placeholder="내용을 입력하세요." style="resize: none"></textarea>
+									<textarea class="form-control ta text-white" rows="25" id="content" name="content" placeholder="내용을 입력하세요." style="resize: none; background-image: url('icon_img/write_bg1.jpg');"></textarea>
 						      	</div>
 						    </div>
 	
 						    <!-- 배경 선택 부분 -->
 						    <!-- 2차구현 예정입니다. -->
-							<div class="bg-faded p-4 my-4 form-group" style="margin-left: 0px;margin-right: 0px">
+							<!-- <div class="bg-faded p-4 my-4 form-group" style="margin-left: 0px;margin-right: 0px">
 							    <div class="col-lg-12" style="margin-top: 5px; text-align: center">
 								    <div class="radio" style="padding-top: 0px; padding-bottom: 0px">
 								    	<label><input type="radio" name="bgNo" id="radio_bg2" value="" class="hidden_bg_value">이미지로 하기</label>
 								    	<label><input type="radio" name="bgNo" id="radio_bg3" value="" class="hidden_bg_value" onclick="backgroundNo(0)" checked="checked">선택안함</label>
 								    </div>
 							    </div>
-						    </div>
+						    </div> -->
 							
 							<!-- 창작게시판의 배경 템플릿 입니다. -->
-							<div id="bg_template" class="bg-faded p-4 my-4 form-group" style="margin-left: 0px;margin-right: 0px; display: none">
+							<div id="bg_template" class="bg-faded p-4 my-4 form-group" style="margin-left: 0px;margin-right: 0px; display: block">
 								<div id="scroll_wrap" class="col-lg-12">
 									<!-- 왼쪽 슬라이드 버튼 -->
 									<div class="col-lg-1" style="padding-top: 30px">
