@@ -25,7 +25,6 @@ public class LineListController implements Controller {
       HttpSession session=request.getSession(false);
      
       if(session==null||session.getAttribute("member")==null) {
-         System.out.println("로그인안됨");
          id="-1";
       }
       else {
