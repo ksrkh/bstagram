@@ -1,3 +1,7 @@
+create sequence board_seq;
+create sequence book_seq;
+create sequence replyno_seq;
+
 /*
  * 회원등급 데이터
  */
@@ -118,10 +122,20 @@ values('ryuhyg@naver.com','1234','rhg',28,sysdate,null,null,3,9,11,3,8,'신준�
 insert into member(id, pw, nick, age, regdate, m_photo, temp, tend_code, tend_code2, tend_code3, tier, question_code, pw_ans)
 values('orangss@naver.com','1234','ksh',30,sysdate,null,null,7,8,11,3,4,'수지중학교');
 insert into member(id, pw,nick,age,regdate,m_photo,temp,tend_code,tend_code2,tend_code3,tier,question_code,pw_ans)
-values('a','1','hsc4',26,sysdate,null,null,0,0,0,3,3,'황운');
+values('a','1','황세창',26,sysdate,null,null,0,0,0,3,1,'음1');
 insert into member(id, pw,nick,age,regdate,m_photo,temp,tend_code,tend_code2,tend_code3,tier,question_code,pw_ans)
-values('b','1','hsc3',23,sysdate,null,null,0,0,0,1,3,'음음');
+values('b','1','김우정',23,sysdate,null,null,0,0,0,3,1,'음2');
+insert into member(id, pw,nick,age,regdate,m_photo,temp,tend_code,tend_code2,tend_code3,tier,question_code,pw_ans)
+values('c','1','김석환',26,sysdate,null,null,0,0,0,3,1,'음3');
+insert into member(id, pw,nick,age,regdate,m_photo,temp,tend_code,tend_code2,tend_code3,tier,question_code,pw_ans)
+values('d','1','신준영',23,sysdate,null,null,0,0,0,3,1,'음4');
+insert into member(id, pw,nick,age,regdate,m_photo,temp,tend_code,tend_code2,tend_code3,tier,question_code,pw_ans)
+values('e','1','류향걸',23,sysdate,null,null,0,0,0,3,1,'음5');
 commit;
+
+
+
+
 
 
 /*
@@ -163,8 +177,6 @@ insert into book(book_no, book_title, book_intro, book_author, book_publ, book_s
 values(book_seq.nextval, '같은시간에 우린 어쩌면', '『말의 품격』은 《언어의 온도》로 많은 독자의 공감을 얻은 이기주 작가의 에세이집이다. 경청, 공감, 반응, 뒷말, 인향, 소음 등의 24개의 키워드를 통해 말과 사람과 품격에 대한 생각들을 풀어낸다. 저자의 인문학적 소양을 바탕과 감성이 더해져 볼거리와 생각거리를 동시에 전한다. 한 장 한 장 넘길 때마다 자신의 말과 세계관에 대해 끝없는 질문을 던지게 될 것이다.', '변종모', '말푸름', '2010-05-02', '2011-07-02','3', 'https://search.pstatic.net/common/?src=http%3A%2F%2Fbookthumb.phinf.naver.net%2Fcover%2F120%2F222%2F12022296.jpg%3Ftype%3Dm1%26udate%3D20170922&type=o75_108_re24');
 insert into line_board(board_no, line_content, tend_code, book_no)
 values(board_seq.currval, '"나만의" 라고 쓰려다가 "나의"라고 쓴다. 많은사람이 당신을 두고 "나만의"라고 쓰고싶어 한다는것을 알기에 당신은 그런사람이기에..', 3, 5);
-
-select * from LINE_BOARD;
 
 
 /*
