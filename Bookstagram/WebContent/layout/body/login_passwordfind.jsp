@@ -12,7 +12,8 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="well bs-component">
-					<div class="form-horizontal" action="DispatcherServlet" method="post" name="PasswordFindFrame">	
+					<div class="form-horizontal">
+					<!-- <form class="form-horizontal" action="DispatcherServlet" method="post" name="PasswordFindFrame"> -->	
 					<fieldset>
 							<!-- 로고 -->
 							<div class="form-group" style="margin-top: 65px">
@@ -32,7 +33,6 @@
 									<input type="button" class="btn btn-info pw_find_btn" value="비밀번호찾기" style="width: 140px">
 								</div>
 							</div>
-							
 						</fieldset>
 					</div> 
 				</div>
