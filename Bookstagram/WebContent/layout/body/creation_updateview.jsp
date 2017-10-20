@@ -35,15 +35,9 @@ function updatecancle(){
 							<div class="form-group" style="margin-top: 20px; margin-bottom: 20px">
 								<div class="col-lg-2" style="padding-right: 0px">
 									<select class="form-control" id="select" name="tend_code">
-										<option value="1">소설</option>
-										<option value="2">에세이/시</option>
-										<option value="3">경영/경제</option>
-										<option value="4">자기계발</option>
-										<option value="5">인문/사회/역사</option>
-										<option value="6">건강/다이어트</option>
-										<option value="7">가정/생활</option>
-										<option value="8">종교</option>
-										<option value="9">여행</option>	
+										<c:forEach var="cate" items="${requestScope.category}">
+										<option value="${cate.category}">${cate.category_name}</option>			
+										</c:forEach>
 									</select>
 								</div>
 								<div class="col-lg-10">
@@ -54,23 +48,23 @@ function updatecancle(){
 							<!-- 내용 입력 부분 -->
 							<div class="form-group">
 								<div class="col-lg-12">
-									<textarea class="form-control ta text-white" rows="26" id="content" name="content" style="background-image:url('icon_img/write_bg${requestScope.cbdvo.bg_path}')" >${requestScope.cbdvo.create_content}</textarea>
+									<textarea class="form-control ta text-white" rows="25" id="content" name="content" style="background-image:url('icon_img/write_bg${requestScope.cbdvo.bg_path}')" >${requestScope.cbdvo.create_content}</textarea>
 						      	</div>
 						    </div>
 						    
 						    <!-- 배경 선택 부분 -->
 						    <!-- 2차구현 예정입니다. -->
-							<div class="bg-faded p-4 my-4 form-group" style="margin-left: 0px;margin-right: 0px">
+							<!-- <div class="bg-faded p-4 my-4 form-group" style="margin-left: 0px;margin-right: 0px">
 							    <div class="col-lg-12" style="margin-top: 5px; text-align: center">
 								    <div class="radio" style="padding-top: 0px; padding-bottom: 0px">
 								    	<label><input type="radio" name="content_bg" id="radio_bg2" value="content_bg2">이미지로 하기</label>
 								    	<label><input type="radio" name="content_bg" id="radio_bg3" value="content_bg3" onclick="backgroundNo(0)">선택안함</label>
 								    </div>
 							    </div>
-						    </div>
+						    </div> -->
 							
 							<!-- 창작게시판의 배경 템플릿 입니다. -->
-							<div id="bg_template" class="bg-faded p-4 my-4 form-group" style="margin-left: 0px;margin-right: 0px; display: none">
+							<div id="bg_template" class="bg-faded p-4 my-4 form-group" style="margin-left: 0px;margin-right: 0px; display: block">
 								<div id="scroll_wrap" class="col-lg-12">
 									<!-- 왼쪽 슬라이드 버튼 -->
 									<div class="col-lg-1" style="padding-top: 30px">
