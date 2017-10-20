@@ -11,7 +11,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="well bs-component">
-					<form class="form-horizontal" action="DispatcherServlet" method="post" name="LoginMainFrame">
+					<div class="form-horizontal" action="DispatcherServlet" method="post" name="LoginMainFrame">
 						<fieldset>
 							<!-- 로고 -->
 							<div class="form-group" style="margin-top: 65px; margin-bottom: 80px" >
@@ -32,7 +32,7 @@
 								<div class="col-lg-1"></div>
 							</div>
 						</fieldset>
-					</form>
+					</div>
 				</div>
 			</div>
 		</div>

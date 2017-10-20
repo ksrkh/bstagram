@@ -12,7 +12,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="well bs-component">
-					<form class="form-horizontal" action="DispatcherServlet" method="post" name="PasswordFindFrame">	
+					<div class="form-horizontal" action="DispatcherServlet" method="post" name="PasswordFindFrame">	
 					<fieldset>
 							<!-- 로고 -->
 							<div class="form-group" style="margin-top: 65px">
@@ -34,7 +34,7 @@
 							</div>
 							
 						</fieldset>
-					</form> 
+					</div> 
 				</div>
 			</div>
 		</div>

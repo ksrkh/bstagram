@@ -29,7 +29,7 @@ function pwInfoCheck(ques_code,ans){
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="well bs-component">
-					<form class="form-horizontal" action="DispatcherServlet" method="post" name="LoginMainFrame" onsubmit="return pwInfoCheck(${requestScope.mvo.question_code},'${requestScope.mvo.pw_ans}');">
+					<div class="form-horizontal" action="DispatcherServlet" method="post" name="LoginMainFrame" onsubmit="return pwInfoCheck(${requestScope.mvo.question_code},'${requestScope.mvo.pw_ans}');">
 						<input type="hidden" name="command" value="passwordfind3">
 						<input type="hidden" name="id" value="${requestScope.mvo.id }">
 						<input type="hidden" name="pw" value="${requestScope.mvo.pw }">
@@ -71,7 +71,7 @@ function pwInfoCheck(ques_code,ans){
 							</div>
 							</div>
 						</fieldset>
-					</form>
+					</div>
 				</div>
 			</div>
 		</div>
