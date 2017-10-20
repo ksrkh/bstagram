@@ -46,7 +46,7 @@ function pwInfoCheck(ques_code,ans){
 							
 							
 							<!-- 비밀번호찾기질문/답변/찾기버튼 테이블 -->
-							<div class="form-group" style="margin-left:10px; margin-top: 30px; margin-bottom:15px">
+							<form class="form-group" style="margin-left:10px; margin-top: 30px; margin-bottom:15px">
 								<div class="col-lg-3"></div>
 								<div class="col-lg-5">
 								<table style="margin-top:50px;  margin-bottom: 100px;">
@@ -69,7 +69,7 @@ function pwInfoCheck(ques_code,ans){
 							</table>
 																		
 							</div>
-							</div>
+							</form>
 						</fieldset>
 					</div>
 				</div>
