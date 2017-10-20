@@ -43,7 +43,7 @@
 	
 	<c:set var="pb" value="${requestScope.board.pagingBean}"></c:set>
 	<div class="bg-faded p-4 my-4">
-		<div style="width: 50%; margin: 0 auto;">
+		<div style="width: 50%; margin: 0 auto;text-align: center">
 			<ul class="pagination">
 				<c:if test="${pb.previousPageGroup}">
 					<li><a href="DispatcherServlet?command=cmsboardlistpage&pageNo=${pb.startPageOfPageGroup-1}">&laquo;</a></li>

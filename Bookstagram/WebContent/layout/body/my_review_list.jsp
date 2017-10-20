@@ -49,7 +49,7 @@ function reviewUpdate(boardNO){
 	</div>
 	
 	<div class="bg-faded p-4 my-4">
-		<div style="width: 50%; margin: 0 auto; ">
+		<div style="width: 50%; margin: 0 auto;text-align: center ">
 		<c:set var="pb" value="${requestScope.lvo.pagingBean}"></c:set>
 			<ul class="pagination">
 				<c:if test="${pb.previousPageGroup}">	
