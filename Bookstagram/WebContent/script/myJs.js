@@ -159,18 +159,18 @@ $( document ).ready( function() {
 	
 	
 	//로그인 버튼 클릭시 submit
-	$('.login').click(function () {
+	/*$('.login').click(function () {
 		var id = $('#userid').val();
 		var pw = $('#userpw').val();
 		location.href="DispatcherServlet?command=Login&id="+id+"&pw="+pw;
-	});
+	});*/
 	
 	//메인로그인 버튼 클릭시 submit
-	$('.main_login').click(function () {
+	/*$('.main_login').click(function () {
 		var id = $('#usermainid').val();
 		var pw = $('#usermainpw').val();
 		location.href="DispatcherServlet?command=Login&id="+id+"&pw="+pw;
-	});
+	});*/
 	
 	//로그아웃 버튼 클릭시 submit
 	$('#logout').click(function () {
@@ -549,6 +549,19 @@ function addPwFindQuest(){
 	document.pwfindQwForm.submit();
 }
 
+function loginEmtyChk(){
+	var id = document.LoginMainFrame.id;
+	var pw = document.LoginMainFrame.pw;
+	if(id.value == ""){
+		alert("아이디를 입력해주세요.");
+		return false;
+	}else if(pw.value ==""){
+		alert("비밀번호를 입력해주세요.");
+		return false;
+	}
+	
+	return true;
+}
 
 
 //검색기능

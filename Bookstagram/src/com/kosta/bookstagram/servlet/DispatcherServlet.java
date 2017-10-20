@@ -27,14 +27,18 @@ public class DispatcherServlet extends HttpServlet {
 	
 	protected void handler(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			String command = request.getParameter("command");
-			String url = HandlerMapping.getInstance().create(command).execute(request, response).trim();
-			if (url.startsWith("redirect:")) {
-				System.out.println("["+request.getRemoteAddr()+"]접속 URL :" + request.getAttribute("url"));
-				response.sendRedirect(url.substring(9));
+			if(request.getRemoteAddr().equals("192.168.0.128") ||request.getRemoteAddr().equals("192.168.0.160") || request.getRemoteAddr().equals("192.168.0.118") || request.getRemoteAddr().equals("0:0:0:0:0:0:0:1")) {
+				String command = request.getParameter("command");
+				String url = HandlerMapping.getInstance().create(command).execute(request, response).trim();
+				if (url.startsWith("redirect:")) {
+					System.out.println("["+request.getRemoteAddr()+"]접속 URL :" + request.getAttribute("url"));
+					response.sendRedirect(url.substring(9));
+				}else {
+					System.out.println("["+request.getRemoteAddr()+"]접속 URL :" + request.getAttribute("url"));
+					request.getRequestDispatcher(url).forward(request, response);
+				}
 			}else {
-				System.out.println("["+request.getRemoteAddr()+"]접속 URL :" + request.getAttribute("url"));
-				request.getRequestDispatcher(url).forward(request, response);
+				response.sendRedirect("notaccess.jsp");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

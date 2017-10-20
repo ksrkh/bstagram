@@ -11,7 +11,8 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="well bs-component">
-					<form class="form-horizontal" action="DispatcherServlet" method="post" name="LoginMainFrame">
+					<form class="form-horizontal" action="DispatcherServlet" method="post" name="LoginMainFrame" onsubmit="return loginEmtyChk()">
+						<input type="hidden" name="command" value="Login">
 						<fieldset>
 							<!-- 로고 -->
 							<div class="form-group" style="margin-top: 65px">
@@ -50,7 +51,7 @@
 									</label>
 								</div>
 								<div class="col-lg-4" style="margin-left: 10px">
-									<input type="button" class="btn btn-info main_login" value="로그인" style="width: 140px">
+									<input type="submit" class="btn btn-info main_login" value="로그인" style="width: 140px">
 								</div>
 								<div class="col-lg-2"></div>
 							</div>
