@@ -29,7 +29,7 @@ function pwInfoCheck(ques_code,ans){
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="well bs-component">
-					<div class="form-horizontal" action="DispatcherServlet" method="post" name="LoginMainFrame" onsubmit="return pwInfoCheck(${requestScope.mvo.question_code},'${requestScope.mvo.pw_ans}');">
+					<form class="form-horizontal" action="DispatcherServlet" method="post" name="LoginMainFrame" onsubmit="return pwInfoCheck(${requestScope.mvo.question_code},'${requestScope.mvo.pw_ans}');">
 						<input type="hidden" name="command" value="passwordfind3">
 						<input type="hidden" name="id" value="${requestScope.mvo.id }">
 						<input type="hidden" name="pw" value="${requestScope.mvo.pw }">
@@ -46,7 +46,7 @@ function pwInfoCheck(ques_code,ans){
 							
 							
 							<!-- 비밀번호찾기질문/답변/찾기버튼 테이블 -->
-							<form class="form-group" style="margin-left:10px; margin-top: 30px; margin-bottom:15px">
+							<div class="form-group" style="margin-left:10px; margin-top: 30px; margin-bottom:15px">
 								<div class="col-lg-3"></div>
 								<div class="col-lg-5">
 								<table style="margin-top:50px;  margin-bottom: 100px;">
@@ -69,9 +69,9 @@ function pwInfoCheck(ques_code,ans){
 							</table>
 																		
 							</div>
-							</form>
+							</div>
 						</fieldset>
-					</div>
+					</form>
 				</div>
 			</div>
 		</div>
